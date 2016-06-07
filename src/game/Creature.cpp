@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the CMaNGOS Project. See AUTHORS file for Copyright information
  *
  * This program is free software; you can redistribute it and/or modify
@@ -341,10 +341,11 @@ bool Creature::InitEntry(uint32 Entry, Team team, CreatureData const* data /*=NU
     SetLevitate(cinfo->InhabitType & INHABIT_AIR); // TODO: may not be correct to send opcode at this point (already handled by UPDATE_OBJECT createObject)
 
     // check if we need to add swimming movement. TODO: i thing movement flags should be computed automatically at each movement of creature so we need a sort of UpdateMovementFlags() method
-    if (cinfo->InhabitType & INHABIT_WATER &&                                   // check inhabit type water
-            data &&                                                                 // check if there is data to get creature spawn pos
-            GetMap()->GetTerrain()->IsInWater(data->posX, data->posY, data->posZ))  // check if creature is in water
-        m_movementInfo.AddMovementFlag(MOVEFLAG_SWIMMING);                      // add swimming movement
+    if (cinfo->InhabitType & INHABIT_WATER &&                                                                 // 检测生物行动特征是否包含游泳
+            !(cinfo->ExtraFlags & CREATURE_EXTRA_FLAG_WALK_IN_WATER) &&                                       // 检测生物是否强制步行(螃蟹,巨人...)
+            data &&                                                                                           // check if there is data to get creature spawn pos                                                                // check if there is data to get creature spawn pos
+            GetMap()->GetTerrain()->IsSwimmable(data->posX, data->posY, data->posZ, minfo->bounding_radius))  // 检测生物是否在水中且有足够的空间游泳
+        m_movementInfo.AddMovementFlag(MOVEFLAG_SWIMMING);                                                    // add swimming movement
 
     // checked at loading
     m_defaultMovementType = MovementGeneratorType(cinfo->MovementType);
@@ -381,6 +382,11 @@ bool Creature::UpdateEntry(uint32 Entry, Team team, const CreatureData* data /*=
     // we may need to append or remove additional flags
     if (HasFlag(UNIT_FIELD_FLAGS, UNIT_FLAG_IN_COMBAT))
         unitFlags |= UNIT_FLAG_IN_COMBAT;
+
+    if (m_movementInfo.HasMovementFlag(MOVEFLAG_SWIMMING) && (GetCreatureInfo()->ExtraFlags & CREATURE_EXTRA_FLAG_HAVE_NO_SWIM_ANIMATION) == 0)
+        { unitFlags |= UNIT_FLAG_UNK_15; }
+    else
+        { unitFlags &= ~UNIT_FLAG_UNK_15; }
 
     SetUInt32Value(UNIT_FIELD_FLAGS, unitFlags);
 

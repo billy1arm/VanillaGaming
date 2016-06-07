@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the CMaNGOS Project. See AUTHORS file for Copyright information
  *
  * This program is free software; you can redistribute it and/or modify
@@ -1029,6 +1029,22 @@ bool TerrainInfo::IsInWater(float x, float y, float pZ, GridMapLiquidData* data)
         {
             // if (liquid_prt->level - liquid_prt->depth_level > 2) //???
             return true;
+        }
+    }
+    return false;
+}
+
+// 检测生物是否在水中且有足够的空间游泳
+bool TerrainInfo::IsSwimmable(float x, float y, float pZ, float radius /*= 1.5f*/, GridMapLiquidData* data /*= 0*/) const
+{
+    if (const_cast<TerrainInfo*>(this)->GetGrid(x, y))
+    {
+        GridMapLiquidData liquid_status;
+        GridMapLiquidData* liquid_ptr = data ? data : &liquid_status;
+        if (getLiquidStatus(x, y, pZ, MAP_ALL_LIQUIDS, liquid_ptr))
+        {
+            if (liquid_ptr->level - liquid_ptr->depth_level > radius)
+                { return true; }
         }
     }
     return false;
