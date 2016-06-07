@@ -8570,10 +8570,10 @@ float Unit::GetObjectScaleMod() const
     float result = (100 + modValue) / 100.0f;
 
     // TODO:: not sure we have to do this sanity check, less than /100 or more than *100 seem not reasonable
-    if (result < 0.01)
-        result = 0.01;
-    else if (result > 100)
-        result = 100;
+    if (result < 0.01f)
+        result = 0.01f;
+    else if (result > 100.0f)
+        result = 100.0f;
 
     return result;
 }
