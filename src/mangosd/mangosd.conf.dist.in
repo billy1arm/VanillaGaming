@@ -3,7 +3,7 @@
 #####################################
 
 [MangosdConf]
-ConfVersion=2014110301
+ConfVersion=2015090801
 
 ###################################################################################################################
 # CONNECTIONS AND DIRECTORIES
@@ -352,6 +352,10 @@ CleanCharacterDB = 1
 #        Default: "Ra.log"
 #                 "" - Empty name for disable
 #
+#    Log File for SD2-Errors
+#        Default: "SD2Errors.log"
+#                 "" - Empty name for disable
+#
 #    LogColors
 #        Color for messages (format "normal_color details_color debug_color error_color")
 #        Colors: 0 - BLACK, 1 - RED, 2 - GREEN,  3 - BROWN, 4 - BLUE, 5 - MAGENTA, 6 -  CYAN, 7 - GREY,
@@ -395,6 +399,7 @@ GmLogFile = ""
 GmLogTimestamp = 0
 GmLogPerAccount = 0
 RaLogFile = ""
+SD2ErrorLogFile = "SD2Errors.log"
 LogColors = ""
 
 ###################################################################################################################
