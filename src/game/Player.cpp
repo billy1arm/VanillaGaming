@@ -18200,7 +18200,7 @@ PartyResult Player::CanUninviteFromGroup() const
         return ERR_NOT_LEADER;
 
     if (InBattleGround())
-        return ERR_INVITE_RESTRICTED;
+        return ERR_NOT_IN_GROUP;
 
     return ERR_PARTY_RESULT_OK;
 }
