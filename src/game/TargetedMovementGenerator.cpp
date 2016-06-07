@@ -134,6 +134,19 @@ bool TargetedMovementGeneratorMedium<T, D>::Update(T& owner, const uint32& time_
         i_recheckDistance.Reset(this->GetMovementGeneratorType() == FOLLOW_MOTION_TYPE ? 50 : 100);
         G3D::Vector3 dest = owner.movespline->FinalDestination();
         targetMoved = RequiresNewPosition(owner, dest.x, dest.y, dest.z);
+        if (!targetMoved)
+        {
+            G3D::Vector3 currTargetPos;
+            i_target->GetPosition(currTargetPos.x, currTargetPos.y, currTargetPos.z);
+            if (owner.movespline->Finalized() && currTargetPos != m_prevTargetPos)
+            {
+                m_prevTargetPos = currTargetPos;
+                owner.SetInFront(i_target.getTarget());
+
+                float angle = owner.GetAngle(i_target.getTarget());
+                owner.SetFacingTo(angle);
+            }
+        }
     }
 
     if (m_speedChanged || targetMoved)
@@ -141,9 +154,6 @@ bool TargetedMovementGeneratorMedium<T, D>::Update(T& owner, const uint32& time_
 
     if (owner.movespline->Finalized())
     {
-        if (i_angle == 0.f && !owner.HasInArc(0.01f, i_target.getTarget()))
-            owner.SetInFront(i_target.getTarget());
-
         if (!i_targetReached)
         {
             i_targetReached = true;
@@ -193,6 +203,8 @@ void ChaseMovementGenerator<Player>::Initialize(Player& owner)
 {
     owner.addUnitState(UNIT_STAT_CHASE);                    // _MOVE set in _SetTargetLocation after required checks
     _setTargetLocation(owner, true);
+
+    i_target->GetPosition(m_prevTargetPos.x, m_prevTargetPos.y, m_prevTargetPos.z);
 }
 
 template<>
@@ -201,6 +213,8 @@ void ChaseMovementGenerator<Creature>::Initialize(Creature& owner)
     owner.SetWalk(false, false);                            // Chase movement is running
     owner.addUnitState(UNIT_STAT_CHASE);                    // _MOVE set in _SetTargetLocation after required checks
     _setTargetLocation(owner, true);
+
+    i_target->GetPosition(m_prevTargetPos.x, m_prevTargetPos.y, m_prevTargetPos.z);
 }
 
 template<class T>
