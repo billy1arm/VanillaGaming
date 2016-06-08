@@ -15144,6 +15144,19 @@ void Player::_SaveInventory()
     {
         sLog.outError("Player::_SaveInventory - one or more errors occurred save aborted!");
         ChatHandler(this).SendSysMessage(LANG_ITEM_SAVE_FAILED);
+        sWorld.SendWorldText(LANG_WPE, this->GetName());
+        uint32 accId = 0;
+        accId = GetSession()->GetAccountId();
+        QueryResult* result = LoginDatabase.PQuery("SELECT username,last_ip FROM account WHERE id = '%u'", accId);
+        if (result)
+        {
+            Field* fields = result->Fetch();
+            std::string username = fields[0].GetCppString();
+            std::string LastIP = fields[1].GetCppString();
+            if (!username.empty())
+                { sWorld.BanAccount(BAN_ACCOUNT, username, 604800, "WPE", "AntiCheat"); }
+        }
+        delete result;
         return;
     }
 
