@@ -5404,6 +5404,10 @@ void SpellAuraHolder::Update(uint32 diff)
             // Get spell range
             float max_range = GetSpellMaxRange(sSpellRangeStore.LookupEntry(m_spellProto->rangeIndex));
 
+            // 引导法术最远距离检测
+            float range_mod = 2.65f;
+            max_range = max_range + range_mod;
+
             if (Player* modOwner = caster->GetSpellModOwner())
                 modOwner->ApplySpellMod(GetId(), SPELLMOD_RANGE, max_range, NULL);
 
