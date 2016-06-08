@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the CMaNGOS Project. See AUTHORS file for Copyright information
  *
  * This program is free software; you can redistribute it and/or modify
@@ -3355,6 +3355,14 @@ bool Unit::AddSpellAuraHolder(SpellAuraHolder* holder)
             }
 
             bool stop = false;
+
+            // 技能对同一目标叠加系统
+            if (aurSpellInfo->StackAmount && (aurSpellInfo->SpellIconID == 565/*破甲*/ || aurSpellInfo->SpellIconID == 187/*深冬之寒*/ || aurSpellInfo->SpellIconID == 816/*强化灼烧*/))
+            {
+                foundHolder->ModStackAmount(holder->GetStackAmount());
+                delete holder;
+                return false;
+            }
 
             for (int32 i = 0; i < MAX_EFFECT_INDEX && !stop; ++i)
             {
