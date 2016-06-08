@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the CMaNGOS Project. See AUTHORS file for Copyright information
  *
  * This program is free software; you can redistribute it and/or modify
@@ -2464,6 +2464,16 @@ void Aura::HandleModStealth(bool apply, bool Real)
         // for RACE_NIGHTELF stealth
         if (Real && target->GetTypeId() == TYPEID_PLAYER && GetId() == 20580)
             target->RemoveAurasDueToSpell(21009);
+
+        // 消失 --- 手动取消潜行时也会移除强化消失效果
+        if (Real && target->GetTypeId() == TYPEID_PLAYER && (GetId() == 1784 || GetId() == 1785 || GetId() == 1786 || GetId() == 1787))
+        {
+            if (target->HasAura(11327))
+                { target->RemoveAurasDueToSpell(11327); }
+
+            if (target->HasAura(11329))
+                { target->RemoveAurasDueToSpell(11329); }
+        }
 
         // only at real aura remove of _last_ SPELL_AURA_MOD_STEALTH
         if (Real && !target->HasAuraType(SPELL_AURA_MOD_STEALTH))
