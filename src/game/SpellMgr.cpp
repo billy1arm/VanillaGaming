@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the CMaNGOS Project. See AUTHORS file for Copyright information
  *
  * This program is free software; you can redistribute it and/or modify
@@ -1808,6 +1808,10 @@ bool SpellMgr::IsNoStackSpellDueToSpell(uint32 spellId_1, uint32 spellId_2) cons
     // Allow stack passive and not passive spells
     if (spellInfo_1->HasAttribute(SPELL_ATTR_PASSIVE) != spellInfo_2->HasAttribute(SPELL_ATTR_PASSIVE))
         return false;
+
+    // 魂能之诈 | 奥术智慧 | 智力卷轴 --- 可叠加
+    if (((spellInfo_1->Id == 16327 || spellInfo_1->SpellVisual == 158 && spellInfo_1->SpellIconID == 125 && spellInfo_1->SpellFamilyName == SPELLFAMILY_GENERIC) && spellInfo_2->SpellVisual == 158 && spellInfo_2->SpellIconID == 125 && spellInfo_2->SpellFamilyName == SPELLFAMILY_MAGE) || ((spellInfo_2->Id == 16327 || spellInfo_2->SpellVisual == 158 && spellInfo_2->SpellIconID == 125 && spellInfo_2->SpellFamilyName == SPELLFAMILY_GENERIC) && spellInfo_1->SpellVisual == 158 && spellInfo_1->SpellIconID == 125 && spellInfo_1->SpellFamilyName == SPELLFAMILY_MAGE))
+        { return false; }
 
     // Specific spell family spells
     switch (spellInfo_1->SpellFamilyName)
