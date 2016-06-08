@@ -1,2 +1,0 @@
-ALTER TABLE realmd_db_version CHANGE COLUMN required_z2678_01_realmd required_z2678_01_realmd bit;
-
