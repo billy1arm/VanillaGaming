@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the CMaNGOS Project. See AUTHORS file for Copyright information
  *
  * This program is free software; you can redistribute it and/or modify
@@ -288,6 +288,10 @@ void MotionMaster::MoveChase(Unit* target, float dist, float angle)
     // ignore movement request if target not exist
     if (!target)
         return;
+
+    // 忽略CONFUSE | FEAR状态的怪物的移动请求
+    if (m_owner->HasAuraType(SPELL_AURA_MOD_CONFUSE) || m_owner->HasAuraType(SPELL_AURA_MOD_FEAR))
+        { return; }
 
     DEBUG_FILTER_LOG(LOG_FILTER_AI_AND_MOVEGENSS, "%s chase to %s", m_owner->GetGuidStr().c_str(), target->GetGuidStr().c_str());
 
