@@ -85,15 +85,28 @@ void WorldSession::HandlePetAction(WorldPacket& recv_data)
             switch (spellid)
             {
                 case COMMAND_STAY:                          // flat=1792  // STAY
-                    pet->StopMoving();
+                    pet->StopMoving(true);
                     pet->GetMotionMaster()->Clear(false);
                     pet->GetMotionMaster()->MoveIdle();
                     charmInfo->SetCommandState(COMMAND_STAY);
+                    pet->AttackStop();
+                    if (pet->GetPositionX())
+                        { GetPlayer()->m_petStay_x = pet->GetPositionX(); }
+                    if (pet->GetPositionY())
+                        { GetPlayer()->m_petStay_y = pet->GetPositionY(); }
+                    if (pet->GetPositionZ())
+                        { GetPlayer()->m_petStay_z = pet->GetPositionZ(); }
+                    if (pet->GetMapId())
+                        { GetPlayer()->m_petStay_mapid = pet->GetMapId(); }
                     break;
                 case COMMAND_FOLLOW:                        // spellid=1792  // FOLLOW
                     pet->AttackStop();
                     pet->GetMotionMaster()->MoveFollow(_player, PET_FOLLOW_DIST, PET_FOLLOW_ANGLE);
                     charmInfo->SetCommandState(COMMAND_FOLLOW);
+                    GetPlayer()->m_petStay_x = 0.0f;
+                    GetPlayer()->m_petStay_y = 0.0f;
+                    GetPlayer()->m_petStay_z = 0.0f;
+                    GetPlayer()->m_petStay_mapid = 0;
                     break;
                 case COMMAND_ATTACK:                        // spellid=1792  // ATTACK
                 {
@@ -156,6 +169,30 @@ void WorldSession::HandlePetAction(WorldPacket& recv_data)
             switch (spellid)
             {
                 case REACT_PASSIVE:                         // passive
+                {
+                    if (GetPlayer()->m_petStay_x && GetPlayer()->m_petStay_y && GetPlayer()->m_petStay_z)
+                    {
+                        if (GetPlayer()->m_petStay_mapid == pet->GetMapId())
+                        {
+                            pet->GetMotionMaster()->MovePoint(GetPlayer()->m_petStay_mapid, GetPlayer()->m_petStay_x, GetPlayer()->m_petStay_y, GetPlayer()->m_petStay_z, true);
+                            pet->AttackStop();
+                        }
+                        else
+                        {
+                            GetPlayer()->m_petStay_x = 0.0f;
+                            GetPlayer()->m_petStay_y = 0.0f;
+                            GetPlayer()->m_petStay_z = 0.0f;
+                            GetPlayer()->m_petStay_mapid = 0;
+                            pet->GetMotionMaster()->MoveFollow(_player, PET_FOLLOW_DIST, PET_FOLLOW_ANGLE);
+                            pet->AttackStop();
+                        }
+                    }
+                    else
+                    {
+                        pet->GetMotionMaster()->MoveFollow(_player, PET_FOLLOW_DIST, PET_FOLLOW_ANGLE);
+                        pet->AttackStop();
+                    }
+                }
                 case REACT_DEFENSIVE:                       // recovery
                 case REACT_AGGRESSIVE:                      // activete
                     charmInfo->SetReactState(ReactStates(spellid));

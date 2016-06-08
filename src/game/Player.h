@@ -2270,6 +2270,11 @@ class MANGOS_DLL_SPEC Player : public Unit
         float  m_summon_y;
         float  m_summon_z;
 
+        uint32 m_petStay_mapid;
+        float  m_petStay_x;
+        float  m_petStay_y;
+        float  m_petStay_z;
+
     private:
         // internal common parts for CanStore/StoreItem functions
         InventoryResult _CanStoreItem_InSpecificSlot(uint8 bag, uint8 slot, ItemPosCountVec& dest, ItemPrototype const* pProto, uint32& count, bool swap, Item* pSrcItem) const;
