@@ -4030,6 +4030,10 @@ SpellCastResult Spell::CheckCast(bool strict)
                     if (!target)
                         return SPELL_FAILED_BAD_TARGETS;
 
+                    // 奥术飞弹 --- 无法以自己为目标施放
+                    if (m_spellInfo->SpellFamilyName == SPELLFAMILY_MAGE && m_spellInfo->SpellFamilyFlags & UI64LIT(0x00000800) && m_caster == target)
+                        { return SPELL_FAILED_BAD_TARGETS; }
+
                     m_targets.setUnitTarget(target);
                 }
             }
