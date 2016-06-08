@@ -14,3 +14,6 @@ File Encoding         : 65001
 
 -- 联盟医师
 UPDATE `creature_template` SET `UnitFlags`='2' WHERE (`Entry`='13116');
+
+-- 部落医师
+UPDATE `creature_template` SET `UnitFlags`='2' WHERE (`Entry`='13117');
