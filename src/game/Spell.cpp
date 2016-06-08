@@ -2973,7 +2973,21 @@ void Spell::update(uint32 difftime)
 
                     // check if player has turned if flag is set
                     if (m_spellInfo->ChannelInterruptFlags & CHANNEL_FLAG_TURNING && m_castOrientation != m_caster->GetOrientation())
-                        cancel();
+                    {
+                        switch (m_spellInfo->Id)
+                        {
+                            case 17767: // 吞噬暗影(等级1)                           
+                            case 17850: // 吞噬暗影(等级2)
+                            case 17851: // 吞噬暗影(等级3)
+                            case 17852: // 吞噬暗影(等级4)
+                            case 17853: // 吞噬暗影(等级5)
+                            case 17854: // 吞噬暗影(等级6)
+                                break;
+                            default:
+                                cancel();
+                                break;
+                        }
+                    }
                 }
 
                 // check if there are alive targets left

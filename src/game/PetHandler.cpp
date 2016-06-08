@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the CMaNGOS Project. See AUTHORS file for Copyright information
  *
  * This program is free software; you can redistribute it and/or modify
@@ -229,6 +229,22 @@ void WorldSession::HandlePetAction(WorldPacket& recv_data)
                 return;
 
             pet->clearUnitState(UNIT_STAT_MOVING);
+
+            switch (spellInfo->Id)
+            {
+                case 17767: // 吞噬暗影(等级1)                           
+                case 17850: // 吞噬暗影(等级2)
+                case 17851: // 吞噬暗影(等级3)
+                case 17852: // 吞噬暗影(等级4)
+                case 17853: // 吞噬暗影(等级5)
+                case 17854: // 吞噬暗影(等级6)
+                    pet->StopMoving(true);
+                    pet->GetMotionMaster()->Clear(false);
+                    pet->GetMotionMaster()->MoveIdle();
+                    break;
+                default:
+                    break;
+            }
 
             Spell* spell = new Spell(pet, spellInfo, false);
 
