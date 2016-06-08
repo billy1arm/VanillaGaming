@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the CMaNGOS Project. See AUTHORS file for Copyright information
  *
  * This program is free software; you can redistribute it and/or modify
@@ -1081,9 +1081,10 @@ bool Pet::InitStatsForLevel(uint32 petlevel, Unit* owner)
 
     SetModifierValue(UNIT_MOD_ARMOR, BASE_VALUE, float(petlevel * 50));
 
-    SetAttackTime(BASE_ATTACK, BASE_ATTACK_TIME);
-    SetAttackTime(OFF_ATTACK, BASE_ATTACK_TIME);
-    SetAttackTime(RANGED_ATTACK, BASE_ATTACK_TIME);
+    // 宠物攻速选取数据库攻击速度表格
+    SetAttackTime(BASE_ATTACK, cinfo->MeleeBaseAttackTime);
+    SetAttackTime(OFF_ATTACK, cinfo->MeleeBaseAttackTime);
+    SetAttackTime(RANGED_ATTACK, cinfo->RangedBaseAttackTime);
 
     SetFloatValue(UNIT_MOD_CAST_SPEED, 1.0);
 
