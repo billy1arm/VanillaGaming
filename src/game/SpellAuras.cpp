@@ -2254,6 +2254,9 @@ void Aura::HandleModCharm(bool apply, bool Real)
             }
         }
 
+        if (target->GetTypeId() == TYPEID_PLAYER)
+            { ((Player*)target)->SetClientControl(target, false); }
+
         if (caster->GetTypeId() == TYPEID_PLAYER)
             ((Player*)caster)->CharmSpellInitialize();
     }
@@ -2262,7 +2265,10 @@ void Aura::HandleModCharm(bool apply, bool Real)
         target->SetCharmerGuid(ObjectGuid());
 
         if (target->GetTypeId() == TYPEID_PLAYER)
+        {
             ((Player*)target)->setFactionForRace(target->getRace());
+            ((Player*)target)->SetClientControl(target, true);
+        }
         else
         {
             CreatureInfo const* cinfo = ((Creature*)target)->GetCreatureInfo();

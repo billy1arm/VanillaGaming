@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the CMaNGOS Project. See AUTHORS file for Copyright information
  *
  * This program is free software; you can redistribute it and/or modify
@@ -1126,6 +1126,16 @@ void Player::Update(uint32 update_diff, uint32 p_time)
     UpdateDuelFlag(now);
 
     CheckDuelDistance(now);
+
+    // 心控
+    if (isCharmed())
+    {
+        if (Unit *charmer = GetCharmer())
+        {
+            if (charmer->GetTypeId() == TYPEID_UNIT && charmer->isAlive())
+                { UpdateCharmedAI(); }
+        }
+    }
 
     // Update items that have just a limited lifetime
     if (now > m_Last_tick)
@@ -19046,4 +19056,27 @@ float Player::ComputeRest(time_t timePassed, bool offline /*= false*/, bool inRe
             bonus *= sWorld.getConfig(CONFIG_FLOAT_RATE_REST_OFFLINE_IN_WILDERNESS) / 4.0f; // bonus is reduced by 4 when not in rest place
     }
     return bonus;
+}
+
+// 心控
+void Player::UpdateCharmedAI()
+{
+    Creature *charmer = (Creature*)GetCharmer();
+
+    // 主人不在战斗时跟随主人
+    if (!charmer->isInCombat())
+        GetMotionMaster()->MoveFollow(charmer, PET_FOLLOW_DIST, PET_FOLLOW_ANGLE);
+
+    // AI
+    Unit *target = getVictim();
+    if (!target || !charmer->CanReachWithMeleeAttack(target))
+    {
+        target = charmer->SelectAttackingTarget(ATTACKING_TARGET_RANDOM, 0);
+
+        if (!target)
+            { return; }
+
+        GetMotionMaster()->MoveChase(target);
+        Attack(target, true);
+    }
 }
