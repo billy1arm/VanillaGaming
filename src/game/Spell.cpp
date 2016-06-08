@@ -5033,6 +5033,10 @@ SpellCastResult Spell::CheckPetCast(Unit* target)
     if (m_caster->isInCombat() && IsNonCombatSpell(m_spellInfo))
         return SPELL_FAILED_AFFECTING_COMBAT;
 
+    // 潜伏 --- 野兽之眼状态下可用
+    if (m_spellInfo->Id == 24450 || m_spellInfo->Id == 24452 || m_spellInfo->Id == 24453)
+        { return CheckCast(true); }
+
     if (m_caster->GetTypeId() == TYPEID_UNIT && (((Creature*)m_caster)->IsPet() || m_caster->isCharmed()))
     {
         // dead owner (pets still alive when owners ressed?)
