@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the CMaNGOS Project. See AUTHORS file for Copyright information
  *
  * This program is free software; you can redistribute it and/or modify
@@ -5277,6 +5277,19 @@ SpellCastResult Spell::CheckRange(bool strict)
 
     // add radius of caster and ~5 yds "give" for non stricred (landing) check
     float range_mod = strict ? 1.25f : 6.25;
+
+    // 自定义技能距离
+    switch (m_spellInfo->Id)
+    {
+        case 10:    // 暴风雪(等级1)
+        case 6141:  // 暴风雪(等级2)
+        case 8427:  // 暴风雪(等级3)
+        case 10185: // 暴风雪(等级4)
+        case 10186: // 暴风雪(等级5)
+        case 10187: // 暴风雪(等级6)
+            range_mod = -0.25f;
+            break;
+    }
 
     SpellRangeEntry const* srange = sSpellRangeStore.LookupEntry(m_spellInfo->rangeIndex);
     float max_range = GetSpellMaxRange(srange) + range_mod;
