@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the CMaNGOS Project. See AUTHORS file for Copyright information
  *
  * This program is free software; you can redistribute it and/or modify
@@ -404,6 +404,10 @@ void BattleGroundWS::EventPlayerClickedOnFlag(Player* source, GameObject* target
 
     SendMessageToAll(message_id, type, source);
     source->RemoveAurasWithInterruptFlags(AURA_INTERRUPT_FLAG_ENTER_PVP_COMBAT);
+
+    // 战歌峡谷背军旗 --- 移除潜行BUFF
+    if (source->HasStealthAura())
+        { source->RemoveSpellsCausingAura(SPELL_AURA_MOD_STEALTH); }
 }
 
 void BattleGroundWS::RemovePlayer(Player* plr, ObjectGuid guid)

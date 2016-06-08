@@ -18351,8 +18351,7 @@ bool Player::CanUseBattleGroundObject()
     // TODO : some spells gives player ForceReaction to one faction (ReputationMgr::ApplyForceReaction)
     // maybe gameobject code should handle that ForceReaction usage
     return (isAlive() &&                                    // living
-            // the following two are incorrect, because invisible/stealthed players should get visible when they click on flag
-            !HasStealthAura() &&                            // not stealthed
+            // the following two are incorrect, because invisible players should get visible when they click on flag
             !HasInvisibilityAura() &&                       // visible
             !isTotalImmune());                              // vulnerable (not immune)
 }
