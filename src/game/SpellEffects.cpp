@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the CMaNGOS Project. See AUTHORS file for Copyright information
  *
  * This program is free software; you can redistribute it and/or modify
@@ -723,10 +723,10 @@ void Spell::EffectDummy(SpellEffectIndex eff_idx)
                     unitTarget->CastSpell(unitTarget, 20038, true);
                     return;
                 }
-                case 20577:                                 // Cannibalize
+                case 20577:                                 // 食尸
                 {
                     if (unitTarget)
-                        m_caster->CastSpell(m_caster, 20578, true, NULL);
+                        { AddTriggeredSpell(20578); }
                     return;
                 }
                 case 21147:                                 // Arcane Vacuum
