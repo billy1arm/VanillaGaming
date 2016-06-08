@@ -156,7 +156,7 @@ class Channel
         };
 
     public:
-        Channel(const std::string& name);
+        Channel(const std::string& name, uint32 channel_id);
         std::string GetName() const { return m_name; }
         uint32 GetChannelId() const { return m_channelId; }
         bool IsConstant() const { return m_channelId != 0; }

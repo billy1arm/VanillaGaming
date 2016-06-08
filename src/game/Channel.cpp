@@ -22,14 +22,14 @@
 #include "SocialMgr.h"
 #include "Chat.h"
 
-Channel::Channel(const std::string& name)
-    : m_announce(true), m_moderate(false), m_name(name), m_flags(0), m_channelId(0)
+Channel::Channel(const std::string& name, uint32 channel_id)
+    : m_announce(true), m_moderate(false), m_name(name), m_flags(0), m_channelId(channel_id)
 {
     // set special flags if built-in channel
-    ChatChannelsEntry const* ch = GetChannelEntryFor(name);
+    ChatChannelsEntry const* ch = GetChannelEntryFor(channel_id);
     if (ch)                                                 // it's built-in channel
     {
-        m_channelId = ch->ChannelID;                        // only built-in channel have channel id != 0
+        channel_id = ch->ChannelID;                         // built-in channel
         m_announce = false;                                 // no join/leave announces
 
         m_flags |= CHANNEL_FLAG_GENERAL;                    // for all built-in channels
@@ -56,16 +56,6 @@ void Channel::Join(Player* player, const char* password)
     ObjectGuid guid = player->GetObjectGuid();
 
     WorldPacket data;
-    if (IsOn(guid))
-    {
-        if (!IsConstant())                                  // non send error message for built-in channels
-        {
-            MakePlayerAlreadyMember(&data, guid);
-            SendToOne(&data, guid);
-        }
-        return;
-    }
-
     if (IsBanned(guid))
     {
         MakeBanned(&data);
@@ -89,7 +79,6 @@ void Channel::Join(Player* player, const char* password)
     if (m_announce && (player->GetSession()->GetSecurity() < SEC_GAMEMASTER || !sWorld.getConfig(CONFIG_BOOL_SILENTLY_GM_JOIN_TO_CHANNEL)))
     {
         MakeJoined(&data, guid);
-        SendToAll(&data);
     }
 
     data.clear();
@@ -143,7 +132,6 @@ void Channel::Leave(Player* player, bool send)
     {
         WorldPacket data;
         MakeLeft(&data, guid);
-        SendToAll(&data);
     }
 
     LeaveNotify(guid);
@@ -606,14 +594,6 @@ void Channel::Invite(Player* player, const char* targetName)
     }
 
     ObjectGuid targetGuid = target->GetObjectGuid();
-    if (IsOn(targetGuid))
-    {
-        WorldPacket data;
-        MakePlayerAlreadyMember(&data, targetGuid);
-        SendToOne(&data, guid);
-        return;
-    }
-
     if (IsBanned(targetGuid))
     {
         WorldPacket data;
@@ -662,12 +642,10 @@ void Channel::SetOwner(ObjectGuid guid, bool exclaim)
 
         WorldPacket data;
         MakeModeChange(&data, m_ownerGuid, oldFlag);
-        SendToAll(&data);
 
         if (exclaim)
         {
             MakeOwnerChanged(&data, m_ownerGuid);
-            SendToAll(&data);
         }
     }
 }
