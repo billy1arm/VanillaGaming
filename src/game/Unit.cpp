@@ -4873,6 +4873,10 @@ bool Unit::Attack(Unit* victim, bool meleeAttack)
             return false;
     }
 
+    // 忽略CONFUSE | FEAR状态的怪物的攻击请求
+    if (HasAuraType(SPELL_AURA_MOD_CONFUSE) || HasAuraType(SPELL_AURA_MOD_FEAR))
+        { return false; }
+
     // remove SPELL_AURA_MOD_UNATTACKABLE at attack (in case non-interruptible spells stun aura applied also that not let attack)
     if (HasAuraType(SPELL_AURA_MOD_UNATTACKABLE))
         RemoveSpellsCausingAura(SPELL_AURA_MOD_UNATTACKABLE);
