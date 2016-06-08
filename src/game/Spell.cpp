@@ -3660,7 +3660,30 @@ void Spell::TakePower()
 
     Powers powerType = Powers(m_spellInfo->powerType);
 
-    m_caster->ModifyPower(powerType, -(int32)m_powerCost);
+    bool hit = true;
+    for (uint8 j = 0; j < 3; ++j)
+    {
+        if (m_spellInfo->EffectImplicitTargetA[j] == TARGET_CHAIN_DAMAGE || m_spellInfo->EffectImplicitTargetA[j] == TARGET_CURRENT_ENEMY_COORDINATES)
+        {
+            if (m_caster->GetTypeId() == TYPEID_PLAYER)
+            {
+                if (powerType == POWER_ENERGY || powerType == POWER_RAGE)
+                {
+                    for (std::list<TargetInfo>::iterator ihit = m_UniqueTargetInfo.begin(); ihit != m_UniqueTargetInfo.end(); ++ihit)
+                    {
+                        if (ihit->missCondition != SPELL_MISS_NONE)
+                            { hit = false; }
+                        break;
+                    }
+                }
+            }
+        }
+    }
+
+    if (hit || m_spellInfo->AttributesEx & SPELL_ATTR_EX_REQ_TARGET_COMBO_POINTS || m_spellInfo->AttributesEx & SPELL_ATTR_EX_REQ_COMBO_POINTS)
+        { m_caster->ModifyPower(powerType, -(int32)m_powerCost); }
+    else
+        { m_caster->ModifyPower(powerType, -(int32)m_powerCost / 5); }
 
     // Set the five second timer
     if (powerType == POWER_MANA && m_powerCost > 0)
