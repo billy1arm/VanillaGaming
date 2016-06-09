@@ -2519,6 +2519,13 @@ void Spell::EffectSummonWild(SpellEffectIndex eff_idx)
             if (m_originalCaster && m_originalCaster != m_caster && m_originalCaster->GetTypeId() == TYPEID_UNIT && ((Creature*)m_originalCaster)->AI())
                 ((Creature*)m_originalCaster)->AI()->JustSummoned(summon);
         }
+
+        // 修理机器人74A型
+        if (m_spellInfo->Id == 22700)
+        {
+            ((Player*)m_caster)->AddSpellCooldown(22700, 18232, time(NULL) + 3600);
+            ((Player*)m_caster)->SendCooldownEvent(m_spellInfo, 18232);
+        }
     }
 }
 
