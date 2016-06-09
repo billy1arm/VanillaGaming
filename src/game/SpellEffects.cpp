@@ -2538,6 +2538,14 @@ void Spell::EffectSummonGuardian(SpellEffectIndex eff_idx)
     // set timer for unsummon
     int32 duration = CalculateSpellDuration(m_spellInfo, m_caster);
 
+    // 自曝绵羊
+    if (m_spellInfo->Id == 4074)
+    {
+        ((Player*)m_caster)->AddSpellCooldown(4074, 4384, time(NULL) + 60);
+        ((Player*)m_caster)->SendCooldownEvent(m_spellInfo, 4384);
+        duration = 180000;
+    }
+
     // Search old Guardian only for players (if casted spell not have duration or cooldown)
     // FIXME: some guardians have control spell applied and controlled by player and anyway player can't summon in this time
     //        so this code hack in fact
