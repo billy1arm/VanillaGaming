@@ -24,6 +24,9 @@ UPDATE `creature_template` SET `ExtraFlags`='64' WHERE (`Entry`='7769');
 -- 喷焰小鬼
 UPDATE `creature_template` SET `ExtraFlags`='64' WHERE (`Entry`='9776');
 
+-- 灵焰小鬼
+UPDATE `creature_template` SET `ExtraFlags`='64' WHERE (`Entry`='9777');
+
 -- 骷髅守护者
 UPDATE `creature_template` SET `ExtraFlags`='64' WHERE (`Entry`='10390');
 
