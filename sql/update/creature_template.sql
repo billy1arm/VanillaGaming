@@ -18,6 +18,9 @@ UPDATE `creature_template` SET `ExtraFlags`='64' WHERE (`Entry`='7276');
 -- 祖尔法拉克僵尸
 UPDATE `creature_template` SET `ExtraFlags`='64' WHERE (`Entry`='7286');
 
+-- 哈扎里寄生虫
+UPDATE `creature_template` SET `ExtraFlags`='64' WHERE (`Entry`='7769');
+
 -- 骷髅守护者
 UPDATE `creature_template` SET `ExtraFlags`='64' WHERE (`Entry`='10390');
 
