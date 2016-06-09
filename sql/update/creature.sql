@@ -15,6 +15,9 @@ File Encoding         : 65001
 -- 鲁伯斯
 UPDATE `creature` SET `spawntimesecs`='18000' WHERE (`id`='521');
 
+-- 血色工人
+UPDATE `creature` SET `spawntimesecs`='600' WHERE (`id`='1883');
+
 -- 断牙
 UPDATE `creature` SET `spawntimesecs`='10200' WHERE (`id`='2850');
 
