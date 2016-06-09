@@ -3603,7 +3603,16 @@ bool Unit::RemoveNoStackAurasDueToAuraHolder(SpellAuraHolder* holder)
                 is_triggered_by_spell = true;
 
         if (is_triggered_by_spell)
-            continue;
+        {
+            switch (spellProto->Id)
+            {
+                case 5246:  // 破胆怒吼
+                    return false;
+                default:
+                    continue;
+                    break;
+            }
+        }
 
         SpellSpecific i_spellId_spec = GetSpellSpecific(i_spellId);
 
