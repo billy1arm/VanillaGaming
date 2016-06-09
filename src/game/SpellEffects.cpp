@@ -492,6 +492,35 @@ void Spell::EffectDummy(SpellEffectIndex eff_idx)
                     m_caster->CastSpell(unitTarget, spell_id, true, NULL);
                     return;
                 }
+                case 13006:                                 // 缩小射线
+                {
+                    if (!unitTarget)
+                        { return; }
+
+                    uint32 roll = urand(0, 99);
+                    uint32 inner_roll = urand(1, 3);
+
+                    if (roll < 5)
+                    {
+                        switch (inner_roll)
+                        {
+                            case 1:
+                                m_caster->CastSpell(m_caster, 13003, true, m_CastItem);
+                                break;
+                            case 2:
+                                m_caster->CastSpell(m_caster, 13010, true, m_CastItem);
+                                break;
+                            default:
+                                unitTarget->CastSpell(unitTarget, 13004, true, NULL);
+                                break;
+                        }
+                    }
+                    else if (roll < 25)
+                        { m_caster->CastSpell(m_caster, 13004, true, m_CastItem); }
+                    else
+                        { m_caster->CastSpell(unitTarget, 13003, true, m_CastItem); }
+                    return;
+                }
                 case 13535:                                 // Tame Beast
                 {
                     if (!m_originalCaster || m_originalCaster->GetTypeId() != TYPEID_PLAYER)
