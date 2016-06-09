@@ -2207,6 +2207,8 @@ void Creature::AddCreatureSpellCooldown(uint32 spellid)
     uint32 cooldown = GetSpellRecoveryTime(spellInfo);
     if (cooldown)
         _AddCreatureSpellCooldown(spellid, time(NULL) + cooldown / IN_MILLISECONDS);
+    else
+        { _AddCreatureSpellCooldown(spellid, time(NULL) + 1.5); }
 
     if (spellInfo->Category)
         _AddCreatureCategoryCooldown(spellInfo->Category, time(NULL));
