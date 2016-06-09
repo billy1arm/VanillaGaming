@@ -4134,6 +4134,8 @@ SpellCastResult Spell::CheckCast(bool strict)
                     return SPELL_FAILED_TARGETS_DEAD;
                 else if (m_spellInfo->SpellIconID == 267 && m_spellInfo->SpellVisual == 652 && !pet->IsWithinDistInMap(m_caster, 20.0f))
                     { return SPELL_FAILED_OUT_OF_RANGE; }
+                else if (m_spellInfo->Id == 2641 && !pet->IsWithinDistInMap(m_caster, 10.0f))
+                    { return SPELL_FAILED_OUT_OF_RANGE; }
                 break;
             }
         }
