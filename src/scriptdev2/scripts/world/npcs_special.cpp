@@ -1,4 +1,4 @@
-/* This file is part of the ScriptDev2 Project. See AUTHORS file for Copyright information
+﻿/* This file is part of the ScriptDev2 Project. See AUTHORS file for Copyright information
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 2 of the License, or
@@ -929,6 +929,48 @@ bool EffectDummyCreature_npc_redemption_target(Unit* pCaster, uint32 uiSpellId, 
     return false;
 }
 
+/*######
+## npc_explosive_sheep
+######*/
+
+enum
+{
+    SPELL_EXPLOSIVE_SHEEP       = 4050,                     // 自曝绵羊
+};
+
+struct npc_explosive_sheepAI : public ScriptedAI
+{
+    npc_explosive_sheepAI(Creature* pCreature) : ScriptedAI(pCreature) { Reset(); }
+
+    void Reset() override { }
+
+    void UpdateAI(const uint32 uiDiff) override
+    {
+        if (Unit *pOwner = m_creature->GetOwner())
+        {
+            if (Unit *pTarget = pOwner->getVictim())
+            {
+                m_creature->GetMotionMaster()->MoveChase(pTarget);
+                m_creature->Attack(pTarget, true);
+                if (m_creature->IsWithinDist2d(pTarget->GetPositionX(), pTarget->GetPositionY(), 5.0f))
+                    { DoCastSpellIfCan(pTarget, SPELL_EXPLOSIVE_SHEEP, CAST_TRIGGERED); }
+            }
+            else
+                { m_creature->GetMotionMaster()->MoveFollow(pOwner, PET_FOLLOW_DIST, PET_FOLLOW_ANGLE); }
+        }
+        else
+        {
+            if (m_creature->SelectHostileTarget() && m_creature->getVictim())
+                { DoMeleeAttackIfReady(); }
+        }
+    }
+};
+
+CreatureAI* GetAI_npc_explosive_sheep(Creature* pCreature)
+{
+    return new npc_explosive_sheepAI(pCreature);
+}
+
 void AddSC_npcs_special()
 {
     Script* pNewScript;
@@ -971,5 +1013,10 @@ void AddSC_npcs_special()
     pNewScript->Name = "npc_redemption_target";
     pNewScript->GetAI = &GetAI_npc_redemption_target;
     pNewScript->pEffectDummyNPC = &EffectDummyCreature_npc_redemption_target;
+    pNewScript->RegisterSelf();
+
+    pNewScript = new Script;
+    pNewScript->Name = "npc_explosive_sheep";
+    pNewScript->GetAI = &GetAI_npc_explosive_sheep;
     pNewScript->RegisterSelf();
 }
