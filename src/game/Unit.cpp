@@ -3724,6 +3724,27 @@ bool Unit::RemoveNoStackAurasDueToAuraHolder(SpellAuraHolder* holder)
                     next =  m_spellAuraHolders.begin();
             }
         }
+
+        // 战士
+        if (spellProto->SpellFamilyName == SPELLFAMILY_WARRIOR && i_spellProto->SpellFamilyName == SPELLFAMILY_WARRIOR)
+        {
+            // 战斗怒吼
+            if (spellProto->IsFitToFamilyMask(0x0000000000010000) && i_spellProto->IsFitToFamilyMask(0x0000000000010000))
+            {
+                if (CompareAuraRanks(spellId, i_spellId) < 0)
+                    { return false; }
+                if ((*i).second->IsInUse())
+                {
+                    sLog.outError("SpellAuraHolder (Spell %u) is in process but attempt removed at SpellAuraHolder (Spell %u) adding, need add stack rule for Unit::RemoveNoStackAurasDueToAuraHolder", i->second->GetId(), holder->GetId());
+                    continue;
+                }
+                RemoveAurasDueToSpell(i_spellId);
+                if (m_spellAuraHolders.empty())
+                    { break; }
+                else
+                    { next = m_spellAuraHolders.begin(); }
+            }
+        }
     }
     return true;
 }
