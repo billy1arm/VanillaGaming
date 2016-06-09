@@ -4677,6 +4677,9 @@ SpellCastResult Spell::CheckCast(bool strict)
                 if (!pet->GetCurrentFoodBenefitLevel(foodItem->GetProto()->ItemLevel))
                     return SPELL_FAILED_FOOD_LOWLEVEL;
 
+                if (!pet->IsWithinDistInMap(m_caster, 10.0f))
+                    { return SPELL_FAILED_OUT_OF_RANGE; }
+
                 if (pet->isInCombat())
                     return SPELL_FAILED_AFFECTING_COMBAT;
 
