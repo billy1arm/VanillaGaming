@@ -2556,8 +2556,11 @@ void Spell::prepare(SpellCastTargets const* targets, Aura* triggeredByAura)
     // skip triggered spell (item equip spell casting and other not explicit character casts/item uses)
     if (!m_IsTriggeredSpell && isSpellBreakStealth(m_spellInfo))
     {
-        m_caster->RemoveSpellsCausingAura(SPELL_AURA_MOD_STEALTH);
-        m_caster->RemoveSpellsCausingAura(SPELL_AURA_FEIGN_DEATH);
+        if (!(m_spellInfo->SpellFamilyName == SPELLFAMILY_ROGUE && (m_spellInfo->SpellFamilyFlags & UI64LIT(0x00000080) || m_spellInfo->SpellFamilyFlags & 2147483648)))
+        {
+            m_caster->RemoveSpellsCausingAura(SPELL_AURA_MOD_STEALTH);
+            m_caster->RemoveSpellsCausingAura(SPELL_AURA_FEIGN_DEATH);
+        }
     }
 
     // add non-triggered (with cast time and without)
@@ -2720,6 +2723,11 @@ void Spell::cast(bool skipCheck)
                 default: break;
             }
             break;
+        }
+        case SPELLFAMILY_ROGUE:
+        {
+            if (m_spellInfo->SpellFamilyFlags & UI64LIT(0x00000080) && m_caster->GetTypeId() == TYPEID_PLAYER && (!m_caster->GetAura(14076, SpellEffectIndex(0)) && !m_caster->GetAura(14094, SpellEffectIndex(0)) && !m_caster->GetAura(14095, SpellEffectIndex(0))))
+                { m_caster->RemoveSpellsCausingAura(SPELL_AURA_MOD_STEALTH); }
         }
         case SPELLFAMILY_PALADIN:
         {
