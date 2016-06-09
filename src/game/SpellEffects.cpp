@@ -1655,12 +1655,10 @@ void Spell::EffectHeal(SpellEffectIndex /*eff_idx*/)
             Aura* targetAura = NULL;
             for (Unit::AuraList::const_iterator i = RejorRegr.begin(); i != RejorRegr.end(); ++i)
             {
-                if ((*i)->GetSpellProto()->SpellFamilyName == SPELLFAMILY_DRUID &&
-                        // Regrowth or Rejuvenation 0x40 | 0x10
-                        ((*i)->GetSpellProto()->SpellFamilyFlags & UI64LIT(0x0000000000000050)))
+                if ((*i)->GetSpellProto()->SpellFamilyName == SPELLFAMILY_DRUID && ((*i)->GetSpellProto()->SpellFamilyFlags & UI64LIT(0x0000000000000050)))
                 {
                     if (!targetAura || (*i)->GetAuraDuration() < targetAura->GetAuraDuration())
-                        targetAura = *i;
+                        { targetAura = *i; }
                 }
             }
 
@@ -1673,12 +1671,14 @@ void Spell::EffectHeal(SpellEffectIndex /*eff_idx*/)
             while (idx < 3)
             {
                 if (targetAura->GetSpellProto()->EffectApplyAuraName[idx] == SPELL_AURA_PERIODIC_HEAL)
-                    break;
+                    { break; }
                 idx++;
             }
 
             int32 tickheal = targetAura->GetModifier()->m_amount;
-            int32 tickcount = GetSpellDuration(targetAura->GetSpellProto()) / targetAura->GetSpellProto()->EffectAmplitude[idx] - 1;
+            int32 tickcount = GetSpellDuration(targetAura->GetSpellProto()) / targetAura->GetSpellProto()->EffectAmplitude[idx];
+            if (targetAura->GetSpellProto()->SpellFamilyFlags & UI64LIT(0x0000000000000040))        // 愈合
+                { tickcount -= 1; }
 
             unitTarget->RemoveAurasDueToSpell(targetAura->GetId());
 
