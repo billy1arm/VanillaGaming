@@ -3033,6 +3033,17 @@ void Aura::HandlePeriodicTriggerSpell(bool apply, bool /*Real*/)
                 break;
         }
     }
+    else
+    {
+        switch (GetId())
+        {
+            case 8179:  // 根基图腾
+                target->CastSpell(target, 8178, true, 0, this);
+                return;
+            default:
+                break;
+        }
+    }
 }
 
 void Aura::HandlePeriodicTriggerSpellWithValue(bool apply, bool /*Real*/)
