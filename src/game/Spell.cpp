@@ -1165,6 +1165,9 @@ void Spell::DoSpellHitOnUnit(Unit* unit, uint32 effectMask, bool isReflected)
                     case 453:   // 安抚心灵(等级1)
                     case 8192:  // 安抚心灵(等级2)
                     case 10953: // 安抚心灵(等级3)
+                    case 2908:  // 安抚动物(等级1)
+                    case 8955:  // 安抚动物(等级2)
+                    case 9901:  // 安抚动物(等级3)
                         break;
                     default:
                         if (!unit->isInCombat() && unit->GetTypeId() != TYPEID_PLAYER && ((Creature*)unit)->AI())
