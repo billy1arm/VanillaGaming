@@ -3599,7 +3599,19 @@ bool Unit::RemoveNoStackAurasDueToAuraHolder(SpellAuraHolder* holder)
                 continue;
         }
 
-        if (i_spellId == spellId) continue;
+        if (i_spellId == spellId)
+        {
+            switch (spellId)
+            {
+                case 19977: // 光明祝福(等级1)
+                case 19978: // 光明祝福(等级2)
+                case 19979: // 光明祝福(等级3)
+                case 25890: // 强效光明祝福(等级1)
+                    return false;
+                default:
+                    continue;
+            }
+        }
 
         bool is_triggered_by_spell = false;
         // prevent triggering aura of removing aura that triggered it
