@@ -59,3 +59,6 @@ UPDATE `gameobject` SET `spawntimesecs`='43200' WHERE (`id`='176308');
 
 -- 补给箱
 UPDATE `gameobject` SET `spawntimesecs`='43200' WHERE (`id`='176309');
+
+-- 石鳞鳗群
+UPDATE `gameobject` SET `spawntimesecs`='43200' WHERE (`id`='180712');
