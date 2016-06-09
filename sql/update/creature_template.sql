@@ -36,6 +36,9 @@ UPDATE `creature_template` SET `ExtraFlags`='64' WHERE (`Entry`='10390');
 -- 骷髅狂战士
 UPDATE `creature_template` SET `ExtraFlags`='64' WHERE (`Entry`='10391');
 
+-- 时光寄生虫
+UPDATE `creature_template` SET `ExtraFlags`='64' WHERE (`Entry`='10717');
+
 -- 联盟医师
 UPDATE `creature_template` SET `UnitFlags`='2' WHERE (`Entry`='13116');
 
