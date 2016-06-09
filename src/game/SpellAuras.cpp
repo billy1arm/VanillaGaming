@@ -2752,6 +2752,21 @@ void Aura::HandleAuraModTotalThreat(bool apply, bool Real)
 
     float threatMod = apply ? float(m_modifier.m_amount) : float(-m_modifier.m_amount);
 
+    // 渐隐术 --- 降低对周围怪物的仇恨
+    if (GetSpellProto()->Id == 586 || GetSpellProto()->Id == 9578 || GetSpellProto()->Id == 9579 || GetSpellProto()->Id == 9592 || GetSpellProto()->Id == 10941 || GetSpellProto()->Id == 10942)
+    {
+        std::list<Unit*> targets;
+        MaNGOS::AnyUnfriendlyUnitInObjectRangeCheck u_check(target, 50.0f);
+        MaNGOS::UnitListSearcher<MaNGOS::AnyUnfriendlyUnitInObjectRangeCheck> searcher(targets, u_check);
+        Cell::VisitAllObjects(target, searcher, caster->GetMap()->GetVisibilityDistance());
+        for (std::list<Unit*>::iterator iter = targets.begin(); iter != targets.end(); ++iter)
+        {
+            if ((*iter)->GetTypeId() != TYPEID_PLAYER && (*iter)->isInCombat())
+                { (*iter)->AddThreat(caster, threatMod); }
+        }
+        return;
+    }
+
     target->getHostileRefManager().threatAssist(caster, threatMod, GetSpellProto());
 }
 
