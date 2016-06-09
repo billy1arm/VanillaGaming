@@ -62,3 +62,9 @@ UPDATE `gameobject` SET `spawntimesecs`='43200' WHERE (`id`='176309');
 
 -- 石鳞鳗群
 UPDATE `gameobject` SET `spawntimesecs`='43200' WHERE (`id`='180712');
+
+-- 水晶尘土堆
+DELETE FROM `gameobject` WHERE `id`='181597';
+
+-- 水晶尘喷孔
+DELETE FROM `gameobject` WHERE `id`='181598';
