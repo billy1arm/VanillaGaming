@@ -42,6 +42,9 @@ UPDATE `creature_template` SET `ExtraFlags`='64' WHERE (`Entry`='10717');
 -- 上层精灵召唤者
 UPDATE `creature_template` SET `ExtraFlags`='64' WHERE (`Entry`='11466');
 
+-- 米尔顿·比斯
+UPDATE `creature_template` SET `ExtraFlags`='64' WHERE (`Entry`='13082');
+
 -- 联盟医师
 UPDATE `creature_template` SET `UnitFlags`='2' WHERE (`Entry`='13116');
 
