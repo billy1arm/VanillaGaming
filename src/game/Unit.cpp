@@ -831,7 +831,7 @@ uint32 Unit::DealDamage(Unit* pVictim, uint32 damage, CleanDamage const* cleanDa
             next = i; ++next;
             if (spellProto && spellProto->Id == se->Id) // Not drop auras added by self
                 continue;
-            if (!se->procFlags && (se->AuraInterruptFlags & AURA_INTERRUPT_FLAG_DAMAGE))
+            if ((!se->procFlags || se->Id == 19386/*翼龙钉刺(等级1)*/ || se->Id == 24132/*翼龙钉刺(等级2)*/ || se->Id == 24133/*翼龙钉刺(等级3)*/) && (se->AuraInterruptFlags & AURA_INTERRUPT_FLAG_DAMAGE))
             {
                 pVictim->RemoveAurasDueToSpell(i->second->GetId());
                 next = vAuras.begin();
