@@ -2901,12 +2901,22 @@ void Unit::_UpdateSpells(uint32 time)
 void Unit::_UpdateAutoRepeatSpell()
 {
     // check "realtime" interrupts
-    if ((GetTypeId() == TYPEID_PLAYER && ((Player*)this)->isMoving()) || IsNonMeleeSpellCasted(false, false, true))
+    if (GetTypeId() == TYPEID_PLAYER && ((Player*)this)->isMoving())
     {
         // cancel wand shoot
         if (m_currentSpells[CURRENT_AUTOREPEAT_SPELL]->m_spellInfo->Category == 351)
             InterruptSpell(CURRENT_AUTOREPEAT_SPELL);
         m_AutoRepeatFirstCast = true;
+        return;
+    }
+
+    // check "realtime" interrupts
+    if (GetTypeId() == TYPEID_PLAYER && IsNonMeleeSpellCasted(false, false, true))
+    {
+        // cancel wand shoot
+        if (m_currentSpells[CURRENT_AUTOREPEAT_SPELL]->m_spellInfo->Category == 351)
+            { InterruptSpell(CURRENT_AUTOREPEAT_SPELL); }
+        m_AutoRepeatFirstCast = false;
         return;
     }
 
