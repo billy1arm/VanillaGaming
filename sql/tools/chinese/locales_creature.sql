@@ -68,7 +68,7 @@ UPDATE `locales_creature` SET `name_loc4`='伊根·派特斯金纳', `subname_lo
 UPDATE `locales_creature` SET `name_loc4`='治安官玛克布莱德', `subname_loc4`='' WHERE (`entry`='197');
 UPDATE `locales_creature` SET `name_loc4`='凯尔登·布雷门', `subname_loc4`='法师训练师' WHERE (`entry`='198');
 UPDATE `locales_creature` SET `name_loc4`='小碎尸鸟', `subname_loc4`='' WHERE (`entry`='199');
-UPDATE `locales_creature` SET `name_loc4`=' horror skeleton ', `subname_loc4`='' WHERE (`entry`='202');
+UPDATE `locales_creature` SET `name_loc4`='腐烂恐魔', `subname_loc4`='' WHERE (`entry`='202');
 UPDATE `locales_creature` SET `name_loc4`='骷髅法师', `subname_loc4`='' WHERE (`entry`='203');
 UPDATE `locales_creature` SET `name_loc4`='夜行黑暗狼人', `subname_loc4`='' WHERE (`entry`='205');
 UPDATE `locales_creature` SET `name_loc4`='夜行邪齿狼人', `subname_loc4`='' WHERE (`entry`='206');
@@ -5805,7 +5805,7 @@ UPDATE `locales_creature` SET `name_loc4`='老双帆龙', `subname_loc4`='' WHER
 UPDATE `locales_creature` SET `name_loc4`='小翼手龙', `subname_loc4`='' WHERE (`entry`='9165');
 UPDATE `locales_creature` SET `name_loc4`='翼手龙', `subname_loc4`='' WHERE (`entry`='9166');
 UPDATE `locales_creature` SET `name_loc4`='狂怒的翼手龙', `subname_loc4`='' WHERE (`entry`='9167');
-UPDATE `locales_creature` SET `name_loc4`=' Ge Taishi ', `subname_loc4`='' WHERE (`entry`='9176');
+UPDATE `locales_creature` SET `name_loc4`='格尔洛普', `subname_loc4`='' WHERE (`entry`='9176');
 UPDATE `locales_creature` SET `name_loc4`='奥拉留斯', `subname_loc4`='' WHERE (`entry`='9177');
 UPDATE `locales_creature` SET `name_loc4`='燃灵术', `subname_loc4`='' WHERE (`entry`='9178');
 UPDATE `locales_creature` SET `name_loc4`='加兹里克', `subname_loc4`='锻造供应商' WHERE (`entry`='9179');
@@ -8562,6 +8562,7 @@ UPDATE `locales_creature` SET `name_loc4`='军士长菲兹伯特', `subname_loc4
 UPDATE `locales_creature` SET `name_loc4`='军士长玛克卢尔', `subname_loc4`='战备招募员' WHERE (`entry`='15708');
 UPDATE `locales_creature` SET `name_loc4`='军士长希德·月影', `subname_loc4`='战备招募员' WHERE (`entry`='15709');
 UPDATE `locales_creature` SET `name_loc4`='雪孩子', `subname_loc4`='' WHERE (`entry`='15710');
+UPDATE `locales_creature` SET `name_loc4`='黑色其拉作战坦克', `subname_loc4`='' WHERE (`entry`='15711');
 UPDATE `locales_creature` SET `name_loc4`='土堆', `subname_loc4`='' WHERE (`entry`='15712');
 UPDATE `locales_creature` SET `name_loc4`='黑色其拉作战坦克', `subname_loc4`='' WHERE (`entry`='15713');
 UPDATE `locales_creature` SET `name_loc4`='黄色其拉作战坦克', `subname_loc4`='' WHERE (`entry`='15714');
@@ -9121,3 +9122,6 @@ UPDATE `locales_creature` SET `name_loc4`='仲夏节服装: 兽人', `subname_lo
 UPDATE `locales_creature` SET `name_loc4`='仲夏节服装: 牛头人', `subname_loc4`='' WHERE (`entry`='25876');
 UPDATE `locales_creature` SET `name_loc4`='仲夏节服装: 巨魔', `subname_loc4`='' WHERE (`entry`='25877');
 UPDATE `locales_creature` SET `name_loc4`='仲夏节服装: 亡灵', `subname_loc4`='' WHERE (`entry`='25878');
+UPDATE `locales_creature` SET `name_loc4`='赞助商人', `subname_loc4`='VanillaGaming' WHERE (`entry`='30000');
+UPDATE `locales_creature` SET `name_loc4`='团队训练假人', `subname_loc4`='VanillaGaming' WHERE (`entry`='30001');
+UPDATE `locales_creature` SET `name_loc4`='高级训练假人', `subname_loc4`='VanillaGaming' WHERE (`entry`='30002');

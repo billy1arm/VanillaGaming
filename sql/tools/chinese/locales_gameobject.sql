@@ -6975,7 +6975,7 @@ UPDATE `locales_gameobject` SET `name_loc4`='贝壳陷阱' WHERE (`entry`='17658
 UPDATE `locales_gameobject` SET `name_loc4`='黄金参' WHERE (`entry`='176583');
 UPDATE `locales_gameobject` SET `name_loc4`='梦叶草' WHERE (`entry`='176584');
 UPDATE `locales_gameobject` SET `name_loc4`='山鼠草' WHERE (`entry`='176586');
-UPDATE `locales_gameobject` SET `name_loc4`=' plague flowers ' WHERE (`entry`='176587');
+UPDATE `locales_gameobject` SET `name_loc4`='瘟疫花' WHERE (`entry`='176587');
 UPDATE `locales_gameobject` SET `name_loc4`='冰盖草' WHERE (`entry`='176588');
 UPDATE `locales_gameobject` SET `name_loc4`='黑莲花' WHERE (`entry`='176589');
 UPDATE `locales_gameobject` SET `name_loc4`='霍古斯的颅骨' WHERE (`entry`='176591');
@@ -7009,7 +7009,7 @@ UPDATE `locales_gameobject` SET `name_loc4`='格罗姆之血' WHERE (`entry`='17
 UPDATE `locales_gameobject` SET `name_loc4`='黄金参' WHERE (`entry`='176638');
 UPDATE `locales_gameobject` SET `name_loc4`='梦叶草' WHERE (`entry`='176639');
 UPDATE `locales_gameobject` SET `name_loc4`='山鼠草' WHERE (`entry`='176640');
-UPDATE `locales_gameobject` SET `name_loc4`=' plague flowers ' WHERE (`entry`='176641');
+UPDATE `locales_gameobject` SET `name_loc4`='瘟疫花' WHERE (`entry`='176641');
 UPDATE `locales_gameobject` SET `name_loc4`='阿尔萨斯之泪' WHERE (`entry`='176642');
 UPDATE `locales_gameobject` SET `name_loc4`='瑟银矿脉' WHERE (`entry`='176643');
 UPDATE `locales_gameobject` SET `name_loc4`='秘银矿脉' WHERE (`entry`='176645');

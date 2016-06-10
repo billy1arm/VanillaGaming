@@ -1219,7 +1219,7 @@ UPDATE `locales_item` SET `name_loc4`='食谱：干烤狼肉串', `description_l
 UPDATE `locales_item` SET `name_loc4`='光铸铁锭', `description_loc4`='' WHERE (`entry`='2702');
 UPDATE `locales_item` SET `name_loc4`='一箱光铸铁锭', `description_loc4`='' WHERE (`entry`='2712');
 UPDATE `locales_item` SET `name_loc4`='老黑炭的头', `description_loc4`='' WHERE (`entry`='2713');
-UPDATE `locales_item` SET `name_loc4`='"Monster - Item, Lantern - Round"', `description_loc4`='' WHERE (`entry`='2715');
+UPDATE `locales_item` SET `name_loc4`='巨大的物品－圆灯笼', `description_loc4`='' WHERE (`entry`='2715');
 UPDATE `locales_item` SET `name_loc4`='黄铜钥匙', `description_loc4`='' WHERE (`entry`='2719');
 UPDATE `locales_item` SET `name_loc4`='沾泥的便笺', `description_loc4`='' WHERE (`entry`='2720');
 UPDATE `locales_item` SET `name_loc4`='神圣头巾', `description_loc4`='' WHERE (`entry`='2721');
@@ -2692,7 +2692,7 @@ UPDATE `locales_item` SET `name_loc4`='铁质宝箱', `description_loc4`='' WHER
 UPDATE `locales_item` SET `name_loc4`='铁趾的护符', `description_loc4`='' WHERE (`entry`='4635');
 UPDATE `locales_item` SET `name_loc4`='精铁宝箱', `description_loc4`='' WHERE (`entry`='4636');
 UPDATE `locales_item` SET `name_loc4`='钢质宝箱', `description_loc4`='' WHERE (`entry`='4637');
-UPDATE `locales_item` SET `name_loc4`=' reinforced steel box ', `description_loc4`='' WHERE (`entry`='4638');
+UPDATE `locales_item` SET `name_loc4`='强化钢质宝箱', `description_loc4`='' WHERE (`entry`='4638');
 UPDATE `locales_item` SET `name_loc4`='魔力海藻', `description_loc4`='' WHERE (`entry`='4639');
 UPDATE `locales_item` SET `name_loc4`='大地印章', `description_loc4`='' WHERE (`entry`='4640');
 UPDATE `locales_item` SET `name_loc4`='达古恩之手', `description_loc4`='' WHERE (`entry`='4641');
@@ -8015,7 +8015,7 @@ UPDATE `locales_item` SET `name_loc4`='净化药水', `description_loc4`='' WHER
 UPDATE `locales_item` SET `name_loc4`='梦叶草', `description_loc4`='' WHERE (`entry`='13463');
 UPDATE `locales_item` SET `name_loc4`='黄金参', `description_loc4`='' WHERE (`entry`='13464');
 UPDATE `locales_item` SET `name_loc4`='山鼠草', `description_loc4`='' WHERE (`entry`='13465');
-UPDATE `locales_item` SET `name_loc4`=' plague flowers ', `description_loc4`='' WHERE (`entry`='13466');
+UPDATE `locales_item` SET `name_loc4`='瘟疫花', `description_loc4`='' WHERE (`entry`='13466');
 UPDATE `locales_item` SET `name_loc4`='冰盖草', `description_loc4`='' WHERE (`entry`='13467');
 UPDATE `locales_item` SET `name_loc4`='黑莲花', `description_loc4`='' WHERE (`entry`='13468');
 UPDATE `locales_item` SET `name_loc4`='维尔顿·巴罗夫的徽记', `description_loc4`='' WHERE (`entry`='13469');
