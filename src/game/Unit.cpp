@@ -6781,7 +6781,7 @@ void Unit::UpdateSpeed(UnitMoveType mtype, bool forced, float ratio)
             {
                 if (Unit* owner = GetOwner())
                 {
-                    SetSpeedRate(mtype, owner->GetSpeedRate(mtype), forced);
+                    SetSpeedRate(mtype, owner->GetSpeedRate(mtype)*1.3f, forced);
                     return;
                 }
             }
