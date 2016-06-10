@@ -1087,6 +1087,21 @@ void Aura::TriggerSpell()
                 triggerTarget->CastCustomSpell(triggerTarget, 19698, &damageForTick[GetAuraTicks() - 1], NULL, NULL, true, NULL);
                 return;
             }
+            case 21926: // 自然之友 (猎人T1 5/8)
+            case 21928: // 自然之友 (猎人T2 5/8)
+            case 21741: // 恶魔盟约 (术士T1 5/8)
+            case 21922: // 恶魔盟约 (术士T2 5/8)
+            {
+                if (Pet* pet = triggerTarget->GetPet())
+                {
+                    if (SpellAuraHolder* holder = pet->GetSpellAuraHolder(trigger_spell_id))
+                    {
+                        holder->SetAuraDuration(4000);
+                        return;
+                    }
+                }
+                break;
+            }
         }
     }
 
