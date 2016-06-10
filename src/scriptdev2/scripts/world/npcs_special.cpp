@@ -35,6 +35,7 @@ npc_injured_patient     100%    patients for triage-quests (6622 and 6624)
 npc_doctor              100%    Gustaf Vanhowzen and Gregory Victor, quest 6622 and 6624 (Triage)
 npc_innkeeper            25%    ScriptName not assigned. Innkeepers in general.
 npc_redemption_target   100%    Used for the paladin quests: 1779,1781,9600,9685
+npc_training_dummy      100%
 EndContentData */
 
 /*########
@@ -971,6 +972,46 @@ CreatureAI* GetAI_npc_explosive_sheep(Creature* pCreature)
     return new npc_explosive_sheepAI(pCreature);
 }
 
+/*######
+## npc_training_dummy
+######*/
+
+struct npc_training_dummyAI : public Scripted_NoMovementAI
+{
+    npc_training_dummyAI(Creature* pCreature) : Scripted_NoMovementAI(pCreature) { Reset(); }
+
+    uint32 m_uiEvadeTimer;
+
+    void Reset() override
+    {
+        m_uiEvadeTimer = 0;
+    }
+
+    void DamageTaken(Unit* /*pDoneBy*/, uint32& uiDamage) override
+    {
+        m_uiEvadeTimer = 6000;
+    }
+
+    void UpdateAI(const uint32 uiDiff) override
+    {
+        if (m_uiEvadeTimer)
+        {
+            if (m_uiEvadeTimer <= uiDiff)
+            {
+                EnterEvadeMode();
+                m_uiEvadeTimer = 0;
+            }
+            else
+                { m_uiEvadeTimer -= uiDiff; }
+        }
+    }
+};
+
+CreatureAI* GetAI_npc_training_dummy(Creature* pCreature)
+{
+    return new npc_training_dummyAI(pCreature);
+}
+
 void AddSC_npcs_special()
 {
     Script* pNewScript;
@@ -1018,5 +1059,10 @@ void AddSC_npcs_special()
     pNewScript = new Script;
     pNewScript->Name = "npc_explosive_sheep";
     pNewScript->GetAI = &GetAI_npc_explosive_sheep;
+    pNewScript->RegisterSelf();
+
+    pNewScript = new Script;
+    pNewScript->Name = "npc_training_dummy";
+    pNewScript->GetAI = &GetAI_npc_training_dummy;
     pNewScript->RegisterSelf();
 }
