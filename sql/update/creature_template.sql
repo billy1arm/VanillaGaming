@@ -18,6 +18,9 @@ UPDATE `creature_template` SET `ScriptName`='npc_explosive_sheep' WHERE (`Entry`
 -- 巴尔丹掘地工
 UPDATE `creature_template` SET `FactionAlliance`='47', `FactionHorde`='47' WHERE (`Entry`='2989');
 
+-- 巴尔丹鉴定官
+UPDATE `creature_template` SET `FactionAlliance`='47', `FactionHorde`='47' WHERE (`Entry`='2990');
+
 -- 伊兰尼库斯的阴影
 UPDATE `creature_template` SET `UnitFlags`='0' WHERE (`Entry`='5709');
 
