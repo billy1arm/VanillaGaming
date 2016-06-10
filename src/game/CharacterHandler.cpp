@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the CMaNGOS Project. See AUTHORS file for Copyright information
  *
  * This program is free software; you can redistribute it and/or modify
@@ -562,6 +562,12 @@ void WorldSession::HandlePlayerLogin(LoginQueryHolder* holder)
         if (!mapEntry)
             lockStatus = AREA_LOCKSTATUS_UNKNOWN_ERROR;
     }
+
+
+    /* 副本中小退会传送到副本门口 */
+    if (pCurrChar->GetMapId() > 1)
+        { lockStatus = AREA_LOCKSTATUS_NOT_ALLOWED; }
+
     if (lockStatus != AREA_LOCKSTATUS_OK || !pCurrChar->GetMap()->Add(pCurrChar))
     {
         // normal delayed teleport protection not applied (and this correct) for this case (Player object just created)
