@@ -3701,12 +3701,16 @@ void Spell::EffectScriptEffect(SpellEffectIndex eff_idx)
         }
         case SPELLFAMILY_PALADIN:
         {
+            Unit* caster = GetAffectiveCaster();
+
             // Holy Light
             if (m_spellInfo->SpellIconID == 70)
             {
                 if (!unitTarget || !unitTarget->isAlive())
                     return;
                 int32 heal = damage;
+                heal = caster->SpellHealingBonusDone(unitTarget, m_spellInfo, heal, HEAL);
+                heal = unitTarget->SpellHealingBonusTaken(caster, m_spellInfo, heal, HEAL);
                 int32 spellid = m_spellInfo->Id;            // send main spell id as basepoints for not used effect
                 m_caster->CastCustomSpell(unitTarget, 19968, &heal, &spellid, NULL, true);
             }
@@ -3716,6 +3720,8 @@ void Spell::EffectScriptEffect(SpellEffectIndex eff_idx)
                 if (!unitTarget || !unitTarget->isAlive())
                     return;
                 int32 heal = damage;
+                heal = caster->SpellHealingBonusDone(unitTarget, m_spellInfo, heal, HEAL);
+                heal = unitTarget->SpellHealingBonusTaken(caster, m_spellInfo, heal, HEAL);
                 int32 spellid = m_spellInfo->Id;            // send main spell id as basepoints for not used effect
                 m_caster->CastCustomSpell(unitTarget, 19993, &heal, &spellid, NULL, true);
             }
