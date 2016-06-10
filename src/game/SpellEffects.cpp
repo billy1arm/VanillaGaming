@@ -3313,6 +3313,15 @@ void Spell::EffectSummonObjectWild(SpellEffectIndex eff_idx)
         ((Creature*)m_caster)->AI()->JustSummoned(pGameObj);
     if (m_originalCaster && m_originalCaster != m_caster && m_originalCaster->GetTypeId() == TYPEID_UNIT && ((Creature*)m_originalCaster)->AI())
         ((Creature*)m_originalCaster)->AI()->JustSummoned(pGameObj);
+
+    // 放置幽灵磁铁
+    if (gameobject_id == 177746)
+    {
+        float fX, fY, fZ;
+        m_caster->GetRandomPoint(m_caster->GetPositionX(), m_caster->GetPositionY(), m_caster->GetPositionZ(), 20.0f, fX, fY, fZ);
+        if (Creature*Magrami = m_caster->SummonCreature(11560, fX, fY, fZ, 0, TEMPSUMMON_TIMED_OOC_DESPAWN, 15000))
+        { Magrami->AI()->AttackStart(m_caster); }
+    }
 }
 
 void Spell::EffectScriptEffect(SpellEffectIndex eff_idx)
