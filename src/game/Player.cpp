@@ -16368,8 +16368,19 @@ bool Player::ActivateTaxiPathTo(std::vector<uint32> const& nodes, Creature* npc 
     // prevent stealth flight
     RemoveSpellsCausingAura(SPELL_AURA_MOD_STEALTH);
 
-    GetSession()->SendActivateTaxiReply(ERR_TAXIOK);
-    GetSession()->SendDoFlight(mount_display_id, sourcepath);
+    Player* vipplayer = GetSession()->GetPlayer();
+    if (vipplayer->HasItemCount(30000, 1, true) || vipplayer->HasItemCount(30001, 1, true) || vipplayer->HasItemCount(30002, 1, true) || vipplayer->HasItemCount(30003, 1, true) || vipplayer->HasItemCount(30004, 1, true) || vipplayer->HasItemCount(30005, 1, true))
+    {
+        TaxiNodesEntry const* lastnode = sTaxiNodesStore.LookupEntry(nodes[nodes.size() - 1]);
+        m_taxi.ClearTaxiDestinations();
+        TeleportTo(lastnode->map_id, lastnode->x, lastnode->y, lastnode->z, GetOrientation());
+        return false;
+    }
+    else
+    {
+        GetSession()->SendActivateTaxiReply(ERR_TAXIOK);
+        GetSession()->SendDoFlight(mount_display_id, sourcepath);
+    }
 
     return true;
 }
@@ -19097,4 +19108,52 @@ void Player::UpdateCharmedAI()
         GetMotionMaster()->MoveChase(target);
         Attack(target, true);
     }
+}
+
+/*********************************************************/
+/***                    VIP SYSTEM                     ***/
+/*********************************************************/
+int32 Player::GetIntegral()
+{
+    uint32 accId = 0;
+    int32 integral;
+    accId = GetSession()->GetAccountId();
+    QueryResult* result = LoginDatabase.PQuery("SELECT integral FROM account_integral WHERE id = '%u'", accId);
+    if (result)
+        { integral = (*result)[0].GetInt32(); }
+    else
+        { integral = 0; }
+    delete result;
+    return integral;
+}
+int32 Player::GetTotalIntegral()
+{
+    uint32 accId = 0;
+    int32 totalintegral;
+    accId = GetSession()->GetAccountId();
+    QueryResult* result = LoginDatabase.PQuery("SELECT totalintegral FROM account_integral WHERE id = '%u'", accId);
+    if (result)
+        { totalintegral = (*result)[0].GetInt32(); }
+    else
+        { totalintegral = 0; }
+    delete result;
+    return totalintegral;
+}
+void Player::ModifyIntegral(int32 d)
+{
+    uint32 accId = m_session->GetAccountId();
+    int32 pay;
+    QueryResult* result = LoginDatabase.PQuery("SELECT pay FROM account_integral WHERE id = '%u'", accId);
+    if (result)
+        { pay = (*result)[0].GetInt32(); }
+    else
+        { pay = 0; }
+    delete result;
+    int32 newintegral1 = GetIntegral() + pay;
+    int32 newintegral2 = GetTotalIntegral() + pay;
+    LoginDatabase.PExecute("UPDATE account_integral SET pay = '0' WHERE id = '%u'", accId);
+    LoginDatabase.PExecute("UPDATE account_integral SET integral = '%i' WHERE id = '%u'", newintegral1, accId);
+    LoginDatabase.PExecute("UPDATE account_integral SET totalintegral = '%i' WHERE id = '%u'", newintegral2, accId);
+    int32 newintegral = newintegral1 + d;
+    LoginDatabase.PExecute("UPDATE account_integral SET integral = '%i' WHERE id = '%u'", newintegral, accId);
 }

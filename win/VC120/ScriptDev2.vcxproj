@@ -396,6 +396,7 @@
     <ClCompile Include="..\..\src\scriptdev2\scripts\world\npc_professions.cpp" />
     <ClCompile Include="..\..\src\scriptdev2\scripts\world\npcs_special.cpp" />
     <ClCompile Include="..\..\src\scriptdev2\scripts\world\spell_scripts.cpp" />
+    <ClCompile Include="..\..\src\scriptdev2\scripts\world\vip_scripts.cpp" />
     <ClCompile Include="..\..\src\scriptdev2\scripts\world\world_map_scripts.cpp" />
     <ClCompile Include="..\..\src\scriptdev2\include\precompiled.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

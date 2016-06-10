@@ -4531,26 +4531,23 @@ bool ChatHandler::HandleResetTalentsCommand(char* args)
     if (!ExtractPlayerTarget(&args, &target, &target_guid, &target_name))
         return false;
 
-    if (target)
+    if (Player* vipplayer = m_session->GetPlayer())
     {
-        target->resetTalents(true);
-
-        ChatHandler(target).SendSysMessage(LANG_RESET_TALENTS);
-        if (!m_session || m_session->GetPlayer() != target)
-            PSendSysMessage(LANG_RESET_TALENTS_ONLINE, GetNameLink(target).c_str());
+        if (vipplayer->isInCombat())
+            { ChatHandler(vipplayer).SendSysMessage(LANG_YOU_IN_COMBAT); }
+        else
+        {
+            if (vipplayer->HasItemCount(30006, 1, true) || vipplayer->HasItemCount(30007, 1, true) || vipplayer->HasItemCount(30008, 1, true) || vipplayer->HasItemCount(30009, 1, true) || vipplayer->HasItemCount(30010, 1, true) || vipplayer->HasItemCount(30011, 1, true))
+            {
+                if (vipplayer->isAlive())
+                {
+                    vipplayer->resetTalents(true);
+                    ChatHandler(vipplayer).SendSysMessage(LANG_RESET_TALENTS);
+                }
+            }
+        }
         return true;
     }
-    else if (target_guid)
-    {
-        uint32 at_flags = AT_LOGIN_RESET_TALENTS;
-        CharacterDatabase.PExecute("UPDATE characters SET at_login = at_login | '%u' WHERE guid = '%u'", at_flags, target_guid.GetCounter());
-        std::string nameLink = playerLink(target_name);
-        PSendSysMessage(LANG_RESET_TALENTS_OFFLINE, nameLink.c_str());
-        return true;
-    }
-
-    SendSysMessage(LANG_NO_CHAR_SELECTED);
-    SetSentErrorMessage(true);
     return false;
 }
 

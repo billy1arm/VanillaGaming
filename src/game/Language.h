@@ -1039,6 +1039,11 @@ enum MangosStrings
 
     // Use for custom patches             11000-11999
     LANG_WPE                            = 11000, // WPE检测警报
+    LANG_QUERY_INTEGRAL                 = 11001, // 查询积分
+    LANG_USE_INTEGRAL                   = 11002, // 使用积分
+    LANG_FULL_BAG                       = 11003, // 背包已满
+    LANG_ALREADY_HAVE                   = 11004, // 已有道具
+    LANG_LACK_INTEGRAL                  = 11005, // 积分不足
 
     // NOT RESERVED IDS                   12000-1999999999
     // `db_script_string` table index     2000000000-2000999999 (MIN_DB_SCRIPT_STRING_ID-MAX_DB_SCRIPT_STRING_ID)

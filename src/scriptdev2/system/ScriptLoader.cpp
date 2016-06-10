@@ -25,6 +25,7 @@ extern void AddSC_item_scripts();
 extern void AddSC_npc_professions();
 extern void AddSC_npcs_special();
 extern void AddSC_spell_scripts();
+extern void AddSC_vip_scripts();
 extern void AddSC_world_map_scripts();
 
 // eastern kingdoms
@@ -224,6 +225,7 @@ void AddScripts()
     AddSC_npc_professions();
     AddSC_npcs_special();
     AddSC_spell_scripts();
+    AddSC_vip_scripts();
     AddSC_world_map_scripts();
 
     // eastern kingdoms

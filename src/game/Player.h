@@ -2068,6 +2068,13 @@ class MANGOS_DLL_SPEC Player : public Unit
 
         bool isAllowedToLoot(Creature* creature);
 
+        /*********************************************************/
+        /***                    VIP SYSTEM                     ***/
+        /*********************************************************/
+        int32 GetIntegral();
+        int32 GetTotalIntegral();
+        void ModifyIntegral(int32 d);
+
     protected:
 
         uint32 m_contestedPvPTimer;
