@@ -47,7 +47,7 @@ enum
     GRAVEYARD_ID_EASTERN_PLAGUE                     = 927,
 
     // misc
-    HONOR_REWARD_PLAGUELANDS                        = 189, // guessed, same factor as silithus
+    HONOR_REWARD_PLAGUELANDS                        = 25,
 
     // npcs
     NPC_SPECTRAL_FLIGHT_MASTER                      = 17209,
