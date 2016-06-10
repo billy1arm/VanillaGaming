@@ -51,6 +51,9 @@ UPDATE `creature_template` SET `ExtraFlags`='64' WHERE (`Entry`='11466');
 -- 暮光地王
 UPDATE `creature_template` SET `AIName`='EventAI' WHERE (`Entry`='11881');
 
+-- 暮光唤石者
+UPDATE `creature_template` SET `AIName`='EventAI' WHERE (`Entry`='11882');
+
 -- 米尔顿·比斯
 UPDATE `creature_template` SET `ExtraFlags`='64' WHERE (`Entry`='13082');
 
