@@ -4621,6 +4621,9 @@ void Aura::PeriodicTick()
                     }
                     break;
             }
+
+            // 抽蓝正确打破受到伤害会打破的控制
+            pCaster->DealDamage(target, 0, NULL, DIRECT_DAMAGE, SPELL_SCHOOL_MASK_NORMAL, NULL, false);
             break;
         }
         case SPELL_AURA_PERIODIC_ENERGIZE:
