@@ -15,6 +15,9 @@ File Encoding         : 65001
 -- 自爆绵羊
 UPDATE `creature_template` SET `ScriptName`='npc_explosive_sheep' WHERE (`Entry`='2675');
 
+-- 伊兰尼库斯的阴影
+UPDATE `creature_template` SET `UnitFlags`='0' WHERE (`Entry`='5709');
+
 -- 祖尔法拉克阵亡英雄
 UPDATE `creature_template` SET `ExtraFlags`='64' WHERE (`Entry`='7276');
 
