@@ -1357,6 +1357,15 @@ void Spell::EffectTriggerSpell(SpellEffectIndex eff_idx)
             return;
     }
 
+    // 特殊
+    // 林克的回旋镖
+    if (m_spellInfo->Id == 15712)
+    {
+        // 5/6几率失败
+        if (roll_chance_f(83.3f))
+            { return; }
+    }
+
     // normal case
     SpellEntry const* spellInfo = sSpellStore.LookupEntry(triggered_spell_id);
     if (!spellInfo)
