@@ -1045,6 +1045,8 @@ enum MangosStrings
     LANG_ALREADY_HAVE                   = 11004, // 已有道具
     LANG_LACK_INTEGRAL                  = 11005, // 积分不足
 
+    LANG_AUTO_BROADCAST                 = 11100, // 自动公告
+
     // NOT RESERVED IDS                   12000-1999999999
     // `db_script_string` table index     2000000000-2000999999 (MIN_DB_SCRIPT_STRING_ID-MAX_DB_SCRIPT_STRING_ID)
     // For other tables maybe             2001000000-2147483647 (max index)

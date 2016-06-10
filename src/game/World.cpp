@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the CMaNGOS Project. See AUTHORS file for Copyright information
  *
  * This program is free software; you can redistribute it and/or modify
@@ -63,6 +63,7 @@
 #include "CharacterDatabaseCleaner.h"
 #include "CreatureLinkingMgr.h"
 #include "Weather.h"
+#include "Language.h"
 
 INSTANTIATE_SINGLETON_1(World);
 
@@ -97,6 +98,8 @@ World::World()
 
     m_defaultDbcLocale = LOCALE_enUS;
     m_availableDbcLocaleMask = 0;
+
+    m_nextId = 0;
 
     for (int i = 0; i < CONFIG_UINT32_VALUE_COUNT; ++i)
         m_configUint32Values[i] = 0;
@@ -1255,6 +1258,9 @@ void World::SetInitialWorldSettings()
     // Delete all characters which have been deleted X days before
     Player::DeleteOldCharacters();
 
+    sLog.outString("Starting Autobroadcast system...");
+    m_timers[WUPDATE_BROADCAST].SetInterval(600000);
+
     sLog.outString("Initialize AuctionHouseBot...");
     sAuctionBot.Initialize();
     sLog.outString();
@@ -1401,6 +1407,13 @@ void World::Update(uint32 diff)
         uint32 nextGameEvent = sGameEventMgr.Update();
         m_timers[WUPDATE_EVENTS].SetInterval(nextGameEvent);
         m_timers[WUPDATE_EVENTS].Reset();
+    }
+
+    // 自动公告系统
+    if (m_timers[WUPDATE_BROADCAST].Passed())
+    {
+        SendBroadcast();
+        m_timers[WUPDATE_BROADCAST].Reset();
     }
 
     /// </ul>
@@ -2086,4 +2099,23 @@ void World::InvalidatePlayerDataToAllClient(ObjectGuid guid)
     WorldPacket data(SMSG_INVALIDATE_PLAYER, 8);
     data << guid;
     SendGlobalMessage(&data);
+}
+
+// 自动公告系统
+void World::SendBroadcast()
+{
+    std::string message;
+    QueryResult *result;
+    if (m_nextId > 0)
+        { result = WorldDatabase.PQuery("SELECT `text`, `next` FROM `broadcast_strings` WHERE `id` = %u;", m_nextId); }
+    else
+        { result = WorldDatabase.PQuery("SELECT `text`, `next` FROM `broadcast_strings` ORDER BY RAND();", m_nextId); }
+    if (!result)
+        { return; }
+    Field *fields = result->Fetch();
+    m_nextId = fields[1].GetUInt32();
+    message = fields[0].GetString();
+    delete result, fields;
+    // 聊天频道播放系统公告
+    sWorld.SendWorldText(LANG_AUTO_BROADCAST, message.c_str());
 }

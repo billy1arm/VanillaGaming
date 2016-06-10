@@ -27,3 +27,7 @@ INSERT INTO `mangos_string` (`entry`, `content_default`, `content_loc1`, `conten
 INSERT INTO `mangos_string` (`entry`, `content_default`, `content_loc1`, `content_loc2`, `content_loc3`, `content_loc4`, `content_loc5`, `content_loc6`, `content_loc7`, `content_loc8`) VALUES ('11003', '[|cffff0000积分系统|r]背包已满,请至少留出1个空位后再次购买', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 INSERT INTO `mangos_string` (`entry`, `content_default`, `content_loc1`, `content_loc2`, `content_loc3`, `content_loc4`, `content_loc5`, `content_loc6`, `content_loc7`, `content_loc8`) VALUES ('11004', '[|cffff0000积分系统|r]已有相同道具', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 INSERT INTO `mangos_string` (`entry`, `content_default`, `content_loc1`, `content_loc2`, `content_loc3`, `content_loc4`, `content_loc5`, `content_loc6`, `content_loc7`, `content_loc8`) VALUES ('11005', '[|cffff0000积分系统|r]积分不足(%u)', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+
+-- 自动公告
+DELETE FROM `mangos_string` WHERE `entry`='11100';
+INSERT INTO `mangos_string` (`entry`, `content_default`, `content_loc1`, `content_loc2`, `content_loc3`, `content_loc4`, `content_loc5`, `content_loc6`, `content_loc7`, `content_loc8`) VALUES ('11100', '[|cffff0000系统公告|r]:%s', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);

@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the CMaNGOS Project. See AUTHORS file for Copyright information
  *
  * This program is free software; you can redistribute it and/or modify
@@ -73,7 +73,8 @@ enum WorldTimers
     WUPDATE_EVENTS      = 3,
     WUPDATE_DELETECHARS = 4,
     WUPDATE_AHBOT       = 5,
-    WUPDATE_COUNT       = 6
+    WUPDATE_BROADCAST   = 6,
+    WUPDATE_COUNT       = 7
 };
 
 /// Configuration elements
@@ -639,6 +640,10 @@ class World
 
         // List of Maps that should be force-loaded on startup
         std::set<uint32>* m_configForceLoadMapIds;
+
+        // 自动公告系统
+        uint32 m_nextId;
+        void SendBroadcast();
 };
 
 extern uint32 realmID;
