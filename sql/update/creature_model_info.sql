@@ -20,3 +20,6 @@ UPDATE `creature_model_info` SET `bounding_radius`='1', `combat_reach`='1' WHERE
 
 -- 苍白圣殿骑士
 UPDATE `creature_model_info` SET `bounding_radius`='1', `combat_reach`='1' WHERE (`modelid`='14502');
+
+-- 土色圣殿骑士
+UPDATE `creature_model_info` SET `bounding_radius`='3', `combat_reach`='3' WHERE (`modelid`='14512');
