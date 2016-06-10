@@ -21,6 +21,9 @@ UPDATE `creature` SET `spawntimesecs`='600' WHERE (`id`='1883');
 -- 断牙
 UPDATE `creature` SET `spawntimesecs`='10200' WHERE (`id`='2850');
 
+-- 碎矛巨魔
+UPDATE `creature` SET `spawntimesecs`='300' WHERE (`id`='10919');
+
 -- 暮光复仇者
 UPDATE `creature` SET `spawntimesecs`='600' WHERE (`id`='11880');
 
