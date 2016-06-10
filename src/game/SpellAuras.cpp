@@ -3760,8 +3760,20 @@ void Aura::HandleModMeleeSpeedPct(bool apply, bool /*Real*/)
     float amount = m_modifier.m_amount;
 
     if (Unit* caster = GetCaster())
+    {
+        if (GetSpellProto()->Id == 26635)
+        {
+            uint32 healthPerc = uint32((float(caster->GetHealth()) / caster->GetMaxHealth()) * 100);
+            amount = 10;
+            if (healthPerc <= 40)
+                { amount = 30; }
+            if (healthPerc < 100 && healthPerc > 40)
+                { amount = 10 + (100 - healthPerc) / 3; }
+        }
+
         if (Player* modOwner = caster->GetSpellModOwner())
             modOwner->ApplySpellMod(GetSpellProto()->Id, SPELLMOD_HASTE, amount);
+    }
 
     Unit* target = GetTarget();
     target->ApplyAttackTimePercentMod(BASE_ATTACK, amount, apply);
