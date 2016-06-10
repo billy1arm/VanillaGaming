@@ -3051,6 +3051,9 @@ void Aura::HandlePeriodicTriggerSpell(bool apply, bool /*Real*/)
     {
         switch (GetId())
         {
+            case 6474:  // 地缚图腾
+                target->CastSpell(target, 3600, true, 0, this);
+                return;
             case 8179:  // 根基图腾
                 target->CastSpell(target, 8178, true, 0, this);
                 return;
