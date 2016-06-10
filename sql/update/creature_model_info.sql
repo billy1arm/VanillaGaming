@@ -15,5 +15,8 @@ File Encoding         : 65001
 -- 赤红圣殿骑士
 UPDATE `creature_model_info` SET `bounding_radius`='1', `combat_reach`='1' WHERE (`modelid`='1204');
 
+-- 碧蓝圣殿骑士
+UPDATE `creature_model_info` SET `bounding_radius`='1', `combat_reach`='1' WHERE (`modelid`='13749');
+
 -- 苍白圣殿骑士
 UPDATE `creature_model_info` SET `bounding_radius`='1', `combat_reach`='1' WHERE (`modelid`='14502');
