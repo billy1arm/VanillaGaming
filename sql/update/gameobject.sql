@@ -39,8 +39,17 @@ UPDATE `gameobject` SET `spawntimesecs`='43200' WHERE (`id`='75299');
 -- 坚固的大箱子
 UPDATE `gameobject` SET `spawntimesecs`='43200' WHERE (`id`='75300');
 
+-- 大型秘银储物箱
+UPDATE `gameobject` SET `spawntimesecs`='43200' WHERE (`id`='131978');
+
 -- 坚固的大箱子
 UPDATE `gameobject` SET `spawntimesecs`='43200' WHERE (`id`='153464');
+
+-- 大型秘银储物箱
+UPDATE `gameobject` SET `spawntimesecs`='43200' WHERE (`id`='153468');
+
+-- 大型秘银储物箱
+UPDATE `gameobject` SET `spawntimesecs`='43200' WHERE (`id`='153469');
 
 -- 补给箱
 UPDATE `gameobject` SET `spawntimesecs`='43200' WHERE (`id`='166872');
