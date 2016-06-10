@@ -2461,6 +2461,16 @@ void Aura::HandleAuraModStun(bool apply, bool Real)
             caster->CastSpell(target, spellInfo, true, NULL, this);
             return;
         }
+
+        // 诱惑
+        if (GetSpellProto()->Id == 6358)
+        {
+            Unit* caster = GetCaster();
+            if (!caster || caster->GetTypeId() != TYPEID_UNIT)
+                { return; }
+            caster->CastStop();
+            return;
+        }
     }
 }
 

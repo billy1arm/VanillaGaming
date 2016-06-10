@@ -2996,6 +2996,7 @@ void Spell::update(uint32 difftime)
                     {
                         switch (m_spellInfo->Id)
                         {
+                            case 6358:  // 诱惑
                             case 17767: // 吞噬暗影(等级1)                           
                             case 17850: // 吞噬暗影(等级2)
                             case 17851: // 吞噬暗影(等级3)

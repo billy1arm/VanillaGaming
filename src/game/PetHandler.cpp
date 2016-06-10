@@ -232,6 +232,8 @@ void WorldSession::HandlePetAction(WorldPacket& recv_data)
 
             switch (spellInfo->Id)
             {
+                case 6358:  // 诱惑
+                    pet->AttackStop(true);
                 case 17767: // 吞噬暗影(等级1)                           
                 case 17850: // 吞噬暗影(等级2)
                 case 17851: // 吞噬暗影(等级3)
