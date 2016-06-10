@@ -69,6 +69,9 @@ UPDATE `creature_template` SET `UnitFlags`='2' WHERE (`Entry`='13117');
 -- 诺克赛恩幼体
 UPDATE `creature_template` SET `ExtraFlags`='64' WHERE (`Entry`='13696');
 
+-- 暮光之王艾沃兰
+UPDATE `creature_template` SET `AIName`='EventAI' WHERE (`Entry`='14479');
+
 -- 邪枝绑架者
 UPDATE `creature_template` SET `ExtraFlags`='64' WHERE (`Entry`='14748');
 
