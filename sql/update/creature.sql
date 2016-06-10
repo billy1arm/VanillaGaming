@@ -24,6 +24,9 @@ UPDATE `creature` SET `spawntimesecs`='600' WHERE (`id`='1883');
 -- 断牙
 UPDATE `creature` SET `spawntimesecs`='10200' WHERE (`id`='2850');
 
+-- 辛斯雷尔
+UPDATE `creature` SET `equipment_id`='0' WHERE (`id`='7017');
+
 -- 碎矛巨魔
 UPDATE `creature` SET `spawntimesecs`='300' WHERE (`id`='10919');
 
