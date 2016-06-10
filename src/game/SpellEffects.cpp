@@ -1536,6 +1536,9 @@ void Spell::EffectApplyAura(SpellEffectIndex eff_idx)
     if (!unitTarget)
         return;
 
+    if (m_spellInfo->Id == 20594)                           // 石像形态
+        { m_caster->CastSpell(m_caster, 20612, true); }
+
     // ghost spell check, allow apply any auras at player loading in ghost mode (will be cleanup after load)
     if ((!unitTarget->isAlive() && !(IsDeathOnlySpell(m_spellInfo) || IsDeathPersistentSpell(m_spellInfo))) &&
             (unitTarget->GetTypeId() != TYPEID_PLAYER || !((Player*)unitTarget)->GetSession()->PlayerLoading()))
