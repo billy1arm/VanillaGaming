@@ -549,7 +549,7 @@ uint32 Unit::DealDamage(Unit* pVictim, uint32 damage, CleanDamage const* cleanDa
         if (cleanDamage && cleanDamage->damage && (damageSchoolMask & SPELL_SCHOOL_MASK_NORMAL) && pVictim->GetTypeId() == TYPEID_PLAYER && (pVictim->GetPowerType() == POWER_RAGE))
             ((Player*)pVictim)->RewardRage(cleanDamage->damage, false);
 
-        return 0;
+        damage = 0;
     }
 
     DEBUG_FILTER_LOG(LOG_FILTER_DAMAGE, "DealDamageStart");
