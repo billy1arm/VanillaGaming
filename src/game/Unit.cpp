@@ -3380,6 +3380,9 @@ bool Unit::AddSpellAuraHolder(SpellAuraHolder* holder)
 
             for (int32 i = 0; i < MAX_EFFECT_INDEX && !stop; ++i)
             {
+                if (aurSpellInfo->SpellIconID == 225/*奥术飞弹*/ || aurSpellInfo->SpellIconID == 548/*精神鞭笞||吸取法力*/ || aurSpellInfo->SpellIconID == 285/*暴风雪*/ || aurSpellInfo->SpellIconID == 113/*吸取灵魂*/ || aurSpellInfo->SpellIconID == 152/*生命虹吸*/)
+                    { break; }
+
                 // no need to check non stacking auras that weren't/won't be applied on this target
                 if (!foundHolder->m_auras[i] || !holder->m_auras[i])
                     continue;

@@ -1801,6 +1801,9 @@ bool SpellMgr::IsNoStackSpellDueToSpell(uint32 spellId_1, uint32 spellId_2) cons
     if (spellId_1 == spellId_2)
         return false;
 
+    if (IsChanneledSpell(spellInfo_1) && IsChanneledSpell(spellInfo_2))
+        { return false; }
+
     // Resurrection sickness
     if ((spellInfo_1->Id == SPELL_ID_PASSIVE_RESURRECTION_SICKNESS) != (spellInfo_2->Id == SPELL_ID_PASSIVE_RESURRECTION_SICKNESS))
         return false;
