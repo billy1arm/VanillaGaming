@@ -5130,6 +5130,10 @@ SpellCastResult Spell::CheckPetCast(Unit* target)
     if (m_caster->isInCombat() && IsNonCombatSpell(m_spellInfo))
         return SPELL_FAILED_AFFECTING_COMBAT;
 
+    // 黑龙之焰
+    if (m_spellInfo->Id == 16054)
+        { return CheckCast(true); }
+
     // 潜伏 --- 野兽之眼状态下可用
     if (m_spellInfo->Id == 24450 || m_spellInfo->Id == 24452 || m_spellInfo->Id == 24453)
         { return CheckCast(true); }
