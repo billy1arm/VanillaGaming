@@ -2754,6 +2754,10 @@ void Spell::cast(bool skipCheck)
     }
 
     // CAST SPELL
+    // 显形卷轴
+    if (m_spellInfo->Id == 9095)
+    { m_caster->SummonCreature(6492, m_caster->GetPositionX(), m_caster->GetPositionY(), m_caster->GetPositionZ(), 0, TEMPSUMMON_TIMED_OOC_DESPAWN, 5000); }
+
     SendSpellCooldown();
 
     TakePower();
