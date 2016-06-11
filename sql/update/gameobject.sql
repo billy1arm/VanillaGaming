@@ -57,6 +57,9 @@ UPDATE `gameobject` SET `spawntimesecs`='43200' WHERE (`id`='166872');
 -- 补给箱
 UPDATE `gameobject` SET `spawntimesecs`='43200' WHERE (`id`='176224');
 
+-- 天灾军团档案
+UPDATE `gameobject` SET `spawntimesecs`='10' WHERE (`id`='176249');
+
 -- 补给箱
 UPDATE `gameobject` SET `spawntimesecs`='43200' WHERE (`id`='176304');
 
