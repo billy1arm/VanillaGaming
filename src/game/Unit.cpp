@@ -4988,6 +4988,17 @@ bool Unit::Attack(Unit* victim, bool meleeAttack)
     if (meleeAttack)
         SendMeleeAttackStart(victim);
 
+    if (GetTypeId() == TYPEID_UNIT)
+    {
+        ((Creature*)this)->SetNoCallAssistance(false);
+
+        if (((Creature*)this)->HasSearchedAssistance())
+        {
+            ((Creature*)this)->SetNoSearchAssistance(false);
+            UpdateSpeed(MOVE_RUN, false);
+        }
+    }
+
     return true;
 }
 

@@ -754,7 +754,7 @@ void Creature::DoFleeToGetAssistance()
         Cell::VisitGridObjects(this, searcher, radius);
 
         SetNoSearchAssistance(true);
-        // UpdateSpeed(MOVE_RUN, false); [-ZERO] not needed?
+        UpdateSpeed(MOVE_RUN, false, 0.8f);
 
         if (!pCreature)
             SetFeared(true, getVictim()->GetObjectGuid(), 0 , sWorld.getConfig(CONFIG_UINT32_CREATURE_FAMILY_FLEE_DELAY));
