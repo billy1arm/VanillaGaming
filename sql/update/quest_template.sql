@@ -18,6 +18,9 @@ UPDATE `quest_template` SET `SrcItemId`='6637' WHERE (`entry`='63');
 -- 熔火之心的传送门
 UPDATE `quest_template` SET `Type`='62' WHERE (`entry`='7848');
 
+-- 召唤
+UPDATE `quest_template` SET `Type`='62' WHERE (`entry`='8315');
+
 -- 死人的请求
 UPDATE `quest_template` SET `RewItemId1`='0', `RewItemCount1`='0', `RewMoneyMaxLevel`='0' WHERE (`entry`='8945');
 
