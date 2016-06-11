@@ -20,3 +20,7 @@ UPDATE `reference_loot_template` SET `ChanceOrQuestChance`='49.995' WHERE (`entr
 
 -- 烈焰披风
 UPDATE `reference_loot_template` SET `ChanceOrQuestChance`='49.995' WHERE (`entry`='24091') AND (`item`='3475');
+
+-- 维姆萨拉克
+DELETE FROM `reference_loot_template` WHERE `entry`='95680';
+INSERT INTO `reference_loot_template` (`entry`, `item`, `ChanceOrQuestChance`, `groupid`, `mincountOrRef`, `maxcount`, `condition_id`) VALUES ('95680', '12780', '100', '0', '1', '1', '4');

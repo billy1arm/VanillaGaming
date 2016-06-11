@@ -33,3 +33,6 @@ UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='
 
 -- 狂怒的翼手龙 --- 精细的翼手龙鳞片
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='9167') AND (`item`='11831');
+
+-- 维姆萨拉克 --- 达基萨斯将军的命令
+UPDATE `creature_loot_template` SET `item`='95680', `ChanceOrQuestChance`='100', `mincountOrRef`='-95680', `maxcount`='10', `condition_id`='0' WHERE (`entry`='9568') AND (`item`='12780');
