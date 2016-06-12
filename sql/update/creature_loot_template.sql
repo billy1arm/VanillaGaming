@@ -11,6 +11,9 @@ File Encoding         : 65001
 -- ----------------------------
 -- Updates of creature_loot_template
 -- ----------------------------
+
+-- 纳迦探险者 --- 海蛇草
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='1907') AND (`item`='4029');
 	
 -- 堕落的水之魂 --- 剩余的最纯净的水
 DELETE FROM `creature_loot_template` WHERE (`entry`='5894') AND (`item`='7811');
