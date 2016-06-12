@@ -40,6 +40,13 @@ UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='
 -- 维姆萨拉克 --- 达基萨斯将军的命令
 UPDATE `creature_loot_template` SET `item`='95680', `ChanceOrQuestChance`='100', `mincountOrRef`='-95680', `maxcount`='10', `condition_id`='0' WHERE (`entry`='9568') AND (`item`='12780');
 
+-- 阿雷克斯·巴罗夫领主
+DELETE FROM `creature_loot_template` WHERE (`entry`='10504');
+INSERT INTO `creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`, `groupid`, `mincountOrRef`, `maxcount`, `condition_id`) VALUES ('10504', '35031', '100', '1', '-35031', '1', '0');
+INSERT INTO `creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`, `groupid`, `mincountOrRef`, `maxcount`, `condition_id`) VALUES ('10504', '12843', '100', '0', '1', '1', '237');
+INSERT INTO `creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`, `groupid`, `mincountOrRef`, `maxcount`, `condition_id`) VALUES ('10504', '14047', '17', '0', '1', '4', '0');
+INSERT INTO `creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`, `groupid`, `mincountOrRef`, `maxcount`, `condition_id`) VALUES ('10504', '16722', '5', '2', '1', '1', '0');
+
 -- 讲师玛丽希亚
 DELETE FROM `creature_loot_template` WHERE (`entry`='10505');
 INSERT INTO `creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`, `groupid`, `mincountOrRef`, `maxcount`, `condition_id`) VALUES ('10505', '12753', '17', '0', '1', '1', '0');
