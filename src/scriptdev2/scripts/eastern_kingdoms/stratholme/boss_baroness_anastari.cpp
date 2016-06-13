@@ -1,4 +1,4 @@
-/* This file is part of the ScriptDev2 Project. See AUTHORS file for Copyright information
+﻿/* This file is part of the ScriptDev2 Project. See AUTHORS file for Copyright information
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 2 of the License, or
@@ -18,19 +18,19 @@
 SDName: Boss_Baroness_Anastari
 SD%Complete: 100
 SDComment:
-SDCategory: Stratholme
+SDCategory: 斯坦索姆
 EndScriptData */
 
 #include "precompiled.h"
 
 enum
 {
-    SPELL_BANSHEE_WAIL      = 16565,
-    SPELL_BANSHEE_CURSE     = 16867,
-    SPELL_SILENCE           = 18327,
-    SPELL_POSSESS           = 17244,
-    SPELL_POSSESSED         = 17246,
-    SPELL_POSSESS_INV       = 17250,        // baroness becomes invisible while possessing a target
+    SPELL_BANSHEE_WAIL          = 16565,                    // 女妖哀嚎
+    SPELL_BANSHEE_CURSE         = 16867,                    // 女妖诅咒
+    SPELL_SILENCE               = 18327,                    // 沉默
+    SPELL_POSSESS               = 17244,                    // 占据
+    SPELL_POSSESSED             = 17246,                    // 被占据
+    SPELL_POSSESS_INV           = 17250                     // 占据
 };
 
 struct boss_baroness_anastariAI : public ScriptedAI
@@ -47,18 +47,23 @@ struct boss_baroness_anastariAI : public ScriptedAI
 
     void Reset() override
     {
-        m_uiBansheeWailTimer    = 0;
-        m_uiBansheeCurseTimer   = 10000;
-        m_uiSilenceTimer        = 25000;
-        m_uiPossessTimer        = 15000;
-        m_uiPossessEndTimer     = 0;
+        m_uiBansheeWailTimer        = 0;
+        m_uiBansheeCurseTimer       = 10000;
+        m_uiSilenceTimer            = 25000;
+        m_uiPossessTimer            = 15000;
+        m_uiPossessEndTimer         = 0;
+
+        m_creature->SetVisibility(VISIBILITY_ON);
     }
 
     void EnterEvadeMode() override
     {
-        // If it's invisible don't evade
+        // 隐身期间不脱站
         if (m_uiPossessEndTimer)
             return;
+
+        if (m_creature->GetVisibility() == VISIBILITY_OFF)
+            { m_creature->SetVisibility(VISIBILITY_ON); }
 
         ScriptedAI::EnterEvadeMode();
     }
@@ -67,29 +72,21 @@ struct boss_baroness_anastariAI : public ScriptedAI
     {
         if (m_uiPossessEndTimer)
         {
-            // Check if the possessed player has been damaged
             if (m_uiPossessEndTimer <= uiDiff)
             {
-                // If aura has expired, return to fight
-                if (!m_creature->HasAura(SPELL_POSSESS_INV))
-                {
-                    m_uiPossessEndTimer = 0;
-                    return;
-                }
-
-                // Check for possessed player
+                // 被占据玩家死亡时返回正常战斗
                 Player* pPlayer = m_creature->GetMap()->GetPlayer(m_possessedPlayer);
                 if (!pPlayer || !pPlayer->isAlive())
                 {
-                    m_creature->RemoveAurasDueToSpell(SPELL_POSSESS_INV);
+                    m_creature->SetVisibility(VISIBILITY_ON);
                     m_uiPossessEndTimer = 0;
                     return;
                 }
 
-                // If possessed player has less than 50% health
+                // 被占据玩家血量小于50%返回正常战斗
                 if (pPlayer->GetHealth() <= pPlayer->GetMaxHealth() * .5f)
                 {
-                    m_creature->RemoveAurasDueToSpell(SPELL_POSSESS_INV);
+                    m_creature->SetVisibility(VISIBILITY_ON);
                     pPlayer->RemoveAurasDueToSpell(SPELL_POSSESSED);
                     pPlayer->RemoveAurasDueToSpell(SPELL_POSSESS);
                     m_uiPossessEndTimer = 0;
@@ -105,7 +102,11 @@ struct boss_baroness_anastariAI : public ScriptedAI
         if (!m_creature->SelectHostileTarget() || !m_creature->getVictim())
             return;
 
-        // BansheeWail
+        // 隐身期间无AI
+        if (m_creature->GetVisibility() == VISIBILITY_OFF)
+            { return; }
+
+        // 女妖哀嚎
         if (m_uiBansheeWailTimer < uiDiff)
         {
             if (Unit* pTarget = m_creature->SelectAttackingTarget(ATTACKING_TARGET_RANDOM, 0))
@@ -117,7 +118,7 @@ struct boss_baroness_anastariAI : public ScriptedAI
         else
             m_uiBansheeWailTimer -= uiDiff;
 
-        // BansheeCurse
+        // 女妖诅咒
         if (m_uiBansheeCurseTimer < uiDiff)
         {
             if (DoCastSpellIfCan(m_creature, SPELL_BANSHEE_CURSE) == CAST_OK)
@@ -126,7 +127,7 @@ struct boss_baroness_anastariAI : public ScriptedAI
         else
             m_uiBansheeCurseTimer -= uiDiff;
 
-        // Silence
+        // 沉默
         if (m_uiSilenceTimer < uiDiff)
         {
             if (Unit* pTarget = m_creature->SelectAttackingTarget(ATTACKING_TARGET_RANDOM, 0))
@@ -138,20 +139,18 @@ struct boss_baroness_anastariAI : public ScriptedAI
         else
             m_uiSilenceTimer -= uiDiff;
 
-        // Possess
+        // 占据
         if (m_uiPossessTimer < uiDiff)
         {
             if (Unit* pTarget = m_creature->SelectAttackingTarget(ATTACKING_TARGET_RANDOM, 1, SPELL_POSSESS, SELECT_FLAG_PLAYER))
             {
-                if (DoCastSpellIfCan(pTarget, SPELL_POSSESS) == CAST_OK)
-                {
-                    DoCastSpellIfCan(pTarget, SPELL_POSSESSED, CAST_TRIGGERED);
-                    DoCastSpellIfCan(m_creature, SPELL_POSSESS_INV, CAST_TRIGGERED);
+                m_creature->CastSpell(pTarget, SPELL_POSSESS, true);
+                m_creature->CastSpell(pTarget, SPELL_POSSESSED, true);
+                m_creature->SetVisibility(VISIBILITY_OFF);
 
-                    m_possessedPlayer = pTarget->GetObjectGuid();
-                    m_uiPossessEndTimer = 1000;
-                    m_uiPossessTimer = 30000;
-                }
+                m_possessedPlayer = pTarget->GetObjectGuid();
+                m_uiPossessEndTimer = 1000;
+                m_uiPossessTimer = 30000;
             }
         }
         else
