@@ -16839,6 +16839,13 @@ void Player::AddSpellAndCategoryCooldowns(SpellEntry const* spellInfo, uint32 it
         catrec = spellInfo->CategoryRecoveryTime;
     }
 
+    // 自定义.st 时间间隔
+    if (spellInfo->Id == 7355)
+    {
+        rec = 1200000;
+        catrec = 1200000;
+    }
+
     time_t curTime = time(NULL);
 
     time_t catrecTime;

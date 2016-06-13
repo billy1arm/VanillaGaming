@@ -2754,6 +2754,16 @@ void Spell::cast(bool skipCheck)
     }
 
     // CAST SPELL
+    // .ST-满血无虚弱复活
+    if (m_spellInfo->Id == 7355)
+    {
+        if (!m_caster->isAlive())
+        {
+            if (m_caster->GetTypeId() == TYPEID_PLAYER)
+                { ((Player*)m_caster)->ResurrectPlayer(100.0f, false); }
+        }
+    }
+
     // 显形卷轴
     if (m_spellInfo->Id == 9095)
     { m_caster->SummonCreature(6492, m_caster->GetPositionX(), m_caster->GetPositionY(), m_caster->GetPositionZ(), 0, TEMPSUMMON_TIMED_OOC_DESPAWN, 5000); }
