@@ -1539,6 +1539,17 @@ void Spell::EffectApplyAura(SpellEffectIndex eff_idx)
     if (m_spellInfo->Id == 20594)                           // 石像形态
         { m_caster->CastSpell(m_caster, 20612, true); }
 
+    // 地精火箭靴
+    if (m_spellInfo->Id == 8892)
+    {
+        if (roll_chance_f(10.0f))
+        {
+            // 火箭靴故障
+            m_caster->CastSpell(m_caster, 8893, true);
+            return;
+        }
+    }
+
     // ghost spell check, allow apply any auras at player loading in ghost mode (will be cleanup after load)
     if ((!unitTarget->isAlive() && !(IsDeathOnlySpell(m_spellInfo) || IsDeathPersistentSpell(m_spellInfo))) &&
             (unitTarget->GetTypeId() != TYPEID_PLAYER || !((Player*)unitTarget)->GetSession()->PlayerLoading()))
