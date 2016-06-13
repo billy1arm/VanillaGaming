@@ -692,6 +692,14 @@ bool IsPositiveEffect(SpellEntry const* spellproto, SpellEffectIndex effIndex)
         // non-positive aura use
         case SPELL_EFFECT_APPLY_AURA:
         {
+            // 特殊技能
+            switch (spellproto->Id)
+            {
+                case 17246:                                 // 被占据
+                    return false;
+                default:
+                    break;
+            }
             switch (spellproto->EffectApplyAuraName[effIndex])
             {
                 case SPELL_AURA_DUMMY:
