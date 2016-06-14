@@ -365,10 +365,13 @@ void WorldSession::LogoutPlayer(bool Save)
                     aset.insert((Player*)(*itr));
             }
 
-            _player->SetPvPDeath(!aset.empty());
-            _player->KillPlayer();
-            _player->BuildPlayerRepop();
-            _player->RepopAtGraveyard();
+            if (!aset.empty())
+            {
+                _player->SetPvPDeath(true);
+                _player->KillPlayer();
+                _player->BuildPlayerRepop();
+                _player->RepopAtGraveyard();
+            }
 
             // give honor to all attackers from set like group case
             for (std::set<Player*>::const_iterator itr = aset.begin(); itr != aset.end(); ++itr)
