@@ -984,25 +984,20 @@ void Spell::EffectDummy(SpellEffectIndex eff_idx)
                     ((Player*)unitTarget)->AddSpellMod(mod, true);
                     break;
                 }
-                case 12472:                                 // Cold Snap
+                case 12472:                                 // 急速冷却
                 {
                     if (m_caster->GetTypeId() != TYPEID_PLAYER)
                         return;
 
-                    // immediately finishes the cooldown on Frost spells
-                    const SpellCooldowns& cm = ((Player*)m_caster)->GetSpellCooldownMap();
-                    for (SpellCooldowns::const_iterator itr = cm.begin(); itr != cm.end();)
+                    // 立刻移除所有冰霜技能的冷却时间
+                    const PlayerSpellMap& sp_list = m_caster->ToPlayer()->GetSpellMap();
+                    for (PlayerSpellMap::const_iterator itr = sp_list.begin(); itr != sp_list.end(); ++itr)
                     {
-                        SpellEntry const* spellInfo = sSpellStore.LookupEntry(itr->first);
+                        uint32 classspell = itr->first;
+                        SpellEntry const* spellInfo = sSpellStore.LookupEntry(classspell);
 
-                        if (spellInfo->SpellFamilyName == SPELLFAMILY_MAGE &&
-                                (GetSpellSchoolMask(spellInfo) & SPELL_SCHOOL_MASK_FROST) &&
-                                spellInfo->Id != m_spellInfo->Id && GetSpellRecoveryTime(spellInfo) > 0)
-                        {
-                            ((Player*)m_caster)->RemoveSpellCooldown((itr++)->first, true);
-                        }
-                        else
-                            ++itr;
+                        if (spellInfo->SpellFamilyName == SPELLFAMILY_MAGE && (GetSpellSchoolMask(spellInfo) & SPELL_SCHOOL_MASK_FROST))
+                            m_caster->ToPlayer()->RemoveSpellCooldown(classspell, true);
                     }
                     return;
                 }
