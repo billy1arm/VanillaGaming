@@ -3049,6 +3049,9 @@ void Aura::HandlePeriodicTriggerSpell(bool apply, bool /*Real*/)
 
     Unit* target = GetTarget();
 
+    if (!target)
+        { return; }
+
     if (!apply)
     {
         switch (GetId())
