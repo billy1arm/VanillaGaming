@@ -579,6 +579,20 @@ void Creature::Update(uint32 update_diff, uint32 diff)
                     m_corpseDecayTimer -= update_diff;
             }
 
+            if (IsPet())
+            {
+                if (Unit*pOwner = GetOwner())
+                {
+                    if (pOwner->isAlive())
+                    {
+                        if (isInCombat() && !pOwner->isInCombat())
+                            { AI()->EnterEvadeMode(); }
+                    }
+                    else if (pOwner->GetTypeId() == TYPEID_UNIT)
+                        { RemoveFromWorld(); }
+                }
+            }
+
             Unit::Update(update_diff, diff);
 
             // creature can be dead after Unit::Update call
