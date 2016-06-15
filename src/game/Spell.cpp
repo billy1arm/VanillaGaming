@@ -955,7 +955,12 @@ void Spell::DoAllEffectOnTarget(TargetInfo* target)
     else                                                    // in 1.12.1 we need explicit miss info
     {
         if (real_caster)
-            real_caster->SendSpellMiss(unit, m_spellInfo->Id, missInfo);
+        {
+            if (m_spellInfo->SpellFamilyName == SPELLFAMILY_WARRIOR && m_spellInfo->IsFitToFamilyMask(0x0000000020000000))
+                { real_caster->SendSpellMiss(unit, 20647, missInfo); }
+            else
+                { real_caster->SendSpellMiss(unit, m_spellInfo->Id, missInfo); }
+        }
 
         if (missInfo == SPELL_MISS_MISS || missInfo == SPELL_MISS_RESIST)
         {
