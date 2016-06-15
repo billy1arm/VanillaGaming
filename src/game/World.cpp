@@ -1091,6 +1091,9 @@ void World::SetInitialWorldSettings()
     sLog.outString("Loading Waypoints...");
     sWaypointMgr.Load();
 
+    sLog.outString("Modifying in-memory dbc spell attributes...");
+    sSpellMgr.ModDBCSpellAttributes();
+
     sLog.outString("Loading ReservedNames...");
     sObjectMgr.LoadReservedPlayersNames();
 

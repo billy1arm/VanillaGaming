@@ -1784,6 +1784,39 @@ void SpellMgr::LoadSpellThreats()
     sLog.outString();
 }
 
+void SpellMgr::ModDBCSpellAttributes()
+{
+    SpellEntry* spellInfo;
+
+    // Hardcoded list for modified spell.
+    std::list<uint32> list_spell_id;
+    uint32 spell_id;
+
+    list_spell_id.push_back(20647);
+    list_spell_id.push_back(16870);
+
+    for (std::list<uint32>::iterator it = list_spell_id.begin(); it != list_spell_id.end(); ++it)
+    {
+        spell_id = *it;
+        spellInfo = (SpellEntry*)GetSpellStore()->LookupEntry(spell_id);
+        if (!spellInfo)
+            continue;
+
+        switch (spell_id)
+        {
+            // Execute spell id 20647 is used to actually notify the client of the damage done.
+            // If MeleeSpellHitResult method is executed for this spell id, it means that the spellId sent by the client for execute did already passed.
+        case 20647:
+            spellInfo->Attributes |= SPELL_ATTR_IMPOSSIBLE_DODGE_PARRY_BLOCK;
+            spellInfo->AttributesEx3 |= SPELL_ATTR_EX3_CANT_MISS;
+            break;
+        case 16870:
+            spellInfo->procFlags = PROC_FLAG_NONE;
+            break;
+        }
+    }
+}
+
 bool SpellMgr::IsRankSpellDueToSpell(SpellEntry const* spellInfo_1, uint32 spellId_2) const
 {
     SpellEntry const* spellInfo_2 = sSpellStore.LookupEntry(spellId_2);

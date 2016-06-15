@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the CMaNGOS Project. See AUTHORS file for Copyright information
  *
  * This program is free software; you can redistribute it and/or modify
@@ -1094,6 +1094,9 @@ class SpellMgr
         void LoadSpellPetAuras();
         void LoadSpellAreas();
         void LoadFacingCasterFlags();
+
+        // 改变DBC技能定义
+        void ModDBCSpellAttributes();
 
     private:
         SpellChainMap      mSpellChains;
