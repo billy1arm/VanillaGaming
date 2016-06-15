@@ -12,6 +12,9 @@ File Encoding         : 65001
 -- Updates of creature_template
 -- ----------------------------
 
+-- 大领主泰兰·弗丁
+UPDATE `creature_template` SET `PowerMultiplier`='20', `DamageMultiplier`='9.2', `MechanicImmuneMask`='617299803' WHERE (`Entry`='1842');
+
 -- 自爆绵羊
 UPDATE `creature_template` SET `ScriptName`='npc_explosive_sheep' WHERE (`Entry`='2675');
 

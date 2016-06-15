@@ -249,10 +249,13 @@ struct npc_taelan_fordringAI: public npc_escortAI, private DialogueHelper
 
     void Reset() override
     {
-        m_uiHolyCleaveTimer = urand(11000, 15000);
-        m_uiHolyStrikeTimer = urand(6000, 8000);
+        m_uiHolyCleaveTimer = urand(6000, 7000);
+        m_uiHolyStrikeTimer = urand(2000, 3000);
         m_uiCrusaderStrike  = urand(1000, 5000);
         m_uiHolyLightTimer  = 0;
+
+        m_creature->RemoveFlag(UNIT_FIELD_FLAGS, UNIT_FLAG_NOT_SELECTABLE);
+        m_creature->SetStandState(UNIT_STAND_STATE_STAND);
     }
 
     void Aggro(Unit* /*pWho*/) override
@@ -291,8 +294,6 @@ struct npc_taelan_fordringAI: public npc_escortAI, private DialogueHelper
             m_creature->GetMotionMaster()->Clear();
             m_creature->GetMotionMaster()->MoveIdle();
             m_creature->SetStandState(UNIT_STAND_STATE_DEAD);
-
-            Reset();
         }
         else
         {
@@ -325,7 +326,7 @@ struct npc_taelan_fordringAI: public npc_escortAI, private DialogueHelper
         else if (eventType == AI_EVENT_CUSTOM_B && pInvoker->GetEntry() == NPC_ISILLIEN)
         {
             StartNextDialogueText(NPC_TIRION_FORDRING);
-            m_creature->SummonCreature(NPC_TIRION_FORDRING, 2620.273f, -1920.917f, 74.25f, 0, TEMPSUMMON_TIMED_OOC_OR_DEAD_DESPAWN, 15 * MINUTE * IN_MILLISECONDS);
+            m_creature->SummonCreature(NPC_TIRION_FORDRING, 2648.74f, -1910.34f, 70.32f, 0.34f, TEMPSUMMON_TIMED_OOC_OR_DEAD_DESPAWN, 15 * MINUTE * IN_MILLISECONDS);
         }
     }
 
@@ -565,24 +566,24 @@ struct npc_taelan_fordringAI: public npc_escortAI, private DialogueHelper
 
         if (m_uiHolyCleaveTimer < uiDiff)
         {
-            if (DoCastSpellIfCan(m_creature->getVictim(), SPELL_HOLY_CLEAVE) == CAST_OK)
-                m_uiHolyCleaveTimer = urand(11000, 13000);
+            m_creature->CastSpell(m_creature->getVictim(), SPELL_HOLY_CLEAVE, true);
+            m_uiHolyCleaveTimer = urand(6000, 7000);
         }
         else
             m_uiHolyCleaveTimer -= uiDiff;
 
         if (m_uiHolyStrikeTimer < uiDiff)
         {
-            if (DoCastSpellIfCan(m_creature->getVictim(), SPELL_HOLY_STRIKE) == CAST_OK)
-                m_uiHolyStrikeTimer = urand(9000, 14000);
+            m_creature->CastSpell(m_creature->getVictim(), SPELL_HOLY_STRIKE, true);
+            m_uiHolyStrikeTimer = urand(2000, 3000);
         }
         else
             m_uiHolyStrikeTimer -= uiDiff;
 
         if (m_uiCrusaderStrike < uiDiff)
         {
-            if (DoCastSpellIfCan(m_creature->getVictim(), SPELL_CRUSADER_STRIKE) == CAST_OK)
-                m_uiCrusaderStrike = urand(7000, 12000);
+            m_creature->CastSpell(m_creature->getVictim(), SPELL_CRUSADER_STRIKE, true);
+            m_uiCrusaderStrike = urand(1000, 5000);
         }
         else
             m_uiCrusaderStrike -= uiDiff;
@@ -593,8 +594,8 @@ struct npc_taelan_fordringAI: public npc_escortAI, private DialogueHelper
             {
                 if (Unit* pTarget = DoSelectLowestHpFriendly(50.0f))
                 {
-                    if (DoCastSpellIfCan(pTarget, SPELL_HOLY_LIGHT) == CAST_OK)
-                        m_uiHolyLightTimer = urand(10000, 15000);
+                    m_creature->CastSpell(m_creature->getVictim(), SPELL_HOLY_LIGHT, true);
+                    m_uiHolyLightTimer = urand(3000, 4000);
                 }
             }
             else
@@ -717,6 +718,7 @@ struct npc_isillienAI: public npc_escortAI
             DoCastSpellIfCan(pInvoker, SPELL_TAELAN_DEATH, CAST_INTERRUPT_PREVIOUS);
             m_bTaelanDead = true;
             m_taelanGuid = pInvoker->GetObjectGuid();
+            SendAIEvent(AI_EVENT_CUSTOM_B, m_creature, pSender);
         }
     }
 
@@ -734,14 +736,6 @@ struct npc_isillienAI: public npc_escortAI
     {
         if (!m_creature->SelectHostileTarget() || !m_creature->getVictim())
             return;
-
-        // start event epilog
-        if (!m_bTirionSpawned && m_creature->GetHealthPercent() < 20.0f)
-        {
-            if (Creature* pTaelan = m_creature->GetMap()->GetCreature(m_taelanGuid))
-                SendAIEvent(AI_EVENT_CUSTOM_B, m_creature, pTaelan);
-            m_bTirionSpawned = true;
-        }
 
         // combat spells
         if (m_uiMindBlastTimer < uiDiff)
