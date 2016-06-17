@@ -1322,6 +1322,7 @@ Rate.Drop.Item.Artifact = 1
 Rate.Drop.Item.Referenced = 1
 Rate.Drop.Money = 1
 Rate.XP.Kill    = 1
+Rate.XP.PET.Kill= 1
 Rate.XP.Quest   = 1
 Rate.XP.Explore = 1
 Rate.Rest.InGame = 1
