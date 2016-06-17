@@ -508,6 +508,12 @@ struct npc_taelan_fordringAI: public npc_escortAI, private DialogueHelper
                         pIsillien->AI()->AttackStart(pTirion);
                     }
                 }
+
+                if (Player* pPlayer = GetPlayerForEscort())
+                {
+                    pPlayer->GroupEventHappens(QUEST_ID_IN_DREAMS, m_creature);
+                    m_creature->ForcedDespawn(10 * MINUTE * IN_MILLISECONDS);
+                }
                 break;
                 // epilog dialogue
             case EMOTE_HOLD_TAELAN:
@@ -530,6 +536,7 @@ struct npc_taelan_fordringAI: public npc_escortAI, private DialogueHelper
                     pTirion->ForcedDespawn(3 * MINUTE * IN_MILLISECONDS);
                     pTirion->SetFlag(UNIT_NPC_FLAGS, UNIT_NPC_FLAG_QUESTGIVER);
                 }
+                m_creature->DealDamage(m_creature, m_creature->GetHealth(), NULL, DIRECT_DAMAGE, SPELL_SCHOOL_MASK_NONE, NULL, false);
                 m_creature->ForcedDespawn(3 * MINUTE * IN_MILLISECONDS);
                 break;
         }
