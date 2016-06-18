@@ -55,5 +55,8 @@ DELETE FROM `creature` WHERE `id`='14889';
 DELETE FROM `creature` WHERE `id`='14890';
 -- INSERT INTO `creature` (`guid`, `id`, `map`, `modelid`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `spawndist`, `currentwaypoint`, `curhealth`, `curmana`, `DeathState`, `MovementType`) VALUES ('4256', '14890', '0', '15363', '0', '-10428.8', '-392.176', '43.7411', '0.932375', '604800', '5', '0', '832750', '8640', '0', '2');
 
+-- 狗头人地卜师
+UPDATE `creature` SET `position_x`='-9135.25', `position_y`='-590.705', `position_z`='57.6318', `orientation`='4.92183', `spawndist`='0', `MovementType`='2' WHERE (`guid`='80977');
+
 -- 蛮锤哨兵
 UPDATE `creature` SET `position_x`='242.109', `position_y`='-2175.42', `position_z`='118.703', `orientation`='5.06145', `spawndist`='0', `MovementType`='2' WHERE (`guid`='92919');
