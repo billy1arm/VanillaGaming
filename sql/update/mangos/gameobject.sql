@@ -81,6 +81,19 @@ UPDATE `gameobject` SET `spawntimesecs`='43200' WHERE (`id`='176309');
 
 -- 黑莲花
 UPDATE `gameobject` SET `spawntimesecs`='7200' WHERE (`id`='176589');
+
+-- 布满灰尘的书籍
+DELETE FROM `gameobject` WHERE `id`='179547';
+DELETE FROM `gameobject` WHERE `id`='179548';
+INSERT INTO `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecs`, `animprogress`, `state`) VALUES ('30236', '179548', '429', '836.333', '493.379', '37.3182', '0.296705', '0', '0', '0.147809', '0.989016', '7200', '0', '1');
+INSERT INTO `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecs`, `animprogress`, `state`) VALUES ('30237', '179548', '429', '512.784', '588.036', '-25.4023', '3.28124', '0', '0', '-0.997563', '0.0697661', '7200', '0', '1');
+INSERT INTO `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecs`, `animprogress`, `state`) VALUES ('30238', '179548', '429', '288.206', '341.155', '2.85296', '5.49779', '0', '0', '-0.382683', '0.92388', '7200', '0', '1');
+INSERT INTO `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecs`, `animprogress`, `state`) VALUES ('30239', '179548', '429', '-144.464', '742.017', '-24.5804', '3.85718', '0', '0', '-0.936671', '0.35021', '7200', '0', '1');
+INSERT INTO `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecs`, `animprogress`, `state`) VALUES ('30240', '179548', '429', '-86.3983', '569.308', '28.6079', '1.78023', '0', '0', '0.777145', '0.629321', '7200', '0', '1');
+INSERT INTO `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecs`, `animprogress`, `state`) VALUES ('30241', '179548', '429', '285.164', '-431.063', '-119.962', '4.69494', '0', '0', '-0.71325', '0.70091', '7200', '0', '1');
+INSERT INTO `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecs`, `animprogress`, `state`) VALUES ('30242', '179548', '429', '-10.1152', '-353.771', '-54.0434', '3.78737', '0', '0', '-0.948323', '0.317306', '7200', '0', '1');
+INSERT INTO `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecs`, `animprogress`, `state`) VALUES ('30243', '179548', '429', '118.018', '-261.472', '-4.14639', '0.087266', '0', '0', '0.0436192', '0.999048', '7200', '0', '1');
+INSERT INTO `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecs`, `animprogress`, `state`) VALUES ('30244', '179548', '429', '4.49781', '-437.567', '16.4125', '4.13643', '0', '0', '-0.878817', '0.47716', '7200', '0', '1');
 	
 -- 石鳞鳗群
 UPDATE `gameobject` SET `spawntimesecs`='43200' WHERE (`id`='180712');
