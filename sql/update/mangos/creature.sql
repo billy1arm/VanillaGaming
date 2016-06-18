@@ -57,6 +57,7 @@ DELETE FROM `creature` WHERE `id`='14890';
 
 -- 狗头人地卜师
 UPDATE `creature` SET `position_x`='-9135.25', `position_y`='-590.705', `position_z`='57.6318', `orientation`='4.92183', `spawndist`='0', `MovementType`='2' WHERE (`guid`='80977');
+UPDATE `creature` SET `position_x`='-9079.77', `position_y`='-586.95', `position_z`='62.2437', `orientation`='2.11185', `spawndist`='0', `MovementType`='2' WHERE (`guid`='80978');
 
 -- 蛮锤哨兵
 UPDATE `creature` SET `position_x`='242.109', `position_y`='-2175.42', `position_z`='118.703', `orientation`='5.06145', `spawndist`='0', `MovementType`='2' WHERE (`guid`='92919');
