@@ -116,3 +116,11 @@ INSERT INTO `creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`, `g
 
 -- 南海绑匪 --- 南海海盗帽
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-6' WHERE (`entry`='15685') AND (`item`='20519');
+
+-- 秘典：防护冰霜结界 V
+DELETE FROM `creature_loot_template` WHERE (`item`='22890');
+INSERT INTO `creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`, `groupid`, `mincountOrRef`, `maxcount`, `condition_id`) VALUES ('6109', '22890', '5', '0', '1', '1', '0');
+INSERT INTO `creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`, `groupid`, `mincountOrRef`, `maxcount`, `condition_id`) VALUES ('14887', '22890', '5', '0', '1', '1', '0');
+INSERT INTO `creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`, `groupid`, `mincountOrRef`, `maxcount`, `condition_id`) VALUES ('14888', '22890', '5', '0', '1', '1', '0');
+INSERT INTO `creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`, `groupid`, `mincountOrRef`, `maxcount`, `condition_id`) VALUES ('14889', '22890', '5', '0', '1', '1', '0');
+INSERT INTO `creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`, `groupid`, `mincountOrRef`, `maxcount`, `condition_id`) VALUES ('14890', '22890', '5', '0', '1', '1', '0');
