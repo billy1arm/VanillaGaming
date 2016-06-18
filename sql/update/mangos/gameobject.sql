@@ -63,6 +63,10 @@ UPDATE `gameobject` SET `spawntimesecs`='10800' WHERE (`id`='176248');
 -- 天灾军团档案
 UPDATE `gameobject` SET `spawntimesecs`='10' WHERE (`id`='176249');
 
+-- 文件大火
+DELETE FROM `gameobject` WHERE `guid`='120441';
+INSERT INTO `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecs`, `animprogress`, `state`) VALUES ('120441', '176295', '329', '3458.88', '-3106.35', '137.889', '3.14159', '0', '0', '1', '0', '-30', '100', '1');
+
 -- 补给箱
 UPDATE `gameobject` SET `spawntimesecs`='43200' WHERE (`id`='176304');
 
