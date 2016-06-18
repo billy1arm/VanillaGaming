@@ -12,6 +12,33 @@ File Encoding         : 65001
 -- Updates of item_template
 -- ----------------------------
 
+-- 矮人手持火炮
+UPDATE `item_template` SET `dmg_min2`='0', `dmg_max2`='0', `dmg_type2`='0', `spellid_1`='29625', `spelltrigger_1`='1' WHERE (`entry`='2099');
+
+-- 灼热弓
+UPDATE `item_template` SET `dmg_min2`='0', `dmg_max2`='0', `dmg_type2`='0', `spellid_1`='29624', `spelltrigger_1`='1' WHERE (`entry`='2825');
+
+-- 毒蛇
+UPDATE `item_template` SET `dmg_min2`='0', `dmg_max2`='0', `dmg_type2`='0', `spellid_1`='29636', `spelltrigger_1`='1' WHERE (`entry`='6469');
+
+-- 加加恩的火枪
+UPDATE `item_template` SET `dmg_min2`='0', `dmg_max2`='0', `dmg_type2`='0', `spellid_1`='29633', `spelltrigger_1`='1' WHERE (`entry`='9412');
+
+-- 硬刺之弓
+UPDATE `item_template` SET `dmg_min2`='0', `dmg_max2`='0', `dmg_type2`='0', `spellid_1`='29634', `spelltrigger_1`='1' WHERE (`entry`='10567');
+
+-- 觅心弩
+UPDATE `item_template` SET `dmg_min2`='0', `dmg_max2`='0', `dmg_type2`='0', `spellid_1`='29626', `spelltrigger_1`='1' WHERE (`entry`='13040');
+
+-- 散弹发射器
+UPDATE `item_template` SET `dmg_min2`='0', `dmg_max2`='0', `dmg_type2`='0', `spellid_1`='29635', `spelltrigger_1`='1' WHERE (`entry`='13146');
+
+-- 黑铁步枪
+UPDATE `item_template` SET `dmg_min2`='0', `dmg_max2`='0', `dmg_type2`='0', `spellid_1`='29632', `spelltrigger_1`='1' WHERE (`entry`='16004');
+
+-- 绿色守护者之弓
+UPDATE `item_template` SET `dmg_min2`='0', `dmg_max2`='0', `dmg_type2`='0', `spellid_1`='29637', `spelltrigger_1`='1' WHERE (`entry`='17753');
+
 -- 修理机器人74A型
 UPDATE `item_template` SET `spellcooldown_1`='3600000' WHERE (`entry`='18232');
 
