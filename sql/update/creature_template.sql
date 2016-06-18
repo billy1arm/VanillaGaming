@@ -24,8 +24,32 @@ UPDATE `creature_template` SET `FactionAlliance`='47', `FactionHorde`='47' WHERE
 -- 巴尔丹鉴定官
 UPDATE `creature_template` SET `FactionAlliance`='47', `FactionHorde`='47' WHERE (`Entry`='2990');
 
+-- 沙怒暗影法师
+UPDATE `creature_template` SET `SpeedWalk`='1', `SpeedRun`='1.14286' WHERE (`Entry`='5648');
+
+-- 沙怒饮血者
+UPDATE `creature_template` SET `SpeedWalk`='1', `SpeedRun`='1.14286' WHERE (`Entry`='5649');
+
+-- 沙怒巫医
+UPDATE `creature_template` SET `SpeedWalk`='1', `SpeedRun`='1.14286' WHERE (`Entry`='5650');
+
 -- 伊兰尼库斯的阴影
 UPDATE `creature_template` SET `UnitFlags`='0' WHERE (`Entry`='5709');
+
+-- 熔岩喷射图腾
+UPDATE `creature_template` SET `SpeedWalk`='1', `SpeedRun`='1' WHERE (`Entry`='6017');
+
+-- 陷地图腾
+UPDATE `creature_template` SET `SpeedWalk`='1', `SpeedRun`='1' WHERE (`Entry`='6066');
+
+-- 沙怒暗影猎手
+UPDATE `creature_template` SET `SpeedWalk`='1', `SpeedRun`='1.14286' WHERE (`Entry`='7246');
+
+-- 沙怒噬魂者
+UPDATE `creature_template` SET `SpeedWalk`='1', `SpeedRun`='1.14286' WHERE (`Entry`='7247');
+
+-- 殉教者塞卡
+UPDATE `creature_template` SET `SpeedWalk`='1', `SpeedRun`='1.14286' WHERE (`Entry`='7272');
 
 -- 祖尔法拉克阵亡英雄
 UPDATE `creature_template` SET `ExtraFlags`='64' WHERE (`Entry`='7276');
@@ -33,8 +57,98 @@ UPDATE `creature_template` SET `ExtraFlags`='64' WHERE (`Entry`='7276');
 -- 祖尔法拉克僵尸
 UPDATE `creature_template` SET `ExtraFlags`='64' WHERE (`Entry`='7286');
 
+-- 乌克兹·沙顶
+UPDATE `creature_template` SET `SpeedWalk`='1', `SpeedRun`='1.14286' WHERE (`Entry`='7267');
+
+-- 沙怒守护者
+UPDATE `creature_template` SET `SpeedWalk`='1', `SpeedRun`='1.14286' WHERE (`Entry`='7268');
+
+-- 圣甲虫
+UPDATE `creature_template` SET `SpeedWalk`='0.8', `SpeedRun`='1' WHERE (`Entry`='7269');
+
+-- 巫医祖穆拉恩
+UPDATE `creature_template` SET `SpeedWalk`='1', `SpeedRun`='1.14286' WHERE (`Entry`='7271');
+
+-- 加兹瑞拉
+UPDATE `creature_template` SET `SpeedWalk`='1.6', `SpeedRun`='1.42857' WHERE (`Entry`='7273');
+
+-- 沙怒刽子手
+UPDATE `creature_template` SET `SpeedWalk`='1', `SpeedRun`='1.14286' WHERE (`Entry`='7274');
+
+-- 暗影祭司塞瑟斯
+UPDATE `creature_template` SET `SpeedWalk`='1', `SpeedRun`='1.14286' WHERE (`Entry`='7275');
+
+-- 祖尔法拉克阵亡英雄
+UPDATE `creature_template` SET `SpeedWalk`='1', `SpeedRun`='1.14286' WHERE (`Entry`='7276');
+
+-- 祖尔法拉克僵尸
+UPDATE `creature_template` SET `SpeedWalk`='1', `SpeedRun`='1.14286' WHERE (`Entry`='7286');
+
+-- 布莱中士
+UPDATE `creature_template` SET `SpeedWalk`='1', `SpeedRun`='1.14286' WHERE (`Entry`='7604');
+
+-- 拉文
+UPDATE `creature_template` SET `SpeedWalk`='1', `SpeedRun`='1.14286' WHERE (`Entry`='7605');
+
+-- 欧罗·血眼
+UPDATE `creature_template` SET `SpeedWalk`='1', `SpeedRun`='1.14286' WHERE (`Entry`='7606');
+
+-- 维格利
+UPDATE `creature_template` SET `SpeedWalk`='1', `SpeedRun`='1.14286' WHERE (`Entry`='7607');
+
+-- 穆尔塔
+UPDATE `creature_template` SET `SpeedWalk`='1', `SpeedRun`='1.14286' WHERE (`Entry`='7608');
+
 -- 哈扎里寄生虫
 UPDATE `creature_template` SET `ExtraFlags`='64' WHERE (`Entry`='7769');
+
+-- 祖穆拉恩结界
+UPDATE `creature_template` SET `SpeedWalk`='1', `SpeedRun`='1' WHERE (`Entry`='7785');
+
+-- 祖穆拉恩骷髅
+UPDATE `creature_template` SET `SpeedWalk`='0.888888', `SpeedRun`='1.14286' WHERE (`Entry`='7786');
+
+-- 沙怒奴隶
+UPDATE `creature_template` SET `SpeedWalk`='1', `SpeedRun`='1.14286' WHERE (`Entry`='7787');
+
+-- 沙怒苦工
+UPDATE `creature_template` SET `SpeedWalk`='1', `SpeedRun`='1.14286' WHERE (`Entry`='7788');
+
+-- 沙怒智障者
+UPDATE `creature_template` SET `SpeedWalk`='1.6', `SpeedRun`='0.714286' WHERE (`Entry`='7789');
+
+-- 水占师维蕾萨
+UPDATE `creature_template` SET `SpeedWalk`='1', `SpeedRun`='1.14286' WHERE (`Entry`='7795');
+
+-- 耐克鲁姆
+UPDATE `creature_template` SET `SpeedWalk`='1', `SpeedRun`='1.14286' WHERE (`Entry`='7796');
+
+-- 卢兹鲁
+UPDATE `creature_template` SET `SpeedWalk`='1', `SpeedRun`='1.14286' WHERE (`Entry`='7797');
+
+-- 苏利萨斯沙行者
+UPDATE `creature_template` SET `SpeedWalk`='1.11111', `SpeedRun`='1.14286' WHERE (`Entry`='8095');
+
+-- 苏利萨斯憎恶
+UPDATE `creature_template` SET `SpeedWalk`='1.11111', `SpeedRun`='1.14286' WHERE (`Entry`='8120');
+
+-- 安图苏尔
+UPDATE `creature_template` SET `SpeedWalk`='1', `SpeedRun`='1.14286' WHERE (`Entry`='8127');
+
+-- 苏利萨斯幼崽
+UPDATE `creature_template` SET `SpeedWalk`='1.11111', `SpeedRun`='1.14286' WHERE (`Entry`='8138');
+
+-- 安图苏尔的仆从
+UPDATE `creature_template` SET `SpeedWalk`='1.11111', `SpeedRun`='1.14286' WHERE (`Entry`='8156');
+
+-- 强效治疗结界
+UPDATE `creature_template` SET `SpeedWalk`='1', `SpeedRun`='1' WHERE (`Entry`='8179');
+
+-- 沙怒侍僧
+UPDATE `creature_template` SET `SpeedWalk`='1', `SpeedRun`='1.14286' WHERE (`Entry`='8876');
+
+-- 沙怒狂热者
+UPDATE `creature_template` SET `SpeedWalk`='1', `SpeedRun`='1.14286' WHERE (`Entry`='8877');
 
 -- 喷焰小鬼
 UPDATE `creature_template` SET `ExtraFlags`='64' WHERE (`Entry`='9776');
@@ -44,6 +158,15 @@ UPDATE `creature_template` SET `ExtraFlags`='64' WHERE (`Entry`='9777');
 
 -- 怒焰小鬼
 UPDATE `creature_template` SET `ExtraFlags`='64' WHERE (`Entry`='9779');
+
+-- 杉达尔·沙掠者
+UPDATE `creature_template` SET `SpeedWalk`='1', `SpeedRun`='1.14286' WHERE (`Entry`='10080');
+
+-- 灰尘怨灵
+UPDATE `creature_template` SET `SpeedWalk`='1', `SpeedRun`='1.14286' WHERE (`Entry`='10081');
+
+-- 泽雷利斯
+UPDATE `creature_template` SET `SpeedWalk`='1', `SpeedRun`='1.14286' WHERE (`Entry`='10082');
 
 -- 骷髅守护者
 UPDATE `creature_template` SET `ExtraFlags`='64' WHERE (`Entry`='10390');
