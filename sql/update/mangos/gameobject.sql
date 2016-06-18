@@ -57,6 +57,9 @@ UPDATE `gameobject` SET `spawntimesecs`='43200' WHERE (`id`='166872');
 -- 补给箱
 UPDATE `gameobject` SET `spawntimesecs`='43200' WHERE (`id`='176224');
 
+-- 香烟
+UPDATE `gameobject` SET `spawntimesecs`='10800' WHERE (`id`='176248');
+
 -- 天灾军团档案
 UPDATE `gameobject` SET `spawntimesecs`='10' WHERE (`id`='176249');
 
