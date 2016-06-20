@@ -5441,6 +5441,32 @@ void SpellAuraHolder::Update(uint32 diff)
         {
             if (Unit* caster = GetCaster())
             {
+                // 技能随机破控
+                if (Unit* target = GetTarget())
+                {
+                    // 仅对玩家PVP生效
+                    if (target->GetTypeId() == TYPEID_PLAYER)
+                    {
+                        // 仅对会递减的CC技能有效
+                        if (GetSpellProto() && GetDiminishingReturnsGroupForSpell(GetSpellProto(), true))
+                        {
+                            // 仅对持续时间超过10S的技能有效
+                            if (GetSpellMaxDuration(GetSpellProto()) > 10000)
+                            {
+                                float pvpspellbreakchance = 0.0f;
+                                // 破控几率不得小于5%
+                                if (100000.0f / GetSpellMaxDuration(GetSpellProto()) < 5.0f)
+                                    { pvpspellbreakchance = 5.0f; }
+                                else
+                                    { pvpspellbreakchance = 100000.0f / GetSpellMaxDuration(GetSpellProto()); }
+                                // 移除控制
+                                if (roll_chance_f(pvpspellbreakchance))
+                                    { m_duration = 0; }
+                            }
+                        }
+                    }
+                }
+
                 Powers powertype = Powers(GetSpellProto()->powerType);
                 int32 manaPerSecond = GetSpellProto()->manaPerSecond + GetSpellProto()->manaPerSecondPerLevel * caster->getLevel();
                 m_timeCla = 1 * IN_MILLISECONDS;
