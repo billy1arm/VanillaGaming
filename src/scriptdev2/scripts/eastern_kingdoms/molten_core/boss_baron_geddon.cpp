@@ -1,4 +1,4 @@
-/* This file is part of the ScriptDev2 Project. See AUTHORS file for Copyright information
+﻿/* This file is part of the ScriptDev2 Project. See AUTHORS file for Copyright information
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 2 of the License, or
@@ -17,8 +17,8 @@
 /* ScriptData
 SDName: Boss_Baron_Geddon
 SD%Complete: 100
-SDComment: Armaggedon is not working properly (core issue)
-SDCategory: Molten Core
+SDComment:
+SDCategory: 熔火之心
 EndScriptData */
 
 #include "precompiled.h"
@@ -28,10 +28,10 @@ enum
 {
     EMOTE_SERVICE               = -1409000,
 
-    SPELL_INFERNO               = 19695,
-    SPELL_IGNITE_MANA           = 19659,
-    SPELL_LIVING_BOMB           = 20475,
-    SPELL_ARMAGEDDON            = 20478
+    SPELL_IGNITE_MANA           = 19659,                    // 点燃法力
+    SPELL_INFERNO               = 19695,                    // 地狱火
+    SPELL_LIVING_BOMB           = 20475,                    // 活化炸弹
+    SPELL_ARMAGEDDON            = 20478                     // 末日决战
 };
 
 struct boss_baron_geddonAI : public ScriptedAI
@@ -51,10 +51,11 @@ struct boss_baron_geddonAI : public ScriptedAI
 
     void Reset() override
     {
-        m_bIsArmageddon = false;
-        m_uiInfernoTimer = 45000;
-        m_uiIgniteManaTimer = 30000;
-        m_uiLivingBombTimer = 35000;
+        m_bIsArmageddon             = false;
+
+        m_uiInfernoTimer            = 45000;
+        m_uiIgniteManaTimer         = 30000;
+        m_uiLivingBombTimer         = 35000;
     }
 
     void Aggro(Unit* /*pWho*/) override
@@ -80,10 +81,11 @@ struct boss_baron_geddonAI : public ScriptedAI
         if (!m_creature->SelectHostileTarget() || !m_creature->getVictim())
             return;
 
-        if (m_bIsArmageddon)                                // Do nothing untill armageddon triggers
+        // 末日决战期间无AI
+        if (m_bIsArmageddon)
             return;
 
-        // If we are <2% hp cast Armageddom
+        // 末日决战
         if (m_creature->GetHealthPercent() <= 2.0f && !m_bIsArmageddon)
         {
             if (DoCastSpellIfCan(m_creature, SPELL_ARMAGEDDON, CAST_INTERRUPT_PREVIOUS) == CAST_OK)
@@ -94,16 +96,16 @@ struct boss_baron_geddonAI : public ScriptedAI
             }
         }
 
-        // Inferno_Timer
+        // 地狱火
         if (m_uiInfernoTimer < uiDiff)
         {
             if (DoCastSpellIfCan(m_creature, SPELL_INFERNO) == CAST_OK)
-                m_uiInfernoTimer = 45000;
+                m_uiInfernoTimer = 30000;
         }
         else
             m_uiInfernoTimer -= uiDiff;
 
-        // Ignite Mana Timer
+        // 点燃法力
         if (m_uiIgniteManaTimer < uiDiff)
         {
             if (DoCastSpellIfCan(m_creature, SPELL_IGNITE_MANA) == CAST_OK)
@@ -112,7 +114,7 @@ struct boss_baron_geddonAI : public ScriptedAI
         else
             m_uiIgniteManaTimer -= uiDiff;
 
-        // Living Bomb Timer
+        // 活化炸弹
         if (m_uiLivingBombTimer < uiDiff)
         {
             if (Unit* pTarget = m_creature->SelectAttackingTarget(ATTACKING_TARGET_RANDOM, 0))

@@ -1,4 +1,4 @@
-/* This file is part of the ScriptDev2 Project. See AUTHORS file for Copyright information
+﻿/* This file is part of the ScriptDev2 Project. See AUTHORS file for Copyright information
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 2 of the License, or
@@ -16,9 +16,9 @@
 
 /* ScriptData
 SDName: Boss_Sulfuron_Harbringer
-SD%Complete: 80
-SDComment: Spells Dark strike and Flamespear need confirmation
-SDCategory: Molten Core
+SD%Complete: 100
+SDComment:
+SDCategory: 熔火之心
 EndScriptData */
 
 #include "precompiled.h"
@@ -26,16 +26,16 @@ EndScriptData */
 
 enum
 {
-    SPELL_DARK_STRIKE           = 19777,                    // Wowhead Linked to add - need confirmation!
-    SPELL_DEMORALIZING_SHOUT    = 19778,
-    SPELL_INSPIRE               = 19779,
-    SPELL_HAND_OF_RAGNAROS      = 19780,
-    SPELL_FLAMESPEAR            = 19781,
+    SPELL_DEMORALIZING_SHOUT    = 19778,                    // 挫志怒吼
+    SPELL_INSPIRE               = 19779,                    // 灵感
+    SPELL_HAND_OF_RAGNAROS      = 19780,                    // 拉格纳罗斯之手
+    SPELL_FLAMESPEAR            = 19781,                    // 烈焰之矛
 
-    // Adds Spells
-    SPELL_HEAL                  = 19775,
-    SPELL_SHADOWWORD_PAIN       = 19776,
-    SPELL_IMMOLATE              = 20294
+    // 火妖祭祀
+    SPELL_HEAL                  = 19775,                    // 黑暗治疗
+    SPELL_SHADOWWORD_PAIN       = 19776,                    // 暗言术：痛
+    SPELL_DARK_STRIKE           = 19777,                    // 黑暗打击
+    SPELL_IMMOLATE              = 20294                     // 献祭
 };
 
 struct boss_sulfuronAI : public ScriptedAI
@@ -48,7 +48,6 @@ struct boss_sulfuronAI : public ScriptedAI
 
     ScriptedInstance* m_pInstance;
 
-    uint32 m_uiDarkstrikeTimer;
     uint32 m_uiDemoralizingShoutTimer;
     uint32 m_uiInspireTimer;
     uint32 m_uiKnockdownTimer;
@@ -56,11 +55,10 @@ struct boss_sulfuronAI : public ScriptedAI
 
     void Reset() override
     {
-        m_uiDarkstrikeTimer = 10000;
-        m_uiDemoralizingShoutTimer = 15000;
-        m_uiInspireTimer = 3000;
-        m_uiKnockdownTimer = 6000;
-        m_uiFlamespearTimer = 2000;
+        m_uiDemoralizingShoutTimer  = 15000;
+        m_uiInspireTimer            = 3000;
+        m_uiKnockdownTimer          = 6000;
+        m_uiFlamespearTimer         = 2000;
     }
 
     void Aggro(Unit* /*pWho*/) override
@@ -86,7 +84,7 @@ struct boss_sulfuronAI : public ScriptedAI
         if (!m_creature->SelectHostileTarget() || !m_creature->getVictim())
             return;
 
-        // Demoralizing Shout Timer
+        // 挫志怒吼
         if (m_uiDemoralizingShoutTimer < uiDiff)
         {
             if (DoCastSpellIfCan(m_creature, SPELL_DEMORALIZING_SHOUT) == CAST_OK)
@@ -95,7 +93,7 @@ struct boss_sulfuronAI : public ScriptedAI
         else
             m_uiDemoralizingShoutTimer -= uiDiff;
 
-        // Inspire Timer
+        // 灵感
         if (m_uiInspireTimer < uiDiff)
         {
             Creature* pTarget = NULL;
@@ -116,7 +114,7 @@ struct boss_sulfuronAI : public ScriptedAI
         else
             m_uiInspireTimer -= uiDiff;
 
-        // Hand of Ragnaros Timer
+        // 拉格纳罗斯之手
         if (m_uiKnockdownTimer < uiDiff)
         {
             if (DoCastSpellIfCan(m_creature, SPELL_HAND_OF_RAGNAROS) == CAST_OK)
@@ -125,7 +123,7 @@ struct boss_sulfuronAI : public ScriptedAI
         else
             m_uiKnockdownTimer -= uiDiff;
 
-        // Flamespear Timer
+        // 烈焰之矛
         if (m_uiFlamespearTimer < uiDiff)
         {
             if (Unit* pTarget = m_creature->SelectAttackingTarget(ATTACKING_TARGET_RANDOM, 0))
@@ -136,15 +134,6 @@ struct boss_sulfuronAI : public ScriptedAI
         }
         else
             m_uiFlamespearTimer -= uiDiff;
-
-        // Dark Strike Timer
-        if (m_uiDarkstrikeTimer < uiDiff)
-        {
-            if (DoCastSpellIfCan(m_creature->getVictim(), SPELL_DARK_STRIKE) == CAST_OK)
-                m_uiDarkstrikeTimer = urand(15000, 18000);
-        }
-        else
-            m_uiDarkstrikeTimer -= uiDiff;
 
         DoMeleeAttackIfReady();
     }
@@ -160,15 +149,17 @@ struct mob_flamewaker_priestAI : public ScriptedAI
 
     uint32 m_uiHealTimer;
     uint32 m_uiShadowWordPainTimer;
+    uint32 m_uiDarkstrikeTimer;
     uint32 m_uiImmolateTimer;
 
     ScriptedInstance* m_pInstance;
 
     void Reset() override
     {
-        m_uiHealTimer = urand(15000, 30000);
-        m_uiShadowWordPainTimer = 2000;
-        m_uiImmolateTimer = 8000;
+        m_uiHealTimer               = urand(15000, 30000);
+        m_uiShadowWordPainTimer     = 2000;
+        m_uiDarkstrikeTimer         = 10000;
+        m_uiImmolateTimer           = 8000;
     }
 
     void UpdateAI(const uint32 uiDiff) override
@@ -176,7 +167,7 @@ struct mob_flamewaker_priestAI : public ScriptedAI
         if (!m_creature->SelectHostileTarget() || !m_creature->getVictim())
             return;
 
-        // Casting Heal to Sulfuron or other Guards.
+        // 黑暗治疗
         if (m_uiHealTimer < uiDiff)
         {
             if (Unit* pUnit = DoSelectLowestHpFriendly(60.0f, 1))
@@ -188,7 +179,7 @@ struct mob_flamewaker_priestAI : public ScriptedAI
         else
             m_uiHealTimer -= uiDiff;
 
-        // ShadowWord Pain Timer
+        // 暗言术：痛
         if (m_uiShadowWordPainTimer < uiDiff)
         {
             if (Unit* pTarget = m_creature->SelectAttackingTarget(ATTACKING_TARGET_RANDOM, 0))
@@ -200,7 +191,16 @@ struct mob_flamewaker_priestAI : public ScriptedAI
         else
             m_uiShadowWordPainTimer -= uiDiff;
 
-        // Immolate Timer
+        // 黑暗打击
+        if (m_uiDarkstrikeTimer < uiDiff)
+        {
+            if (DoCastSpellIfCan(m_creature->getVictim(), SPELL_DARK_STRIKE) == CAST_OK)
+                { m_uiDarkstrikeTimer = urand(15000, 18000); }
+        }
+        else
+            { m_uiDarkstrikeTimer -= uiDiff; }
+
+        // 献祭
         if (m_uiImmolateTimer < uiDiff)
         {
             if (Unit* pTarget = m_creature->SelectAttackingTarget(ATTACKING_TARGET_RANDOM, 0))

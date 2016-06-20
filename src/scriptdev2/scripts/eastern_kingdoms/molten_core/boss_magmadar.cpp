@@ -1,4 +1,4 @@
-/* This file is part of the ScriptDev2 Project. See AUTHORS file for Copyright information
+﻿/* This file is part of the ScriptDev2 Project. See AUTHORS file for Copyright information
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 2 of the License, or
@@ -16,9 +16,9 @@
 
 /* ScriptData
 SDName: Boss_Magmadar
-SD%Complete: 75
-SDComment: Lavabomb needs still core support
-SDCategory: Molten Core
+SD%Complete: 100
+SDComment:
+SDCategory: 熔火之心
 EndScriptData */
 
 #include "precompiled.h"
@@ -28,11 +28,10 @@ enum
 {
     EMOTE_GENERIC_FRENZY_KILL   = -1000001,
 
-    SPELL_FRENZY                = 19451,
-    SPELL_MAGMASPIT             = 19449,                    // This is actually a buff he gives himself
-    SPELL_PANIC                 = 19408,
-    SPELL_LAVABOMB              = 19411,                    // This calls a dummy server side effect that isn't implemented yet
-    SPELL_LAVABOMB_ALT          = 19428
+    SPELL_PANIC                 = 19408,                    // 恐慌
+    SPELL_LAVABOMB              = 19411,                    // 熔岩炸弹
+    SPELL_MAGMASPIT             = 19449,                    // 熔岩喷吐
+    SPELL_FRENZY                = 19451                     // 激怒
 };
 
 struct boss_magmadarAI : public ScriptedAI
@@ -51,9 +50,9 @@ struct boss_magmadarAI : public ScriptedAI
 
     void Reset() override
     {
-        m_uiFrenzyTimer = 30000;
-        m_uiPanicTimer = 7000;
-        m_uiLavabombTimer = 12000;
+        m_uiPanicTimer              = 7000;
+        m_uiLavabombTimer           = 12000;
+        m_uiFrenzyTimer             = 30000;
     }
 
     void Aggro(Unit* /*pWho*/) override
@@ -81,7 +80,7 @@ struct boss_magmadarAI : public ScriptedAI
         if (!m_creature->SelectHostileTarget() || !m_creature->getVictim())
             return;
 
-        // Frenzy_Timer
+        // 激怒
         if (m_uiFrenzyTimer < uiDiff)
         {
             if (DoCastSpellIfCan(m_creature, SPELL_FRENZY) == CAST_OK)
@@ -93,7 +92,7 @@ struct boss_magmadarAI : public ScriptedAI
         else
             m_uiFrenzyTimer -= uiDiff;
 
-        // Panic_Timer
+        // 恐慌
         if (m_uiPanicTimer < uiDiff)
         {
             if (DoCastSpellIfCan(m_creature, SPELL_PANIC) == CAST_OK)
@@ -102,7 +101,7 @@ struct boss_magmadarAI : public ScriptedAI
         else
             m_uiPanicTimer -= uiDiff;
 
-        // Lavabomb_Timer
+        // 熔岩炸弹
         if (m_uiLavabombTimer < uiDiff)
         {
             if (Unit* pTarget = m_creature->SelectAttackingTarget(ATTACKING_TARGET_RANDOM, 0))

@@ -1,4 +1,4 @@
-/* This file is part of the ScriptDev2 Project. See AUTHORS file for Copyright information
+﻿/* This file is part of the ScriptDev2 Project. See AUTHORS file for Copyright information
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 2 of the License, or
@@ -16,9 +16,9 @@
 
 /* ScriptData
 SDName: Boss_Shazzrah
-SD%Complete: 75
-SDComment: Teleport NYI (need core support, remove hack here when implemented)
-SDCategory: Molten Core
+SD%Complete: 100
+SDComment:
+SDCategory: 熔火之心
 EndScriptData */
 
 #include "precompiled.h"
@@ -26,11 +26,11 @@ EndScriptData */
 
 enum
 {
-    SPELL_ARCANE_EXPLOSION          = 19712,
-    SPELL_SHAZZRAH_CURSE            = 19713,
-    SPELL_MAGIC_GROUNDING           = 19714,
-    SPELL_COUNTERSPELL              = 19715,
-    SPELL_GATE_OF_SHAZZRAH          = 23138                 // effect spell: 23139
+    SPELL_ARCANE_EXPLOSION      = 19712,                    // 魔爆术
+    SPELL_SHAZZRAH_CURSE        = 19713,                    // 沙斯拉尔的诅咒
+    SPELL_MAGIC_GROUNDING       = 19714,                    // 衰减魔法
+    SPELL_COUNTERSPELL          = 19715,                    // 法术反制
+    SPELL_GATE_OF_SHAZZRAH      = 23138                     // 沙斯拉尔之门
 };
 
 struct boss_shazzrahAI : public ScriptedAI
@@ -51,11 +51,11 @@ struct boss_shazzrahAI : public ScriptedAI
 
     void Reset() override
     {
-        m_uiArcaneExplosionTimer = 6000;
-        m_uiShazzrahCurseTimer = 10000;
-        m_uiMagicGroundingTimer = 24000;
-        m_uiCounterspellTimer = 15000;
-        m_uiBlinkTimer = 30000;
+        m_uiArcaneExplosionTimer    = 6000;
+        m_uiShazzrahCurseTimer      = 10000;
+        m_uiMagicGroundingTimer     = 24000;
+        m_uiCounterspellTimer       = 15000;
+        m_uiBlinkTimer              = 30000;
     }
 
     void Aggro(Unit* /*pWho*/) override
@@ -81,7 +81,7 @@ struct boss_shazzrahAI : public ScriptedAI
         if (!m_creature->SelectHostileTarget() || !m_creature->getVictim())
             return;
 
-        // Arcane Explosion Timer
+        // 魔爆术
         if (m_uiArcaneExplosionTimer < uiDiff)
         {
             if (DoCastSpellIfCan(m_creature, SPELL_ARCANE_EXPLOSION) == CAST_OK)
@@ -90,7 +90,7 @@ struct boss_shazzrahAI : public ScriptedAI
         else
             m_uiArcaneExplosionTimer -= uiDiff;
 
-        // Shazzrah Curse Timer
+        // 沙斯拉尔的诅咒
         if (m_uiShazzrahCurseTimer < uiDiff)
         {
             if (DoCastSpellIfCan(m_creature, SPELL_SHAZZRAH_CURSE) == CAST_OK)
@@ -99,7 +99,7 @@ struct boss_shazzrahAI : public ScriptedAI
         else
             m_uiShazzrahCurseTimer -= uiDiff;
 
-        // Magic Grounding Timer
+        // 衰减魔法
         if (m_uiMagicGroundingTimer < uiDiff)
         {
             if (DoCastSpellIfCan(m_creature, SPELL_MAGIC_GROUNDING) == CAST_OK)
@@ -108,7 +108,7 @@ struct boss_shazzrahAI : public ScriptedAI
         else
             m_uiMagicGroundingTimer -= uiDiff;
 
-        // Counterspell Timer
+        // 法术反制
         if (m_uiCounterspellTimer < uiDiff)
         {
             if (DoCastSpellIfCan(m_creature, SPELL_COUNTERSPELL) == CAST_OK)
@@ -117,20 +117,14 @@ struct boss_shazzrahAI : public ScriptedAI
         else
             m_uiCounterspellTimer -= uiDiff;
 
-        // Blink Timer
+        // 沙斯拉尔之门
         if (m_uiBlinkTimer < uiDiff)
         {
-            // Teleporting him to a random gamer and casting Arcane Explosion after that.
             if (DoCastSpellIfCan(m_creature, SPELL_GATE_OF_SHAZZRAH) == CAST_OK)
             {
-                // manual, until added effect of dummy properly -- TODO REMOVE HACK
-                if (Unit* pTarget = m_creature->SelectAttackingTarget(ATTACKING_TARGET_RANDOM, 0))
-                    m_creature->NearTeleportTo(pTarget->GetPositionX(), pTarget->GetPositionY(), pTarget->GetPositionZ(), m_creature->GetOrientation());
                 DoResetThreat();
-
                 DoCastSpellIfCan(m_creature, SPELL_ARCANE_EXPLOSION, CAST_TRIGGERED);
-
-                m_uiBlinkTimer = 45000;
+                m_uiBlinkTimer = 30000;
             }
         }
         else

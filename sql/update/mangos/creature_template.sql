@@ -186,6 +186,51 @@ UPDATE `creature_template` SET `ExtraFlags`='64' WHERE (`Entry`='10919');
 -- 上层精灵召唤者
 UPDATE `creature_template` SET `ExtraFlags`='64' WHERE (`Entry`='11466');
 
+-- 拉格纳罗斯
+UPDATE `creature_template` SET `DamageMultiplier`='18', `Armor`='7291', `ResistanceHoly`='121', `ResistanceFire`='121', `ResistanceNature`='121', `ResistanceFrost`='121', `ResistanceShadow`='121', `ResistanceArcane`='121' WHERE (`Entry`='11502');
+
+-- 熔核巨人
+UPDATE `creature_template` SET `DamageMultiplier`='30', `Armor`='6800', `ResistanceHoly`='121', `ResistanceFire`='121', `ResistanceNature`='121', `ResistanceFrost`='121', `ResistanceShadow`='121', `ResistanceArcane`='121' WHERE (`Entry`='11658');
+
+-- 熔核摧毁者
+UPDATE `creature_template` SET `DamageMultiplier`='30', `Armor`='7491', `ResistanceHoly`='121', `ResistanceFire`='121', `ResistanceNature`='121', `ResistanceFrost`='121', `ResistanceShadow`='121', `ResistanceArcane`='121' WHERE (`Entry`='11659');
+
+-- 火妖
+UPDATE `creature_template` SET `DamageMultiplier`='32', `Armor`='6000', `ResistanceHoly`='121', `ResistanceFire`='121', `ResistanceNature`='121', `ResistanceFrost`='121', `ResistanceShadow`='121', `ResistanceArcane`='121' WHERE (`Entry`='11661');
+
+-- 火妖祭祀
+UPDATE `creature_template` SET `DamageMultiplier`='2', `Armor`='7123', `ResistanceHoly`='121', `ResistanceFire`='121', `ResistanceNature`='121', `ResistanceFrost`='121', `ResistanceShadow`='121', `ResistanceArcane`='121' WHERE (`Entry`='11662');
+
+-- 火妖医师
+UPDATE `creature_template` SET `DamageMultiplier`='17', `Armor`='7175', `MechanicImmuneMask`='617234267', `ResistanceHoly`='121', `ResistanceFire`='121', `ResistanceNature`='121', `ResistanceFrost`='121', `ResistanceShadow`='121', `ResistanceArcane`='121', `AIName`='', `ScriptName`='npc_flamewaker_healer' WHERE (`Entry`='11663');
+
+-- 火妖精英
+UPDATE `creature_template` SET `DamageMultiplier`='19', `Armor`='7221', `MechanicImmuneMask`='617234267', `ResistanceHoly`='121', `ResistanceFire`='121', `ResistanceNature`='121', `ResistanceFrost`='121', `ResistanceShadow`='121', `ResistanceArcane`='121', `AIName`='', `ScriptName`='npc_flamewaker_elite' WHERE (`Entry`='11664');
+
+-- 熔岩歼灭者
+UPDATE `creature_template` SET `DamageMultiplier`='27', `Armor`='6800', `ResistanceHoly`='121', `ResistanceFire`='121', `ResistanceNature`='121', `ResistanceFrost`='121', `ResistanceShadow`='121', `ResistanceArcane`='121' WHERE (`Entry`='11665');
+
+-- 火焰行者
+UPDATE `creature_template` SET `DamageMultiplier`='15', `Armor`='6800', `ResistanceHoly`='121', `ResistanceFire`='121', `ResistanceNature`='121', `ResistanceFrost`='121', `ResistanceShadow`='121', `ResistanceArcane`='121' WHERE (`Entry`='11666');
+
+-- 烈焰守卫
+UPDATE `creature_template` SET `DamageMultiplier`='15', `Armor`='6800', `ResistanceHoly`='121', `ResistanceFire`='121', `ResistanceNature`='121', `ResistanceFrost`='121', `ResistanceShadow`='121', `ResistanceArcane`='121' WHERE (`Entry`='11667');
+
+-- 火焰之王
+UPDATE `creature_template` SET `DamageMultiplier`='16', `Armor`='6800', `ResistanceHoly`='121', `ResistanceFire`='121', `ResistanceNature`='121', `ResistanceFrost`='121', `ResistanceShadow`='121', `ResistanceArcane`='121' WHERE (`Entry`='11668');
+
+-- 烈焰小鬼
+UPDATE `creature_template` SET `MechanicImmuneMask`='82536119' WHERE (`Entry`='11669');
+
+-- 熔火恶犬
+UPDATE `creature_template` SET `DamageMultiplier`='20', `Armor`='6500', `ResistanceHoly`='121', `ResistanceFire`='121', `ResistanceNature`='121', `ResistanceFrost`='121', `ResistanceShadow`='121', `ResistanceArcane`='121', `AIName`='', `ScriptName`='npc_core_hound' WHERE (`Entry`='11671');
+
+-- 熔火怒犬
+UPDATE `creature_template` SET `DamageMultiplier`='19', `Armor`='7191', `ResistanceHoly`='121', `ResistanceFire`='121', `ResistanceNature`='121', `ResistanceFrost`='121', `ResistanceShadow`='121', `ResistanceArcane`='121' WHERE (`Entry`='11672');
+
+-- 上古熔火恶犬
+UPDATE `creature_template` SET `DamageMultiplier`='23', `Armor`='6800', `ResistanceHoly`='121', `ResistanceFire`='121', `ResistanceNature`='121', `ResistanceFrost`='121', `ResistanceShadow`='121', `ResistanceArcane`='121' WHERE (`Entry`='11673');
+
 -- 暮光地王
 UPDATE `creature_template` SET `AIName`='EventAI' WHERE (`Entry`='11881');
 
@@ -195,8 +240,50 @@ UPDATE `creature_template` SET `AIName`='EventAI' WHERE (`Entry`='11882');
 -- 暮光主宰
 UPDATE `creature_template` SET `AIName`='EventAI' WHERE (`Entry`='11883');
 
+-- 玛格曼达
+UPDATE `creature_template` SET `DamageMultiplier`='35', `Armor`='6800', `ResistanceHoly`='121', `ResistanceFire`='121', `ResistanceNature`='121', `ResistanceFrost`='121', `ResistanceShadow`='121', `ResistanceArcane`='121' WHERE (`Entry`='11982');
+
+-- 焚化者古雷曼格
+UPDATE `creature_template` SET `DamageMultiplier`='45', `Armor`='6800', `ResistanceHoly`='121', `ResistanceFire`='121', `ResistanceNature`='121', `ResistanceFrost`='121', `ResistanceShadow`='121', `ResistanceArcane`='121' WHERE (`Entry`='11988');
+
+-- 管理者埃克索图斯
+UPDATE `creature_template` SET `DamageMultiplier`='19', `Armor`='6800', `ResistanceHoly`='121', `ResistanceFire`='121', `ResistanceNature`='121', `ResistanceFrost`='121', `ResistanceShadow`='121', `ResistanceArcane`='121' WHERE (`Entry`='12018');
+
+-- 迦顿男爵
+UPDATE `creature_template` SET `DamageMultiplier`='100', `Armor`='6800', `ResistanceHoly`='121', `ResistanceFire`='121', `ResistanceNature`='121', `ResistanceFrost`='121', `ResistanceShadow`='121', `ResistanceArcane`='121' WHERE (`Entry`='12056');
+
+-- 加尔
+UPDATE `creature_template` SET `DamageMultiplier`='30', `Armor`='6800', `ResistanceHoly`='121', `ResistanceFire`='121', `ResistanceNature`='121', `ResistanceFrost`='121', `ResistanceShadow`='121', `ResistanceArcane`='121' WHERE (`Entry`='12057');
+
+-- 熔岩元素
+UPDATE `creature_template` SET `DamageMultiplier`='17', `Armor`='6800', `ResistanceHoly`='121', `ResistanceFire`='121', `ResistanceNature`='121', `ResistanceFrost`='121', `ResistanceShadow`='121', `ResistanceArcane`='121' WHERE (`Entry`='12076');
+
+-- 萨弗隆先驱者
+UPDATE `creature_template` SET `DamageMultiplier`='21', `Armor`='7340', `ResistanceHoly`='121', `ResistanceFire`='121', `ResistanceNature`='121', `ResistanceFrost`='121', `ResistanceShadow`='121', `ResistanceArcane`='121' WHERE (`Entry`='12098');
+
+-- 火誓者
+UPDATE `creature_template` SET `Armor`='6800', `ResistanceHoly`='121', `ResistanceFire`='121', `ResistanceNature`='121', `ResistanceFrost`='121', `ResistanceShadow`='121', `ResistanceArcane`='121' WHERE (`Entry`='12099');
+
+-- 熔岩掠夺者
+UPDATE `creature_template` SET `DamageMultiplier`='20', `Armor`='6800', `ResistanceHoly`='121', `ResistanceFire`='121', `ResistanceNature`='121', `ResistanceFrost`='121', `ResistanceShadow`='121', `ResistanceArcane`='121' WHERE (`Entry`='12100');
+
+-- 熔岩奔腾者
+UPDATE `creature_template` SET `DamageMultiplier`='20', `Armor`='6800', `ResistanceHoly`='121', `ResistanceFire`='121', `ResistanceNature`='121', `ResistanceFrost`='121', `ResistanceShadow`='121', `ResistanceArcane`='121' WHERE (`Entry`='12101');
+
+-- 鲁西弗隆
+UPDATE `creature_template` SET `DamageMultiplier`='33', `Armor`='6295', `ResistanceHoly`='121', `ResistanceFire`='121', `ResistanceNature`='121', `ResistanceFrost`='121', `ResistanceShadow`='121', `ResistanceArcane`='121' WHERE (`Entry`='12118');
+
+-- 火妖护卫
+UPDATE `creature_template` SET `DamageMultiplier`='30', `Armor`='6100', `ResistanceHoly`='121', `ResistanceFire`='121', `ResistanceNature`='121', `ResistanceFrost`='121', `ResistanceShadow`='121', `ResistanceArcane`='121' WHERE (`Entry`='12119');
+
 -- 提里奥·弗丁
 UPDATE `creature_template` SET `DamageMultiplier`='5' WHERE (`Entry`='12126');
+
+-- 基赫纳斯
+UPDATE `creature_template` SET `DamageMultiplier`='32', `Armor`='6295', `ResistanceHoly`='121', `ResistanceFire`='121', `ResistanceNature`='121', `ResistanceFrost`='121', `ResistanceShadow`='121', `ResistanceArcane`='121' WHERE (`Entry`='12259');
+
+-- 沙斯拉尔
+UPDATE `creature_template` SET `DamageMultiplier`='30', `Armor`='6295', `ResistanceHoly`='121', `ResistanceFire`='121', `ResistanceNature`='121', `ResistanceFrost`='121', `ResistanceShadow`='121', `ResistanceArcane`='121' WHERE (`Entry`='12264');
 
 -- 米尔顿·比斯
 UPDATE `creature_template` SET `ExtraFlags`='64' WHERE (`Entry`='13082');
@@ -206,6 +293,9 @@ UPDATE `creature_template` SET `UnitFlags`='2' WHERE (`Entry`='13116');
 
 -- 部落医师
 UPDATE `creature_template` SET `UnitFlags`='2' WHERE (`Entry`='13117');
+
+-- 拉格纳罗斯之焰
+UPDATE `creature_template` SET `MinLevel`='60', `MaxLevel`='60', `FactionAlliance`='91', `FactionHorde`='91', `Scale`='0' WHERE (`Entry`='13148');
 
 -- 诺克赛恩幼体
 UPDATE `creature_template` SET `ExtraFlags`='64' WHERE (`Entry`='13696');

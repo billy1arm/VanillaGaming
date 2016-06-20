@@ -1,0 +1,205 @@
+/*
+Navicat MySQL Data Transfer
+
+Source Server         : VanillaGaming
+Source Database       : z-mangos
+
+Target Server Type    : MYSQL
+File Encoding         : 65001
+*/
+
+-- ----------------------------
+-- Updates of creature_linking
+-- ----------------------------
+
+-- 熔火恶犬
+DELETE FROM `creature_linking` WHERE `guid`='56629';
+DELETE FROM `creature_linking` WHERE `guid`='56630';
+DELETE FROM `creature_linking` WHERE `guid`='56631';
+DELETE FROM `creature_linking` WHERE `guid`='56632';
+DELETE FROM `creature_linking` WHERE `guid`='56633';
+DELETE FROM `creature_linking` WHERE `guid`='56634';
+DELETE FROM `creature_linking` WHERE `guid`='56635';
+DELETE FROM `creature_linking` WHERE `guid`='56636';
+DELETE FROM `creature_linking` WHERE `guid`='56637';
+DELETE FROM `creature_linking` WHERE `guid`='56638';
+DELETE FROM `creature_linking` WHERE `guid`='56639';
+DELETE FROM `creature_linking` WHERE `guid`='56640';
+DELETE FROM `creature_linking` WHERE `guid`='56641';
+DELETE FROM `creature_linking` WHERE `guid`='56642';
+DELETE FROM `creature_linking` WHERE `guid`='56643';
+DELETE FROM `creature_linking` WHERE `guid`='56644';
+DELETE FROM `creature_linking` WHERE `guid`='56646';
+DELETE FROM `creature_linking` WHERE `guid`='56647';
+DELETE FROM `creature_linking` WHERE `guid`='56648';
+DELETE FROM `creature_linking` WHERE `guid`='56649';
+DELETE FROM `creature_linking` WHERE `guid`='56650';
+DELETE FROM `creature_linking` WHERE `guid`='56651';
+DELETE FROM `creature_linking` WHERE `guid`='56652';
+DELETE FROM `creature_linking` WHERE `guid`='56653';
+DELETE FROM `creature_linking` WHERE `guid`='56654';
+INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES ('56629', '56630', '5');
+INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES ('56630', '56631', '5');
+INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES ('56631', '56632', '5');
+INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES ('56632', '56633', '5');
+INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES ('56633', '56629', '5');
+INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES ('56634', '56635', '5');
+INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES ('56635', '56636', '5');
+INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES ('56636', '56637', '5');
+INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES ('56637', '56638', '5');
+INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES ('56638', '56634', '5');
+INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES ('56639', '56640', '5');
+INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES ('56640', '56641', '5');
+INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES ('56641', '56642', '5');
+INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES ('56642', '56643', '5');
+INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES ('56643', '56639', '5');
+INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES ('56644', '56646', '5');
+INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES ('56646', '56647', '5');
+INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES ('56647', '56648', '5');
+INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES ('56648', '56649', '5');
+INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES ('56649', '56634', '5');
+INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES ('56650', '56651', '5');
+INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES ('56651', '56652', '5');
+INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES ('56652', '56653', '5');
+INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES ('56653', '56654', '5');
+INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES ('56654', '56650', '5');
+
+-- 熔核巨人 | 熔核摧毁者
+DELETE FROM `creature_linking` WHERE `guid`='56700';
+DELETE FROM `creature_linking` WHERE `guid`='56701';
+DELETE FROM `creature_linking` WHERE `guid`='56702';
+DELETE FROM `creature_linking` WHERE `guid`='56703';
+DELETE FROM `creature_linking` WHERE `guid`='56704';
+DELETE FROM `creature_linking` WHERE `guid`='56705';
+DELETE FROM `creature_linking` WHERE `guid`='56706';
+DELETE FROM `creature_linking` WHERE `guid`='56707';
+DELETE FROM `creature_linking` WHERE `guid`='56708';
+DELETE FROM `creature_linking` WHERE `guid`='56709';
+DELETE FROM `creature_linking` WHERE `guid`='56710';
+DELETE FROM `creature_linking` WHERE `guid`='56711';
+DELETE FROM `creature_linking` WHERE `guid`='56712';
+DELETE FROM `creature_linking` WHERE `guid`='56713';
+DELETE FROM `creature_linking` WHERE `guid`='56714';
+DELETE FROM `creature_linking` WHERE `guid`='56715';
+DELETE FROM `creature_linking` WHERE `guid`='56716';
+DELETE FROM `creature_linking` WHERE `guid`='56717';
+DELETE FROM `creature_linking` WHERE `guid`='56718';
+DELETE FROM `creature_linking` WHERE `guid`='56719';
+DELETE FROM `creature_linking` WHERE `guid`='56747';
+DELETE FROM `creature_linking` WHERE `guid`='56748';
+INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES ('56700', '56701', '5');
+INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES ('56701', '56700', '5');
+INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES ('56702', '56703', '5');
+INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES ('56703', '56702', '5');
+INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES ('56704', '56705', '5');
+INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES ('56705', '56704', '5');
+INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES ('56706', '56707', '5');
+INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES ('56707', '56706', '5');
+INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES ('56708', '56709', '5');
+INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES ('56709', '56708', '5');
+INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES ('56710', '56711', '5');
+INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES ('56711', '56710', '5');
+INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES ('56712', '56713', '5');
+INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES ('56713', '56712', '5');
+INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES ('56714', '56715', '5');
+INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES ('56715', '56714', '5');
+INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES ('56716', '56717', '5');
+INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES ('56717', '56716', '5');
+INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES ('56718', '56719', '5');
+INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES ('56719', '56718', '5');
+INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES ('56747', '56748', '5');
+INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES ('56748', '56747', '5');
+
+-- 熔岩元素 | 熔岩掠夺者 | 烈焰守卫 | 火焰行者
+DELETE FROM `creature_linking` WHERE `guid`='56722';
+DELETE FROM `creature_linking` WHERE `guid`='56723';
+DELETE FROM `creature_linking` WHERE `guid`='56724';
+DELETE FROM `creature_linking` WHERE `guid`='56729';
+DELETE FROM `creature_linking` WHERE `guid`='56730';
+DELETE FROM `creature_linking` WHERE `guid`='56731';
+DELETE FROM `creature_linking` WHERE `guid`='56732';
+DELETE FROM `creature_linking` WHERE `guid`='56750';
+DELETE FROM `creature_linking` WHERE `guid`='56751';
+DELETE FROM `creature_linking` WHERE `guid`='56775';
+DELETE FROM `creature_linking` WHERE `guid`='56776';
+DELETE FROM `creature_linking` WHERE `guid`='56781';
+DELETE FROM `creature_linking` WHERE `guid`='56782';
+DELETE FROM `creature_linking` WHERE `guid`='56783';
+DELETE FROM `creature_linking` WHERE `guid`='56792';
+DELETE FROM `creature_linking` WHERE `guid`='56793';
+DELETE FROM `creature_linking` WHERE `guid`='56794';
+DELETE FROM `creature_linking` WHERE `guid`='56795';
+DELETE FROM `creature_linking` WHERE `guid`='56797';
+DELETE FROM `creature_linking` WHERE `guid`='56798';
+DELETE FROM `creature_linking` WHERE `guid`='56799';
+DELETE FROM `creature_linking` WHERE `guid`='91257';
+DELETE FROM `creature_linking` WHERE `guid`='91258';
+DELETE FROM `creature_linking` WHERE `guid`='91259';
+DELETE FROM `creature_linking` WHERE `guid`='91260';
+DELETE FROM `creature_linking` WHERE `guid`='91261';
+DELETE FROM `creature_linking` WHERE `guid`='91262';
+DELETE FROM `creature_linking` WHERE `guid`='91263';
+DELETE FROM `creature_linking` WHERE `guid`='91264';
+DELETE FROM `creature_linking` WHERE `guid`='91265';
+DELETE FROM `creature_linking` WHERE `guid`='91266';
+DELETE FROM `creature_linking` WHERE `guid`='91267';
+DELETE FROM `creature_linking` WHERE `guid`='91268';
+DELETE FROM `creature_linking` WHERE `guid`='91269';
+DELETE FROM `creature_linking` WHERE `guid`='91270';
+DELETE FROM `creature_linking` WHERE `guid`='91271';
+DELETE FROM `creature_linking` WHERE `guid`='91277';
+DELETE FROM `creature_linking` WHERE `guid`='91278';
+DELETE FROM `creature_linking` WHERE `guid`='91279';
+DELETE FROM `creature_linking` WHERE `guid`='91286';
+DELETE FROM `creature_linking` WHERE `guid`='91287';
+DELETE FROM `creature_linking` WHERE `guid`='91288';
+DELETE FROM `creature_linking` WHERE `guid`='91289';
+DELETE FROM `creature_linking` WHERE `guid`='91290';
+DELETE FROM `creature_linking` WHERE `guid`='91291';
+DELETE FROM `creature_linking` WHERE `guid`='91292';
+INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES ('56722', '56723', '5');
+INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES ('56723', '56724', '5');
+INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES ('56724', '56722', '5');
+INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES ('56729', '56730', '5');
+INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES ('56730', '56731', '5');
+INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES ('56731', '56732', '5');
+INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES ('56732', '56729', '5');
+INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES ('56750', '56751', '5');
+INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES ('56751', '56775', '5');
+INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES ('56775', '56776', '5');
+INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES ('56776', '56750', '5');
+INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES ('56781', '56782', '5');
+INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES ('56782', '56783', '5');
+INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES ('56783', '56781', '5');
+INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES ('56792', '56793', '5');
+INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES ('56793', '56794', '5');
+INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES ('56794', '56795', '5');
+INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES ('56795', '56792', '5');
+INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES ('56797', '56798', '5');
+INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES ('56798', '56799', '5');
+INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES ('56799', '56797', '5');
+INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES ('91257', '91258', '5');
+INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES ('91258', '91259', '5');
+INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES ('91259', '91260', '5');
+INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES ('91260', '91257', '5');
+INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES ('91261', '91262', '5');
+INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES ('91262', '91263', '5');
+INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES ('91263', '91264', '5');
+INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES ('91264', '91261', '5');
+INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES ('91265', '91266', '5');
+INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES ('91266', '91267', '5');
+INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES ('91267', '91265', '5');
+INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES ('91268', '91269', '5');
+INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES ('91269', '91270', '5');
+INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES ('91270', '91271', '5');
+INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES ('91271', '91268', '5');
+INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES ('91277', '91278', '5');
+INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES ('91278', '91279', '5');
+INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES ('91279', '91277', '5');
+INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES ('91286', '91287', '5');
+INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES ('91287', '91288', '5');
+INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES ('91288', '91289', '5');
+INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES ('91289', '91286', '5');
+INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES ('91290', '91291', '5');
+INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES ('91291', '91292', '5');
+INSERT INTO `creature_linking` (`guid`, `master_guid`, `flag`) VALUES ('91292', '91290', '5');

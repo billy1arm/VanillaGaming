@@ -228,6 +228,10 @@ void Spell::EffectInstaKill(SpellEffectIndex /*eff_idx*/)
     if (!unitTarget || !unitTarget->isAlive())
         return;
 
+    // 末日决战 --- 去除自杀效果
+    if (m_spellInfo->Id == 20479)
+        { return; }
+
     // Demonic Sacrifice
     if (m_spellInfo->Id == 18788 && unitTarget->GetTypeId() == TYPEID_UNIT)
     {
@@ -714,8 +718,8 @@ void Spell::EffectDummy(SpellEffectIndex eff_idx)
                     unitTarget->CastSpell(unitTarget, urand(0, 1) ? 19394 : 11756, true);
                     return;
                 }
-                case 19411:                                 // Lava Bomb
-                case 20474:                                 // Lava Bomb
+                case 19411:                                 // 熔岩炸弹
+                case 20474:                                 // 熔岩炸弹
                 {
                     if (!unitTarget)
                         return;
@@ -2260,6 +2264,15 @@ void Spell::EffectDispel(SpellEffectIndex eff_idx)
                     positive = false;
                 else
                     positive = (holder->GetSpellProto()->AttributesEx & SPELL_ATTR_EX_NEGATIVE) == 0;
+
+                switch (holder->GetSpellProto()->Id)
+                {
+                    case 19714: // 衰减魔法
+                        positive = true;
+                        break;
+                    default:
+                        break;
+                }
 
                 // do not remove positive auras if friendly target
                 //               negative auras if non-friendly target

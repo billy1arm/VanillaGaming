@@ -1,4 +1,4 @@
-/* This file is part of the ScriptDev2 Project. See AUTHORS file for Copyright information
+﻿/* This file is part of the ScriptDev2 Project. See AUTHORS file for Copyright information
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 2 of the License, or
@@ -18,7 +18,7 @@
 SDName: Boss_Lucifron
 SD%Complete: 100
 SDComment:
-SDCategory: Molten Core
+SDCategory: 熔火之心
 EndScriptData */
 
 #include "precompiled.h"
@@ -26,9 +26,9 @@ EndScriptData */
 
 enum
 {
-    SPELL_IMPENDINGDOOM     = 19702,
-    SPELL_LUCIFRONCURSE     = 19703,
-    SPELL_SHADOWSHOCK       = 19460
+    SPELL_SHADOWSHOCK           = 19460,                    // 暗影震击
+    SPELL_IMPENDINGDOOM         = 19702,                    // 末日降临
+    SPELL_LUCIFRONCURSE         = 19703                     // 鲁西弗隆的诅咒
 };
 
 struct boss_lucifronAI : public ScriptedAI
@@ -47,9 +47,9 @@ struct boss_lucifronAI : public ScriptedAI
 
     void Reset() override
     {
-        m_uiImpendingDoomTimer = 10000;
-        m_uiLucifronCurseTimer = 20000;
-        m_uiShadowShockTimer   = 6000;
+        m_uiShadowShockTimer        = 6000;
+        m_uiImpendingDoomTimer      = 10000;
+        m_uiLucifronCurseTimer      = 20000;
     }
 
     void Aggro(Unit* /*pWho*/) override
@@ -75,7 +75,7 @@ struct boss_lucifronAI : public ScriptedAI
         if (!m_creature->SelectHostileTarget() || !m_creature->getVictim())
             return;
 
-        // Impending doom timer
+        // 末日降临
         if (m_uiImpendingDoomTimer < uiDiff)
         {
             if (DoCastSpellIfCan(m_creature, SPELL_IMPENDINGDOOM) == CAST_OK)
@@ -84,7 +84,7 @@ struct boss_lucifronAI : public ScriptedAI
         else
             m_uiImpendingDoomTimer -= uiDiff;
 
-        // Lucifron's curse timer
+        // 鲁西弗隆的诅咒
         if (m_uiLucifronCurseTimer < uiDiff)
         {
             if (DoCastSpellIfCan(m_creature, SPELL_LUCIFRONCURSE) == CAST_OK)
@@ -93,7 +93,7 @@ struct boss_lucifronAI : public ScriptedAI
         else
             m_uiLucifronCurseTimer -= uiDiff;
 
-        // Shadowshock
+        // 暗影震击
         if (m_uiShadowShockTimer < uiDiff)
         {
             if (Unit* pTarget = m_creature->SelectAttackingTarget(ATTACKING_TARGET_RANDOM, 0))

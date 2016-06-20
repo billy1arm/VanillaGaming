@@ -1,4 +1,4 @@
-/* This file is part of the ScriptDev2 Project. See AUTHORS file for Copyright information
+﻿/* This file is part of the ScriptDev2 Project. See AUTHORS file for Copyright information
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 2 of the License, or
@@ -17,8 +17,8 @@
 /* ScriptData
 SDName: Boss_Gehennas
 SD%Complete: 100
-SDComment: -
-SDCategory: Molten Core
+SDComment:
+SDCategory: 熔火之心
 EndScriptData */
 
 #include "precompiled.h"
@@ -26,10 +26,10 @@ EndScriptData */
 
 enum
 {
-    SPELL_GEHENNAS_CURSE        = 19716,
-    SPELL_RAIN_OF_FIRE          = 19717,
-    SPELL_SHADOW_BOLT_RANDOM    = 19728,
-    SPELL_SHADOW_BOLT_TARGET    = 19729,
+    SPELL_GEHENNAS_CURSE        = 19716,                    // 基赫纳斯的诅咒
+    SPELL_RAIN_OF_FIRE          = 19717,                    // 火焰之雨
+    SPELL_SHADOW_BOLT_RANDOM    = 19728,                    // 暗影箭
+    SPELL_SHADOW_BOLT_TARGET    = 19729,                    // 暗影箭
 };
 
 struct boss_gehennasAI : public ScriptedAI
@@ -49,10 +49,10 @@ struct boss_gehennasAI : public ScriptedAI
 
     void Reset() override
     {
-        m_uiGehennasCurseTimer    = urand(5 * IN_MILLISECONDS, 10 * IN_MILLISECONDS);
-        m_uiRainOfFireTimer       = urand(6 * IN_MILLISECONDS, 12 * IN_MILLISECONDS);
-        m_uiShadowBoltRandomTimer = urand(3 * IN_MILLISECONDS, 6 * IN_MILLISECONDS);
-        m_uiShadowBoltTargetTimer = urand(3 * IN_MILLISECONDS, 6 * IN_MILLISECONDS);
+        m_uiGehennasCurseTimer      = urand(5000, 10000);
+        m_uiRainOfFireTimer         = urand(6000, 12000);
+        m_uiShadowBoltRandomTimer   = urand(3000, 6000);
+        m_uiShadowBoltTargetTimer   = urand(3000, 6000);
     }
 
     void Aggro(Unit* /*pwho*/) override
@@ -78,38 +78,38 @@ struct boss_gehennasAI : public ScriptedAI
         if (!m_creature->SelectHostileTarget() || !m_creature->getVictim())
             return;
 
-        // Rain_of_Fire-Timer
+        // 火焰之雨
         if (m_uiRainOfFireTimer < uiDiff)
         {
             if (DoCastSpellIfCan(m_creature->SelectAttackingTarget(ATTACKING_TARGET_RANDOM, 0), SPELL_RAIN_OF_FIRE) == CAST_OK)
-                m_uiRainOfFireTimer = urand(6 * IN_MILLISECONDS, 12 * IN_MILLISECONDS);
+                m_uiRainOfFireTimer = urand(6000, 12000);
         }
         else
             m_uiRainOfFireTimer -= uiDiff;
 
-        // Gehennas_Curse-Timer
+        // 基赫纳斯的诅咒
         if (m_uiGehennasCurseTimer < uiDiff)
         {
             if (DoCastSpellIfCan(m_creature, SPELL_GEHENNAS_CURSE) == CAST_OK)
-                m_uiGehennasCurseTimer = urand(25 * IN_MILLISECONDS, 30 * IN_MILLISECONDS);
+                m_uiGehennasCurseTimer = urand(25000, 30000);
         }
         else
             m_uiGehennasCurseTimer -= uiDiff;
 
-        // Shadow_Bolt_Random-Timer
+        // 暗影箭
         if (m_uiShadowBoltRandomTimer < uiDiff)
         {
             if (DoCastSpellIfCan(m_creature->SelectAttackingTarget(ATTACKING_TARGET_RANDOM, 0), SPELL_SHADOW_BOLT_RANDOM) == CAST_OK)
-                m_uiShadowBoltRandomTimer = urand(3 * IN_MILLISECONDS, 6 * IN_MILLISECONDS);
+                m_uiShadowBoltRandomTimer = urand(3000, 6000);
         }
         else
             m_uiShadowBoltRandomTimer -= uiDiff;
 
-        // Shadow_Bolt_Target-Timer
+        // 暗影箭
         if (m_uiShadowBoltTargetTimer < uiDiff)
         {
             if (DoCastSpellIfCan(m_creature->getVictim(), SPELL_SHADOW_BOLT_TARGET) == CAST_OK)
-                m_uiShadowBoltTargetTimer = urand(3 * IN_MILLISECONDS, 6 * IN_MILLISECONDS);
+                m_uiShadowBoltTargetTimer = urand(3000, 6000);
         }
         else
             m_uiShadowBoltTargetTimer -= uiDiff;

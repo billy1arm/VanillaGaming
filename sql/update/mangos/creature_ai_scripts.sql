@@ -33,6 +33,28 @@ INSERT INTO `creature_ai_scripts` (`id`, `creature_id`, `event_type`, `event_inv
 INSERT INTO `creature_ai_scripts` (`id`, `creature_id`, `event_type`, `event_inverse_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `action1_type`, `action1_param1`, `action1_param2`, `action1_param3`, `action2_type`, `action2_param1`, `action2_param2`, `action2_param3`, `action3_type`, `action3_param1`, `action3_param2`, `action3_param3`, `comment`) VALUES ('1040704', '10407', '9', '0', '100', '1', '0', '5', '9000', '16000', '11', '16172', '1', '33', '0', '0', '0', '0', '0', '0', '0', '0', '鲜肉食尸鬼 - 施放-裂颅');
 INSERT INTO `creature_ai_scripts` (`id`, `creature_id`, `event_type`, `event_inverse_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `action1_type`, `action1_param1`, `action1_param2`, `action1_param3`, `action2_type`, `action2_param1`, `action2_param2`, `action2_param3`, `action3_type`, `action3_param1`, `action3_param2`, `action3_param3`, `comment`) VALUES ('1040705', '10407', '9', '0', '100', '1', '11300', '20900', '11300', '27900', '11', '16458', '4', '33', '0', '0', '0', '0', '0', '0', '0', '0', '鲜肉食尸鬼 - 施放-食尸鬼瘟疫');
 
+-- 火妖
+DELETE FROM `creature_ai_scripts` WHERE `creature_id`='11661';
+INSERT INTO `creature_ai_scripts` (`id`, `creature_id`, `event_type`, `event_inverse_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `action1_type`, `action1_param1`, `action1_param2`, `action1_param3`, `action2_type`, `action2_param1`, `action2_param2`, `action2_param3`, `action3_type`, `action3_param1`, `action3_param2`, `action3_param3`, `comment`) VALUES ('1166101', '11661', '9', '0', '100', '1', '0', '5', '5000', '9000', '11', '15502', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', '火妖 - 施放-破甲攻击');
+INSERT INTO `creature_ai_scripts` (`id`, `creature_id`, `event_type`, `event_inverse_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `action1_type`, `action1_param1`, `action1_param2`, `action1_param3`, `action2_type`, `action2_param1`, `action2_param2`, `action2_param3`, `action3_type`, `action3_param1`, `action3_param2`, `action3_param3`, `comment`) VALUES ('1166102', '11661', '0', '0', '100', '1', '5000', '8000', '7000', '9000', '11', '19730', '4', '0', '0', '0', '0', '0', '0', '0', '0', '0', '火妖 - 施放-打击');
+INSERT INTO `creature_ai_scripts` (`id`, `creature_id`, `event_type`, `event_inverse_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `action1_type`, `action1_param1`, `action1_param2`, `action1_param3`, `action2_type`, `action2_param1`, `action2_param2`, `action2_param3`, `action3_type`, `action3_param1`, `action3_param2`, `action3_param3`, `comment`) VALUES ('1166103', '11661', '9', '0', '100', '1', '0', '8', '9000', '12000', '11', '20277', '0', '1', '0', '0', '0', '0', '0', '0', '0', '0', '火妖 - 施放-拉格纳罗斯之拳');
+
+-- 火妖医师
+DELETE FROM `creature_ai_scripts` WHERE `creature_id`='11663';
+
+-- 火妖精英
+DELETE FROM `creature_ai_scripts` WHERE `creature_id`='11664';
+
+-- 熔岩歼灭者
+DELETE FROM `creature_ai_scripts` WHERE `id`='1166502';
+INSERT INTO `creature_ai_scripts` (`id`, `creature_id`, `event_type`, `event_inverse_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `action1_type`, `action1_param1`, `action1_param2`, `action1_param3`, `action2_type`, `action2_param1`, `action2_param2`, `action2_param3`, `action3_type`, `action3_param1`, `action3_param2`, `action3_param3`, `comment`) VALUES ('1166502', '11665', '0', '0', '100', '1', '5000', '5000', '5000', '5000', '13', '-100', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', '熔岩歼灭者 - 切换目标');
+
+-- 火焰行者
+UPDATE `creature_ai_scripts` SET `action1_param1`='19637', `action1_param2`='4' WHERE (`id`='1166602');
+
+-- 熔火恶犬
+DELETE FROM `creature_ai_scripts` WHERE `creature_id`='11671';
+
 -- 暮光地王
 DELETE FROM `creature_ai_scripts` WHERE `creature_id`='11881';
 INSERT INTO `creature_ai_scripts` (`id`, `creature_id`, `event_type`, `event_inverse_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `action1_type`, `action1_param1`, `action1_param2`, `action1_param3`, `action2_type`, `action2_param1`, `action2_param2`, `action2_param3`, `action3_type`, `action3_param1`, `action3_param2`, `action3_param3`, `comment`) VALUES ('1188101', '11881', '9', '0', '100', '1', '5', '30', '3000', '3000', '11', '9483', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', '暮光地王 - 施放-投石');
@@ -50,6 +72,12 @@ INSERT INTO `creature_ai_scripts` (`id`, `creature_id`, `event_type`, `event_inv
 INSERT INTO `creature_ai_scripts` (`id`, `creature_id`, `event_type`, `event_inverse_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `action1_type`, `action1_param1`, `action1_param2`, `action1_param3`, `action2_type`, `action2_param1`, `action2_param2`, `action2_param3`, `action3_type`, `action3_param1`, `action3_param2`, `action3_param3`, `comment`) VALUES ('1188302', '11883', '9', '0', '100', '1', '0', '8', '25000', '25000', '11', '11831', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', '暮光主宰 - 施放-冰霜新星');
 INSERT INTO `creature_ai_scripts` (`id`, `creature_id`, `event_type`, `event_inverse_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `action1_type`, `action1_param1`, `action1_param2`, `action1_param3`, `action2_type`, `action2_param1`, `action2_param2`, `action2_param3`, `action3_type`, `action3_param1`, `action3_param2`, `action3_param3`, `comment`) VALUES ('1188303', '11883', '0', '0', '100', '1', '6000', '6000', '6000', '6000', '11', '12058', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', '暮光主宰 - 施放-闪电链');
 INSERT INTO `creature_ai_scripts` (`id`, `creature_id`, `event_type`, `event_inverse_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `action1_type`, `action1_param1`, `action1_param2`, `action1_param3`, `action2_type`, `action2_param1`, `action2_param2`, `action2_param3`, `action3_type`, `action3_param1`, `action3_param2`, `action3_param3`, `comment`) VALUES ('1188304', '11883', '0', '0', '100', '1', '8000', '8000', '8000', '8000', '11', '13339', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', '暮光主宰 - 施放-火焰冲击');
+
+-- 熔岩奔腾者
+UPDATE `creature_ai_scripts` SET `action1_param1`='25787', `comment`='熔岩奔腾者 - 施放 澎湃' WHERE (`id`='1210101');
+
+-- 熔岩爪牙
+UPDATE `creature_ai_scripts` SET `event_param1`='20000', `event_param2`='20000' WHERE (`id`='1226502');
 
 -- 暮光之王艾沃兰
 DELETE FROM `creature_ai_scripts` WHERE `creature_id`='14479';

@@ -114,6 +114,47 @@ INSERT INTO `creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`, `g
 INSERT INTO `creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`, `groupid`, `mincountOrRef`, `maxcount`, `condition_id`) VALUES ('11261', '16684', '14', '2', '1', '1', '0');
 INSERT INTO `creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`, `groupid`, `mincountOrRef`, `maxcount`, `condition_id`) VALUES ('11261', '35031', '60', '1', '-35031', '1', '0');
 
+-- 拉格纳罗斯
+DELETE FROM `creature_loot_template` WHERE (`entry`='11502') AND (`item`='17204');
+UPDATE `creature_loot_template` SET `groupid`='0' WHERE (`entry`='11502') AND (`item`='34002');
+
+-- 玛格曼达
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='0.2', `groupid`='0' WHERE (`entry`='11982') AND (`item`='34011');
+UPDATE `creature_loot_template` SET `groupid`='0' WHERE (`entry`='11982') AND (`item`='34013');
+
+-- 焚化者古雷曼格
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='0.2', `groupid`='0' WHERE (`entry`='11988') AND (`item`='34011');
+UPDATE `creature_loot_template` SET `groupid`='0' WHERE (`entry`='11988') AND (`item`='34028');
+
+-- 鲁西弗隆
+UPDATE `creature_loot_template` SET `condition_id`='0' WHERE `entry`='12118';
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='0.2', `groupid`='0' WHERE (`entry`='12118') AND (`item`='34011');
+UPDATE `creature_loot_template` SET `groupid`='0' WHERE (`entry`='12118') AND (`item`='34012');
+
+-- 迦顿男爵
+DELETE FROM `creature_loot_template` WHERE (`entry`='12056') AND (`item`='18563');
+-- INSERT INTO `creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`, `groupid`, `mincountOrRef`, `maxcount`, `condition_id`) VALUES ('12056', '18563', '3', '0', '1', '1', '0');
+UPDATE `creature_loot_template` SET `condition_id`='0' WHERE `entry`='12056';
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='0.2', `groupid`='0' WHERE (`entry`='12056') AND (`item`='34011');
+UPDATE `creature_loot_template` SET `groupid`='0' WHERE (`entry`='12056') AND (`item`='34027');
+
+-- 加尔
+UPDATE `creature_loot_template` SET `item`='17782' WHERE (`entry`='12057') AND (`item`='18564');
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='0.2', `groupid`='0' WHERE (`entry`='12057') AND (`item`='34011');
+UPDATE `creature_loot_template` SET `groupid`='0' WHERE (`entry`='12057') AND (`item`='34015');
+
+-- 萨弗隆先驱者
+UPDATE `creature_loot_template` SET `groupid`='0' WHERE (`entry`='12098') AND (`item`='34029');
+
+-- 基赫纳斯
+UPDATE `creature_loot_template` SET `condition_id`='0' WHERE `entry`='12259';
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='0.2', `groupid`='0' WHERE (`entry`='12259') AND (`item`='34011');
+UPDATE `creature_loot_template` SET `groupid`='0' WHERE (`entry`='12259') AND (`item`='34014');
+
+-- 沙斯拉尔
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='0.2', `groupid`='0' WHERE (`entry`='12264') AND (`item`='34011');
+UPDATE `creature_loot_template` SET `groupid`='0' WHERE (`entry`='12264') AND (`item`='34026');
+
 -- 南海绑匪 --- 南海海盗帽
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-6' WHERE (`entry`='15685') AND (`item`='20519');
 

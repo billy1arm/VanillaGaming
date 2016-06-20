@@ -65,6 +65,9 @@ extern void AddSC_boss_golemagg();
 extern void AddSC_boss_sulfuron();
 extern void AddSC_boss_majordomo();
 extern void AddSC_boss_ragnaros();
+extern void AddSC_npc_core_hound();
+extern void AddSC_npc_flamewaker_elite();
+extern void AddSC_npc_flamewaker_healer();
 extern void AddSC_instance_molten_core();
 extern void AddSC_molten_core();
 extern void AddSC_boss_anubrekhan();                        // naxxramas
@@ -265,6 +268,9 @@ void AddScripts()
     AddSC_boss_sulfuron();
     AddSC_boss_majordomo();
     AddSC_boss_ragnaros();
+    AddSC_npc_core_hound();
+    AddSC_npc_flamewaker_elite();
+    AddSC_npc_flamewaker_healer();
     AddSC_instance_molten_core();
     AddSC_molten_core();
     AddSC_boss_anubrekhan();                                // naxxramas

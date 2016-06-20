@@ -676,6 +676,15 @@
     <ClCompile Include="..\..\src\scriptdev2\scripts\world\vip_scripts.cpp">
       <Filter>scripts\world</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\src\scriptdev2\scripts\eastern_kingdoms\molten_core\npc_flamewaker_elite.cpp">
+      <Filter>scripts\eastern_kingdoms\molten_core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\scriptdev2\scripts\eastern_kingdoms\molten_core\npc_flamewaker_healer.cpp">
+      <Filter>scripts\eastern_kingdoms\molten_core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\scriptdev2\scripts\eastern_kingdoms\molten_core\npc_core_hound.cpp">
+      <Filter>scripts\eastern_kingdoms\molten_core</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\scriptdev2\base\escort_ai.h">

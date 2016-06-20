@@ -3371,7 +3371,7 @@ bool Unit::AddSpellAuraHolder(SpellAuraHolder* holder)
             bool stop = false;
 
             // 技能对同一目标叠加系统
-            if (aurSpellInfo->StackAmount && (aurSpellInfo->SpellIconID == 565/*破甲*/ || aurSpellInfo->SpellIconID == 187/*深冬之寒*/ || aurSpellInfo->SpellIconID == 816/*强化灼烧*/))
+            if (aurSpellInfo->StackAmount && (aurSpellInfo->SpellIconID == 565/*破甲*/ || aurSpellInfo->SpellIconID == 187/*深冬之寒*/ || aurSpellInfo->SpellIconID == 816/*强化灼烧*/ || aurSpellInfo->Id == 19516/*狂怒*/))
             {
                 foundHolder->ModStackAmount(holder->GetStackAmount());
                 delete holder;

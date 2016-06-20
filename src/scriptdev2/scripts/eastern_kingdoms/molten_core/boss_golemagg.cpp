@@ -1,4 +1,4 @@
-/* This file is part of the ScriptDev2 Project. See AUTHORS file for Copyright information
+﻿/* This file is part of the ScriptDev2 Project. See AUTHORS file for Copyright information
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 2 of the License, or
@@ -16,9 +16,9 @@
 
 /* ScriptData
 SDName: Boss_Golemagg
-SD%Complete: 80
-SDComment: Rager need to be tied to boss (Despawn on boss-death)
-SDCategory: Molten Core
+SD%Complete: 100
+SDComment:
+SDCategory: 熔火之心
 EndScriptData */
 
 #include "precompiled.h"
@@ -26,15 +26,16 @@ EndScriptData */
 
 enum
 {
-    SPELL_MAGMA_SPLASH      = 13879,
-    SPELL_PYROBLAST         = 20228,
-    SPELL_EARTHQUAKE        = 19798,
-    SPELL_ENRAGE            = 19953,
-    SPELL_GOLEMAGG_TRUST    = 20553,
+    SPELL_MAGMA_SPLASH          = 13879,                    // 熔岩喷溅
+    SPELL_MAGMA_SPLASH_T        = 13880,                    // 熔岩喷溅(对T)
+    SPELL_EARTHQUAKE            = 19798,                    // 地震术
+    SPELL_ENRAGE                = 19953,                    // 狂怒
+    SPELL_PYROBLAST             = 20228,                    // 炎爆术
+    SPELL_GOLEMAGG_TRUST        = 20553,                    // 古雷曼格的信任
 
-    // Core Rager
-    EMOTE_LOW_HP            = -1409002,
-    SPELL_MANGLE            = 19820
+    // 熔火怒犬
+    EMOTE_LOW_HP                = -1409002,
+    SPELL_MANGLE                = 19820                     // 割碎
 };
 
 struct boss_golemaggAI : public ScriptedAI
@@ -43,29 +44,32 @@ struct boss_golemaggAI : public ScriptedAI
     {
         m_pInstance = (ScriptedInstance*)pCreature->GetInstanceData();
         Reset();
-
-        DoCastSpellIfCan(m_creature, SPELL_MAGMA_SPLASH, CAST_TRIGGERED | CAST_AURA_NOT_PRESENT);
     }
 
     ScriptedInstance* m_pInstance;
 
     uint32 m_uiPyroblastTimer;
+    uint32 m_uiMagmaSplashTimer;
     uint32 m_uiEarthquakeTimer;
     uint32 m_uiBuffTimer;
     bool m_bEnraged;
 
     void Reset() override
     {
-        m_uiPyroblastTimer  = 7 * IN_MILLISECONDS;
-        m_uiEarthquakeTimer = 3 * IN_MILLISECONDS;
-        m_uiBuffTimer       = 1.5 * IN_MILLISECONDS;
-        m_bEnraged = false;
+        m_uiPyroblastTimer          = 7000;
+        m_uiMagmaSplashTimer        = 5000;
+        m_uiEarthquakeTimer         = 3000;
+        m_uiBuffTimer               = 1500;
+
+        m_bEnraged                  = false;
     }
 
     void Aggro(Unit* /*pWho*/) override
     {
         if (m_pInstance)
             m_pInstance->SetData(TYPE_GOLEMAGG, IN_PROGRESS);
+
+        DoCastSpellIfCan(m_creature, SPELL_MAGMA_SPLASH, CAST_TRIGGERED | CAST_AURA_NOT_PRESENT);
     }
 
     void JustDied(Unit* /*pKiller*/) override
@@ -87,45 +91,54 @@ struct boss_golemaggAI : public ScriptedAI
         if (!m_creature->SelectHostileTarget() || !m_creature->getVictim())
             return;
 
-        // Pyroblast
+        // 炎爆术
         if (m_uiPyroblastTimer < uiDiff)
         {
             if (Unit* pTarget = m_creature->SelectAttackingTarget(ATTACKING_TARGET_RANDOM, 0))
             {
                 if (DoCastSpellIfCan(pTarget, SPELL_PYROBLAST) == CAST_OK)
-                    m_uiPyroblastTimer = 7 * IN_MILLISECONDS;
+                    m_uiPyroblastTimer = 7000;
             }
         }
         else
             m_uiPyroblastTimer -= uiDiff;
 
-        // Enrage
+        // 狂怒
         if (!m_bEnraged && m_creature->GetHealthPercent() < 10.0f)
         {
             if (DoCastSpellIfCan(m_creature, SPELL_ENRAGE) == CAST_OK)
                 m_bEnraged = true;
         }
 
-        // Earthquake
+        // 地震术
         if (m_bEnraged)
         {
             if (m_uiEarthquakeTimer < uiDiff)
             {
                 if (DoCastSpellIfCan(m_creature, SPELL_EARTHQUAKE) == CAST_OK)
-                    m_uiEarthquakeTimer = 3 * IN_MILLISECONDS;
+                    m_uiEarthquakeTimer = 3000;
             }
             else
                 m_uiEarthquakeTimer -= uiDiff;
         }
 
-        // Golemagg's Trust
+        // 古雷曼格的信任
         if (m_uiBuffTimer < uiDiff)
         {
             DoCastSpellIfCan(m_creature, SPELL_GOLEMAGG_TRUST);
-            m_uiBuffTimer = 1.5 * IN_MILLISECONDS;
+            m_uiBuffTimer = 1500;
         }
         else
             m_uiBuffTimer -= uiDiff;
+
+        // 熔岩喷溅(对T)
+        if (m_uiMagmaSplashTimer < uiDiff)
+        {
+            DoCastSpellIfCan(m_creature->getVictim(), SPELL_MAGMA_SPLASH_T);
+            m_uiMagmaSplashTimer = 5000;
+        }
+        else
+            { m_uiMagmaSplashTimer -= uiDiff; }
 
         DoMeleeAttackIfReady();
     }
@@ -144,7 +157,7 @@ struct mob_core_ragerAI : public ScriptedAI
 
     void Reset() override
     {
-        m_uiMangleTimer = 7 * IN_MILLISECONDS;              // These times are probably wrong
+        m_uiMangleTimer             = 7000;
     }
 
     void DamageTaken(Unit* /*pDoneBy*/, uint32& uiDamage) override
@@ -165,11 +178,11 @@ struct mob_core_ragerAI : public ScriptedAI
         if (!m_creature->SelectHostileTarget() || !m_creature->getVictim())
             return;
 
-        // Mangle
+        // 割碎
         if (m_uiMangleTimer < uiDiff)
         {
             if (DoCastSpellIfCan(m_creature->getVictim(), SPELL_MANGLE) == CAST_OK)
-                m_uiMangleTimer = 10 * IN_MILLISECONDS;
+                m_uiMangleTimer = 10000;
         }
         else
             m_uiMangleTimer -= uiDiff;
