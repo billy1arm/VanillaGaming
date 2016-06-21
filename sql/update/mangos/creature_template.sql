@@ -250,7 +250,7 @@ UPDATE `creature_template` SET `DamageMultiplier`='45', `Armor`='6800', `Resista
 UPDATE `creature_template` SET `DamageMultiplier`='19', `Armor`='6800', `ResistanceHoly`='121', `ResistanceFire`='121', `ResistanceNature`='121', `ResistanceFrost`='121', `ResistanceShadow`='121', `ResistanceArcane`='121' WHERE (`Entry`='12018');
 
 -- 迦顿男爵
-UPDATE `creature_template` SET `DamageMultiplier`='100', `Armor`='6800', `ResistanceHoly`='121', `ResistanceFire`='121', `ResistanceNature`='121', `ResistanceFrost`='121', `ResistanceShadow`='121', `ResistanceArcane`='121' WHERE (`Entry`='12056');
+UPDATE `creature_template` SET `DamageMultiplier`='30', `Armor`='6800', `ResistanceHoly`='121', `ResistanceFire`='121', `ResistanceNature`='121', `ResistanceFrost`='121', `ResistanceShadow`='121', `ResistanceArcane`='121' WHERE (`Entry`='12056');
 
 -- 加尔
 UPDATE `creature_template` SET `DamageMultiplier`='30', `Armor`='6800', `ResistanceHoly`='121', `ResistanceFire`='121', `ResistanceNature`='121', `ResistanceFrost`='121', `ResistanceShadow`='121', `ResistanceArcane`='121' WHERE (`Entry`='12057');
