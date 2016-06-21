@@ -36,6 +36,9 @@ UPDATE `item_template` SET `dmg_min2`='0', `dmg_max2`='0', `dmg_type2`='0', `spe
 -- 黑铁步枪
 UPDATE `item_template` SET `dmg_min2`='0', `dmg_max2`='0', `dmg_type2`='0', `spellid_1`='29632', `spelltrigger_1`='1' WHERE (`entry`='16004');
 
+-- 萨弗拉斯之眼
+UPDATE `item_template` SET `spellcharges_1`='1' WHERE (`entry`='17204');
+
 -- 绿色守护者之弓
 UPDATE `item_template` SET `dmg_min2`='0', `dmg_max2`='0', `dmg_type2`='0', `spellid_1`='29637', `spelltrigger_1`='1' WHERE (`entry`='17753');
 
