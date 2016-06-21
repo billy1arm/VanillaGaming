@@ -220,7 +220,7 @@ UPDATE `creature_template` SET `DamageMultiplier`='15', `Armor`='6800', `Resista
 UPDATE `creature_template` SET `DamageMultiplier`='16', `Armor`='6800', `ResistanceHoly`='121', `ResistanceFire`='121', `ResistanceNature`='121', `ResistanceFrost`='121', `ResistanceShadow`='121', `ResistanceArcane`='121' WHERE (`Entry`='11668');
 
 -- 烈焰小鬼
-UPDATE `creature_template` SET `MechanicImmuneMask`='82536119' WHERE (`Entry`='11669');
+UPDATE `creature_template` SET `MechanicImmuneMask`='0' WHERE (`Entry`='11669');
 
 -- 熔火恶犬
 UPDATE `creature_template` SET `DamageMultiplier`='20', `Armor`='6500', `ResistanceHoly`='121', `ResistanceFire`='121', `ResistanceNature`='121', `ResistanceFrost`='121', `ResistanceShadow`='121', `ResistanceArcane`='121', `AIName`='', `ScriptName`='npc_core_hound' WHERE (`Entry`='11671');
