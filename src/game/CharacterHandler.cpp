@@ -566,7 +566,10 @@ void WorldSession::HandlePlayerLogin(LoginQueryHolder* holder)
 
     /* 副本中小退会传送到副本门口 */
     if (pCurrChar->GetMapId() > 1)
-        { lockStatus = AREA_LOCKSTATUS_NOT_ALLOWED; }
+    {
+        if (pCurrChar->GetMapId() != 409/*熔火之心*/)
+            { lockStatus = AREA_LOCKSTATUS_NOT_ALLOWED; }
+    }
 
     if (lockStatus != AREA_LOCKSTATUS_OK || !pCurrChar->GetMap()->Add(pCurrChar))
     {
