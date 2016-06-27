@@ -303,11 +303,20 @@ UPDATE `creature_template` SET `ExtraFlags`='64' WHERE (`Entry`='13696');
 -- 暮光之王艾沃兰
 UPDATE `creature_template` SET `AIName`='EventAI' WHERE (`Entry`='14479');
 
+-- 高阶祭司耶克里克
+UPDATE `creature_template` SET `DamageMultiplier`='2', `Armor`='6800', `ResistanceHoly`='121', `ResistanceFire`='121', `ResistanceNature`='121', `ResistanceFrost`='121', `ResistanceShadow`='121', `ResistanceArcane`='121' WHERE (`Entry`='14517');
+
 -- 恐惧谷的灵魂
 UPDATE `creature_template` SET `DamageMultiplier`='1', `MinMeleeDmg`='102', `MaxMeleeDmg`='138', `MinRangedDmg`='0', `MaxRangedDmg`='0', `MeleeAttackPower`='252', `RangedAttackPower`='26', `MeleeBaseAttackTime`='2000', `RangedBaseAttackTime`='2000' WHERE (`Entry`='14564');
 
 -- 邪枝绑架者
 UPDATE `creature_template` SET `ExtraFlags`='64' WHERE (`Entry`='14748');
+
+-- 觅血者前锋
+UPDATE `creature_template` SET `Armor`='6800', `ResistanceHoly`='121', `ResistanceFire`='121', `ResistanceNature`='121', `ResistanceFrost`='121', `ResistanceShadow`='121', `ResistanceArcane`='121' WHERE (`Entry`='14750');
+
+-- 疯狂的觅血蝠
+UPDATE `creature_template` SET `Armor`='6800', `ResistanceHoly`='121', `ResistanceFire`='121', `ResistanceNature`='121', `ResistanceFrost`='121', `ResistanceShadow`='121', `ResistanceArcane`='121' WHERE (`Entry`='14965');
 
 -- 苍白圣殿骑士
 UPDATE `creature_template` SET `AIName`='EventAI' WHERE (`Entry`='15212');

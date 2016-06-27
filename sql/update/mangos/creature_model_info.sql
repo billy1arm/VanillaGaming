@@ -101,3 +101,12 @@ UPDATE `creature_model_info` SET `bounding_radius`='1', `combat_reach`='1' WHERE
 
 -- 土色圣殿骑士
 UPDATE `creature_model_info` SET `bounding_radius`='3', `combat_reach`='3' WHERE (`modelid`='14512');
+
+-- 疯狂的觅血蝠
+UPDATE `creature_model_info` SET `bounding_radius`='1', `combat_reach`='1' WHERE (`modelid`='14562');
+
+-- 高阶祭司耶克里克
+UPDATE `creature_model_info` SET `bounding_radius`='1', `combat_reach`='1' WHERE (`modelid`='15219');
+
+-- 觅血者前锋
+UPDATE `creature_model_info` SET `bounding_radius`='1' WHERE (`modelid`='15303');

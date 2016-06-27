@@ -3403,6 +3403,24 @@ void Spell::EffectScriptEffect(SpellEffectIndex eff_idx)
                     m_caster->CastSpell(unitTarget, 22682, true);
                     return;
                 }
+                case 23969:                                 // 投掷燃烧瓶
+                {
+                    if (!unitTarget || !unitTarget->isAlive())
+                        { return; }
+
+                    // 投掷燃烧瓶
+                    m_caster->CastSpell(unitTarget, 23970, true);
+                    return;
+                }
+                case 23970:                                 // 投掷燃烧瓶
+                {
+                    if (!unitTarget || !unitTarget->isAlive())
+                        { return; }
+
+                    // 召唤液体火焰
+                    unitTarget->CastSpell(unitTarget, 23971, true, NULL, NULL, m_caster->GetObjectGuid());
+                    return;
+                }
                 case 24194:                                 // Uther's Tribute
                 case 24195:                                 // Grom's Tribute
                 {

@@ -1,4 +1,4 @@
-/* This file is part of the ScriptDev2 Project. See AUTHORS file for Copyright information
+﻿/* This file is part of the ScriptDev2 Project. See AUTHORS file for Copyright information
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 2 of the License, or
@@ -16,9 +16,9 @@
 
 /* ScriptData
 SDName: Boss_Jeklik
-SD%Complete: 85
-SDComment: Some minor improvements are required; Bat rider movement not implemented
-SDCategory: Zul'Gurub
+SD%Complete: 100
+SDComment:
+SDCategory: 祖尔格拉布
 EndScriptData */
 
 #include "precompiled.h"
@@ -32,34 +32,36 @@ enum
     SAY_HEAL                    = -1309027,
     SAY_DEATH                   = -1309004,
 
-    // Bat spells
-    SPELL_CHARGE                = 22911,
-    SPELL_SONIC_BURST           = 23918,
-    // SPELL_PSYHIC_SCREAM       = 22884,                   // spell not confirmed - needs research
-    SPELL_SWOOP                 = 23919,
-    SPELL_SUMMON_FRENZIED_BATS  = 23974,
+    // 蝙蝠形态 技能
+    SPELL_PIERCE_ARMOR          = 12097,                    // 刺穿护甲
+    SPELL_CHARGE                = 22911,                    // 冲锋
+    SPELL_SONIC_BURST           = 23918,                    // 音爆
+    SPELL_SWOOP                 = 23919,                    // 猛扑
+    SPELL_SUMMON_FRENZIED_BATS  = 23974,                    // 召唤疯狂的觅血蝠
 
-    // Troll form spells
-    SPELL_SHADOW_WORD_PAIN      = 23952,
-    SPELL_MIND_FLAY             = 23953,
-    SPELL_BLOOD_LEECH           = 22644,
-    SPELL_GREATERHEAL           = 23954,
+    // 巨魔形态 技能
+    SPELL_CURSE_OF_BLOOD        = 16098,                    // 血之诅咒
+    SPELL_BLOOD_LEECH           = 22644,                    // 吸血术
+    SPELL_PSYHIC_SCREAM         = 22884,                    // 心灵尖啸
+    SPELL_SHADOW_WORD_PAIN      = 23952,                    // 暗言术:痛
+    SPELL_MIND_FLAY             = 23953,                    // 精神鞭笞
+    SPELL_GREATERHEAL           = 23954,                    // 强效治疗术
 
-    // Common spells
-    SPELL_GREEN_CHANNELING      = 13540,                    // visual for idle mode
-    SPELL_BAT_FORM              = 23966,
+    // 普通 技能
+    SPELL_GREEN_CHANNELING      = 13540,                    // 绿色引导
+    SPELL_BAT_FORM              = 23966,                    // 耶克里克变形
 
-    // Batriders Spell
-    SPELL_LIQUID_FIRE           = 23968,                    // script effect - triggers 23971,
-    SPELL_UNSTABLE_CONCOCTION   = 24024,
-    SPELL_TRASH                 = 8876,
-    SPELL_DEMORALIZING_SHOUT    = 23511,
-    SPELL_BATTLE_COMMAND        = 5115,
-    SPELL_INFECTED_BITE         = 16128,
+    // 觅血者前锋 技能
+    SPELL_BATTLE_COMMAND        = 5115,                     // 战斗命令
+    SPELL_TRASH                 = 8876,                     // 痛击
+    SPELL_INFECTED_BITE         = 16128,                    // 感染撕咬
+    SPELL_DEMORALIZING_SHOUT    = 23511,                    // 挫志怒吼
+    SPELL_LIQUID_FIRE           = 23968,                    // 投掷燃烧瓶
+    SPELL_UNSTABLE_CONCOCTION   = 24024,                    // 不稳定化合物
 
-    // npcs
-    NPC_FRENZIED_BAT            = 14965,
-    NPC_BAT_RIDER               = 14750,
+    // 仆从
+    NPC_BAT_RIDER               = 14750,                    // 觅血者前锋
+    NPC_FRENZIED_BAT            = 14965                     // 疯狂的觅血蝠
 };
 
 struct boss_jeklikAI : public ScriptedAI
@@ -72,13 +74,16 @@ struct boss_jeklikAI : public ScriptedAI
 
     ScriptedInstance* m_pInstance;
 
+    uint32 m_uiPierceArmorTimer;
     uint32 m_uiChargeTimer;
-    uint32 m_uiSwoopTimer;
     uint32 m_uiSonicBurstTimer;
+    uint32 m_uiSwoopTimer;
     uint32 m_uiSpawnBatsTimer;
+    uint32 m_uiCurseOfBloodTimer;
+    uint32 m_uiBloodLeechTimer;
+    uint32 m_uiPsyhicScreamTimer;
     uint32 m_uiShadowWordPainTimer;
     uint32 m_uiMindFlayTimer;
-    uint32 m_uiChainMindFlayTimer;
     uint32 m_uiGreaterHealTimer;
     uint32 m_uiFlyingBatsTimer;
 
@@ -88,17 +93,20 @@ struct boss_jeklikAI : public ScriptedAI
 
     void Reset() override
     {
-        m_uiChargeTimer         = 20000;
-        m_uiSwoopTimer          = 5000;
-        m_uiSonicBurstTimer     = 8000;
-        m_uiSpawnBatsTimer      = 50000;
-        m_uiShadowWordPainTimer = 6000;
-        m_uiMindFlayTimer       = 11000;
-        m_uiChainMindFlayTimer  = 26000;
-        m_uiGreaterHealTimer    = 20000;
-        m_uiFlyingBatsTimer     = 30000;
+        m_uiPierceArmorTimer        = 10000;
+        m_uiChargeTimer             = 20000;
+        m_uiSonicBurstTimer         = 8000;
+        m_uiSwoopTimer              = 5000;
+        m_uiSpawnBatsTimer          = 15000;
+        m_uiCurseOfBloodTimer       = 10000;
+        m_uiBloodLeechTimer         = 8000;
+        m_uiPsyhicScreamTimer       = 15000;
+        m_uiShadowWordPainTimer     = 6000;
+        m_uiMindFlayTimer           = 11000;
+        m_uiGreaterHealTimer        = 20000;
+        m_uiFlyingBatsTimer         = 30000;
 
-        m_bIsPhaseOne           = true;
+        m_bIsPhaseOne               = true;
 
         DoCastSpellIfCan(m_creature, SPELL_GREEN_CHANNELING);
         SetCombatMovement(false);
@@ -108,11 +116,9 @@ struct boss_jeklikAI : public ScriptedAI
     {
         DoScriptText(SAY_AGGRO, m_creature);
 
-        // Note: on aggro the bats from the cave behind the boss should fly outside!
         if (DoCastSpellIfCan(m_creature, SPELL_BAT_FORM) == CAST_OK)
         {
             m_creature->SetLevitate(true);
-            // override MMaps, by allowing the boss to fly up from the ledge
             m_creature->SetWalk(false);
             m_creature->GetMotionMaster()->MovePoint(1, -12281.58f, -1392.84f, 146.1f);
         }
@@ -124,7 +130,7 @@ struct boss_jeklikAI : public ScriptedAI
         DoDespawnBombRiders();
 
         if (m_pInstance)
-            m_pInstance->SetData(TYPE_JEKLIK, DONE);
+            { m_pInstance->SetData(TYPE_JEKLIK, DONE); }
     }
 
     void JustReachedHome() override
@@ -132,7 +138,7 @@ struct boss_jeklikAI : public ScriptedAI
         DoDespawnBombRiders();
 
         if (m_pInstance)
-            m_pInstance->SetData(TYPE_JEKLIK, FAIL);
+            { m_pInstance->SetData(TYPE_JEKLIK, FAIL); }
     }
 
     void JustSummoned(Creature* pSummoned) override
@@ -140,11 +146,11 @@ struct boss_jeklikAI : public ScriptedAI
         if (pSummoned->GetEntry() == NPC_FRENZIED_BAT)
         {
             if (Unit* pTarget = m_creature->SelectAttackingTarget(ATTACKING_TARGET_RANDOM, 0))
-                pSummoned->AI()->AttackStart(pTarget);
+                { pSummoned->AI()->AttackStart(pTarget); }
         }
         else if (pSummoned->GetEntry() == NPC_BAT_RIDER)
         {
-            pSummoned->CastSpell(pSummoned, SPELL_LIQUID_FIRE, true);
+            pSummoned->SetFlag(UNIT_FIELD_FLAGS, UNIT_FLAG_NOT_SELECTABLE);
             m_lBombRiderGuidsList.push_back(pSummoned->GetObjectGuid());
         }
 
@@ -153,7 +159,6 @@ struct boss_jeklikAI : public ScriptedAI
 
     void EnterEvadeMode() override
     {
-        // Override MMaps, and teleport to original position
         float fX, fY, fZ, fO;
         m_creature->GetRespawnCoord(fX, fY, fZ, &fO);
         m_creature->NearTeleportTo(fX, fY, fZ, fO);
@@ -164,34 +169,33 @@ struct boss_jeklikAI : public ScriptedAI
     void MovementInform(uint32 uiMoveType, uint32 uiPointId) override
     {
         if (uiMoveType != POINT_MOTION_TYPE || !uiPointId)
-            return;
+            { return; }
 
         SetCombatMovement(true);
         DoStartMovement(m_creature->getVictim());
     }
 
-    // Wrapper to despawn the bomb riders on evade / death
     void DoDespawnBombRiders()
     {
         if (m_lBombRiderGuidsList.empty())
-            return;
+            { return; }
 
         for (GuidList::const_iterator itr = m_lBombRiderGuidsList.begin(); itr != m_lBombRiderGuidsList.end(); ++itr)
         {
             if (Creature* pRider = m_creature->GetMap()->GetCreature(*itr))
-                pRider->ForcedDespawn();
+                { pRider->ForcedDespawn(); }
         }
     }
 
     void UpdateAI(const uint32 uiDiff) override
     {
         if (!m_creature->SelectHostileTarget() || !m_creature->getVictim())
-            return;
+            { return; }
 
-        // Bat phase
+        // 蝙蝠形态
         if (m_bIsPhaseOne)
         {
-            // Phase Switch at 50%
+            // 50%进入巨魔形态
             if (m_creature->GetHealthPercent() < 50.0f)
             {
                 m_creature->RemoveAurasDueToSpell(SPELL_BAT_FORM);
@@ -201,74 +205,114 @@ struct boss_jeklikAI : public ScriptedAI
                 return;
             }
 
+            // 刺穿护甲
+            if (m_uiPierceArmorTimer < uiDiff)
+            {
+                if (DoCastSpellIfCan(m_creature->getVictim(), SPELL_PIERCE_ARMOR) == CAST_OK)
+                    { m_uiPierceArmorTimer = 25000; }
+            }
+            else
+                { m_uiPierceArmorTimer -= uiDiff; }
+
+            // 冲锋
             if (m_uiChargeTimer < uiDiff)
             {
                 if (Unit* pTarget = m_creature->SelectAttackingTarget(ATTACKING_TARGET_RANDOM, 0))
                 {
                     if (DoCastSpellIfCan(pTarget, SPELL_CHARGE) == CAST_OK)
-                        m_uiChargeTimer = urand(15000, 30000);
+                        { m_uiChargeTimer = urand(15000, 30000); }
                 }
             }
             else
-                m_uiChargeTimer -= uiDiff;
+                { m_uiChargeTimer -= uiDiff; }
 
-            if (m_uiSwoopTimer < uiDiff)
-            {
-                if (DoCastSpellIfCan(m_creature->getVictim(), SPELL_SWOOP) == CAST_OK)
-                    m_uiSwoopTimer = urand(4000, 9000);
-            }
-            else
-                m_uiSwoopTimer -= uiDiff;
-
+            // 音爆
             if (m_uiSonicBurstTimer < uiDiff)
             {
                 if (DoCastSpellIfCan(m_creature, SPELL_SONIC_BURST) == CAST_OK)
-                    m_uiSonicBurstTimer = urand(8000, 13000);
+                    { m_uiSonicBurstTimer = urand(8000, 13000); }
             }
             else
-                m_uiSonicBurstTimer -= uiDiff;
+                { m_uiSonicBurstTimer -= uiDiff; }
 
+            // 猛扑
+            if (m_uiSwoopTimer < uiDiff)
+            {
+                if (DoCastSpellIfCan(m_creature->getVictim(), SPELL_SWOOP) == CAST_OK)
+                    { m_uiSwoopTimer = urand(4000, 9000); }
+            }
+            else
+                { m_uiSwoopTimer -= uiDiff; }
+
+            // 召唤疯狂的觅血蝠
             if (m_uiSpawnBatsTimer < uiDiff)
             {
-                if (DoCastSpellIfCan(m_creature, SPELL_SUMMON_FRENZIED_BATS) == CAST_OK)
+                for (uint8 i = 0; i < 9; ++i)
                 {
-                    DoScriptText(SAY_SHRIEK, m_creature);
-                    m_uiSpawnBatsTimer = 60000;
+                    if (Unit* pTarget = m_creature->SelectAttackingTarget(ATTACKING_TARGET_RANDOM, 0))
+                        { m_creature->SummonCreature(NPC_FRENZIED_BAT, pTarget->GetPositionX(), pTarget->GetPositionY(), pTarget->GetPositionZ() + 15.0f, 0, TEMPSUMMON_DEAD_DESPAWN, 0); }
                 }
+                DoScriptText(SAY_SHRIEK, m_creature);
+                m_uiSpawnBatsTimer = 60000;
             }
             else
-                m_uiSpawnBatsTimer -= uiDiff;
+                { m_uiSpawnBatsTimer -= uiDiff; }
         }
-        // Troll phase
+        // 巨魔形态
         else
         {
+            // 血之诅咒
+            if (m_uiCurseOfBloodTimer < uiDiff)
+            {
+                if (DoCastSpellIfCan(m_creature, SPELL_CURSE_OF_BLOOD, CAST_TRIGGERED) == CAST_OK)
+                    { m_uiCurseOfBloodTimer = 25000; }
+            }
+            else
+                { m_uiCurseOfBloodTimer -= uiDiff; }
+
+            // 吸血术
+            if (m_uiBloodLeechTimer < uiDiff)
+            {
+                if (DoCastSpellIfCan(m_creature, SPELL_BLOOD_LEECH) == CAST_OK)
+                    { m_uiBloodLeechTimer = urand(15000, 30000); }
+            }
+            else
+                { m_uiBloodLeechTimer -= uiDiff; }
+
+            // 心灵尖啸
+            if (m_uiPsyhicScreamTimer < uiDiff)
+            {
+                if (DoCastSpellIfCan(m_creature->getVictim(), SPELL_PSYHIC_SCREAM) == CAST_OK)
+                    { m_uiPsyhicScreamTimer = urand(25000, 35000); }
+            }
+            else
+                { m_uiPsyhicScreamTimer -= uiDiff; }
+
+            // 暗言术:痛
             if (m_uiShadowWordPainTimer < uiDiff)
             {
                 if (Unit* pTarget = m_creature->SelectAttackingTarget(ATTACKING_TARGET_RANDOM, 0))
                 {
                     if (DoCastSpellIfCan(pTarget, SPELL_SHADOW_WORD_PAIN) == CAST_OK)
-                        m_uiShadowWordPainTimer = urand(12000, 18000);
+                        { m_uiShadowWordPainTimer = urand(12000, 18000); }
                 }
             }
             else
-                m_uiShadowWordPainTimer -= uiDiff;
+                { m_uiShadowWordPainTimer -= uiDiff; }
 
+            // 精神鞭笞
             if (m_uiMindFlayTimer < uiDiff)
             {
-                if (DoCastSpellIfCan(m_creature->getVictim(), SPELL_MIND_FLAY) == CAST_OK)
-                    m_uiMindFlayTimer = 16000;
+                if (Unit* pTarget = m_creature->SelectAttackingTarget(ATTACKING_TARGET_RANDOM, 0))
+                {
+                    if (DoCastSpellIfCan(pTarget, SPELL_MIND_FLAY) == CAST_OK)
+                        { m_uiMindFlayTimer = 16000; }
+                }
             }
             else
-                m_uiMindFlayTimer -= uiDiff;
+                { m_uiMindFlayTimer -= uiDiff; }
 
-            if (m_uiChainMindFlayTimer < uiDiff)
-            {
-                if (DoCastSpellIfCan(m_creature, SPELL_BLOOD_LEECH) == CAST_OK)
-                    m_uiChainMindFlayTimer = urand(15000, 30000);
-            }
-            else
-                m_uiChainMindFlayTimer -= uiDiff;
-
+            // 强效治疗术
             if (m_uiGreaterHealTimer < uiDiff)
             {
                 if (DoCastSpellIfCan(m_creature, SPELL_GREATERHEAL, CAST_INTERRUPT_PREVIOUS) == CAST_OK)
@@ -278,24 +322,23 @@ struct boss_jeklikAI : public ScriptedAI
                 }
             }
             else
-                m_uiGreaterHealTimer -= uiDiff;
+                { m_uiGreaterHealTimer -= uiDiff; }
 
+            // 召唤觅血者前锋
             if (m_uiFlyingBatsTimer)
             {
                 if (m_uiFlyingBatsTimer <= uiDiff)
                 {
-                    // Note: the bat riders summoning and movement may need additional research
                     for (uint8 i = 0; i < 3; ++i)
                     {
                         if (Unit* pTarget = m_creature->SelectAttackingTarget(ATTACKING_TARGET_RANDOM, 0))
-                            m_creature->SummonCreature(NPC_BAT_RIDER, pTarget->GetPositionX(), pTarget->GetPositionY(), pTarget->GetPositionZ() + 15.0f, 0, TEMPSUMMON_DEAD_DESPAWN, 0);
+                            { m_creature->SummonCreature(NPC_BAT_RIDER, pTarget->GetPositionX(), pTarget->GetPositionY(), pTarget->GetPositionZ() + 15.0f, 0, TEMPSUMMON_DEAD_DESPAWN, 0); }
                     }
                     DoScriptText(SAY_RAIN_FIRE, m_creature);
-
                     m_uiFlyingBatsTimer = 0;
                 }
                 else
-                    m_uiFlyingBatsTimer -= uiDiff;
+                    { m_uiFlyingBatsTimer -= uiDiff; }
             }
         }
 
@@ -314,44 +357,44 @@ struct npc_gurubashi_bat_riderAI : public ScriptedAI
     bool m_bIsSummon;
     bool m_bHasDoneConcoction;
 
-    uint32 m_uiInfectedBiteTimer;
     uint32 m_uiBattleCommandTimer;
+    uint32 m_uiInfectedBiteTimer;
+    uint32 m_uiDemoralizingShoutTimer;
 
     void Reset() override
     {
-        m_uiInfectedBiteTimer = 6500;
-        m_uiBattleCommandTimer = 8000;
+        m_uiBattleCommandTimer      = 8000;
+        m_uiInfectedBiteTimer       = 6500;
+        m_uiDemoralizingShoutTimer  = 5000;
 
-        m_bHasDoneConcoction = false;
-
-        DoCastSpellIfCan(m_creature, SPELL_TRASH);
+        m_bHasDoneConcoction        = false;
     }
 
     void Aggro(Unit* /*pWho*/) override
     {
-        // Don't attack if is summoned by Jeklik - the npc gets aggro because of the Liquid Fire
         if (m_bIsSummon)
-            return;
+            { return; }
 
-        DoCastSpellIfCan(m_creature, SPELL_DEMORALIZING_SHOUT);
-        // For normal mobs flag needs to be removed
+        DoCastSpellIfCan(m_creature, SPELL_TRASH);
         m_creature->RemoveFlag(UNIT_FIELD_FLAGS, UNIT_FLAG_NOT_SELECTABLE);
     }
 
     void AttackStart(Unit* pWho) override
     {
-        // Don't attack if is summoned by Jeklik
         if (m_bIsSummon)
-            return;
+            { return; }
 
         ScriptedAI::AttackStart(pWho);
     }
 
     void MoveInLineOfSight(Unit* pWho) override
     {
-        // Don't attack if is summoned by Jeklik
         if (m_bIsSummon)
+        {
+            if (!m_creature->HasAura(SPELL_LIQUID_FIRE))
+                { DoCastSpellIfCan(m_creature, SPELL_LIQUID_FIRE); }
             return;
+        }
 
         ScriptedAI::MoveInLineOfSight(pWho);
     }
@@ -359,29 +402,41 @@ struct npc_gurubashi_bat_riderAI : public ScriptedAI
     void UpdateAI(const uint32 uiDiff) override
     {
         if (!m_creature->SelectHostileTarget() || !m_creature->getVictim())
-            return;
+            { return; }
 
-        if (!m_bHasDoneConcoction && m_creature->GetHealthPercent() < 50.0f)
-        {
-            if (DoCastSpellIfCan(m_creature, SPELL_UNSTABLE_CONCOCTION) == CAST_OK)
-                m_bHasDoneConcoction = true;
-        }
-
-        if (m_uiInfectedBiteTimer < uiDiff)
-        {
-            if (DoCastSpellIfCan(m_creature->getVictim(), SPELL_INFECTED_BITE) == CAST_OK)
-                m_uiInfectedBiteTimer = 6500;
-        }
-        else
-            m_uiInfectedBiteTimer -= uiDiff;
-
+        // 战斗命令
         if (m_uiBattleCommandTimer < uiDiff)
         {
             if (DoCastSpellIfCan(m_creature, SPELL_BATTLE_COMMAND) == CAST_OK)
-                m_uiBattleCommandTimer = 25000;
+                { m_uiBattleCommandTimer = 25000; }
         }
         else
-            m_uiBattleCommandTimer -= uiDiff;
+            { m_uiBattleCommandTimer -= uiDiff; }
+
+        // 感染撕咬
+        if (m_uiInfectedBiteTimer < uiDiff)
+        {
+            if (DoCastSpellIfCan(m_creature->getVictim(), SPELL_INFECTED_BITE) == CAST_OK)
+                { m_uiInfectedBiteTimer = 6500; }
+        }
+        else
+            { m_uiInfectedBiteTimer -= uiDiff; }
+
+        // 挫志怒吼
+        if (m_uiDemoralizingShoutTimer < uiDiff)
+        {
+            if (DoCastSpellIfCan(m_creature, SPELL_DEMORALIZING_SHOUT) == CAST_OK)
+                { m_uiDemoralizingShoutTimer = 25000; }
+        }
+        else
+            { m_uiDemoralizingShoutTimer -= uiDiff; }
+
+        // 不稳定化合物
+        if (!m_bHasDoneConcoction && m_creature->GetHealthPercent() < 50.0f)
+        {
+            if (DoCastSpellIfCan(m_creature, SPELL_UNSTABLE_CONCOCTION) == CAST_OK)
+                { m_bHasDoneConcoction = true; }
+        }
 
         DoMeleeAttackIfReady();
     }
