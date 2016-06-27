@@ -15,6 +15,9 @@ File Encoding         : 65001
 -- 多彩精英卫士
 UPDATE `creature_linking_template` SET `flag`='135' WHERE (`entry`='10814') AND (`map`='229');
 
+-- 拉扎什眼镜蛇
+UPDATE `creature_linking_template` SET `flag`='1159' WHERE (`entry`='11373') AND (`map`='309');
+
 -- 火妖
 UPDATE `creature_linking_template` SET `flag`='1159' WHERE (`entry`='11661') AND (`map`='409');
 

@@ -102,8 +102,17 @@ UPDATE `creature_model_info` SET `bounding_radius`='1', `combat_reach`='1' WHERE
 -- 土色圣殿骑士
 UPDATE `creature_model_info` SET `bounding_radius`='3', `combat_reach`='3' WHERE (`modelid`='14512');
 
+-- 拉扎什眼镜蛇
+UPDATE `creature_model_info` SET `bounding_radius`='1', `combat_reach`='1' WHERE (`modelid`='14559');
+
 -- 疯狂的觅血蝠
 UPDATE `creature_model_info` SET `bounding_radius`='1', `combat_reach`='1' WHERE (`modelid`='14562');
+
+-- 寄居蛇
+UPDATE `creature_model_info` SET `bounding_radius`='1', `combat_reach`='1' WHERE (`modelid`='15133');
+
+-- 高阶祭司温诺希斯
+UPDATE `creature_model_info` SET `bounding_radius`='1', `combat_reach`='1' WHERE (`modelid`='15217');
 
 -- 高阶祭司耶克里克
 UPDATE `creature_model_info` SET `bounding_radius`='1', `combat_reach`='1' WHERE (`modelid`='15219');

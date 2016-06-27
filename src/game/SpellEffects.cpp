@@ -1536,6 +1536,14 @@ void Spell::EffectApplyAura(SpellEffectIndex eff_idx)
     if (m_spellInfo->Id == 20594)                           // 石像形态
         { m_caster->CastSpell(m_caster, 20612, true); }
 
+    // 寄生蛇
+    if (m_spellInfo->Id == 23865)
+    {
+        // 召唤寄生蛇
+        if (roll_chance_f(25.0f))
+            { m_caster->CastSpell(m_caster, 23866, true); }
+    }
+
     // 地精火箭靴
     if (m_spellInfo->Id == 8892)
     {

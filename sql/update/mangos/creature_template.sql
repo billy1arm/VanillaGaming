@@ -183,6 +183,9 @@ UPDATE `creature_template` SET `ExtraFlags`='64' WHERE (`Entry`='10717');
 -- 碎矛巨魔
 UPDATE `creature_template` SET `ExtraFlags`='64' WHERE (`Entry`='10919');
 
+-- 拉扎什眼镜蛇
+UPDATE `creature_template` SET `Armor`='6800', `ResistanceHoly`='121', `ResistanceFire`='121', `ResistanceNature`='121', `ResistanceFrost`='121', `ResistanceShadow`='121', `ResistanceArcane`='121' WHERE (`Entry`='11373');
+
 -- 上层精灵召唤者
 UPDATE `creature_template` SET `ExtraFlags`='64' WHERE (`Entry`='11466');
 
@@ -303,6 +306,9 @@ UPDATE `creature_template` SET `ExtraFlags`='64' WHERE (`Entry`='13696');
 -- 暮光之王艾沃兰
 UPDATE `creature_template` SET `AIName`='EventAI' WHERE (`Entry`='14479');
 
+-- 高阶祭司温诺希斯
+UPDATE `creature_template` SET `DamageMultiplier`='2', `Armor`='6800', `ResistanceHoly`='121', `ResistanceFire`='121', `ResistanceNature`='121', `ResistanceFrost`='121', `ResistanceShadow`='121', `ResistanceArcane`='121' WHERE (`Entry`='14507');
+
 -- 高阶祭司耶克里克
 UPDATE `creature_template` SET `DamageMultiplier`='2', `Armor`='6800', `ResistanceHoly`='121', `ResistanceFire`='121', `ResistanceNature`='121', `ResistanceFrost`='121', `ResistanceShadow`='121', `ResistanceArcane`='121' WHERE (`Entry`='14517');
 
@@ -314,6 +320,9 @@ UPDATE `creature_template` SET `ExtraFlags`='64' WHERE (`Entry`='14748');
 
 -- 觅血者前锋
 UPDATE `creature_template` SET `Armor`='6800', `ResistanceHoly`='121', `ResistanceFire`='121', `ResistanceNature`='121', `ResistanceFrost`='121', `ResistanceShadow`='121', `ResistanceArcane`='121' WHERE (`Entry`='14750');
+
+-- 寄居蛇
+UPDATE `creature_template` SET `Armor`='6800', `ResistanceHoly`='121', `ResistanceFire`='121', `ResistanceNature`='121', `ResistanceFrost`='121', `ResistanceShadow`='121', `ResistanceArcane`='121' WHERE (`Entry`='14884');
 
 -- 疯狂的觅血蝠
 UPDATE `creature_template` SET `Armor`='6800', `ResistanceHoly`='121', `ResistanceFire`='121', `ResistanceNature`='121', `ResistanceFrost`='121', `ResistanceShadow`='121', `ResistanceArcane`='121' WHERE (`Entry`='14965');
