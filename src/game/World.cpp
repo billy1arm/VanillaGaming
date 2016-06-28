@@ -1815,7 +1815,7 @@ void World::ServerMaintenanceStart()
         m_NextMaintenanceDate += 7;
 
     // flushing rank points list ( standing must be reloaded after server maintenance )
-    sObjectMgr.FlushRankPoints(LastWeekEnd);
+    sObjectMgr.FlushRankPoints(sWorld.GetDateToday());
 
     // save and update all online players
     for (SessionMap::iterator itr = m_sessions.begin(); itr != m_sessions.end(); ++itr)
