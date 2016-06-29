@@ -309,6 +309,9 @@ UPDATE `creature_template` SET `AIName`='EventAI' WHERE (`Entry`='14479');
 -- 高阶祭司温诺希斯
 UPDATE `creature_template` SET `DamageMultiplier`='2', `Armor`='6800', `ResistanceHoly`='121', `ResistanceFire`='121', `ResistanceNature`='121', `ResistanceFrost`='121', `ResistanceShadow`='121', `ResistanceArcane`='121' WHERE (`Entry`='14507');
 
+-- 高阶祭司玛尔里
+UPDATE `creature_template` SET `DamageMultiplier`='2', `Armor`='6800', `ResistanceHoly`='121', `ResistanceFire`='121', `ResistanceNature`='121', `ResistanceFrost`='121', `ResistanceShadow`='121', `ResistanceArcane`='121' WHERE (`Entry`='14510');
+
 -- 高阶祭司耶克里克
 UPDATE `creature_template` SET `DamageMultiplier`='2', `Armor`='6800', `ResistanceHoly`='121', `ResistanceFire`='121', `ResistanceNature`='121', `ResistanceFrost`='121', `ResistanceShadow`='121', `ResistanceArcane`='121' WHERE (`Entry`='14517');
 
@@ -326,6 +329,9 @@ UPDATE `creature_template` SET `Armor`='6800', `ResistanceHoly`='121', `Resistan
 
 -- 疯狂的觅血蝠
 UPDATE `creature_template` SET `Armor`='6800', `ResistanceHoly`='121', `ResistanceFire`='121', `ResistanceNature`='121', `ResistanceFrost`='121', `ResistanceShadow`='121', `ResistanceArcane`='121' WHERE (`Entry`='14965');
+
+-- 玛尔里的爪牙
+UPDATE `creature_template` SET `Armor`='6800', `ResistanceHoly`='121', `ResistanceFire`='121', `ResistanceNature`='121', `ResistanceFrost`='121', `ResistanceShadow`='121', `ResistanceArcane`='121' WHERE (`Entry`='15041');
 
 -- 苍白圣殿骑士
 UPDATE `creature_template` SET `AIName`='EventAI' WHERE (`Entry`='15212');

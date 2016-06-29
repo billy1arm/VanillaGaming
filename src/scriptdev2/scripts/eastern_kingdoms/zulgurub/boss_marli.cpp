@@ -1,4 +1,4 @@
-/* This file is part of the ScriptDev2 Project. See AUTHORS file for Copyright information
+﻿/* This file is part of the ScriptDev2 Project. See AUTHORS file for Copyright information
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 2 of the License, or
@@ -16,9 +16,9 @@
 
 /* ScriptData
 SDName: Boss_Marli
-SD%Complete: 90
-SDComment: Enlarge for small spiders NYI
-SDCategory: Zul'Gurub
+SD%Complete: 100
+SDComment:
+SDCategory: 祖尔格拉布
 EndScriptData */
 
 #include "precompiled.h"
@@ -32,23 +32,22 @@ enum
     SAY_SPIDER_SPAWN            = -1309007,
     SAY_DEATH                   = -1309008,
 
-    // Spider form spells
-    SPELL_CORROSIVE_POISON      = 24111,
-    SPELL_CHARGE                = 22911,
-    SPELL_ENVELOPING_WEBS       = 24110,
-    SPELL_POISON_SHOCK          = 24112,                    // purpose of this spell is unk
+    // 蜘蛛形态 技能
+    SPELL_CHARGE                = 22911,                    // 冲锋
+    SPELL_ENVELOPING_WEBS       = 24110,                    // 包围之网
+    SPELL_CORROSIVE_POISON      = 24111,                    // 腐蚀毒药
+    SPELL_POISON_SHOCK          = 24112,                    // 毒性震荡
 
-    // Troll form spells
-    SPELL_POISON_VOLLEY         = 24099,
-    SPELL_DRAIN_LIFE            = 24300,
-    SPELL_ENLARGE               = 24109,                    // purpose of this spell is unk
-    SPELL_SPIDER_EGG            = 24082,                    // removed from DBC - should trigger 24081 which summons 15041
+    // 巨魔形态 技能
+    SPELL_SPIDER_EGG            = 24082,                    // 孵化蜘蛛卵
+    SPELL_POISON_VOLLEY         = 24099,                    // 毒液箭雨
+    SPELL_ENLARGE               = 24109,                    // 放大
+    SPELL_DRAIN_LIFE            = 24300,                    // 吸取生命
 
-    // common spells
-    SPELL_SPIDER_FORM           = 24084,
-    SPELL_TRANSFORM_BACK        = 24085,
-    SPELL_TRASH                 = 3391,
-    SPELL_HATCH_EGGS            = 24083,                    // note this should only target 4 eggs!
+    // 普通 技能
+    SPELL_TRASH                 = 8876,                     // 痛击
+    SPELL_SPIDER_FORM           = 24084,                    // 玛尔里的变形术
+    SPELL_TRANSFORM_BACK        = 24085                     // 玛尔里的变形术-取消
 };
 
 struct boss_marliAI : public ScriptedAI
@@ -61,35 +60,36 @@ struct boss_marliAI : public ScriptedAI
 
     ScriptedInstance* m_pInstance;
 
-    uint32 m_uiPoisonVolleyTimer;
-    uint32 m_uiSpawnSpiderTimer;
     uint32 m_uiChargeTimer;
-    uint32 m_uiTransformTimer;
-    uint32 m_uiDrainLifeTimer;
-    uint32 m_uiCorrosivePoisonTimer;
     uint32 m_uiWebsTimer;
-    uint32 m_uiTrashTimer;
+    uint32 m_uiCorrosivePoisonTimer;
+    uint32 m_uiPoisonShockTimer;
+    uint32 m_uiSpawnSpiderTimer;
+    uint32 m_uiPoisonVolleyTimer;
+    uint32 m_uiDrainLifeTimer;
+    uint32 m_uiTransformTimer;
 
     bool m_bIsInPhaseTwo;
 
     void Reset() override
     {
-        m_uiPoisonVolleyTimer   = 15000;
-        m_uiSpawnSpiderTimer    = 55000;
-        m_uiTransformTimer      = 60000;
-        m_uiDrainLifeTimer      = 30000;
-        m_uiCorrosivePoisonTimer = 1000;
-        m_uiWebsTimer           = 5000;
-        m_uiTrashTimer          = 5000;
+        m_uiWebsTimer               = 10000;
+        m_uiCorrosivePoisonTimer    = 5000;
+        m_uiPoisonShockTimer        = 8000;
+        m_uiSpawnSpiderTimer        = 15000;
+        m_uiPoisonVolleyTimer       = 10000;
+        m_uiDrainLifeTimer          = 20000;
+        m_uiTransformTimer          = 60000;
 
-        m_bIsInPhaseTwo         = false;
+        m_bIsInPhaseTwo             = false;
     }
 
     void Aggro(Unit* /*pWho*/) override
     {
         DoScriptText(SAY_AGGRO, m_creature);
 
-        DoCastSpellIfCan(m_creature, SPELL_HATCH_EGGS);
+        DoCastSpellIfCan(m_creature, SPELL_SPIDER_EGG);
+        DoCastSpellIfCan(m_creature, SPELL_TRASH, CAST_TRIGGERED | CAST_AURA_NOT_PRESENT);
     }
 
     void JustDied(Unit* /*pKiller*/) override
@@ -97,67 +97,81 @@ struct boss_marliAI : public ScriptedAI
         DoScriptText(SAY_DEATH, m_creature);
 
         if (m_pInstance)
-            m_pInstance->SetData(TYPE_MARLI, DONE);
+            { m_pInstance->SetData(TYPE_MARLI, DONE); }
     }
 
     void JustReachedHome() override
     {
         if (m_pInstance)
-            m_pInstance->SetData(TYPE_MARLI, FAIL);
+            { m_pInstance->SetData(TYPE_MARLI, FAIL); }
     }
 
     void UpdateAI(const uint32 uiDiff) override
     {
         if (!m_creature->SelectHostileTarget() || !m_creature->getVictim())
-            return;
+            { return; }
 
-        // Troll phase
+        // 巨魔形态
         if (!m_bIsInPhaseTwo)
         {
+            // 孵化蜘蛛卵
+            if (m_uiSpawnSpiderTimer < uiDiff)
+            {
+                if (DoCastSpellIfCan(m_creature, SPELL_SPIDER_EGG) == CAST_OK)
+                {
+                    DoScriptText(SAY_SPIDER_SPAWN, m_creature);
+                    m_uiSpawnSpiderTimer = 30000;
+                }
+
+            }
+            else
+                { m_uiSpawnSpiderTimer -= uiDiff; }
+
+            // 毒液箭雨
             if (m_uiPoisonVolleyTimer < uiDiff)
             {
                 if (DoCastSpellIfCan(m_creature, SPELL_POISON_VOLLEY) == CAST_OK)
-                    m_uiPoisonVolleyTimer = urand(10000, 20000);
+                    { m_uiPoisonVolleyTimer = urand(10000, 20000); }
             }
             else
-                m_uiPoisonVolleyTimer -= uiDiff;
+                { m_uiPoisonVolleyTimer -= uiDiff; }
 
+            // 吸取生命
             if (m_uiDrainLifeTimer < uiDiff)
             {
                 if (Unit* pTarget = m_creature->SelectAttackingTarget(ATTACKING_TARGET_RANDOM, 0))
                 {
                     if (DoCastSpellIfCan(pTarget, SPELL_DRAIN_LIFE) == CAST_OK)
-                        m_uiDrainLifeTimer = urand(20000, 50000);
+                        { m_uiDrainLifeTimer = urand(20000, 30000); }
                 }
             }
             else
-                m_uiDrainLifeTimer -= uiDiff;
-
-            if (m_uiSpawnSpiderTimer < uiDiff)
-            {
-                // Workaround for missing spell 24082 - creature always selects the closest egg for hatch
-                if (m_pInstance)
-                {
-                    if (GameObject* pEgg = GetClosestGameObjectWithEntry(m_creature, GO_SPIDER_EGG, 30.0f))
-                    {
-                        if (urand(0, 1))
-                            DoScriptText(SAY_SPIDER_SPAWN, m_creature);
-
-                        pEgg->Use(m_creature);
-                        m_uiSpawnSpiderTimer = 60000;
-                    }
-                }
-            }
-            else
-                m_uiSpawnSpiderTimer -= uiDiff;
+                { m_uiDrainLifeTimer -= uiDiff; }
         }
-        // Spider phase
+        // 蜘蛛形态
         else
         {
+            // 冲锋
+            if (m_uiChargeTimer)
+            {
+                if (m_uiChargeTimer < uiDiff)
+                {
+                    if (Unit* pTarget = m_creature->SelectAttackingTarget(ATTACKING_TARGET_RANDOM, 0, SPELL_CHARGE, SELECT_FLAG_NOT_IN_MELEE_RANGE))
+                    {
+                        if (DoCastSpellIfCan(pTarget, SPELL_CHARGE) == CAST_OK)
+                            { m_uiChargeTimer = 0; }
+                    }
+                }
+                else
+                    { m_uiChargeTimer -= uiDiff; }
+            }
+
+            // 包围之网
             if (m_uiWebsTimer < uiDiff)
             {
                 if (DoCastSpellIfCan(m_creature, SPELL_ENVELOPING_WEBS) == CAST_OK)
                 {
+                    DoResetThreat();
                     m_uiWebsTimer = urand(15000, 20000);
                     m_uiChargeTimer = 1000;
                 }
@@ -165,37 +179,32 @@ struct boss_marliAI : public ScriptedAI
             else
                 m_uiWebsTimer -= uiDiff;
 
-            if (m_uiChargeTimer)
-            {
-                if (m_uiChargeTimer < uiDiff)
-                {
-                    // ToDo: research if the selected target shouldn't have the enveloping webs aura
-                    if (Unit* pTarget = m_creature->SelectAttackingTarget(ATTACKING_TARGET_RANDOM, 0, SPELL_CHARGE, SELECT_FLAG_NOT_IN_MELEE_RANGE))
-                    {
-                        if (DoCastSpellIfCan(pTarget, SPELL_CHARGE) == CAST_OK)
-                        {
-                            DoResetThreat();
-                            m_uiChargeTimer = 0;
-                        }
-                    }
-                }
-                else
-                    m_uiChargeTimer -= uiDiff;
-            }
-
+            // 腐蚀毒药
             if (m_uiCorrosivePoisonTimer < uiDiff)
             {
-                if (Unit* pTarget = m_creature->SelectAttackingTarget(ATTACKING_TARGET_RANDOM, 0))
+                if (Unit* pTarget = m_creature->getVictim())
                 {
                     if (DoCastSpellIfCan(pTarget, SPELL_CORROSIVE_POISON) == CAST_OK)
-                        m_uiCorrosivePoisonTimer = urand(25000, 35000);
+                        { m_uiCorrosivePoisonTimer = urand(25000, 30000); }
                 }
             }
             else
-                m_uiCorrosivePoisonTimer -= uiDiff;
+                { m_uiCorrosivePoisonTimer -= uiDiff; }
+
+            // 毒性震荡
+            if (m_uiPoisonShockTimer < uiDiff)
+            {
+                if (Unit* pTarget = m_creature->getVictim())
+                {
+                    if (DoCastSpellIfCan(pTarget, SPELL_POISON_SHOCK) == CAST_OK)
+                        { m_uiPoisonShockTimer = 8000; }
+                }
+            }
+            else
+                { m_uiPoisonShockTimer -= uiDiff; }
         }
 
-        // Transform from Troll to Spider and back
+        // 转换形态
         if (m_uiTransformTimer < uiDiff)
         {
             if (!m_bIsInPhaseTwo)
@@ -222,14 +231,6 @@ struct boss_marliAI : public ScriptedAI
         }
         else
             m_uiTransformTimer -= uiDiff;
-
-        if (m_uiTrashTimer < uiDiff)
-        {
-            if (DoCastSpellIfCan(m_creature->getVictim(), SPELL_TRASH) == CAST_OK)
-                m_uiTrashTimer = urand(10000, 20000);
-        }
-        else
-            m_uiTrashTimer -= uiDiff;
 
         DoMeleeAttackIfReady();
     }

@@ -111,11 +111,17 @@ UPDATE `creature_model_info` SET `bounding_radius`='1', `combat_reach`='1' WHERE
 -- 寄居蛇
 UPDATE `creature_model_info` SET `bounding_radius`='1', `combat_reach`='1' WHERE (`modelid`='15133');
 
+-- 玛尔里的爪牙
+UPDATE `creature_model_info` SET `bounding_radius`='1', `combat_reach`='1' WHERE (`modelid`='15136');
+
 -- 高阶祭司温诺希斯
 UPDATE `creature_model_info` SET `bounding_radius`='1', `combat_reach`='1' WHERE (`modelid`='15217');
 
 -- 高阶祭司耶克里克
 UPDATE `creature_model_info` SET `bounding_radius`='1', `combat_reach`='1' WHERE (`modelid`='15219');
+
+-- 高阶祭司玛尔里
+UPDATE `creature_model_info` SET `bounding_radius`='1', `combat_reach`='1' WHERE (`modelid`='15220');
 
 -- 觅血者前锋
 UPDATE `creature_model_info` SET `bounding_radius`='1' WHERE (`modelid`='15303');
