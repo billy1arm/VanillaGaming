@@ -1804,15 +1804,13 @@ void SpellMgr::ModDBCSpellAttributes()
 
         switch (spell_id)
         {
-            // Execute spell id 20647 is used to actually notify the client of the damage done.
-            // If MeleeSpellHitResult method is executed for this spell id, it means that the spellId sent by the client for execute did already passed.
-        case 20647:
-            spellInfo->Attributes |= SPELL_ATTR_IMPOSSIBLE_DODGE_PARRY_BLOCK;
-            spellInfo->AttributesEx3 |= SPELL_ATTR_EX3_CANT_MISS;
-            break;
-        case 16870:
-            spellInfo->procFlags = PROC_FLAG_NONE;
-            break;
+            case 16870:
+                spellInfo->procFlags = PROC_FLAG_NONE;
+                break;
+            case 20647:
+                spellInfo->Attributes |= SPELL_ATTR_IMPOSSIBLE_DODGE_PARRY_BLOCK;
+                spellInfo->AttributesEx3 |= SPELL_ATTR_EX3_CANT_MISS;
+                break;
         }
     }
 }
