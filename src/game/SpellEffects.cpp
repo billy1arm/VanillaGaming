@@ -1675,6 +1675,13 @@ void Spell::EffectHeal(SpellEffectIndex /*eff_idx*/)
 
         int32 addhealth = damage;
 
+        // 堕落治疗 --- 取消治疗效果且对目标施放-堕落治疗
+        if (caster->HasAura(23401))
+        {
+            caster->CastSpell(unitTarget, 23402, true);
+            return;
+        }
+
         // Swiftmend - consumes Regrowth or Rejuvenation
         if (m_spellInfo->Id == 18562)
         {
