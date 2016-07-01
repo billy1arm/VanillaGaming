@@ -186,6 +186,9 @@ UPDATE `creature_template` SET `ExtraFlags`='64' WHERE (`Entry`='10919');
 -- 拉扎什眼镜蛇
 UPDATE `creature_template` SET `Armor`='6800', `ResistanceHoly`='121', `ResistanceFire`='121', `ResistanceNature`='121', `ResistanceFrost`='121', `ResistanceShadow`='121', `ResistanceArcane`='121' WHERE (`Entry`='11373');
 
+-- 血领主曼多基尔
+UPDATE `creature_template` SET `DamageMultiplier`='2', `Armor`='6800', `ResistanceHoly`='121', `ResistanceFire`='121', `ResistanceNature`='121', `ResistanceFrost`='121', `ResistanceShadow`='121', `ResistanceArcane`='121' WHERE (`Entry`='11382');
+
 -- 上层精灵召唤者
 UPDATE `creature_template` SET `ExtraFlags`='64' WHERE (`Entry`='11466');
 
@@ -329,6 +332,9 @@ UPDATE `creature_template` SET `Armor`='6800', `ResistanceHoly`='121', `Resistan
 
 -- 疯狂的觅血蝠
 UPDATE `creature_template` SET `Armor`='6800', `ResistanceHoly`='121', `ResistanceFire`='121', `ResistanceNature`='121', `ResistanceFrost`='121', `ResistanceShadow`='121', `ResistanceArcane`='121' WHERE (`Entry`='14965');
+
+-- 奥根
+UPDATE `creature_template` SET `DamageMultiplier`='2', `Armor`='6800', `ResistanceHoly`='121', `ResistanceFire`='121', `ResistanceNature`='121', `ResistanceFrost`='121', `ResistanceShadow`='121', `ResistanceArcane`='121' WHERE (`Entry`='14988');
 
 -- 玛尔里的爪牙
 UPDATE `creature_template` SET `Armor`='6800', `ResistanceHoly`='121', `ResistanceFire`='121', `ResistanceNature`='121', `ResistanceFrost`='121', `ResistanceShadow`='121', `ResistanceArcane`='121' WHERE (`Entry`='15041');

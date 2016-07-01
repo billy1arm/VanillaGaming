@@ -1,4 +1,4 @@
-/* This file is part of the ScriptDev2 Project. See AUTHORS file for Copyright information
+﻿/* This file is part of the ScriptDev2 Project. See AUTHORS file for Copyright information
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 2 of the License, or
@@ -16,9 +16,9 @@
 
 /* ScriptData
 SDName: Boss_Mandokir
-SD%Complete: 80
-SDComment: test Threating Gaze. Script depends on ACID script for Vilebranch Speaker
-SDCategory: Zul'Gurub
+SD%Complete: 100
+SDComment:
+SDCategory: 祖尔格拉布
 EndScriptData */
 
 #include "precompiled.h"
@@ -26,34 +26,37 @@ EndScriptData */
 
 enum
 {
-    NPC_OHGAN           = 14988,
-    NPC_CHAINED_SPIRIT  = 15117,                            // resing spirits
+    SAY_AGGRO                   = -1309015,
+    SAY_DING_KILL               = -1309016,
+    SAY_GRATS_JINDO             = -1309017,
+    SAY_WATCH                   = -1309018,
+    SAY_WATCH_WHISPER           = -1309019,
 
-    SAY_AGGRO           = -1309015,
-    SAY_DING_KILL       = -1309016,
-    SAY_GRATS_JINDO     = -1309017,
-    SAY_WATCH           = -1309018,
-    SAY_WATCH_WHISPER   = -1309019,
+    EMOTE_RAGE                  = -1309024,
 
-    EMOTE_RAGE          = -1309024,
+    SPELL_EXECUTE               = 7160,                     // 斩杀
+    SPELL_WHIRLWIND             = 13736,                    // 旋风斩
+    SPELL_MORTAL_STRIKE         = 16856,                    // 致死打击
+    SPELL_CLEAVE                = 20691,                    // 顺劈斩
+    SPELL_FEAR                  = 22884,                    // 心灵尖啸
+    SPELL_LEVEL_UP              = 24312,                    // 升级
+    SPELL_WATCH                 = 24314,                    // 威慑凝视
+    SPELL_ENRAGE                = 24318,                    // 激怒
+    SPELL_OVERPOWER             = 24407,                    // 压制
+    SPELL_CHARGE                = 24408,                    // 冲锋
+    SPELL_SUMMON_PLAYER         = 25104,                    // 召唤玩家
 
-    SPELL_CHARGE        = 24315,
-    SPELL_CLEAVE        = 20691,
-    SPELL_FEAR          = 29321,
-    SPELL_WHIRLWIND     = 24236,
-    SPELL_MORTAL_STRIKE = 24573,
-    SPELL_ENRAGE        = 23537,
-    SPELL_WATCH         = 24314,
-    SPELL_SUMMON_PLAYER = 25104,
-    SPELL_LEVEL_UP      = 24312,
+    // 奥根 技能
+    SPELL_TRASH                 = 8876,                     // 痛击
+    SPELL_SUNDERARMOR           = 24317,                    // 破甲
 
-    // Ohgans Spells
-    SPELL_SUNDERARMOR   = 24317,
+    // 被禁锢的灵魂 技能
+    SPELL_REVIVE                = 24341,                    // 复活
 
-    // Chained Spirit Spells
-    SPELL_REVIVE        = 24341,
+    NPC_OHGAN                   = 14988,                    // 奥根
+    NPC_CHAINED_SPIRIT          = 15117,                    // 被禁锢的灵魂
 
-    POINT_DOWNSTAIRS    = 1
+    POINT_DOWNSTAIRS            = 1
 };
 
 struct SpawnLocations
@@ -95,11 +98,12 @@ struct boss_mandokirAI : public ScriptedAI
     ScriptedInstance* m_pInstance;
 
     uint32 m_uiWatchTimer;
-    uint32 m_uiCleaveTimer;
+    uint32 m_uiExecuteTimer;
     uint32 m_uiWhirlwindTimer;
-    uint32 m_uiFearTimer;
     uint32 m_uiMortalStrikeTimer;
-    uint32 m_uiCheckTimer;
+    uint32 m_uiCleaveTimer;
+    uint32 m_uiFearTimer;
+    uint32 m_uiOverpowerTimer;
 
     uint8 m_uiKillCount;
 
@@ -108,16 +112,17 @@ struct boss_mandokirAI : public ScriptedAI
 
     void Reset() override
     {
-        m_uiWatchTimer          = 33000;
-        m_uiCleaveTimer         = 7000;
-        m_uiWhirlwindTimer      = 20000;
-        m_uiFearTimer           = 1000;
-        m_uiMortalStrikeTimer   = 1000;
-        m_uiCheckTimer          = 1000;
+        m_uiWatchTimer              = 33000;
+        m_uiExecuteTimer            = 1000;
+        m_uiWhirlwindTimer          = 20000;
+        m_uiMortalStrikeTimer       = 1000;
+        m_uiCleaveTimer             = 7000;
+        m_uiFearTimer               = 1000;
+        m_uiOverpowerTimer          = 5000;
 
-        m_uiKillCount           = 0;
+        m_uiKillCount               = 0;
 
-        m_fTargetThreat         = 0.0f;
+        m_fTargetThreat             = 0.0f;
     }
 
     void Aggro(Unit* /*pWho*/) override
@@ -125,28 +130,28 @@ struct boss_mandokirAI : public ScriptedAI
         DoScriptText(SAY_AGGRO, m_creature);
 
         for (uint8 i = 0; i < countof(aSpirits); ++i)
-            m_creature->SummonCreature(NPC_CHAINED_SPIRIT, aSpirits[i].fX, aSpirits[i].fY, aSpirits[i].fZ, aSpirits[i].fAng, TEMPSUMMON_CORPSE_DESPAWN, 0);
+            { m_creature->SummonCreature(NPC_CHAINED_SPIRIT, aSpirits[i].fX, aSpirits[i].fY, aSpirits[i].fZ, aSpirits[i].fAng, TEMPSUMMON_CORPSE_DESPAWN, 0); }
 
-        // At combat start Mandokir is mounted so we must unmount it first
+        // 移除坐骑
         m_creature->Unmount();
 
-        // And summon his raptor
+        // 召唤奥根
         m_creature->SummonCreature(NPC_OHGAN, 0.0f, 0.0f, 0.0f, 0.0f, TEMPSUMMON_TIMED_OOC_DESPAWN, 35000);
 
         if (m_pInstance)
-            m_pInstance->SetData(TYPE_OHGAN, IN_PROGRESS);
+            { m_pInstance->SetData(TYPE_OHGAN, IN_PROGRESS); }
     }
 
     void JustReachedHome() override
     {
         if (m_pInstance)
-            m_pInstance->SetData(TYPE_OHGAN, FAIL);
+            { m_pInstance->SetData(TYPE_OHGAN, FAIL); }
     }
 
     void JustDied(Unit* /*pKiller*/) override
     {
         if (m_pInstance)
-            m_pInstance->SetData(TYPE_OHGAN, DONE);
+            { m_pInstance->SetData(TYPE_OHGAN, DONE); }
     }
 
     void EnterEvadeMode() override
@@ -156,9 +161,9 @@ struct boss_mandokirAI : public ScriptedAI
         m_creature->CombatStop(true);
         m_creature->LoadCreatureAddon(true);
 
-        // should evade to bottom of the stairs when raid fail
+        // 脱站后位置更改为台阶下
         if (m_creature->isAlive())
-            m_creature->GetMotionMaster()->MovePoint(0, aMandokirDownstairsPos[0], aMandokirDownstairsPos[1], aMandokirDownstairsPos[2]);
+            { m_creature->GetMotionMaster()->MovePoint(0, aMandokirDownstairsPos[0], aMandokirDownstairsPos[1], aMandokirDownstairsPos[2]); }
 
         m_creature->SetLootRecipient(NULL);
 
@@ -180,7 +185,7 @@ struct boss_mandokirAI : public ScriptedAI
                     if (Creature* pJindo = m_pInstance->GetSingleCreatureFromStorage(NPC_JINDO))
                     {
                         if (pJindo->isAlive())
-                            DoScriptText(SAY_GRATS_JINDO, pJindo);
+                            { DoScriptText(SAY_GRATS_JINDO, pJindo); }
                     }
                 }
 
@@ -191,7 +196,7 @@ struct boss_mandokirAI : public ScriptedAI
             if (m_creature->isInCombat())
             {
                 if (Creature* pSpirit = GetClosestCreatureWithEntry(pVictim, NPC_CHAINED_SPIRIT, 50.0f))
-                    pSpirit->CastSpell(pVictim, SPELL_REVIVE, false);
+                    { pSpirit->CastSpell(pVictim, SPELL_REVIVE, false); }
             }
         }
     }
@@ -201,7 +206,7 @@ struct boss_mandokirAI : public ScriptedAI
         if (pSummoned->GetEntry() == NPC_OHGAN)
         {
             if (m_creature->getVictim())
-                pSummoned->AI()->AttackStart(m_creature->getVictim());
+                { pSummoned->AI()->AttackStart(m_creature->getVictim()); }
         }
     }
 
@@ -224,17 +229,13 @@ struct boss_mandokirAI : public ScriptedAI
             m_watchTargetGuid = pTarget->GetObjectGuid();
             m_fTargetThreat = m_creature->getThreatManager().getThreat(pTarget);
             m_uiWatchTimer = 6000;
-
-            // Could use this instead of hard coded timer for the above (but no script access),
-            // but would still a hack since we should better use the dummy, at aura removal
-            // SpellDurationEntry* const pDuration = sSpellDurationStore.LookupEntry(pSpell->DurationIndex);
         }
     }
 
     void MovementInform(uint32 uiMoveType, uint32 uiPointId) override
     {
         if (uiMoveType != POINT_MOTION_TYPE || !m_pInstance)
-            return;
+            { return; }
 
         if (uiPointId == POINT_DOWNSTAIRS)
         {
@@ -246,20 +247,20 @@ struct boss_mandokirAI : public ScriptedAI
     void UpdateAI(const uint32 uiDiff) override
     {
         if (!m_creature->SelectHostileTarget() || !m_creature->getVictim())
-            return;
+            { return; }
 
+        // 威慑凝视
         if (m_uiWatchTimer < uiDiff)
         {
-            // If someone is watched
             if (m_watchTargetGuid)
             {
                 Player* pWatchTarget = m_creature->GetMap()->GetPlayer(m_watchTargetGuid);
 
-                // If threat is higher that previously saved, mandokir will act
+                // 击杀目标如果有仇恨动作
                 if (pWatchTarget && pWatchTarget->isAlive() && m_creature->getThreatManager().getThreat(pWatchTarget) > m_fTargetThreat)
                 {
                     if (!m_creature->IsWithinLOSInMap(pWatchTarget))
-                        m_creature->CastSpell(pWatchTarget, SPELL_SUMMON_PLAYER, true);
+                        { m_creature->CastSpell(pWatchTarget, SPELL_SUMMON_PLAYER, true); }
 
                     DoCastSpellIfCan(pWatchTarget, SPELL_CHARGE);
                 }
@@ -271,7 +272,7 @@ struct boss_mandokirAI : public ScriptedAI
                 if (Unit* pTarget = m_creature->SelectAttackingTarget(ATTACKING_TARGET_RANDOM, 0))
                 {
                     if (Player* pPlayer = pTarget->GetCharmerOrOwnerPlayerOrPlayerItself())
-                        m_creature->CastSpell(pPlayer, SPELL_WATCH, false);
+                        { m_creature->CastSpell(pPlayer, SPELL_WATCH, false); }
                 }
             }
 
@@ -282,25 +283,49 @@ struct boss_mandokirAI : public ScriptedAI
 
         if (!m_watchTargetGuid)
         {
-            // Cleave
-            if (m_uiCleaveTimer < uiDiff)
+            // 斩杀
+            if (m_creature->getVictim()->GetHealthPercent() < 20.0f)
             {
-                if (DoCastSpellIfCan(m_creature->getVictim(), SPELL_CLEAVE) == CAST_OK)
-                    m_uiCleaveTimer = 7000;
+                if (m_uiExecuteTimer < uiDiff)
+                {
+                    if (DoCastSpellIfCan(m_creature->getVictim(), SPELL_EXECUTE) == CAST_OK)
+                        { m_uiExecuteTimer = 15000; }
+                }
+                else
+                    { m_uiExecuteTimer -= uiDiff; }
             }
-            else
-                m_uiCleaveTimer -= uiDiff;
 
-            // Whirlwind
+            // 旋风斩
             if (m_uiWhirlwindTimer < uiDiff)
             {
                 if (DoCastSpellIfCan(m_creature, SPELL_WHIRLWIND) == CAST_OK)
-                    m_uiWhirlwindTimer = 18000;
+                    { m_uiWhirlwindTimer = 18000; }
             }
             else
-                m_uiWhirlwindTimer -= uiDiff;
+                { m_uiWhirlwindTimer -= uiDiff; }
 
-            // If more then 3 targets in melee range mandokir will cast fear
+            // 致死打击
+            if (m_creature->getVictim()->GetHealthPercent() < 50.0f)
+            {
+                if (m_uiMortalStrikeTimer < uiDiff)
+                {
+                    if (DoCastSpellIfCan(m_creature->getVictim(), SPELL_MORTAL_STRIKE) == CAST_OK)
+                        { m_uiMortalStrikeTimer = 15000; }
+                }
+                else
+                    { m_uiMortalStrikeTimer -= uiDiff; }
+            }
+
+            // 顺劈斩
+            if (m_uiCleaveTimer < uiDiff)
+            {
+                if (DoCastSpellIfCan(m_creature->getVictim(), SPELL_CLEAVE) == CAST_OK)
+                    { m_uiCleaveTimer = 7000; }
+            }
+            else
+                { m_uiCleaveTimer -= uiDiff; }
+
+            // 心灵尖啸
             if (m_uiFearTimer < uiDiff)
             {
                 uint8 uiTargetInRangeCount = 0;
@@ -311,35 +336,32 @@ struct boss_mandokirAI : public ScriptedAI
                     Unit* pTarget = m_creature->GetMap()->GetUnit((*i)->getUnitGuid());
 
                     if (pTarget && pTarget->GetTypeId() == TYPEID_PLAYER && m_creature->CanReachWithMeleeAttack(pTarget))
-                        ++uiTargetInRangeCount;
+                        { ++uiTargetInRangeCount; }
                 }
 
-                if (uiTargetInRangeCount > 3)
-                    DoCastSpellIfCan(m_creature, SPELL_FEAR);
+                if (uiTargetInRangeCount > 1)
+                    { DoCastSpellIfCan(m_creature, SPELL_FEAR); }
 
                 m_uiFearTimer = 4000;
             }
             else
-                m_uiFearTimer -= uiDiff;
+                { m_uiFearTimer -= uiDiff; }
 
-            // Mortal Strike if target below 50% hp
-            if (m_creature->getVictim()->GetHealthPercent() < 50.0f)
+            // 压制
+            if (m_uiOverpowerTimer < uiDiff)
             {
-                if (m_uiMortalStrikeTimer < uiDiff)
-                {
-                    if (DoCastSpellIfCan(m_creature->getVictim(), SPELL_MORTAL_STRIKE) == CAST_OK)
-                        m_uiMortalStrikeTimer = 15000;
-                }
-                else
-                    m_uiMortalStrikeTimer -= uiDiff;
+                if (DoCastSpellIfCan(m_creature->getVictim(), SPELL_OVERPOWER) == CAST_OK)
+                    { m_uiOverpowerTimer = 7000; }
             }
+            else
+                { m_uiOverpowerTimer -= uiDiff; }
         }
 
         DoMeleeAttackIfReady();
     }
 };
 
-// Ohgan
+// 奥根
 struct mob_ohganAI : public ScriptedAI
 {
     mob_ohganAI(Creature* pCreature) : ScriptedAI(pCreature) { Reset(); }
@@ -348,7 +370,7 @@ struct mob_ohganAI : public ScriptedAI
 
     void Reset() override
     {
-        m_uiSunderArmorTimer = 5000;
+        m_uiSunderArmorTimer        = 5000;
     }
 
     void KilledUnit(Unit* pVictim) override
@@ -358,24 +380,29 @@ struct mob_ohganAI : public ScriptedAI
             if (m_creature->isInCombat())
             {
                 if (Creature* pSpirit = GetClosestCreatureWithEntry(pVictim, NPC_CHAINED_SPIRIT, 50.0f))
-                    pSpirit->CastSpell(pVictim, SPELL_REVIVE, false);
+                    { pSpirit->CastSpell(pVictim, SPELL_REVIVE, false); }
             }
         }
+    }
+
+    void Aggro(Unit* /*pWho*/) override
+    {
+        DoCastSpellIfCan(m_creature, SPELL_TRASH, CAST_TRIGGERED | CAST_AURA_NOT_PRESENT);
     }
 
     void UpdateAI(const uint32 uiDiff) override
     {
         if (!m_creature->SelectHostileTarget() || !m_creature->getVictim())
-            return;
+            { return; }
 
-        // SunderArmor
+        // 破甲
         if (m_uiSunderArmorTimer < uiDiff)
         {
             if (DoCastSpellIfCan(m_creature->getVictim(), SPELL_SUNDERARMOR) == CAST_OK)
-                m_uiSunderArmorTimer = urand(10000, 15000);
+                { m_uiSunderArmorTimer = urand(10000, 15000); }
         }
         else
-            m_uiSunderArmorTimer -= uiDiff;
+            { m_uiSunderArmorTimer -= uiDiff; }
 
         DoMeleeAttackIfReady();
     }

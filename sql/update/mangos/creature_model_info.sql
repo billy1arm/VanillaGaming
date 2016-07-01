@@ -36,6 +36,9 @@ UPDATE `creature_model_info` SET `bounding_radius`='2', `combat_reach`='2' WHERE
 -- 拉格纳罗斯
 UPDATE `creature_model_info` SET `bounding_radius`='14', `combat_reach`='14' WHERE (`modelid`='11121');
 
+-- 血领主曼多基尔
+UPDATE `creature_model_info` SET `bounding_radius`='1', `combat_reach`='1' WHERE (`modelid`='11288');
+
 -- 焚化者古雷曼格
 UPDATE `creature_model_info` SET `bounding_radius`='1.6', `combat_reach`='1.6' WHERE (`modelid`='11986');
 
@@ -122,6 +125,9 @@ UPDATE `creature_model_info` SET `bounding_radius`='1', `combat_reach`='1' WHERE
 
 -- 高阶祭司玛尔里
 UPDATE `creature_model_info` SET `bounding_radius`='1', `combat_reach`='1' WHERE (`modelid`='15220');
+
+-- 奥根
+UPDATE `creature_model_info` SET `bounding_radius`='1', `combat_reach`='1' WHERE (`modelid`='15271');
 
 -- 觅血者前锋
 UPDATE `creature_model_info` SET `bounding_radius`='1' WHERE (`modelid`='15303');

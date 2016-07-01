@@ -114,6 +114,10 @@ INSERT INTO `creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`, `g
 INSERT INTO `creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`, `groupid`, `mincountOrRef`, `maxcount`, `condition_id`) VALUES ('11261', '16684', '14', '2', '1', '1', '0');
 INSERT INTO `creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`, `groupid`, `mincountOrRef`, `maxcount`, `condition_id`) VALUES ('11261', '35031', '60', '1', '-35031', '1', '0');
 
+-- 血领主曼多基尔
+UPDATE `creature_loot_template` SET `groupid`='0' WHERE (`entry`='11382') AND (`item`='34087');
+UPDATE `creature_loot_template` SET `groupid`='0' WHERE (`entry`='11382') AND (`item`='34088');
+
 -- 拉格纳罗斯
 DELETE FROM `creature_loot_template` WHERE (`entry`='11502') AND (`item`='17204');
 UPDATE `creature_loot_template` SET `groupid`='0' WHERE (`entry`='11502') AND (`item`='34002');
