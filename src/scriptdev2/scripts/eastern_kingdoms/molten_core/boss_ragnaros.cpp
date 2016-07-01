@@ -267,11 +267,11 @@ struct boss_ragnarosAI : public Scripted_NoMovementAI
                 if (DoCastSpellIfCan(pTarget, SPELL_MIGHT_OF_RAGNAROS) == CAST_OK)
                 {
                     DoScriptText(SAY_HAMMER, m_creature);
-                    m_uiHammerTimer = 11000;
+                    m_uiHammerTimer = urand(20000, 30000);
                 }
             }
             else
-                m_uiHammerTimer = 11000;
+                m_uiHammerTimer = 1000;
         }
         else
             m_uiHammerTimer -= uiDiff;
