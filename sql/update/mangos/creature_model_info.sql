@@ -12,6 +12,9 @@ File Encoding         : 65001
 -- Updates of creature_model_info
 -- ----------------------------
 
+-- 奥妮克希亚雏龙
+UPDATE `creature_model_info` SET `bounding_radius`='1', `combat_reach`='1' WHERE (`modelid`='397');
+
 -- 火焰行者
 UPDATE `creature_model_info` SET `bounding_radius`='1', `combat_reach`='1' WHERE (`modelid`='1070');
 
@@ -29,6 +32,12 @@ UPDATE `creature_model_info` SET `bounding_radius`='1', `combat_reach`='1' WHERE
 
 -- 熔核巨人
 UPDATE `creature_model_info` SET `bounding_radius`='1', `combat_reach`='1' WHERE (`modelid`='8269');
+
+-- 奥妮克希亚
+UPDATE `creature_model_info` SET `bounding_radius`='4', `combat_reach`='4' WHERE (`modelid`='8570');
+
+-- 奥妮克希亚守卫
+UPDATE `creature_model_info` SET `bounding_radius`='2', `combat_reach`='2' WHERE (`modelid`='8711');
 
 -- 玛格曼达
 UPDATE `creature_model_info` SET `bounding_radius`='2', `combat_reach`='2' WHERE (`modelid`='10193');

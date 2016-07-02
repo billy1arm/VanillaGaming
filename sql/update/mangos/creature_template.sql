@@ -171,6 +171,9 @@ UPDATE `creature_template` SET `SpeedWalk`='1', `SpeedRun`='1.14286' WHERE (`Ent
 -- 泽雷利斯
 UPDATE `creature_template` SET `SpeedWalk`='1', `SpeedRun`='1.14286' WHERE (`Entry`='10082');
 
+-- 奥妮克希亚
+UPDATE `creature_template` SET `DamageMultiplier`='30', `Armor`='7800', `ResistanceHoly`='121', `ResistanceFire`='121', `ResistanceNature`='121', `ResistanceFrost`='121', `ResistanceShadow`='121', `ResistanceArcane`='121' WHERE (`Entry`='10184');
+
 -- 骷髅守护者
 UPDATE `creature_template` SET `ExtraFlags`='64' WHERE (`Entry`='10390');
 
@@ -182,6 +185,9 @@ UPDATE `creature_template` SET `ExtraFlags`='64' WHERE (`Entry`='10717');
 
 -- 碎矛巨魔
 UPDATE `creature_template` SET `ExtraFlags`='64' WHERE (`Entry`='10919');
+
+-- 奥妮克希亚雏龙
+UPDATE `creature_template` SET `Armor`='6800', `ResistanceHoly`='121', `ResistanceFire`='363', `ResistanceNature`='121', `ResistanceFrost`='121', `ResistanceShadow`='121', `ResistanceArcane`='121' WHERE (`Entry`='11262');
 
 -- 拉扎什眼镜蛇
 UPDATE `creature_template` SET `Armor`='6800', `ResistanceHoly`='121', `ResistanceFire`='121', `ResistanceNature`='121', `ResistanceFrost`='121', `ResistanceShadow`='121', `ResistanceArcane`='121' WHERE (`Entry`='11373');
@@ -284,6 +290,9 @@ UPDATE `creature_template` SET `DamageMultiplier`='30', `Armor`='6100', `Resista
 
 -- 提里奥·弗丁
 UPDATE `creature_template` SET `DamageMultiplier`='5' WHERE (`Entry`='12126');
+
+-- 奥妮克希亚守卫
+UPDATE `creature_template` SET `Armor`='6800', `ResistanceHoly`='121', `ResistanceFire`='363', `ResistanceNature`='121', `ResistanceFrost`='121', `ResistanceShadow`='121', `ResistanceArcane`='121' WHERE (`Entry`='12129');
 
 -- 基赫纳斯
 UPDATE `creature_template` SET `DamageMultiplier`='32', `Armor`='6295', `ResistanceHoly`='121', `ResistanceFire`='121', `ResistanceNature`='121', `ResistanceFrost`='121', `ResistanceShadow`='121', `ResistanceArcane`='121' WHERE (`Entry`='12259');
