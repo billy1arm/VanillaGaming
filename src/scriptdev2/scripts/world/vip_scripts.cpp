@@ -54,7 +54,8 @@ void SendDefaultMenu(Player* pPlayer, Creature* pCreature)
     pPlayer->ADD_GOSSIP_ITEM(GOSSIP_ICON_TALK, vip_scripts_To_UTF8("重置天赋"), GOSSIP_SENDER_MAIN, GOSSIP_ACTION_INFO_DEF + 4); // 重置天赋
     pPlayer->ADD_GOSSIP_ITEM(GOSSIP_ICON_TALK, vip_scripts_To_UTF8("购买背包"), GOSSIP_SENDER_MAIN, GOSSIP_ACTION_INFO_DEF + 5); // 购买背包
     pPlayer->ADD_GOSSIP_ITEM(GOSSIP_ICON_TALK, vip_scripts_To_UTF8("购买坐骑"), GOSSIP_SENDER_MAIN, GOSSIP_ACTION_INFO_DEF + 6); // 购买坐骑
-    pPlayer->ADD_GOSSIP_ITEM(GOSSIP_ICON_TALK, vip_scripts_To_UTF8("角色改名"), GOSSIP_SENDER_MAIN, GOSSIP_ACTION_INFO_DEF + 7); // 角色改名
+    pPlayer->ADD_GOSSIP_ITEM(GOSSIP_ICON_TALK, vip_scripts_To_UTF8("奇奇怪怪"), GOSSIP_SENDER_MAIN, GOSSIP_ACTION_INFO_DEF + 7); // 奇奇怪怪
+    pPlayer->ADD_GOSSIP_ITEM(GOSSIP_ICON_TALK, vip_scripts_To_UTF8("角色改名"), GOSSIP_SENDER_MAIN, GOSSIP_ACTION_INFO_DEF + 8); // 角色改名
     pPlayer->TalkedToCreature(pCreature->GetEntry(), pCreature->GetObjectGuid());
     pPlayer->SendPreparedGossip(pCreature);
 }
@@ -199,7 +200,7 @@ bool GossipSelect_vip_scripts(Player* pPlayer, Creature* pCreature, uint32 /*sen
             }
             break;
 
-        // 角色改名
+        // 奇奇怪怪
         case GOSSIP_ACTION_INFO_DEF + 7:
             if (pPlayer->isAlive())
             {
@@ -211,7 +212,27 @@ bool GossipSelect_vip_scripts(Player* pPlayer, Creature* pCreature, uint32 /*sen
                 else
                 {
                     pPlayer->PrepareGossipMenu(pCreature, pPlayer->GetDefaultGossipMenuForSource(pCreature));
-                    pPlayer->ADD_GOSSIP_ITEM(GOSSIP_ICON_TALK, vip_scripts_To_UTF8("立刻改名-消耗300积分"), GOSSIP_SENDER_MAIN, GOSSIP_ACTION_INFO_DEF + 70); // 立刻改名
+                    pPlayer->ADD_GOSSIP_ITEM(GOSSIP_ICON_TALK, vip_scripts_To_UTF8("精品粽子礼盒-消耗250积分"), GOSSIP_SENDER_MAIN, GOSSIP_ACTION_INFO_DEF + 70); // 精品粽子礼盒
+                    pPlayer->ADD_GOSSIP_ITEM(GOSSIP_ICON_TALK, vip_scripts_To_UTF8("返回主菜单"), GOSSIP_SENDER_MAIN, GOSSIP_ACTION_INFO_DEF + 1);                // 返回主菜单
+                    pPlayer->TalkedToCreature(pCreature->GetEntry(), pCreature->GetObjectGuid());
+                    pPlayer->SendPreparedGossip(pCreature);
+                }
+            }
+            break;
+
+        // 角色改名
+        case GOSSIP_ACTION_INFO_DEF + 8:
+            if (pPlayer->isAlive())
+            {
+                if (pPlayer->isInCombat())
+                {
+                    pPlayer->PlayerTalkClass->CloseGossip();
+                    ChatHandler(pPlayer).SendSysMessage(LANG_YOU_IN_COMBAT);
+                }
+                else
+                {
+                    pPlayer->PrepareGossipMenu(pCreature, pPlayer->GetDefaultGossipMenuForSource(pCreature));
+                    pPlayer->ADD_GOSSIP_ITEM(GOSSIP_ICON_TALK, vip_scripts_To_UTF8("立刻改名-消耗300积分"), GOSSIP_SENDER_MAIN, GOSSIP_ACTION_INFO_DEF + 80); // 立刻改名
                     pPlayer->ADD_GOSSIP_ITEM(GOSSIP_ICON_TALK, vip_scripts_To_UTF8("返回主菜单"), GOSSIP_SENDER_MAIN, GOSSIP_ACTION_INFO_DEF + 1);            // 返回主菜单
                     pPlayer->TalkedToCreature(pCreature->GetEntry(), pCreature->GetObjectGuid());
                     pPlayer->SendPreparedGossip(pCreature);
@@ -838,8 +859,53 @@ bool GossipSelect_vip_scripts(Player* pPlayer, Creature* pCreature, uint32 /*sen
             }
             break;
 
-        // 立刻改名
+        // 精品粽子礼盒
         case GOSSIP_ACTION_INFO_DEF + 70:
+            if (pPlayer->isAlive())
+            {
+                pPlayer->PlayerTalkClass->CloseGossip();
+                if (pPlayer->isInCombat())
+                {
+                    ChatHandler(pPlayer).SendSysMessage(LANG_YOU_IN_COMBAT);
+                }
+                else
+                {
+                    if (pPlayer->GetIntegral() >= 250)
+                    {
+                        if (pPlayer->GetItemCount(30014, true) < 1)
+                        {
+                            ItemPosCountVec dest;
+                            InventoryResult msg = pPlayer->CanStoreNewItem(NULL_BAG, NULL_SLOT, dest, 30014, 1, (uint32)0);
+                            if (msg == EQUIP_ERR_OK)
+                            {
+                                pPlayer->SaveToDB();
+                                pPlayer->ModifyIntegral(-250);
+                                Item* item = pPlayer->StoreNewItem(dest, 30014, true, Item::GenerateItemRandomPropertyId(30014));
+                                pPlayer->SendNewItem(item, 1, false, true);
+                                pPlayer->SaveToDB();
+                                ChatHandler(pPlayer).PSendSysMessage(LANG_USE_INTEGRAL, 250);
+                            }
+                            else
+                            {
+                                ChatHandler(pPlayer).PSendSysMessage(LANG_FULL_BAG);
+                            }
+                        }
+                        else
+                        {
+                            ChatHandler(pPlayer).PSendSysMessage(LANG_ALREADY_HAVE);
+                        }
+                    }
+                    else
+                    {
+                        ChatHandler(pPlayer).PSendSysMessage(LANG_LACK_INTEGRAL, 250);
+                        ChatHandler(pPlayer).PSendSysMessage(LANG_QUERY_INTEGRAL, pPlayer->GetIntegral(), pPlayer->GetTotalIntegral());
+                    }
+                }
+            }
+            break;
+
+        // 立刻改名
+        case GOSSIP_ACTION_INFO_DEF + 80:
             if (pPlayer->isAlive())
             {
                 pPlayer->PlayerTalkClass->CloseGossip();
