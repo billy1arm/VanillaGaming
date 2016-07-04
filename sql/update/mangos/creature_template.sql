@@ -189,6 +189,12 @@ UPDATE `creature_template` SET `ExtraFlags`='64' WHERE (`Entry`='10919');
 -- 奥妮克希亚雏龙
 UPDATE `creature_template` SET `Armor`='6800', `ResistanceHoly`='121', `ResistanceFire`='363', `ResistanceNature`='121', `ResistanceFrost`='121', `ResistanceShadow`='121', `ResistanceArcane`='121' WHERE (`Entry`='11262');
 
+-- 狂热者洛卡恩
+UPDATE `creature_template` SET `DamageMultiplier`='4', `Armor`='6800', `ResistanceHoly`='121', `ResistanceFire`='121', `ResistanceNature`='121', `ResistanceFrost`='121', `ResistanceShadow`='121', `ResistanceArcane`='121' WHERE (`Entry`='11347');
+
+-- 狂热者扎斯
+UPDATE `creature_template` SET `DamageMultiplier`='4', `Armor`='6800', `ResistanceHoly`='121', `ResistanceFire`='121', `ResistanceNature`='121', `ResistanceFrost`='121', `ResistanceShadow`='121', `ResistanceArcane`='121' WHERE (`Entry`='11348');
+
 -- 拉扎什眼镜蛇
 UPDATE `creature_template` SET `Armor`='6800', `ResistanceHoly`='121', `ResistanceFire`='121', `ResistanceNature`='121', `ResistanceFrost`='121', `ResistanceShadow`='121', `ResistanceArcane`='121' WHERE (`Entry`='11373');
 
@@ -320,6 +326,9 @@ UPDATE `creature_template` SET `AIName`='EventAI' WHERE (`Entry`='14479');
 
 -- 高阶祭司温诺希斯
 UPDATE `creature_template` SET `DamageMultiplier`='2', `Armor`='6800', `ResistanceHoly`='121', `ResistanceFire`='121', `ResistanceNature`='121', `ResistanceFrost`='121', `ResistanceShadow`='121', `ResistanceArcane`='121' WHERE (`Entry`='14507');
+
+-- 高阶祭司塞卡尔
+UPDATE `creature_template` SET `DamageMultiplier`='2', `Armor`='6800', `ResistanceHoly`='121', `ResistanceFire`='121', `ResistanceNature`='121', `ResistanceFrost`='121', `ResistanceShadow`='121', `ResistanceArcane`='121' WHERE (`Entry`='14509');
 
 -- 高阶祭司玛尔里
 UPDATE `creature_template` SET `DamageMultiplier`='2', `Armor`='6800', `ResistanceHoly`='121', `ResistanceFire`='121', `ResistanceNature`='121', `ResistanceFrost`='121', `ResistanceShadow`='121', `ResistanceArcane`='121' WHERE (`Entry`='14510');

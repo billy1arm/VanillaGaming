@@ -1,4 +1,4 @@
-/* This file is part of the ScriptDev2 Project. See AUTHORS file for Copyright information
+﻿/* This file is part of the ScriptDev2 Project. See AUTHORS file for Copyright information
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 2 of the License, or
@@ -16,9 +16,9 @@
 
 /* ScriptData
 SDName: Boss_Thekal
-SD%Complete: 95
-SDComment: Almost finished.
-SDCategory: Zul'Gurub
+SD%Complete: 100
+SDComment:
+SDCategory: 祖尔格拉布
 EndScriptData */
 
 #include "precompiled.h"
@@ -26,36 +26,38 @@ EndScriptData */
 
 enum
 {
-    SAY_AGGRO               = -1309009,
-    SAY_DEATH               = -1309010,
+    SAY_AGGRO                   = -1309009,
+    SAY_DEATH                   = -1309010,
 
-    SPELL_MORTAL_CLEAVE     = 22859,
-    SPELL_SILENCE           = 23207,
-    SPELL_FRENZY            = 23128,
-    SPELL_FORCE_PUNCH       = 24189,
-    SPELL_CHARGE            = 24408,
-    SPELL_ENRAGE            = 23537,
-    SPELL_SUMMON_TIGERS     = 24183,
-    SPELL_TIGER_FORM        = 24169,
-    SPELL_RESURRECT         = 24173,
+    // 高阶祭司塞卡尔
+    SPELL_ENRAGE                = 8269,                     // 狂怒
+    SPELL_SILENCE               = 22666,                    // 沉默
+    SPELL_MORTAL_CLEAVE         = 22859,                    // 致死顺劈
+    SPELL_FRENZY                = 23128,                    // 疯狂
+    SPELL_TIGER_FORM            = 24169,                    // 塞卡尔变形
+    SPELL_RESURRECT             = 24173,                    // 复活
+    SPELL_SUMMON_TIGERS         = 24183,                    // 召唤祖利安守护者
+    SPELL_FORCE_PUNCH           = 24189,                    // 重击
+    SPELL_CHARGE                = 24193,                    // 冲锋
 
-    // Zealot Lor'Khan Spells
-    SPELL_SHIELD            = 25020,
-    SPELL_BLOODLUST         = 24185,
-    SPELL_GREATER_HEAL      = 24208,
-    SPELL_DISARM            = 22691,
+    // 狂热者洛卡恩
+    SPELL_DISARM                = 6713,                     // 缴械
+    SPELL_DISPEL_MAGIC          = 17201,                    // 驱散魔法
+    SPELL_SHIELD                = 20545,                    // 闪电之盾
+    SPELL_BLOODLUST             = 24185,                    // 嗜血
+    SPELL_GREATER_HEAL          = 24208,                    // 强力治疗术
 
-    // Zealot Lor'Khan Spells
-    SPELL_SWEEPING_STRIKES  = 18765,
-    SPELL_SINISTER_STRIKE   = 15667,
-    SPELL_GOUGE             = 24698,
-    SPELL_KICK              = 15614,
-    SPELL_BLIND             = 21060,
+    // 狂热者扎斯
+    SPELL_GOUGE                 = 12540,                    // 凿击
+    SPELL_SINISTER_STRIKE       = 15581,                    // 邪恶攻击
+    SPELL_KICK                  = 15614,                    // 脚踢
+    SPELL_SWEEPING_STRIKES      = 18765,                    // 横扫攻击
+    SPELL_BLIND                 = 21060,                    // 致盲
 
-    PHASE_NORMAL            = 1,
-    PHASE_FAKE_DEATH        = 2,
-    PHASE_WAITING           = 3,
-    PHASE_TIGER             = 4,
+    PHASE_NORMAL                = 1,
+    PHASE_FAKE_DEATH            = 2,
+    PHASE_WAITING               = 3,
+    PHASE_TIGER                 = 4
 };
 
 // abstract base class for faking death
@@ -74,18 +76,16 @@ struct boss_thekalBaseAI : public ScriptedAI
     void DamageTaken(Unit* /*pKiller*/, uint32& uiDamage) override
     {
         if (uiDamage < m_creature->GetHealth())
-            return;
+            { return; }
 
-        // Prevent glitch if in fake death
         if (m_uiPhase == PHASE_FAKE_DEATH || m_uiPhase == PHASE_WAITING)
         {
             uiDamage = 0;
             return;
         }
 
-        // Only init fake in normal phase
         if (m_uiPhase != PHASE_NORMAL)
-            return;
+            { return; }
 
         uiDamage = 0;
 
@@ -112,7 +112,7 @@ struct boss_thekalBaseAI : public ScriptedAI
         m_creature->SetStandState(UNIT_STAND_STATE_STAND);
 
         if (bOnlyFlags)
-            return;
+            { return; }
 
         m_creature->SetHealth(m_creature->GetMaxHealth());
         m_uiPhase = PHASE_NORMAL;
@@ -120,9 +120,8 @@ struct boss_thekalBaseAI : public ScriptedAI
         DoResetThreat();
         Reset();
 
-        // Assume Attack
         if (m_creature->getVictim())
-            m_creature->GetMotionMaster()->MoveChase(m_creature->getVictim());
+            { m_creature->GetMotionMaster()->MoveChase(m_creature->getVictim()); }
 
         OnRevive();
     }
@@ -130,7 +129,7 @@ struct boss_thekalBaseAI : public ScriptedAI
     void PreventRevive()
     {
         if (m_creature->IsNonMeleeSpellCasted(true))
-            m_creature->InterruptNonMeleeSpells(true);
+            { m_creature->InterruptNonMeleeSpells(true); }
 
         m_uiPhase = PHASE_WAITING;
     }
@@ -146,32 +145,30 @@ struct boss_thekalAI : public boss_thekalBaseAI
 
     ScriptedInstance* m_pInstance;
 
-    uint32 m_uiMortalCleaveTimer;
     uint32 m_uiSilenceTimer;
+    uint32 m_uiMortalCleaveTimer;
     uint32 m_uiFrenzyTimer;
+    uint32 m_uiResurrectTimer;
+    uint32 m_uiSummonTigersTimer;
     uint32 m_uiForcePunchTimer;
     uint32 m_uiChargeTimer;
-    uint32 m_uiEnrageTimer;
-    uint32 m_uiSummonTigersTimer;
-    uint32 m_uiResurrectTimer;
 
     bool m_bEnraged;
 
     void Reset() override
     {
-        m_uiMortalCleaveTimer   = 4000;
-        m_uiSilenceTimer        = 9000;
-        m_uiFrenzyTimer         = 30000;
-        m_uiForcePunchTimer     = 4000;
-        m_uiChargeTimer         = 12000;
-        m_uiEnrageTimer         = 32000;
-        m_uiSummonTigersTimer   = 25000;
-        m_uiResurrectTimer      = 10000;
-        m_uiPhase               = PHASE_NORMAL;
+        m_uiSilenceTimer            = 10000;
+        m_uiMortalCleaveTimer       = 5000;
+        m_uiFrenzyTimer             = 20000;
+        m_uiResurrectTimer          = 10000;
+        m_uiSummonTigersTimer       = 25000;
+        m_uiForcePunchTimer         = 3000;
+        m_uiChargeTimer             = 20000;
 
-        m_bEnraged              = false;
+        m_uiPhase                   = PHASE_NORMAL;
 
-        // remove fake death
+        m_bEnraged                  = false;
+
         Revive(true);
     }
 
@@ -185,42 +182,37 @@ struct boss_thekalAI : public boss_thekalBaseAI
         DoScriptText(SAY_DEATH, m_creature);
 
         if (!m_pInstance)
-            return;
+            { return; }
 
         m_pInstance->SetData(TYPE_THEKAL, DONE);
 
-        // remove the two adds
         if (Creature* pZath = m_pInstance->GetSingleCreatureFromStorage(NPC_ZATH))
-            pZath->ForcedDespawn();
+            { pZath->ForcedDespawn(); }
         if (Creature* pLorkhan = m_pInstance->GetSingleCreatureFromStorage(NPC_LORKHAN))
-            pLorkhan->ForcedDespawn();
+            { pLorkhan->ForcedDespawn(); }
     }
 
     void JustReachedHome() override
     {
         if (m_pInstance)
-            m_pInstance->SetData(TYPE_THEKAL, FAIL);
+            { m_pInstance->SetData(TYPE_THEKAL, FAIL); }
     }
 
-    // Only call in context where m_pInstance is valid
     bool CanPreventAddsResurrect()
     {
-        // If any add is alive, return false
         if (m_pInstance->GetData(TYPE_ZATH) != SPECIAL || m_pInstance->GetData(TYPE_LORKHAN) != SPECIAL)
-            return false;
+            { return false; }
 
-        // Else Prevent them Resurrecting
         if (Creature* pLorkhan = m_pInstance->GetSingleCreatureFromStorage(NPC_LORKHAN))
         {
             if (boss_thekalBaseAI* pFakerAI = dynamic_cast<boss_thekalBaseAI*>(pLorkhan->AI()))
-                pFakerAI->PreventRevive();
+                { pFakerAI->PreventRevive(); }
         }
         if (Creature* pZath = m_pInstance->GetSingleCreatureFromStorage(NPC_ZATH))
         {
             if (boss_thekalBaseAI* pFakerAI = dynamic_cast<boss_thekalBaseAI*>(pZath->AI()))
-                pFakerAI->PreventRevive();
+                { pFakerAI->PreventRevive(); }
         }
-
         return true;
     }
 
@@ -232,18 +224,17 @@ struct boss_thekalAI : public boss_thekalBaseAI
         {
             m_pInstance->SetData(TYPE_THEKAL, SPECIAL);
 
-            // If both Adds are already dead, don't wait 10 seconds
             if (CanPreventAddsResurrect())
-                m_uiResurrectTimer = 1000;
+                { m_uiResurrectTimer = 1000; }
         }
     }
 
     void OnRevive()
     {
         if (!m_pInstance)
-            return;
+            { return; }
 
-        // Both Adds are 'dead' enter tiger phase
+        // 塞卡尔变形
         if (CanPreventAddsResurrect())
         {
             DoCastSpellIfCan(m_creature, SPELL_TIGER_FORM, CAST_TRIGGERED);
@@ -254,16 +245,15 @@ struct boss_thekalAI : public boss_thekalBaseAI
     void UpdateAI(const uint32 uiDiff) override
     {
         if (!m_creature->SelectHostileTarget() || !m_creature->getVictim())
-            return;
+            { return; }
 
         switch (m_uiPhase)
         {
             case PHASE_FAKE_DEATH:
+                // 复活
                 if (m_uiResurrectTimer < uiDiff)
                 {
-                    // resurrect him in any case
                     DoCastSpellIfCan(m_creature, SPELL_RESURRECT);
-
                     m_uiPhase = PHASE_WAITING;
                     if (m_pInstance)
                     {
@@ -272,37 +262,70 @@ struct boss_thekalAI : public boss_thekalBaseAI
                     }
                 }
                 else
-                    m_uiResurrectTimer -= uiDiff;
-
-                // No break needed here
+                    { m_uiResurrectTimer -= uiDiff; }
             case PHASE_WAITING:
                 return;
-
             case PHASE_NORMAL:
-                if (m_uiMortalCleaveTimer < uiDiff)
-                {
-                    if (DoCastSpellIfCan(m_creature->getVictim(), SPELL_MORTAL_CLEAVE) == CAST_OK)
-                        m_uiMortalCleaveTimer = urand(15000, 20000);
-                }
-                else
-                    m_uiMortalCleaveTimer -= uiDiff;
-
+                // 沉默
                 if (m_uiSilenceTimer < uiDiff)
                 {
                     if (Unit* pTarget = m_creature->SelectAttackingTarget(ATTACKING_TARGET_RANDOM, 0))
                     {
                         if (DoCastSpellIfCan(pTarget, SPELL_SILENCE) == CAST_OK)
-                            m_uiSilenceTimer = urand(20000, 25000);
+                            { m_uiSilenceTimer = urand(20000, 25000); }
                     }
                 }
                 else
-                    m_uiSilenceTimer -= uiDiff;
+                    { m_uiSilenceTimer -= uiDiff; }
 
+                // 致死顺劈
+                if (m_uiMortalCleaveTimer < uiDiff)
+                {
+                    if (DoCastSpellIfCan(m_creature->getVictim(), SPELL_MORTAL_CLEAVE) == CAST_OK)
+                        { m_uiMortalCleaveTimer = urand(15000, 20000); }
+                }
+                else
+                    { m_uiMortalCleaveTimer -= uiDiff; }
                 break;
             case PHASE_TIGER:
+                // 狂怒
+                if (!m_bEnraged && m_creature->GetHealthPercent() < 11.0f)
+                {
+                    if (DoCastSpellIfCan(m_creature, SPELL_ENRAGE) == CAST_OK)
+                        { m_bEnraged = true; }
+                }
+
+                // 疯狂
+                if (m_uiFrenzyTimer < uiDiff)
+                {
+                    if (DoCastSpellIfCan(m_creature, SPELL_FRENZY) == CAST_OK)
+                        { m_uiFrenzyTimer = 30000; }
+                }
+                else
+                    { m_uiFrenzyTimer -= uiDiff; }
+
+                // 召唤祖利安守护者
+                if (m_uiSummonTigersTimer < uiDiff)
+                {
+                    if (DoCastSpellIfCan(m_creature, SPELL_SUMMON_TIGERS) == CAST_OK)
+                        { m_uiSummonTigersTimer = 50000; }
+                }
+                else
+                    { m_uiSummonTigersTimer -= uiDiff; }
+
+                // 重击
+                if (m_uiForcePunchTimer < uiDiff)
+                {
+                    if (DoCastSpellIfCan(m_creature, SPELL_FORCE_PUNCH) == CAST_OK)
+                        { m_uiForcePunchTimer = urand(16000, 21000); }
+                }
+                else
+                    { m_uiForcePunchTimer -= uiDiff; }
+
+                // 冲锋
                 if (m_uiChargeTimer < uiDiff)
                 {
-                    if (Unit* pTarget = m_creature->SelectAttackingTarget(ATTACKING_TARGET_RANDOM, 0))
+                    if (Unit* pTarget = m_creature->SelectAttackingTarget(ATTACKING_TARGET_RANDOM, 1))
                     {
                         if (DoCastSpellIfCan(pTarget, SPELL_CHARGE) == CAST_OK)
                         {
@@ -313,38 +336,7 @@ struct boss_thekalAI : public boss_thekalBaseAI
                     }
                 }
                 else
-                    m_uiChargeTimer -= uiDiff;
-
-                if (m_uiFrenzyTimer < uiDiff)
-                {
-                    if (DoCastSpellIfCan(m_creature, SPELL_FRENZY) == CAST_OK)
-                        m_uiFrenzyTimer = 30000;
-                }
-                else
-                    m_uiFrenzyTimer -= uiDiff;
-
-                if (m_uiForcePunchTimer < uiDiff)
-                {
-                    if (DoCastSpellIfCan(m_creature, SPELL_FORCE_PUNCH) == CAST_OK)
-                        m_uiForcePunchTimer = urand(16000, 21000);
-                }
-                else
-                    m_uiForcePunchTimer -= uiDiff;
-
-                if (m_uiSummonTigersTimer < uiDiff)
-                {
-                    if (DoCastSpellIfCan(m_creature, SPELL_SUMMON_TIGERS) == CAST_OK)
-                        m_uiSummonTigersTimer = 50000;
-                }
-                else
-                    m_uiSummonTigersTimer -= uiDiff;
-
-                if (!m_bEnraged && m_creature->GetHealthPercent() < 11.0f)
-                {
-                    if (DoCastSpellIfCan(m_creature, SPELL_ENRAGE) == CAST_OK)
-                        m_bEnraged = true;
-                }
-
+                    { m_uiChargeTimer -= uiDiff; }
                 break;
         }
 
@@ -366,22 +358,25 @@ struct mob_zealot_lorkhanAI : public boss_thekalBaseAI
 
     ScriptedInstance* m_pInstance;
 
+    uint32 m_uiDisarmTimer;
+    uint32 m_uiDispelMagicTimer;
     uint32 m_uiShieldTimer;
     uint32 m_uiBloodLustTimer;
     uint32 m_uiGreaterHealTimer;
-    uint32 m_uiDisarmTimer;
     uint32 m_uiResurrectTimer;
 
     void Reset() override
     {
-        m_uiShieldTimer         = 1000;
-        m_uiBloodLustTimer      = 16000;
-        m_uiGreaterHealTimer    = 32000;
-        m_uiDisarmTimer         = 6000;
-        m_uiPhase               = PHASE_NORMAL;
+        m_uiDisarmTimer             = 6000;
+        m_uiDispelMagicTimer        = 8000;
+        m_uiShieldTimer             = 1000;
+        m_uiBloodLustTimer          = 15000;
+        m_uiGreaterHealTimer        = 20000;
+
+        m_uiPhase                   = PHASE_NORMAL;
 
         if (m_pInstance)
-            m_pInstance->SetData(TYPE_LORKHAN, NOT_STARTED);
+            { m_pInstance->SetData(TYPE_LORKHAN, NOT_STARTED); }
 
         Revive(true);
     }
@@ -389,7 +384,7 @@ struct mob_zealot_lorkhanAI : public boss_thekalBaseAI
     void Aggro(Unit* /*pWho*/) override
     {
         if (m_pInstance)
-            m_pInstance->SetData(TYPE_LORKHAN, IN_PROGRESS);
+            { m_pInstance->SetData(TYPE_LORKHAN, IN_PROGRESS); }
     }
 
     void OnFakeingDeath()
@@ -397,93 +392,145 @@ struct mob_zealot_lorkhanAI : public boss_thekalBaseAI
         m_uiResurrectTimer = 10000;
 
         if (m_pInstance)
-            m_pInstance->SetData(TYPE_LORKHAN, SPECIAL);
+            { m_pInstance->SetData(TYPE_LORKHAN, SPECIAL); }
     }
 
     void UpdateAI(const uint32 uiDiff) override
     {
         if (!m_creature->SelectHostileTarget() || !m_creature->getVictim())
-            return;
+            { return; }
 
         switch (m_uiPhase)
         {
             case PHASE_FAKE_DEATH:
+                // 复活
                 if (m_uiResurrectTimer < uiDiff)
                 {
                     if (!m_pInstance)
-                        return;
-
+                        { return; }
                     if (m_pInstance->GetData(TYPE_THEKAL) != SPECIAL || m_pInstance->GetData(TYPE_ZATH) != SPECIAL)
                     {
                         DoCastSpellIfCan(m_creature, SPELL_RESURRECT);
                         m_pInstance->SetData(TYPE_LORKHAN, IN_PROGRESS);
                     }
-
                     m_uiPhase = PHASE_WAITING;
                 }
                 else
-                    m_uiResurrectTimer -= uiDiff;
-
-                // no break needed here
+                    { m_uiResurrectTimer -= uiDiff; }
             case PHASE_WAITING:
                 return;
-
             case PHASE_NORMAL:
-                // Shield_Timer
+                // 缴械
+                if (m_uiDisarmTimer < uiDiff)
+                {
+                    if (DoCastSpellIfCan(m_creature->getVictim(), SPELL_DISARM) == CAST_OK)
+                        { m_uiDisarmTimer = urand(15000, 25000); }
+                }
+                else
+                    { m_uiDisarmTimer -= uiDiff; }
+
+                // 驱散魔法
+                if (m_uiDispelMagicTimer < uiDiff)
+                {
+                    if (m_pInstance)
+                    {
+                        Creature* pThekal = m_pInstance->GetSingleCreatureFromStorage(NPC_THEKAL);
+                        Creature* pZath = m_pInstance->GetSingleCreatureFromStorage(NPC_ZATH);
+                        switch (urand(0, 2))
+                        {
+                            case 0:
+                                if (pThekal && m_creature->IsWithinDistInMap(pThekal, 30.0f))
+                                {
+                                    DoCastSpellIfCan(pThekal, SPELL_DISPEL_MAGIC);
+                                    break;
+                                }
+                            case 1:
+                                if (pZath && m_creature->IsWithinDistInMap(pZath, 30.0f))
+                                {
+                                    DoCastSpellIfCan(pZath, SPELL_DISPEL_MAGIC);
+                                    break;
+                                }
+                            case 2:
+                                DoCastSpellIfCan(m_creature, SPELL_DISPEL_MAGIC);
+                                break;
+                        }
+                    }
+                    m_uiDispelMagicTimer = 8000;
+                }
+                else
+                    { m_uiDispelMagicTimer -= uiDiff; }
+
+                // 闪电之盾
                 if (m_uiShieldTimer < uiDiff)
                 {
                     if (DoCastSpellIfCan(m_creature, SPELL_SHIELD) == CAST_OK)
-                        m_uiShieldTimer = 61000;
+                        { m_uiShieldTimer = 61000; }
                 }
                 else
-                    m_uiShieldTimer -= uiDiff;
+                    { m_uiShieldTimer -= uiDiff; }
 
-                // BloodLust_Timer
+                // 嗜血
                 if (m_uiBloodLustTimer < uiDiff)
                 {
-                    // ToDo: research if this should be cast on Thekal or Zath
-                    if (DoCastSpellIfCan(m_creature, SPELL_BLOODLUST) == CAST_OK)
-                        m_uiBloodLustTimer = urand(20000, 28000);
+                    if (m_pInstance)
+                    {
+                        Creature* pThekal = m_pInstance->GetSingleCreatureFromStorage(NPC_THEKAL);
+                        Creature* pZath = m_pInstance->GetSingleCreatureFromStorage(NPC_ZATH);
+                        switch (urand(0, 2))
+                        {
+                            case 0:
+                                if (pThekal && m_creature->IsWithinDistInMap(pThekal, 30.0f) && (!pThekal->HasAura(SPELL_BLOODLUST)))
+                                {
+                                    DoCastSpellIfCan(pThekal, SPELL_BLOODLUST);
+                                    break;
+                                }
+                            case 1:
+                                if (pZath && m_creature->IsWithinDistInMap(pZath, 30.0f) && (!pZath->HasAura(SPELL_BLOODLUST)))
+                                {
+                                    DoCastSpellIfCan(pZath, SPELL_BLOODLUST);
+                                    break;
+                                }
+                                break;
+                            case 2:
+                                DoCastSpellIfCan(m_creature, SPELL_BLOODLUST);
+                                break;
+                        }
+                    }
+                    m_uiBloodLustTimer = urand(20000, 28000);
                 }
                 else
-                    m_uiBloodLustTimer -= uiDiff;
+                    { m_uiBloodLustTimer -= uiDiff; }
 
-                // Casting Greaterheal to Thekal or Zath if they are in meele range.
-                // TODO - why this range check?
+                // 强力治疗术
                 if (m_uiGreaterHealTimer < uiDiff)
                 {
                     if (m_pInstance)
                     {
                         Creature* pThekal = m_pInstance->GetSingleCreatureFromStorage(NPC_THEKAL);
                         Creature* pZath = m_pInstance->GetSingleCreatureFromStorage(NPC_ZATH);
-
-                        switch (urand(0, 1))
+                        switch (urand(0, 2))
                         {
                             case 0:
-                                if (pThekal && m_creature->IsWithinDistInMap(pThekal, 3 * ATTACK_DISTANCE))
+                                if (pThekal && m_creature->IsWithinDistInMap(pThekal, 30.0f))
+                                {
                                     DoCastSpellIfCan(pThekal, SPELL_GREATER_HEAL);
-                                break;
+                                    break;
+                                }
                             case 1:
-                                if (pZath && m_creature->IsWithinDistInMap(pZath, 3 * ATTACK_DISTANCE))
+                                if (pZath && m_creature->IsWithinDistInMap(pZath, 30.0f))
+                                {
                                     DoCastSpellIfCan(pZath, SPELL_GREATER_HEAL);
+                                    break;
+                                }
+                            case 2:
+                                DoCastSpellIfCan(m_creature, SPELL_GREATER_HEAL);
                                 break;
                         }
                     }
-
                     m_uiGreaterHealTimer = urand(15000, 20000);
                 }
                 else
-                    m_uiGreaterHealTimer -= uiDiff;
-
-                // Disarm_Timer
-                if (m_uiDisarmTimer < uiDiff)
-                {
-                    if (DoCastSpellIfCan(m_creature->getVictim(), SPELL_DISARM) == CAST_OK)
-                        m_uiDisarmTimer = urand(15000, 25000);
-                }
-                else
-                    m_uiDisarmTimer -= uiDiff;
-
+                    { m_uiGreaterHealTimer -= uiDiff; }
                 break;
         }
 
@@ -505,24 +552,25 @@ struct mob_zealot_zathAI : public boss_thekalBaseAI
 
     ScriptedInstance* m_pInstance;
 
-    uint32 m_uiSweepingStrikesTimer;
-    uint32 m_uiSinisterStrikeTimer;
     uint32 m_uiGougeTimer;
+    uint32 m_uiSinisterStrikeTimer;
     uint32 m_uiKickTimer;
+    uint32 m_uiSweepingStrikesTimer;
     uint32 m_uiBlindTimer;
     uint32 m_uiResurrectTimer;
 
     void Reset() override
     {
-        m_uiSweepingStrikesTimer    = 13000;
-        m_uiSinisterStrikeTimer     = 8000;
-        m_uiGougeTimer              = 25000;
-        m_uiKickTimer               = 18000;
+        m_uiGougeTimer              = 10000;
+        m_uiSinisterStrikeTimer     = 5000;
+        m_uiKickTimer               = 8000;
+        m_uiSweepingStrikesTimer    = 15000;
         m_uiBlindTimer              = 5000;
+
         m_uiPhase                   = PHASE_NORMAL;
 
         if (m_pInstance)
-            m_pInstance->SetData(TYPE_ZATH, NOT_STARTED);
+            { m_pInstance->SetData(TYPE_ZATH, NOT_STARTED); }
 
         Revive(true);
     }
@@ -530,7 +578,7 @@ struct mob_zealot_zathAI : public boss_thekalBaseAI
     void Aggro(Unit* /*pWho*/) override
     {
         if (m_pInstance)
-            m_pInstance->SetData(TYPE_ZATH, IN_PROGRESS);
+            { m_pInstance->SetData(TYPE_ZATH, IN_PROGRESS); }
     }
 
     void OnFakeingDeath()
@@ -538,88 +586,86 @@ struct mob_zealot_zathAI : public boss_thekalBaseAI
         m_uiResurrectTimer = 10000;
 
         if (m_pInstance)
-            m_pInstance->SetData(TYPE_ZATH, SPECIAL);
+            { m_pInstance->SetData(TYPE_ZATH, SPECIAL); }
     }
 
     void UpdateAI(const uint32 uiDiff) override
     {
         if (!m_creature->SelectHostileTarget() || !m_creature->getVictim())
-            return;
+            { return; }
 
         switch (m_uiPhase)
         {
             case PHASE_FAKE_DEATH:
+                // 复活
                 if (m_uiResurrectTimer < uiDiff)
                 {
                     if (!m_pInstance)
-                        return;
-
+                        { return; }
                     if (m_pInstance->GetData(TYPE_THEKAL) != SPECIAL || m_pInstance->GetData(TYPE_LORKHAN) != SPECIAL)
                     {
                         DoCastSpellIfCan(m_creature, SPELL_RESURRECT);
                         m_pInstance->SetData(TYPE_ZATH, IN_PROGRESS);
                     }
-
                     m_uiPhase = PHASE_WAITING;
                 }
                 else
-                    m_uiResurrectTimer -= uiDiff;
-
-                // no break needed here
+                    { m_uiResurrectTimer -= uiDiff; }
             case PHASE_WAITING:
                 return;
-
             case PHASE_NORMAL:
-                // SweepingStrikes_Timer
-                if (m_uiSweepingStrikesTimer < uiDiff)
-                {
-                    if (DoCastSpellIfCan(m_creature, SPELL_SWEEPING_STRIKES) == CAST_OK)
-                        m_uiSweepingStrikesTimer = urand(22000, 26000);
-                }
-                else
-                    m_uiSweepingStrikesTimer -= uiDiff;
-
-                // SinisterStrike_Timer
-                if (m_uiSinisterStrikeTimer < uiDiff)
-                {
-                    if (DoCastSpellIfCan(m_creature->getVictim(), SPELL_SINISTER_STRIKE) == CAST_OK)
-                        m_uiSinisterStrikeTimer = urand(8000, 16000);
-                }
-                else
-                    m_uiSinisterStrikeTimer -= uiDiff;
-
-                // Gouge_Timer
+                // 凿击
                 if (m_uiGougeTimer < uiDiff)
                 {
                     if (DoCastSpellIfCan(m_creature->getVictim(), SPELL_GOUGE) == CAST_OK)
                     {
                         if (m_creature->getThreatManager().getThreat(m_creature->getVictim()))
-                            m_creature->getThreatManager().modifyThreatPercent(m_creature->getVictim(), -100);
-
+                            { m_creature->getThreatManager().modifyThreatPercent(m_creature->getVictim(), -100); }
                         m_uiGougeTimer = urand(17000, 27000);
                     }
                 }
                 else
-                    m_uiGougeTimer -= uiDiff;
+                    { m_uiGougeTimer -= uiDiff; }
 
-                // Kick_Timer
+                // 邪恶攻击
+                if (m_uiSinisterStrikeTimer < uiDiff)
+                {
+                    if (DoCastSpellIfCan(m_creature->getVictim(), SPELL_SINISTER_STRIKE) == CAST_OK)
+                        { m_uiSinisterStrikeTimer = urand(8000, 16000); }
+                }
+                else
+                    { m_uiSinisterStrikeTimer -= uiDiff; }
+
+                // 脚踢
                 if (m_uiKickTimer < uiDiff)
                 {
                     if (DoCastSpellIfCan(m_creature->getVictim(), SPELL_KICK) == CAST_OK)
-                        m_uiKickTimer = urand(15000, 25000);
+                        { m_uiKickTimer = urand(15000, 25000); }
                 }
                 else
-                    m_uiKickTimer -= uiDiff;
+                    { m_uiKickTimer -= uiDiff; }
 
-                // Blind_Timer
+                // 横扫攻击
+                if (m_uiSweepingStrikesTimer < uiDiff)
+                {
+                    if (DoCastSpellIfCan(m_creature, SPELL_SWEEPING_STRIKES) == CAST_OK)
+                        { m_uiSweepingStrikesTimer = urand(22000, 26000); }
+                }
+                else
+                    { m_uiSweepingStrikesTimer -= uiDiff; }
+
+                // 致盲
                 if (m_uiBlindTimer < uiDiff)
                 {
                     if (DoCastSpellIfCan(m_creature->getVictim(), SPELL_BLIND) == CAST_OK)
+                    {
+                        if (m_creature->getThreatManager().getThreat(m_creature->getVictim()))
+                            { m_creature->getThreatManager().modifyThreatPercent(m_creature->getVictim(), -100); }
                         m_uiBlindTimer = urand(10000, 20000);
+                    }
                 }
                 else
-                    m_uiBlindTimer -= uiDiff;
-
+                    { m_uiBlindTimer -= uiDiff; }
                 break;
         }
 
@@ -629,16 +675,12 @@ struct mob_zealot_zathAI : public boss_thekalBaseAI
 
 bool EffectDummyCreature_thekal_resurrection(Unit* /*pCaster*/, uint32 uiSpellId, SpellEffectIndex uiEffIndex, Creature* pCreatureTarget, ObjectGuid /*originalCasterGuid*/)
 {
-    // always check spellid and effectindex
     if (uiSpellId == SPELL_RESURRECT && uiEffIndex == EFFECT_INDEX_0)
     {
         if (boss_thekalBaseAI* pFakerAI = dynamic_cast<boss_thekalBaseAI*>(pCreatureTarget->AI()))
-            pFakerAI->Revive();
-
-        // always return true when we are handling this spell and effect
+            { pFakerAI->Revive(); }
         return true;
     }
-
     return false;
 }
 

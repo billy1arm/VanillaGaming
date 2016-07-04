@@ -45,6 +45,12 @@ UPDATE `creature_model_info` SET `bounding_radius`='2', `combat_reach`='2' WHERE
 -- 拉格纳罗斯
 UPDATE `creature_model_info` SET `bounding_radius`='14', `combat_reach`='14' WHERE (`modelid`='11121');
 
+-- 狂热者扎斯
+UPDATE `creature_model_info` SET `bounding_radius`='1', `combat_reach`='1' WHERE (`modelid`='11189');
+
+-- 狂热者洛卡恩
+UPDATE `creature_model_info` SET `bounding_radius`='1', `combat_reach`='1' WHERE (`modelid`='11219');
+
 -- 血领主曼多基尔
 UPDATE `creature_model_info` SET `bounding_radius`='1', `combat_reach`='1' WHERE (`modelid`='11288');
 
@@ -125,6 +131,9 @@ UPDATE `creature_model_info` SET `bounding_radius`='1', `combat_reach`='1' WHERE
 
 -- 玛尔里的爪牙
 UPDATE `creature_model_info` SET `bounding_radius`='1', `combat_reach`='1' WHERE (`modelid`='15136');
+
+-- 高阶祭司塞卡尔
+UPDATE `creature_model_info` SET `bounding_radius`='1', `combat_reach`='1' WHERE (`modelid`='15216');
 
 -- 高阶祭司温诺希斯
 UPDATE `creature_model_info` SET `bounding_radius`='1', `combat_reach`='1' WHERE (`modelid`='15217');
