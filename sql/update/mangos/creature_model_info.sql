@@ -153,5 +153,8 @@ UPDATE `creature_model_info` SET `bounding_radius`='1', `combat_reach`='1' WHERE
 -- 奥根
 UPDATE `creature_model_info` SET `bounding_radius`='1', `combat_reach`='1' WHERE (`modelid`='15271');
 
+-- 加兹兰卡
+UPDATE `creature_model_info` SET `bounding_radius`='2', `combat_reach`='2' WHERE (`modelid`='15288');
+
 -- 觅血者前锋
 UPDATE `creature_model_info` SET `bounding_radius`='1' WHERE (`modelid`='15303');

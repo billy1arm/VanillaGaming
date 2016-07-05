@@ -2773,6 +2773,13 @@ void Spell::cast(bool skipCheck)
     if (m_spellInfo->Id == 9095)
     { m_caster->SummonCreature(6492, m_caster->GetPositionX(), m_caster->GetPositionY(), m_caster->GetPositionZ(), 0, TEMPSUMMON_TIMED_OOC_DESPAWN, 5000); }
 
+    // 水
+    if (m_spellInfo->Id == 22422)
+    {
+        if (m_caster->isAlive())
+            { AddTriggeredSpell(5); }
+    }
+
     SendSpellCooldown();
 
     TakePower();
