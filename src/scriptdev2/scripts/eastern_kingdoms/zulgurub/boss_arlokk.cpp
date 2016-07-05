@@ -1,4 +1,4 @@
-/* This file is part of the ScriptDev2 Project. See AUTHORS file for Copyright information
+﻿/* This file is part of the ScriptDev2 Project. See AUTHORS file for Copyright information
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 2 of the License, or
@@ -16,9 +16,9 @@
 
 /* ScriptData
 SDName: Boss_Arlokk
-SD%Complete: 80
-SDComment: Vanish spell is replaced by workaround; Timers
-SDCategory: Zul'Gurub
+SD%Complete: 100
+SDComment:
+SDCategory: 祖尔格拉布
 EndScriptData */
 
 #include "precompiled.h"
@@ -30,13 +30,14 @@ enum
     SAY_FEAST_PANTHER           = -1309012,
     SAY_DEATH                   = -1309013,
 
-    SPELL_SHADOW_WORD_PAIN      = 23952,
-    SPELL_GOUGE                 = 24698,
-    SPELL_MARK_ARLOKK           = 24210,
-    SPELL_RAVAGE                = 24213,
-    SPELL_TRASH                 = 3391,
-    SPELL_WHIRLWIND             = 24236,
-    SPELL_PANTHER_TRANSFORM     = 24190,
+    SPELL_TRASH                 = 3391,                     // 痛击
+    SPELL_GOUGE                 = 12540,                    // 凿击
+    SPELL_BACKSTAB              = 15582,                    // 背刺
+    SPELL_PANTHER_TRANSFORM     = 24190,                    // 娅尔罗变形
+    SPELL_MARK_ARLOKK           = 24210,                    // 娅尔罗的印记
+    SPELL_SHADOW_WORD_PAIN      = 24212,                    // 暗言术：痛
+    SPELL_RAVAGE                = 24213,                    // 毁灭
+    SPELL_WHIRLWIND             = 24236,                    // 旋风斩
 
     NPC_ZULIAN_PROWLER          = 15101
 };
@@ -79,9 +80,9 @@ struct boss_arlokkAI : public ScriptedAI
 
         m_bIsPhaseTwo = false;
 
-        // Restore visibility
+        // 重置可见性
         if (m_creature->GetVisibility() != VISIBILITY_ON)
-            m_creature->SetVisibility(VISIBILITY_ON);
+            { m_creature->SetVisibility(VISIBILITY_ON); }
     }
 
     void Aggro(Unit* /*pWho*/) override
@@ -92,84 +93,98 @@ struct boss_arlokkAI : public ScriptedAI
     void JustReachedHome() override
     {
         if (m_pInstance)
-            m_pInstance->SetData(TYPE_ARLOKK, FAIL);
+            { m_pInstance->SetData(TYPE_ARLOKK, FAIL); }
 
-        // we should be summoned, so despawn
         m_creature->ForcedDespawn();
     }
 
     void JustDied(Unit* /*pKiller*/) override
     {
         DoScriptText(SAY_DEATH, m_creature);
-        // Restore visibility in case of killed by dots
+        // 重置可见性
         if (m_creature->GetVisibility() != VISIBILITY_ON)
-            m_creature->SetVisibility(VISIBILITY_ON);
+            { m_creature->SetVisibility(VISIBILITY_ON); }
 
         if (m_pInstance)
-            m_pInstance->SetData(TYPE_ARLOKK, DONE);
+            { m_pInstance->SetData(TYPE_ARLOKK, DONE); }
     }
 
     void JustSummoned(Creature* pSummoned) override
     {
-        // Just attack a random target. The Marked player will attract them automatically
         if (Unit* pTarget = m_creature->SelectAttackingTarget(ATTACKING_TARGET_RANDOM, 0))
-            pSummoned->AI()->AttackStart(pTarget);
+            { pSummoned->AI()->AttackStart(pTarget); }
     }
 
     void UpdateAI(const uint32 uiDiff) override
     {
         if (!m_creature->SelectHostileTarget() || !m_creature->getVictim())
-            return;
+            { return; }
 
-        // Summon panters every 5 seconds
+        // 召唤祖利安徘徊者
         if (m_uiSummonTimer < uiDiff)
         {
             if (m_pInstance)
             {
                 if (Creature* pTrigger = m_pInstance->SelectRandomPantherTrigger(true))
-                    m_creature->SummonCreature(NPC_ZULIAN_PROWLER, pTrigger->GetPositionX(), pTrigger->GetPositionY(), pTrigger->GetPositionZ(), 0, TEMPSUMMON_TIMED_OOC_DESPAWN, 30000);
+                    { m_creature->SummonCreature(NPC_ZULIAN_PROWLER, pTrigger->GetPositionX(), pTrigger->GetPositionY(), pTrigger->GetPositionZ(), 0, TEMPSUMMON_TIMED_OOC_DESPAWN, 30000); }
                 if (Creature* pTrigger = m_pInstance->SelectRandomPantherTrigger(false))
-                    m_creature->SummonCreature(NPC_ZULIAN_PROWLER, pTrigger->GetPositionX(), pTrigger->GetPositionY(), pTrigger->GetPositionZ(), 0, TEMPSUMMON_TIMED_OOC_DESPAWN, 30000);
+                    { m_creature->SummonCreature(NPC_ZULIAN_PROWLER, pTrigger->GetPositionX(), pTrigger->GetPositionY(), pTrigger->GetPositionZ(), 0, TEMPSUMMON_TIMED_OOC_DESPAWN, 30000); }
             }
-
             m_uiSummonTimer = 5000;
         }
         else
-            m_uiSummonTimer -= uiDiff;
+            { m_uiSummonTimer -= uiDiff; }
 
+        // 显形
         if (m_uiVisibleTimer)
         {
             if (m_uiVisibleTimer <= uiDiff)
             {
-                // Restore visibility
+                DoResetThreat();
+                // 重置可见性
                 m_creature->SetVisibility(VISIBILITY_ON);
 
                 if (Unit* pTarget = m_creature->SelectAttackingTarget(ATTACKING_TARGET_RANDOM, 0))
-                    AttackStart(pTarget);
-
+                    { AttackStart(pTarget); }
                 m_uiVisibleTimer = 0;
+                m_uiWhirlwindTimer = 1000;
             }
             else
-                m_uiVisibleTimer -= uiDiff;
+                { m_uiVisibleTimer -= uiDiff; }
 
-            // Do nothing while vanished
             return;
         }
 
-        // Troll phase
+        // 巨魔形态
         if (!m_bIsPhaseTwo)
         {
-            if (m_uiShadowWordPainTimer < uiDiff)
+            // 凿击
+            if (m_uiGougeTimer < uiDiff)
             {
-                if (Unit* pTarget = m_creature->SelectAttackingTarget(ATTACKING_TARGET_RANDOM, 0))
+                if (DoCastSpellIfCan(m_creature->getVictim(), SPELL_GOUGE) == CAST_OK)
                 {
-                    if (DoCastSpellIfCan(pTarget, SPELL_SHADOW_WORD_PAIN) == CAST_OK)
-                        m_uiShadowWordPainTimer = 15000;
+                    if (m_creature->getThreatManager().getThreat(m_creature->getVictim()))
+                        { m_creature->getThreatManager().modifyThreatPercent(m_creature->getVictim(), -100); }
+                    m_uiGougeTimer = urand(17000, 27000);
                 }
             }
             else
-                m_uiShadowWordPainTimer -= uiDiff;
+                { m_uiGougeTimer -= uiDiff; }
 
+
+            // 娅尔罗变形
+            if (m_uiTransformTimer < uiDiff)
+            {
+                if (DoCastSpellIfCan(m_creature, SPELL_PANTHER_TRANSFORM) == CAST_OK)
+                {
+                    m_uiTransformTimer = 80000;
+                    m_bIsPhaseTwo = true;
+                }
+            }
+            else
+                { m_uiTransformTimer -= uiDiff; }
+
+            // 娅尔罗的印记
             if (m_uiMarkTimer < uiDiff)
             {
                 if (Unit* pTarget = m_creature->SelectAttackingTarget(ATTACKING_TARGET_RANDOM, 0, SPELL_MARK_ARLOKK, SELECT_FLAG_PLAYER))
@@ -182,63 +197,53 @@ struct boss_arlokkAI : public ScriptedAI
                 }
             }
             else
-                m_uiMarkTimer -= uiDiff;
+                { m_uiMarkTimer -= uiDiff; }
 
-            if (m_uiGougeTimer < uiDiff)
+            // 暗言术：痛
+            if (m_uiShadowWordPainTimer < uiDiff)
             {
-                if (DoCastSpellIfCan(m_creature, SPELL_GOUGE) == CAST_OK)
+                if (Unit* pTarget = m_creature->SelectAttackingTarget(ATTACKING_TARGET_RANDOM, 0))
                 {
-                    if (m_creature->getThreatManager().getThreat(m_creature->getVictim()))
-                        m_creature->getThreatManager().modifyThreatPercent(m_creature->getVictim(), -80);
-
-                    m_uiGougeTimer = urand(17000, 27000);
+                    if (DoCastSpellIfCan(pTarget, SPELL_SHADOW_WORD_PAIN) == CAST_OK)
+                        { m_uiShadowWordPainTimer = 15000; }
                 }
             }
             else
-                m_uiGougeTimer -= uiDiff;
-
-            // Transform to Panther
-            if (m_uiTransformTimer < uiDiff)
-            {
-                if (DoCastSpellIfCan(m_creature, SPELL_PANTHER_TRANSFORM) == CAST_OK)
-                {
-                    m_uiTransformTimer = 80000;
-                    m_bIsPhaseTwo = true;
-                }
-            }
-            else
-                m_uiTransformTimer -= uiDiff;
+                { m_uiShadowWordPainTimer -= uiDiff; }
         }
-        // Panther phase
+        // 猎豹形态
         else
         {
-            if (m_uiRavageTimer < uiDiff)
-            {
-                if (DoCastSpellIfCan(m_creature->getVictim(), SPELL_RAVAGE) == CAST_OK)
-                    m_uiRavageTimer = urand(10000, 15000);
-            }
-            else
-                m_uiRavageTimer -= uiDiff;
-
+            // 痛击
             if (m_uiTrashTimer < uiDiff)
             {
                 if (DoCastSpellIfCan(m_creature->getVictim(), SPELL_TRASH) == CAST_OK)
-                    m_uiTrashTimer = urand(13000, 15000);
+                    { m_uiTrashTimer = urand(13000, 15000); }
             }
             else
-                m_uiTrashTimer -= uiDiff;
+                { m_uiTrashTimer -= uiDiff; }
 
+            // 毁灭
+            if (m_uiRavageTimer < uiDiff)
+            {
+                if (DoCastSpellIfCan(m_creature->getVictim(), SPELL_RAVAGE) == CAST_OK)
+                    { m_uiRavageTimer = urand(10000, 15000); }
+            }
+            else
+                { m_uiRavageTimer -= uiDiff; }
+
+            // 旋风斩
             if (m_uiWhirlwindTimer < uiDiff)
             {
                 if (DoCastSpellIfCan(m_creature, SPELL_WHIRLWIND) == CAST_OK)
-                    m_uiWhirlwindTimer = 15000;
+                    { m_uiWhirlwindTimer = 15000; }
             }
             else
-                m_uiWhirlwindTimer -= uiDiff;
+                { m_uiWhirlwindTimer -= uiDiff; }
 
+            // 消失
             if (m_uiVanishTimer < uiDiff)
             {
-                // Note: this is a workaround because we do not know the real vanish spell
                 m_creature->SetVisibility(VISIBILITY_OFF);
                 DoResetThreat();
 
@@ -246,9 +251,9 @@ struct boss_arlokkAI : public ScriptedAI
                 m_uiVisibleTimer = 45000;
             }
             else
-                m_uiVanishTimer -= uiDiff;
+                { m_uiVanishTimer -= uiDiff; }
 
-            // Transform back
+            // 取消变形
             if (m_uiTransformTimer < uiDiff)
             {
                 m_creature->RemoveAurasDueToSpell(SPELL_PANTHER_TRANSFORM);
@@ -256,7 +261,7 @@ struct boss_arlokkAI : public ScriptedAI
                 m_bIsPhaseTwo = false;
             }
             else
-                m_uiTransformTimer -= uiDiff;
+                { m_uiTransformTimer -= uiDiff; }
         }
 
         DoMeleeAttackIfReady();
@@ -273,7 +278,7 @@ bool GOUse_go_gong_of_bethekk(Player* /*pPlayer*/, GameObject* pGo)
     if (ScriptedInstance* pInstance = (ScriptedInstance*)pGo->GetInstanceData())
     {
         if (pInstance->GetData(TYPE_ARLOKK) == DONE || pInstance->GetData(TYPE_ARLOKK) == IN_PROGRESS)
-            return true;
+            { return true; }
 
         pInstance->SetData(TYPE_ARLOKK, IN_PROGRESS);
     }

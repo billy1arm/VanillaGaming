@@ -21,6 +21,9 @@ UPDATE `reference_loot_template` SET `ChanceOrQuestChance`='49.995' WHERE (`entr
 -- 烈焰披风
 UPDATE `reference_loot_template` SET `ChanceOrQuestChance`='49.995' WHERE (`entry`='24091') AND (`item`='3475');
 
+-- 祖尔格拉布祭祀共享掉落
+DELETE FROM `reference_loot_template` WHERE `entry`='24721';
+
 -- 拉格纳罗斯
 UPDATE `reference_loot_template` SET `ChanceOrQuestChance`='0' WHERE (`entry`='34002') AND (`item`='24026');
 UPDATE `reference_loot_template` SET `condition_id`='0' WHERE `entry`='34030';

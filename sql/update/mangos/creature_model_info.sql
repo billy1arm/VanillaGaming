@@ -15,6 +15,9 @@ File Encoding         : 65001
 -- 奥妮克希亚雏龙
 UPDATE `creature_model_info` SET `bounding_radius`='1', `combat_reach`='1' WHERE (`modelid`='397');
 
+-- 祖利安徘徊者
+UPDATE `creature_model_info` SET `bounding_radius`='1', `combat_reach`='1' WHERE (`modelid`='613');
+
 -- 火焰行者
 UPDATE `creature_model_info` SET `bounding_radius`='1', `combat_reach`='1' WHERE (`modelid`='1070');
 
@@ -137,6 +140,9 @@ UPDATE `creature_model_info` SET `bounding_radius`='1', `combat_reach`='1' WHERE
 
 -- 高阶祭司温诺希斯
 UPDATE `creature_model_info` SET `bounding_radius`='1', `combat_reach`='1' WHERE (`modelid`='15217');
+
+-- 高阶祭司娅尔罗
+UPDATE `creature_model_info` SET `bounding_radius`='1', `combat_reach`='1' WHERE (`modelid`='15218');
 
 -- 高阶祭司耶克里克
 UPDATE `creature_model_info` SET `bounding_radius`='1', `combat_reach`='1' WHERE (`modelid`='15219');
