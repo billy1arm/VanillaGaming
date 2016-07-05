@@ -263,6 +263,7 @@ struct boss_mandokirAI : public ScriptedAI
                         { m_creature->CastSpell(pWatchTarget, SPELL_SUMMON_PLAYER, true); }
 
                     DoCastSpellIfCan(pWatchTarget, SPELL_CHARGE);
+                    m_creature->CastSpell(pWatchTarget, 5, true);
                 }
 
                 m_watchTargetGuid.Clear();
