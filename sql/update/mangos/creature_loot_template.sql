@@ -114,6 +114,10 @@ INSERT INTO `creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`, `g
 INSERT INTO `creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`, `groupid`, `mincountOrRef`, `maxcount`, `condition_id`) VALUES ('11261', '16684', '14', '2', '1', '1', '0');
 INSERT INTO `creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`, `groupid`, `mincountOrRef`, `maxcount`, `condition_id`) VALUES ('11261', '35031', '60', '1', '-35031', '1', '0');
 
+-- 妖术师金度
+UPDATE `creature_loot_template` SET `groupid`='0' WHERE (`entry`='11380') AND (`item`='34087');
+UPDATE `creature_loot_template` SET `groupid`='0' WHERE (`entry`='11380') AND (`item`='34089');
+
 -- 血领主曼多基尔
 UPDATE `creature_loot_template` SET `groupid`='0' WHERE (`entry`='11382') AND (`item`='34087');
 UPDATE `creature_loot_template` SET `groupid`='0' WHERE (`entry`='11382') AND (`item`='34088');

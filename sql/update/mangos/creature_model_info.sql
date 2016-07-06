@@ -57,6 +57,9 @@ UPDATE `creature_model_info` SET `bounding_radius`='1', `combat_reach`='1' WHERE
 -- 血领主曼多基尔
 UPDATE `creature_model_info` SET `bounding_radius`='1', `combat_reach`='1' WHERE (`modelid`='11288');
 
+-- 妖术师金度
+UPDATE `creature_model_info` SET `bounding_radius`='1', `combat_reach`='1' WHERE (`modelid`='11311');
+
 -- 焚化者古雷曼格
 UPDATE `creature_model_info` SET `bounding_radius`='1.6', `combat_reach`='1.6' WHERE (`modelid`='11986');
 
@@ -117,6 +120,9 @@ UPDATE `creature_model_info` SET `bounding_radius`='1', `combat_reach`='1' WHERE
 -- 碧蓝圣殿骑士
 UPDATE `creature_model_info` SET `bounding_radius`='1', `combat_reach`='1' WHERE (`modelid`='13749');
 
+-- 祭品巨魔
+UPDATE `creature_model_info` SET `bounding_radius`='1', `combat_reach`='1' WHERE (`modelid`='14391');
+
 -- 苍白圣殿骑士
 UPDATE `creature_model_info` SET `bounding_radius`='1', `combat_reach`='1' WHERE (`modelid`='14502');
 
@@ -150,11 +156,20 @@ UPDATE `creature_model_info` SET `bounding_radius`='1', `combat_reach`='1' WHERE
 -- 高阶祭司玛尔里
 UPDATE `creature_model_info` SET `bounding_radius`='1', `combat_reach`='1' WHERE (`modelid`='15220');
 
+-- 金度之影
+UPDATE `creature_model_info` SET `bounding_radius`='1', `combat_reach`='1' WHERE (`modelid`='15233');
+
 -- 奥根
 UPDATE `creature_model_info` SET `bounding_radius`='1', `combat_reach`='1' WHERE (`modelid`='15271');
 
 -- 加兹兰卡
 UPDATE `creature_model_info` SET `bounding_radius`='2', `combat_reach`='2' WHERE (`modelid`='15288');
+
+-- 洗脑图腾
+UPDATE `creature_model_info` SET `bounding_radius`='1', `combat_reach`='1' WHERE (`modelid`='15291');
+
+-- 强力治疗结界
+UPDATE `creature_model_info` SET `bounding_radius`='1', `combat_reach`='1' WHERE (`modelid`='15292');
 
 -- 觅血者前锋
 UPDATE `creature_model_info` SET `bounding_radius`='1' WHERE (`modelid`='15303');
