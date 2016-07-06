@@ -18,3 +18,6 @@ UPDATE `gameobject_template` SET `data3`='17646' WHERE (`entry`='176511');
 -- 布满灰尘的书籍
 UPDATE `gameobject_template` SET `size`='1.5' WHERE (`entry`='179547');
 UPDATE `gameobject_template` SET `size`='1.5' WHERE (`entry`='179548');
+
+-- 液态火焰
+UPDATE `gameobject_template` SET `faction`='54', `flags`='64', `data2`='2', `data5`='1', `data6`='0' WHERE (`entry`='180125');

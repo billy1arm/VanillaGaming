@@ -152,6 +152,9 @@ struct boss_jeklikAI : public ScriptedAI
         {
             pSummoned->SetFlag(UNIT_FIELD_FLAGS, UNIT_FLAG_NOT_SELECTABLE);
             m_lBombRiderGuidsList.push_back(pSummoned->GetObjectGuid());
+            if (!pSummoned->HasAura(SPELL_LIQUID_FIRE))
+                { pSummoned->CastSpell(pSummoned, SPELL_LIQUID_FIRE, true); }
+            pSummoned->SetInCombatWithZone();
         }
 
         pSummoned->SetLevitate(true);
@@ -390,11 +393,7 @@ struct npc_gurubashi_bat_riderAI : public ScriptedAI
     void MoveInLineOfSight(Unit* pWho) override
     {
         if (m_bIsSummon)
-        {
-            if (!m_creature->HasAura(SPELL_LIQUID_FIRE))
-                { DoCastSpellIfCan(m_creature, SPELL_LIQUID_FIRE); }
-            return;
-        }
+            { return; }
 
         ScriptedAI::MoveInLineOfSight(pWho);
     }
