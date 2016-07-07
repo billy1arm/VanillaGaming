@@ -1794,6 +1794,7 @@ void SpellMgr::ModDBCSpellAttributes()
 
     list_spell_id.push_back(20647);
     list_spell_id.push_back(16870);
+    list_spell_id.push_back(23969);
 
     for (std::list<uint32>::iterator it = list_spell_id.begin(); it != list_spell_id.end(); ++it)
     {
@@ -1810,6 +1811,9 @@ void SpellMgr::ModDBCSpellAttributes()
             case 20647:
                 spellInfo->Attributes |= SPELL_ATTR_IMPOSSIBLE_DODGE_PARRY_BLOCK;
                 spellInfo->AttributesEx3 |= SPELL_ATTR_EX3_CANT_MISS;
+                break;
+            case 23969:
+                spellInfo->MaxAffectedTargets |= 1;
                 break;
         }
     }
