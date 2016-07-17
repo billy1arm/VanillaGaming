@@ -136,7 +136,7 @@ struct boss_mandokirAI : public ScriptedAI
         m_creature->Unmount();
 
         // 召唤奥根
-        m_creature->SummonCreature(NPC_OHGAN, 0.0f, 0.0f, 0.0f, 0.0f, TEMPSUMMON_TIMED_OOC_DESPAWN, 35000);
+        m_creature->SummonCreature(NPC_OHGAN, 0.0f, 0.0f, 0.0f, 0.0f, TEMPSUMMON_TIMED_OOC_DESPAWN, 5000);
 
         if (m_pInstance)
             { m_pInstance->SetData(TYPE_OHGAN, IN_PROGRESS); }
@@ -270,7 +270,7 @@ struct boss_mandokirAI : public ScriptedAI
             }
             else
             {
-                if (Unit* pTarget = m_creature->SelectAttackingTarget(ATTACKING_TARGET_RANDOM, 0))
+                if (Unit* pTarget = m_creature->SelectAttackingTarget(ATTACKING_TARGET_RANDOM, 1))
                 {
                     if (Player* pPlayer = pTarget->GetCharmerOrOwnerPlayerOrPlayerItself())
                         { m_creature->CastSpell(pPlayer, SPELL_WATCH, false); }
