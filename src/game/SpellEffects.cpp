@@ -3477,7 +3477,7 @@ void Spell::EffectScriptEffect(SpellEffectIndex eff_idx)
                     unitTarget->CastSpell(unitTarget, 24321, true, NULL, NULL, m_caster->GetObjectGuid());
                     return;
                 }
-                case 24324:                                 // Blood Siphon
+                case 24324:                                 // 血液虹吸
                 {
                     if (!unitTarget || unitTarget->GetTypeId() != TYPEID_PLAYER)
                         return;

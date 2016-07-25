@@ -162,6 +162,9 @@ UPDATE `creature_model_info` SET `bounding_radius`='1', `combat_reach`='1' WHERE
 -- 奥根
 UPDATE `creature_model_info` SET `bounding_radius`='1', `combat_reach`='1' WHERE (`modelid`='15271');
 
+-- 哈卡之子
+UPDATE `creature_model_info` SET `bounding_radius`='1', `combat_reach`='1' WHERE (`modelid`='15275');
+
 -- 加兹兰卡
 UPDATE `creature_model_info` SET `bounding_radius`='2', `combat_reach`='2' WHERE (`modelid`='15288');
 
@@ -170,6 +173,9 @@ UPDATE `creature_model_info` SET `bounding_radius`='1', `combat_reach`='1' WHERE
 
 -- 强力治疗结界
 UPDATE `creature_model_info` SET `bounding_radius`='1', `combat_reach`='1' WHERE (`modelid`='15292');
+
+-- 哈卡
+UPDATE `creature_model_info` SET `bounding_radius`='1.5', `combat_reach`='1.5' WHERE (`modelid`='15295');
 
 -- 觅血者前锋
 UPDATE `creature_model_info` SET `bounding_radius`='1' WHERE (`modelid`='15303');

@@ -2952,6 +2952,15 @@ void Aura::HandleAuraModStateImmunity(bool apply, bool Real)
     }
 
     GetTarget()->ApplySpellImmune(GetId(), IMMUNITY_STATE, m_modifier.m_miscvalue, apply);
+
+    Player* _player = GetTarget()->ToPlayer();
+    if ((GetSpellProto()->Id == 24322 || GetSpellProto()->Id == 24323) && _player)
+        { _player->SetClientControl(_player, !apply); }
+    if (GetSpellProto()->Id == 24323 && _player && !apply)
+    {
+        if (_player->HasAura(24321))
+            { _player->RemoveAurasDueToSpell(24321); }
+    }
 }
 
 void Aura::HandleAuraModSchoolImmunity(bool apply, bool Real)
@@ -4483,9 +4492,17 @@ void Aura::PeriodicTick()
             DETAIL_FILTER_LOG(LOG_FILTER_PERIODIC_AFFECTS, "PeriodicTick: %s health leech of %s for %u dmg inflicted by %u abs is %u",
                               GetCasterGuid().GetString().c_str(), target->GetGuidStr().c_str(), pdamage, GetId(), absorb);
 
-            pCaster->DealDamageMods(target, pdamage, &absorb);
-
-            pCaster->SendSpellNonMeleeDamageLog(target, GetId(), pdamage, GetSpellSchoolMask(spellProto), absorb, resist, false, 0);
+            if (spellProto->Id == 24322)
+            {
+                pdamage = 200;
+                pCaster->DealDamageMods(pCaster, pdamage, NULL);
+                pCaster->SendSpellNonMeleeDamageLog(pCaster, GetId(), pdamage, GetSpellSchoolMask(spellProto), 0, 0, false, 0);
+            }
+            else
+            {
+                pCaster->DealDamageMods(target, pdamage, &absorb);
+                pCaster->SendSpellNonMeleeDamageLog(target, GetId(), pdamage, GetSpellSchoolMask(spellProto), absorb, resist, false, 0);
+            }
 
             float multiplier = spellProto->EffectMultipleValue[GetEffIndex()] > 0 ? spellProto->EffectMultipleValue[GetEffIndex()] : 1;
 
@@ -4511,7 +4528,11 @@ void Aura::PeriodicTick()
 
             uint32 heal = pCaster->SpellHealingBonusTaken(pCaster, spellProto, int32(new_damage * multiplier), DOT, GetStackAmount());
 
-            int32 gain = pCaster->DealHeal(pCaster, heal, spellProto);
+            int32 gain = 0;
+            if (spellProto->Id == 24322)
+                { gain = pCaster->DealHeal(target, 1000, spellProto); }
+            else
+                { gain = pCaster->DealHeal(pCaster, heal, spellProto); }
             pCaster->getHostileRefManager().threatAssist(pCaster, gain * 0.5f * sSpellMgr.GetSpellThreatMultiplier(spellProto), spellProto);
             break;
         }

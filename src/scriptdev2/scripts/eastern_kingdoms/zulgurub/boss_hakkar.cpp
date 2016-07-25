@@ -1,4 +1,4 @@
-/* This file is part of the ScriptDev2 Project. See AUTHORS file for Copyright information
+﻿/* This file is part of the ScriptDev2 Project. See AUTHORS file for Copyright information
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 2 of the License, or
@@ -18,7 +18,7 @@
 SDName: Boss_Hakkar
 SD%Complete: 100
 SDComment:
-SDCategory: Zul'Gurub
+SDCategory: 祖尔格拉布
 EndScriptData */
 
 #include "precompiled.h"
@@ -29,18 +29,15 @@ enum
     SAY_AGGRO                   = -1309020,
     SAY_FLEEING                 = -1309021,
 
-    SPELL_BLOOD_SIPHON          = 24324,                    // triggers 24322 or 24323 on caster
-    SPELL_CORRUPTED_BLOOD       = 24328,
-    SPELL_CAUSE_INSANITY        = 24327,
-    SPELL_WILL_OF_HAKKAR        = 24178,
-    SPELL_ENRAGE                = 24318,
-
-    // The Aspects of all High Priests
-    SPELL_ASPECT_OF_JEKLIK      = 24687,
-    SPELL_ASPECT_OF_VENOXIS     = 24688,
-    SPELL_ASPECT_OF_MARLI       = 24686,
-    SPELL_ASPECT_OF_THEKAL      = 24689,
-    SPELL_ASPECT_OF_ARLOKK      = 24690
+    SPELL_WILL_OF_HAKKAR        = 24178,                    // 哈卡的意志
+    SPELL_ENRAGE                = 24318,                    // 激怒
+    SPELL_BLOOD_SIPHON          = 24324,                    // 血液虹吸
+    SPELL_CORRUPTED_BLOOD       = 24328,                    // 堕落之血
+    SPELL_ASPECT_OF_MARLI       = 24686,                    // 玛尔里的守护
+    SPELL_ASPECT_OF_JEKLIK      = 24687,                    // 耶克里克的守护
+    SPELL_ASPECT_OF_VENOXIS     = 24688,                    // 温诺希斯的守护
+    SPELL_ASPECT_OF_THEKAL      = 24689,                    // 塞卡尔的守护
+    SPELL_ASPECT_OF_ARLOKK      = 24690                     // 娅尔罗的守护
 };
 
 struct boss_hakkarAI : public ScriptedAI
@@ -53,163 +50,163 @@ struct boss_hakkarAI : public ScriptedAI
 
     ScriptedInstance* m_pInstance;
 
-    uint32 m_uiBloodSiphonTimer;
-    uint32 m_uiCorruptedBloodTimer;
-    uint32 m_uiCauseInsanityTimer;
     uint32 m_uiWillOfHakkarTimer;
     uint32 m_uiEnrageTimer;
-
+    uint32 m_uiBloodSiphonTimer;
+    uint32 m_uiCorruptedBloodTimer;
+    uint32 m_uiAspectOfMarliTimer;
     uint32 m_uiAspectOfJeklikTimer;
     uint32 m_uiAspectOfVenoxisTimer;
-    uint32 m_uiAspectOfMarliTimer;
     uint32 m_uiAspectOfThekalTimer;
     uint32 m_uiAspectOfArlokkTimer;
 
     void Reset() override
     {
-        m_uiBloodSiphonTimer       = 90000;
-        m_uiCorruptedBloodTimer    = 25000;
-        m_uiCauseInsanityTimer     = 17000;
-        m_uiWillOfHakkarTimer      = 17000;
-        m_uiEnrageTimer            = 10 * MINUTE * IN_MILLISECONDS;
-
-        m_uiAspectOfJeklikTimer    = 4000;
-        m_uiAspectOfVenoxisTimer   = 7000;
-        m_uiAspectOfMarliTimer     = 12000;
-        m_uiAspectOfThekalTimer    = 8000;
-        m_uiAspectOfArlokkTimer    = 18000;
+        m_uiWillOfHakkarTimer       = 17000;
+        m_uiEnrageTimer             = 600000;
+        m_uiBloodSiphonTimer        = 90000;
+        m_uiCorruptedBloodTimer     = 25000;
+        m_uiAspectOfMarliTimer      = 12000;
+        m_uiAspectOfJeklikTimer     = 4000;
+        m_uiAspectOfVenoxisTimer    = 7000;
+        m_uiAspectOfThekalTimer     = 8000;
+        m_uiAspectOfArlokkTimer     = 18000;
     }
 
     void Aggro(Unit* /*who*/) override
     {
         DoScriptText(SAY_AGGRO, m_creature);
 
-        // check if the priest encounters are done
         if (m_pInstance)
         {
+            uint32 fMaxHealthPct = 100.0f;
             if (m_pInstance->GetData(TYPE_JEKLIK) == DONE)
+            {
                 m_uiAspectOfJeklikTimer = 0;
+                fMaxHealthPct -= 10.0f;
+            }
             if (m_pInstance->GetData(TYPE_VENOXIS) == DONE)
+            {
                 m_uiAspectOfVenoxisTimer = 0;
+                fMaxHealthPct -= 10.0f;
+            }
             if (m_pInstance->GetData(TYPE_MARLI) == DONE)
+            {
                 m_uiAspectOfMarliTimer = 0;
+                fMaxHealthPct -= 10.0f;
+            }
             if (m_pInstance->GetData(TYPE_THEKAL) == DONE)
+            {
                 m_uiAspectOfThekalTimer = 0;
+                fMaxHealthPct -= 10.0f;
+            }
             if (m_pInstance->GetData(TYPE_ARLOKK) == DONE)
+            {
                 m_uiAspectOfArlokkTimer = 0;
+                fMaxHealthPct -= 10.0f;
+            }
+            m_creature->SetHealth(m_creature->GetMaxHealth() * fMaxHealthPct / 100.0f);
         }
     }
 
     void UpdateAI(const uint32 uiDiff) override
     {
         if (!m_creature->SelectHostileTarget() || !m_creature->getVictim())
-            return;
+            { return; }
 
+        // 血液虹吸
         if (m_uiBloodSiphonTimer < uiDiff)
         {
             if (DoCastSpellIfCan(m_creature, SPELL_BLOOD_SIPHON) == CAST_OK)
-                m_uiBloodSiphonTimer = 90000;
+                { m_uiBloodSiphonTimer = 90000; }
         }
         else
-            m_uiBloodSiphonTimer -= uiDiff;
+            { m_uiBloodSiphonTimer -= uiDiff; }
 
-        // Corrupted Blood Timer
+        // 堕落之血
         if (m_uiCorruptedBloodTimer < uiDiff)
         {
             if (Unit* pTarget = m_creature->SelectAttackingTarget(ATTACKING_TARGET_RANDOM, 0))
             {
                 if (DoCastSpellIfCan(pTarget, SPELL_CORRUPTED_BLOOD) == CAST_OK)
-                    m_uiCorruptedBloodTimer = urand(30000, 45000);
+                    { m_uiCorruptedBloodTimer = 30000; }
             }
         }
         else
-            m_uiCorruptedBloodTimer -= uiDiff;
+            { m_uiCorruptedBloodTimer -= uiDiff; }
 
-        // Cause Insanity Timer
-        if (m_uiCauseInsanityTimer < uiDiff)
-        {
-            if (m_creature->getThreatManager().getThreatList().size() > 1)
-            {
-                if (DoCastSpellIfCan(m_creature->getVictim(), SPELL_CAUSE_INSANITY) == CAST_OK)
-                    m_uiCauseInsanityTimer = urand(10000, 15000);
-            }
-            else // Solo case, check again later
-                m_uiCauseInsanityTimer = urand(35000, 43000);
-        }
-        else
-            m_uiCauseInsanityTimer -= uiDiff;
-
-        // Will Of Hakkar Timer
+        // 哈卡的意志
         if (m_uiWillOfHakkarTimer < uiDiff)
         {
             if (Unit* pTarget = m_creature->SelectAttackingTarget(ATTACKING_TARGET_RANDOM, 1))
             {
                 if (DoCastSpellIfCan(pTarget, SPELL_WILL_OF_HAKKAR) == CAST_OK)
-                    m_uiWillOfHakkarTimer = urand(25000, 35000);
+                    { m_uiWillOfHakkarTimer = urand(25000, 35000); }
             }
-            else // solo attempt, try again later
-                m_uiWillOfHakkarTimer = 25000;
+            else
+                { m_uiWillOfHakkarTimer = 25000; }
         }
         else
-            m_uiWillOfHakkarTimer -= uiDiff;
+            { m_uiWillOfHakkarTimer -= uiDiff; }
 
+        // 激怒
         if (m_uiEnrageTimer < uiDiff)
         {
             if (DoCastSpellIfCan(m_creature, SPELL_ENRAGE) == CAST_OK)
-                m_uiEnrageTimer = 10 * MINUTE * IN_MILLISECONDS;
+                { m_uiEnrageTimer = 90000; }
         }
         else
-            m_uiEnrageTimer -= uiDiff;
+            { m_uiEnrageTimer -= uiDiff; }
 
-        // Checking if Jeklik is dead. If not we cast her Aspect
-        if (m_uiAspectOfJeklikTimer)
-        {
-            if (m_uiAspectOfJeklikTimer <= uiDiff)
-            {
-                if (DoCastSpellIfCan(m_creature, SPELL_ASPECT_OF_JEKLIK) == CAST_OK)
-                    m_uiAspectOfJeklikTimer = urand(10000, 14000);
-            }
-            else
-                m_uiAspectOfJeklikTimer -= uiDiff;
-        }
-
-        // Checking if Venoxis is dead. If not we cast his Aspect
-        if (m_uiAspectOfVenoxisTimer)
-        {
-            if (m_uiAspectOfVenoxisTimer <= uiDiff)
-            {
-                if (DoCastSpellIfCan(m_creature, SPELL_ASPECT_OF_VENOXIS) == CAST_OK)
-                    m_uiAspectOfVenoxisTimer = 8000;
-            }
-            else
-                m_uiAspectOfVenoxisTimer -= uiDiff;
-        }
-
-        // Checking if Marli is dead. If not we cast her Aspect
+        // 玛尔里的守护
         if (m_uiAspectOfMarliTimer)
         {
             if (m_uiAspectOfMarliTimer <= uiDiff)
             {
                 if (DoCastSpellIfCan(m_creature->getVictim(), SPELL_ASPECT_OF_MARLI) == CAST_OK)
-                    m_uiAspectOfMarliTimer = 10000;
+                    { m_uiAspectOfMarliTimer = 10000; }
             }
             else
-                m_uiAspectOfMarliTimer -= uiDiff;
+                { m_uiAspectOfMarliTimer -= uiDiff; }
         }
 
-        // Checking if Thekal is dead. If not we cast his Aspect
+        // 耶克里克的守护
+        if (m_uiAspectOfJeklikTimer)
+        {
+            if (m_uiAspectOfJeklikTimer <= uiDiff)
+            {
+                if (DoCastSpellIfCan(m_creature, SPELL_ASPECT_OF_JEKLIK) == CAST_OK)
+                    { m_uiAspectOfJeklikTimer = urand(10000, 14000); }
+            }
+            else
+                { m_uiAspectOfJeklikTimer -= uiDiff; }
+        }
+
+        // 温诺希斯的守护
+        if (m_uiAspectOfVenoxisTimer)
+        {
+            if (m_uiAspectOfVenoxisTimer <= uiDiff)
+            {
+                if (DoCastSpellIfCan(m_creature, SPELL_ASPECT_OF_VENOXIS) == CAST_OK)
+                    { m_uiAspectOfVenoxisTimer = 8000; }
+            }
+            else
+                { m_uiAspectOfVenoxisTimer -= uiDiff; }
+        }
+
+        // 塞卡尔的守护
         if (m_uiAspectOfThekalTimer)
         {
             if (m_uiAspectOfThekalTimer <= uiDiff)
             {
                 if (DoCastSpellIfCan(m_creature, SPELL_ASPECT_OF_THEKAL) == CAST_OK)
-                    m_uiAspectOfThekalTimer = 15000;
+                    { m_uiAspectOfThekalTimer = 15000; }
             }
             else
-                m_uiAspectOfThekalTimer -= uiDiff;
+                { m_uiAspectOfThekalTimer -= uiDiff; }
         }
 
-        // Checking if Arlokk is dead. If yes we cast her Aspect
+        // 娅尔罗的守护
         if (m_uiAspectOfArlokkTimer)
         {
             if (m_uiAspectOfArlokkTimer <= uiDiff)
@@ -221,10 +218,11 @@ struct boss_hakkarAI : public ScriptedAI
                 }
             }
             else
-                m_uiAspectOfArlokkTimer -= uiDiff;
+                { m_uiAspectOfArlokkTimer -= uiDiff; }
         }
 
-        DoMeleeAttackIfReady();
+        if (!(m_creature->HasAura(24322) || m_creature->HasAura(24323)))
+            { DoMeleeAttackIfReady(); }
     }
 };
 

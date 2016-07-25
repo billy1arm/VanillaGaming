@@ -1893,6 +1893,10 @@ bool SpellMgr::IsNoStackSpellDueToSpell(uint32 spellId_1, uint32 spellId_2) cons
     if (((spellInfo_1->Id == 16327 || spellInfo_1->SpellVisual == 158 && spellInfo_1->SpellIconID == 125 && spellInfo_1->SpellFamilyName == SPELLFAMILY_GENERIC) && spellInfo_2->SpellVisual == 158 && spellInfo_2->SpellIconID == 125 && spellInfo_2->SpellFamilyName == SPELLFAMILY_MAGE) || ((spellInfo_2->Id == 16327 || spellInfo_2->SpellVisual == 158 && spellInfo_2->SpellIconID == 125 && spellInfo_2->SpellFamilyName == SPELLFAMILY_GENERIC) && spellInfo_1->SpellVisual == 158 && spellInfo_1->SpellIconID == 125 && spellInfo_1->SpellFamilyName == SPELLFAMILY_MAGE))
         { return false; }
 
+    // 血液虹吸
+    if ((spellInfo_1->Id == 24322 || spellInfo_1->Id == 24324) && (spellInfo_2->Id == 24322 || spellInfo_2->Id == 24324))
+        { return false; }
+
     // 石化 | 泰坦合剂 | 萃取智慧 | 至高能量 | 多彩抗性 --- 不可叠加
     if ((spellInfo_1->Id == 17624 || spellInfo_1->Id == 17626 || spellInfo_1->Id == 17627 || spellInfo_1->Id == 17628 || spellInfo_1->Id == 17629) && (spellInfo_2->Id == 17624 || spellInfo_2->Id == 17626 || spellInfo_2->Id == 17627 || spellInfo_2->Id == 17628 || spellInfo_2->Id == 17629))
         { return true; }

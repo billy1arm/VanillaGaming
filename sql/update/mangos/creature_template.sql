@@ -195,6 +195,9 @@ UPDATE `creature_template` SET `DamageMultiplier`='1.7', `Armor`='6800', `Mechan
 -- 狂热者扎斯
 UPDATE `creature_template` SET `DamageMultiplier`='1.7', `Armor`='6800', `MechanicImmuneMask`='617297755', `ResistanceHoly`='121', `ResistanceFire`='121', `ResistanceNature`='121', `ResistanceFrost`='121', `ResistanceShadow`='121', `ResistanceArcane`='121' WHERE (`Entry`='11348');
 
+-- 哈卡之子
+UPDATE `creature_template` SET `Armor`='6800', `ResistanceHoly`='121', `ResistanceFire`='121', `ResistanceNature`='121', `ResistanceFrost`='121', `ResistanceShadow`='121', `ResistanceArcane`='121' WHERE (`Entry`='11357');
+
 -- 拉扎什眼镜蛇
 UPDATE `creature_template` SET `Armor`='6800', `ResistanceHoly`='121', `ResistanceFire`='121', `ResistanceNature`='121', `ResistanceFrost`='121', `ResistanceShadow`='121', `ResistanceArcane`='121' WHERE (`Entry`='11373');
 
@@ -353,6 +356,9 @@ UPDATE `creature_template` SET `Armor`='6800', `ResistanceHoly`='121', `Resistan
 
 -- 祭品巨魔
 UPDATE `creature_template` SET `Armor`='6800', `ResistanceHoly`='121', `ResistanceFire`='121', `ResistanceNature`='121', `ResistanceFrost`='121', `ResistanceShadow`='121', `ResistanceArcane`='121' WHERE (`Entry`='14826');
+
+-- 哈卡
+UPDATE `creature_template` SET `HealthMultiplier`='279.85', `DamageMultiplier`='1.5', `MinLevelHealth`='745804', `MaxLevelHealth`='745804', `Armor`='7291', `ResistanceHoly`='121', `ResistanceFire`='121', `ResistanceNature`='0', `ResistanceFrost`='121', `ResistanceShadow`='121', `ResistanceArcane`='121' WHERE (`Entry`='14834');
 
 -- 寄居蛇
 UPDATE `creature_template` SET `Armor`='6800', `ResistanceHoly`='121', `ResistanceFire`='121', `ResistanceNature`='121', `ResistanceFrost`='121', `ResistanceShadow`='121', `ResistanceArcane`='121' WHERE (`Entry`='14884');

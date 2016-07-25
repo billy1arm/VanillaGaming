@@ -284,6 +284,9 @@ INSERT INTO `creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`, `g
 INSERT INTO `creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`, `groupid`, `mincountOrRef`, `maxcount`, `condition_id`) VALUES ('14517', '22722', '0', '1', '1', '1', '0');
 INSERT INTO `creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`, `groupid`, `mincountOrRef`, `maxcount`, `condition_id`) VALUES ('14517', '34086', '100', '0', '-34086', '1', '0');
 
+-- 哈卡
+UPDATE `creature_loot_template` SET `groupid`='0' WHERE (`entry`='14834') AND (`item`='34090');
+
 -- 南海绑匪 --- 南海海盗帽
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-6' WHERE (`entry`='15685') AND (`item`='20519');
 
