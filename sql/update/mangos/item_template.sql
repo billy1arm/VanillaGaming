@@ -45,6 +45,9 @@ UPDATE `item_template` SET `dmg_min2`='0', `dmg_max2`='0', `dmg_type2`='0', `spe
 -- 修理机器人74A型
 UPDATE `item_template` SET `spellcooldown_1`='3600000' WHERE (`entry`='18232');
 
+-- 奎尔塞拉
+UPDATE `item_template` SET `spellppmRate_1`='5' WHERE (`entry`='18348');
+
 -- 瞬飞证书
 DELETE FROM `item_template` WHERE `entry`='30000';
 DELETE FROM `item_template` WHERE `entry`='30001';
