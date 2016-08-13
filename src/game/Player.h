@@ -2074,7 +2074,14 @@ class MANGOS_DLL_SPEC Player : public Unit
         int32 GetIntegral();
         int32 GetTotalIntegral();
         void ModifyIntegral(int32 d);
+        void ModifyRefererIntegral(int32 d,uint32 accId2);
 
+        /*********************************************************/
+        /***                    RAF SYSTEM                     ***/
+        /*********************************************************/
+        bool HasReferrer();
+        int32 GetReferredCount();
+        int32 GetReferredFinishCount();
     protected:
 
         uint32 m_contestedPvPTimer;

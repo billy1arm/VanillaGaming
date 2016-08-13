@@ -2343,6 +2343,48 @@ void Player::GiveLevel(uint32 level)
     // update level to hunter/summon pet
     if (Pet* pet = GetPet())
         pet->SynchronizeLevelWithOwner();
+
+    /*********************************************************/
+    /***                    RAF SYSTEM                     ***/
+    /*********************************************************/
+    if (HasReferrer())
+    {
+        uint32 finish = 1;
+        uint32 accId2 = 0;
+        switch (level)
+        {
+            // 送旅行者背包
+            case 20:
+            case 30:
+            case 40:
+            case 50:
+                if (GetItemCount(4500, true) < 50)
+                {
+                    ItemPosCountVec dest;
+                    InventoryResult msg = CanStoreNewItem(NULL_BAG, NULL_SLOT, dest, 4500, 1, (uint32)0);
+                    if (msg == EQUIP_ERR_OK)
+                    {
+                        SaveToDB();
+                        Item* item = StoreNewItem(dest, 4500, true, Item::GenerateItemRandomPropertyId(4500));
+                        SendNewItem(item, 1, false, true);
+                        SaveToDB();
+                    }
+                }
+                break;
+            // 送100G和30积分
+            case 60:
+                SaveToDB();
+                ModifyMoney(1000000);
+                ModifyIntegral(30);
+                accId2 = GetSession()->GetAccountId();
+                ModifyRefererIntegral(50, accId2);
+                LoginDatabase.PExecute("UPDATE account_referred SET finish = '%u' WHERE accId2 = '%u'", finish, accId2);
+                SaveToDB();
+                break;
+            default:
+                break;
+        }
+    }
 }
 
 void Player::UpdateFreeTalentPoints(bool resetIfNeed)
@@ -19157,6 +19199,7 @@ int32 Player::GetIntegral()
     delete result;
     return integral;
 }
+
 int32 Player::GetTotalIntegral()
 {
     uint32 accId = 0;
@@ -19170,6 +19213,7 @@ int32 Player::GetTotalIntegral()
     delete result;
     return totalintegral;
 }
+
 void Player::ModifyIntegral(int32 d)
 {
     uint32 accId = m_session->GetAccountId();
@@ -19187,4 +19231,76 @@ void Player::ModifyIntegral(int32 d)
     LoginDatabase.PExecute("UPDATE account_integral SET totalintegral = '%i' WHERE id = '%u'", newintegral2, accId);
     int32 newintegral = newintegral1 + d;
     LoginDatabase.PExecute("UPDATE account_integral SET integral = '%i' WHERE id = '%u'", newintegral, accId);
+}
+
+void Player::ModifyRefererIntegral(int32 d,uint32 accId2)
+{
+    uint32 accId = 0;
+    QueryResult* resultF = LoginDatabase.PQuery("SELECT accId1 FROM account_referred WHERE accId2 = '%u'", accId2);
+    if (!resultF)
+        { return; }
+    else
+        { accId = (*resultF)[0].GetInt32(); }
+    delete resultF;
+    int32 pay;
+    QueryResult* resultI = LoginDatabase.PQuery("SELECT pay FROM account_integral WHERE id = '%u'", accId);
+    if (resultI)
+        { pay = (*resultI)[0].GetInt32(); }
+    else
+        { pay = 0; }
+    delete resultI;
+    int32 newintegral1 = GetIntegral() + pay;
+    int32 newintegral2 = GetTotalIntegral() + pay;
+    LoginDatabase.PExecute("UPDATE account_integral SET pay = '0' WHERE id = '%u'", accId);
+    LoginDatabase.PExecute("UPDATE account_integral SET integral = '%i' WHERE id = '%u'", newintegral1, accId);
+    LoginDatabase.PExecute("UPDATE account_integral SET totalintegral = '%i' WHERE id = '%u'", newintegral2, accId);
+    int32 newintegral = newintegral1 + d;
+    LoginDatabase.PExecute("UPDATE account_integral SET integral = '%i' WHERE id = '%u'", newintegral, accId);
+}
+
+/*********************************************************/
+/***                    RAF SYSTEM                     ***/
+/*********************************************************/
+bool Player::HasReferrer()
+{
+    uint32 accId1 = 0;
+    uint32 accId2 = 0;
+    accId2 = GetSession()->GetAccountId();
+    QueryResult* result = LoginDatabase.PQuery("SELECT accId1 FROM account_referred WHERE accId2 = '%u'", accId2);
+    if (!result)
+        { return false; }
+    delete result;
+
+    return true;
+}
+
+int32 Player::GetReferredCount()
+{
+    uint32 referred_count = 0;
+    uint32 accId1 = 0;
+    accId1 = GetSession()->GetAccountId();
+    QueryResult* result = LoginDatabase.PQuery("SELECT COUNT(accId1) FROM account_referred WHERE accId1 = '%u'", accId1);
+    if (!result)
+        { return false; }
+    else
+        { referred_count = (*result)[0].GetUInt32(); }
+    delete result;
+
+    return referred_count;
+}
+
+int32 Player::GetReferredFinishCount()
+{
+    uint32 referred_finish_count = 0;
+    uint32 accId1 = 0;
+    uint32 finish = 1;
+    accId1 = GetSession()->GetAccountId();
+    QueryResult* result = LoginDatabase.PQuery("SELECT COUNT(accId1) FROM account_referred WHERE accId1 = '%u' and finish = '%u'", accId1, finish);
+    if (!result)
+        { return false; }
+    else
+        { referred_finish_count = (*result)[0].GetUInt32(); }
+    delete result;
+
+    return referred_finish_count;
 }

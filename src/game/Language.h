@@ -1047,6 +1047,11 @@ enum MangosStrings
 
     LANG_AUTO_BROADCAST                 = 11100, // 自动公告
 
+    LANG_RAF_INFO                       = 11200, // 您已经被其他帐号招募,目前您已经招募了%u个帐号,成功到达60的小伙伴有%u个.
+    LANG_RAF_INFO_NONE                  = 11201, // 您还未被其他帐号招募,对其他玩家使用.raf link命令即可绑定招募关系.目前您已经招募了%u个帐号,成功到达60的小伙伴有%u个.
+    LANG_RAF_LEVEL                      = 11202, // 您已经超过20级,可以独立闯荡艾泽拉斯大陆.试着去招募其他玩家吧!
+    LANG_RAF_WRONG_TARGET               = 11203, // GM的脑子还没有秀逗,显然您不能自己招募自己.
+    LANG_RAF_GIFTS                      = 11204, // 您已成功与目标玩家绑定招募关系,永久3倍经验,系统赠送1个月瞬飞.等级达到20.30.40.50还会获得旅行者背包(请确保有足够的空间),等级达到60会获得100G和30积分.
     // NOT RESERVED IDS                   12000-1999999999
     // `db_script_string` table index     2000000000-2000999999 (MIN_DB_SCRIPT_STRING_ID-MAX_DB_SCRIPT_STRING_ID)
     // For other tables maybe             2001000000-2147483647 (max index)

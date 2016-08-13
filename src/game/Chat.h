@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the CMaNGOS Project. See AUTHORS file for Copyright information
  *
  * This program is free software; you can redistribute it and/or modify
@@ -581,6 +581,10 @@ class MANGOS_DLL_SPEC ChatHandler
         bool HandleMmap(char* args);
         bool HandleMmapTestArea(char* args);
         bool HandleMmapTestHeight(char* args);
+
+        // 战友招募
+        bool HandleRAFInfoCommand(char* args);
+        bool HandleRAFLinkCommand(char* args);
 
         //! Development Commands
         bool HandleSaveAllCommand(char* args);

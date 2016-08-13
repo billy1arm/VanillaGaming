@@ -290,3 +290,76 @@ bool ChatHandler::HandleServerMotdCommand(char* /*args*/)
     PSendSysMessage(LANG_MOTD_CURRENT, sWorld.GetMotd());
     return true;
 }
+
+bool ChatHandler::HandleRAFInfoCommand(char* /*args*/)
+{
+    Player* player = m_session->GetPlayer();
+
+    if (!player)
+        { return false; }
+
+    if (player->HasReferrer())
+        { PSendSysMessage(LANG_RAF_INFO, player->GetReferredCount(), player->GetReferredFinishCount()); }
+    else
+        { PSendSysMessage(LANG_RAF_INFO_NONE, player->GetReferredCount(), player->GetReferredFinishCount()); }
+
+    return true;
+}
+
+bool ChatHandler::HandleRAFLinkCommand(char* /*args*/)
+{
+    Player* player = m_session->GetPlayer();
+    if (!player)
+        { return false; }
+    Player* playerTarget = getSelectedPlayer();
+    if (!playerTarget)
+    {
+        PSendSysMessage(LANG_RAF_WRONG_TARGET);
+        return false;
+    }
+
+    uint32 accId1 = 0;
+    uint32 accId2 = 0;
+    uint32 finish = 0;
+    accId1 = playerTarget->GetSession()->GetAccountId();
+    accId2 = GetAccountId();
+
+    if (player->getLevel() > 20)
+    {
+        PSendSysMessage(LANG_RAF_LEVEL);
+        return false;
+    }
+    if (player->HasReferrer())
+    {
+        PSendSysMessage(LANG_RAF_INFO, player->GetReferredCount(), player->GetReferredFinishCount());
+        return false;
+    }
+    if (playerTarget == player)
+    {
+        PSendSysMessage(LANG_RAF_WRONG_TARGET);
+        return false;
+    }
+    if (accId1 && accId2)
+    {
+        LoginDatabase.PExecute("INSERT INTO account_referred (accId1, accId2, finish) VALUES ('%u', '%u', '%u')", accId1, accId2, finish);
+        PSendSysMessage(LANG_RAF_GIFTS);
+        if (player->GetItemCount(30000, true) < 1)
+        {
+            ItemPosCountVec dest;
+            InventoryResult msg = player->CanStoreNewItem(NULL_BAG, NULL_SLOT, dest, 30000, 1, (uint32)0);
+            if (msg == EQUIP_ERR_OK)
+            {
+                player->SaveToDB();
+                Item* item = player->StoreNewItem(dest, 30000, true, Item::GenerateItemRandomPropertyId(30000));
+                player->SendNewItem(item, 1, false, true);
+                player->SaveToDB();
+            }
+            else
+                { PSendSysMessage(LANG_FULL_BAG); }
+        }
+        else
+            { PSendSysMessage(LANG_ALREADY_HAVE); }
+    }
+
+    return true;
+}

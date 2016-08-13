@@ -672,6 +672,13 @@ ChatCommand* ChatHandler::getCommandTable()
         { NULL,             0,                  false, NULL,                                           "", NULL }
     };
 
+    static ChatCommand referFriendCommandTable[] =
+    {
+        { "info",           SEC_PLAYER,         true,  &ChatHandler::HandleRAFInfoCommand,             "", NULL },
+        { "link",           SEC_PLAYER,         true,  &ChatHandler::HandleRAFLinkCommand,             "", NULL },
+        { NULL,             0,                  false, NULL,                                           "", NULL }
+    };
+
     static ChatCommand commandTable[] =
     {
         { "account",        SEC_PLAYER,         true,  NULL,                                           "", accountCommandTable  },
@@ -761,6 +768,7 @@ ChatCommand* ChatHandler::getCommandTable()
         { "waterwalk",      SEC_GAMEMASTER,     false, &ChatHandler::HandleWaterwalkCommand,           "", NULL },
         { "quit",           SEC_CONSOLE,        true,  &ChatHandler::HandleQuitCommand,                "", NULL },
         { "mmap",           SEC_GAMEMASTER,     false, NULL,                                           "", mmapCommandTable },
+        { "raf",            SEC_PLAYER,         true,  NULL,                                           "", referFriendCommandTable },
 
         { NULL,             0,                  false, NULL,                                           "", NULL }
     };

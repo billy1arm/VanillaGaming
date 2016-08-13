@@ -31,3 +31,15 @@ INSERT INTO `mangos_string` (`entry`, `content_default`, `content_loc1`, `conten
 -- 自动公告
 DELETE FROM `mangos_string` WHERE `entry`='11100';
 INSERT INTO `mangos_string` (`entry`, `content_default`, `content_loc1`, `content_loc2`, `content_loc3`, `content_loc4`, `content_loc5`, `content_loc6`, `content_loc7`, `content_loc8`) VALUES ('11100', '[|cffff0000系统公告|r]:%s', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+
+-- 战友招募
+DELETE FROM `mangos_string` WHERE `entry`='11200';
+INSERT INTO `mangos_string` (`entry`, `content_default`, `content_loc1`, `content_loc2`, `content_loc3`, `content_loc4`, `content_loc5`, `content_loc6`, `content_loc7`, `content_loc8`) VALUES ('11200', '[|cffff0000战友招募|r]:您已经被其他帐号招募,目前您已经招募了%u个帐号,成功到达60的小伙伴有%u个.', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+DELETE FROM `mangos_string` WHERE `entry`='11201';
+INSERT INTO `mangos_string` (`entry`, `content_default`, `content_loc1`, `content_loc2`, `content_loc3`, `content_loc4`, `content_loc5`, `content_loc6`, `content_loc7`, `content_loc8`) VALUES ('11201', '[|cffff0000战友招募|r]:您还未被其他帐号招募,对其他玩家使用.raf link命令即可绑定招募关系.目前您已经招募了%u个帐号,成功到达60的小伙伴有%u个.', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+DELETE FROM `mangos_string` WHERE `entry`='11202';
+INSERT INTO `mangos_string` (`entry`, `content_default`, `content_loc1`, `content_loc2`, `content_loc3`, `content_loc4`, `content_loc5`, `content_loc6`, `content_loc7`, `content_loc8`) VALUES ('11202', '[|cffff0000战友招募|r]:您已经超过20级,可以独立闯荡艾泽拉斯大陆.试着去招募其他玩家吧!', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+DELETE FROM `mangos_string` WHERE `entry`='11203';
+INSERT INTO `mangos_string` (`entry`, `content_default`, `content_loc1`, `content_loc2`, `content_loc3`, `content_loc4`, `content_loc5`, `content_loc6`, `content_loc7`, `content_loc8`) VALUES ('11203', '[|cffff0000战友招募|r]:GM的脑子还没有秀逗,显然您不能自己招募自己.', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+DELETE FROM `mangos_string` WHERE `entry`='11204';
+INSERT INTO `mangos_string` (`entry`, `content_default`, `content_loc1`, `content_loc2`, `content_loc3`, `content_loc4`, `content_loc5`, `content_loc6`, `content_loc7`, `content_loc8`) VALUES ('11204', '[|cffff0000战友招募|r]:您已成功与目标玩家绑定招募关系,永久3倍经验,系统赠送1个月瞬飞.等级达到20.30.40.50还会获得旅行者背包(请确保有足够的空间),等级达到60会获得100G和30积分.', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
