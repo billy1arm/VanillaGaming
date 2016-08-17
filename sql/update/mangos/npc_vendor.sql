@@ -12,6 +12,9 @@ File Encoding         : 65001
 -- Updates of npc_vendor
 -- ----------------------------
 
+-- 维尔 --- 格罗姆之血
+UPDATE `npc_vendor` SET `maxcount`='3', `incrtime`='43200' WHERE (`entry`='16015') AND (`item`='8846');
+
 -- 维尔 --- 恶魔布
 DELETE FROM `npc_vendor` WHERE (`entry`='16015') AND (`item`='14256');
 -- INSERT INTO `x-mangos`.`npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`, `condition_id`) VALUES ('16015', '14256', '2', '7200', '0');
