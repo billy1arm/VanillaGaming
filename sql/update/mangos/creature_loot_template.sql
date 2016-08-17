@@ -15,6 +15,39 @@ File Encoding         : 65001
 -- 纳迦探险者 --- 海蛇草
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='1907') AND (`item`='4029');
 
+-- 巨翼枭 --- 巨翼枭的羽毛
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='1995') AND (`item`='3411');
+
+-- 巨翼恶枭 --- 巨翼枭的羽毛
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='1996') AND (`item`='3411');
+
+-- 巨翼猎枭 --- 巨翼枭的羽毛
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='1997') AND (`item`='3411');
+
+-- 树林潜伏者 --- 树林蜘蛛丝
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='1998') AND (`item`='3412');
+
+-- 树林毒蜘蛛 --- 树林蜘蛛丝
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='1999') AND (`item`='3412');
+
+-- 树林结网蛛 --- 树林蜘蛛丝
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='2000') AND (`item`='3412');
+
+-- 巨型树林蜘蛛 --- 树林蜘蛛丝
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-100' WHERE (`entry`='2001') AND (`item`='3412');
+
+-- 老夜刃豹 --- 夜刃豹的牙齿
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='2033') AND (`item`='3409');
+
+-- 野生夜刃豹 --- 夜刃豹的牙齿
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-100' WHERE (`entry`='2034') AND (`item`='3409');
+
+-- 夜刃豹 --- 夜刃豹的牙齿
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='2042') AND (`item`='3409');
+
+-- 夜刃捕食者 --- 夜刃豹的牙齿
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='2043') AND (`item`='3409');
+
 -- 灌木露水收集者 --- 饱满的露水腺
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-100' WHERE (`entry`='5481') AND (`item`='8428');
 
@@ -162,6 +195,9 @@ UPDATE `creature_loot_template` SET `groupid`='0' WHERE (`entry`='12259') AND (`
 -- 沙斯拉尔
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='0.2', `groupid`='0' WHERE (`entry`='12264') AND (`item`='34011');
 UPDATE `creature_loot_template` SET `groupid`='0' WHERE (`entry`='12264') AND (`item`='34026');
+
+-- 夜刃捕食者 --- 夜刃豹的牙齿
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='14430') AND (`item`='3409');
 
 -- 高阶祭司温诺希斯
 DELETE FROM `creature_loot_template` WHERE (`entry`='14507');
