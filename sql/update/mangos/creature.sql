@@ -58,6 +58,14 @@ DELETE FROM `creature` WHERE `id`='14889';
 DELETE FROM `creature` WHERE `id`='14890';
 -- INSERT INTO `creature` (`guid`, `id`, `map`, `modelid`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `spawndist`, `currentwaypoint`, `curhealth`, `curmana`, `DeathState`, `MovementType`) VALUES ('4256', '14890', '0', '15363', '0', '-10428.8', '-392.176', '43.7411', '0.932375', '604800', '5', '0', '832750', '8640', '0', '2');
 
+-- 莫克瓦尔
+DELETE FROM `creature` WHERE `id`='16012';
+-- INSERT INTO `creature` (`guid`, `id`, `map`, `modelid`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `spawndist`, `currentwaypoint`, `curhealth`, `curmana`, `DeathState`, `MovementType`) VALUES ('6491', '16012', '1', '15966', '0', '1915.67', '-4170.77', '41.0061', '0.750492', '300', '0', '0', '4000', '0', '0', '0');
+
+-- 德莉亚娜
+DELETE FROM `creature` WHERE `id`='16013';
+-- INSERT INTO `creature` (`guid`, `id`, `map`, `modelid`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `spawndist`, `currentwaypoint`, `curhealth`, `curmana`, `DeathState`, `MovementType`) VALUES ('2026', '16013', '0', '15965', '0', '-4846.98', '-1057.77', '502.19', '1.29154', '25000', '0', '0', '4400', '5751', '0', '0');
+
 -- 哈卡之子
 UPDATE `creature` SET `spawntimesecs`='30' WHERE (`guid`='51426');
 UPDATE `creature` SET `spawntimesecs`='30' WHERE (`guid`='51428');
