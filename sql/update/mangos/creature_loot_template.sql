@@ -48,6 +48,12 @@ UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='
 -- 夜刃捕食者 --- 夜刃豹的牙齿
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='2043') AND (`item`='3409');
 
+-- 月夜雌虎 --- 优质月夜猛虎毛皮
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='2071') AND (`item`='5386');
+
+-- 月夜雄虎 --- 优质月夜猛虎毛皮
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='2237') AND (`item`='5386');
+
 -- 饥饿的山地狮 --- 山地狮的血液
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='2384') AND (`item`='3496');
 
