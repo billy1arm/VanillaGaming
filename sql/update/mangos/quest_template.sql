@@ -15,6 +15,9 @@ File Encoding         : 65001
 -- 水之召唤
 UPDATE `quest_template` SET `SrcItemId`='6637' WHERE (`entry`='63');
 
+-- 咕咕嘎！
+UPDATE `quest_template` SET `Method`='0' WHERE (`entry`='3861');
+
 -- 弗洛尔的屠龙技术纲要
 UPDATE `quest_template` SET `RewSpellCast`='22925' WHERE (`entry`='7507');
 
