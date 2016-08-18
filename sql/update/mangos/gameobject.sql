@@ -15,6 +15,9 @@ File Encoding         : 65001
 -- 矿工联盟的储物箱
 UPDATE `gameobject` SET `spawntimesecs`='300' WHERE (`id`='271');
 
+-- 提瑞斯法南瓜
+UPDATE `gameobject` SET `spawntimesecs`='300' WHERE (`id`='375');
+
 -- 坚固的箱子
 UPDATE `gameobject` SET `spawntimesecs`='7200' WHERE (`id`='2850');
 
