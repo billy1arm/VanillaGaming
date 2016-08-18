@@ -72,6 +72,21 @@ UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='
 -- 杜隆塔尔猛虎 --- 杜隆塔尔虎皮
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='3121') AND (`item`='4892');
 
+-- 暗滩祭司 --- 发光的灵魂宝石
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-100' WHERE (`entry`='3725') AND (`item`='5366');
+
+-- 暗滩执行者 --- 发光的灵魂宝石
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-100' WHERE (`entry`='3727') AND (`item`='5366');
+
+-- 暗滩精兵 --- 发光的灵魂宝石
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-100' WHERE (`entry`='3728') AND (`item`='5366');
+
+-- 暗滩挖掘者 --- 发光的灵魂宝石
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-100' WHERE (`entry`='3730') AND (`item`='5366');
+
+-- 暗滩刺客 --- 发光的灵魂宝石
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-100' WHERE (`entry`='3879') AND (`item`='5366');
+
 -- 灌木露水收集者 --- 饱满的露水腺
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-100' WHERE (`entry`='5481') AND (`item`='8428');
 
