@@ -48,6 +48,18 @@ UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='
 -- 夜刃捕食者 --- 夜刃豹的牙齿
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='2043') AND (`item`='3409');
 
+-- 饥饿的山地狮 --- 山地狮的血液
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='2384') AND (`item`='3496');
+
+-- 丘陵猎手 --- 山地狮的血液
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='2385') AND (`item`='3496');
+
+-- 山地狮 --- 山地狮的血液
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='2406') AND (`item`='3496');
+
+-- 巨型山地狮 --- 山地狮的血液
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='2407') AND (`item`='3496');
+
 -- 草原狼前锋 --- 草原狼前锋的牙齿
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='2960') AND (`item`='4803');
 
