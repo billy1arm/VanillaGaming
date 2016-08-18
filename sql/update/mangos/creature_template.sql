@@ -153,6 +153,9 @@ UPDATE `creature_template` SET `SpeedWalk`='1', `SpeedRun`='1.14286' WHERE (`Ent
 -- 沙怒狂热者
 UPDATE `creature_template` SET `SpeedWalk`='1', `SpeedRun`='1.14286' WHERE (`Entry`='8877');
 
+-- 科卡尔入侵者
+UPDATE `creature_template` SET `ExtraFlags`='64' WHERE (`Entry`='9524');
+
 -- 喷焰小鬼
 UPDATE `creature_template` SET `ExtraFlags`='64' WHERE (`Entry`='9776');
 
