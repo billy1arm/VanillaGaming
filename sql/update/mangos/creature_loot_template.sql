@@ -12,6 +12,15 @@ File Encoding         : 65001
 -- Updates of creature_loot_template
 -- ----------------------------
 
+-- 红色软泥怪 --- 塞达的背包
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-100' WHERE (`entry`='1031') AND (`item`='3349');
+
+-- 黑色软泥怪 --- 塞达的背包
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-100' WHERE (`entry`='1032') AND (`item`='3349');
+
+-- 残忍的软泥怪 --- 塞达的背包
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-100' WHERE (`entry`='1033') AND (`item`='3349');
+
 -- 纳迦探险者 --- 海蛇草
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='1907') AND (`item`='4029');
 
