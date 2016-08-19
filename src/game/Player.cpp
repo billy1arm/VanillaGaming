@@ -7279,6 +7279,10 @@ void Player::SendLoot(ObjectGuid guid, LootType loot_type)
                 else
                     permission = NONE_PERMISSION;
             }
+
+            go->SetGoState(GO_STATE_ACTIVE);
+            SetFlag(UNIT_FIELD_FLAGS, UNIT_FLAG_LOOTING);
+
             break;
         }
         case HIGHGUID_ITEM:

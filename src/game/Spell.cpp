@@ -3207,6 +3207,10 @@ void Spell::SendCastResult(SpellCastResult result)
     if (((Player*)m_caster)->GetSession()->PlayerLoading()) // don't send cast results at loading time
         return;
 
+    // Reseting emote state for case not handled by the client.
+    if (result == SPELL_FAILED_CHEST_IN_USE)
+        { SendInterrupted(0); }
+
     SendCastResult((Player*)m_caster, m_spellInfo, result);
 }
 
@@ -4789,6 +4793,10 @@ SpellCastResult Spell::CheckCast(bool strict)
                 uint32 lockId = 0;
                 if (GameObject* go = m_targets.getGOTarget())
                 {
+                    // Prevent opening two times a chest in same time.
+                    if (go->GetGoType() == GAMEOBJECT_TYPE_CHEST && go->GetGoState() == GO_STATE_ACTIVE)
+                        { return SPELL_FAILED_CHEST_IN_USE; }
+
                     // In BattleGround players can use only flags and banners
                     if (((Player*)m_caster)->InBattleGround() &&
                             !((Player*)m_caster)->CanUseBattleGroundObject())
