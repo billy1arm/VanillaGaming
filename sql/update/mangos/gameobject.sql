@@ -19,19 +19,19 @@ UPDATE `gameobject` SET `spawntimesecs`='300' WHERE (`id`='271');
 UPDATE `gameobject` SET `spawntimesecs`='300' WHERE (`id`='375');
 
 -- 坚固的箱子
-UPDATE `gameobject` SET `spawntimesecs`='7200' WHERE (`id`='2850');
+UPDATE `gameobject` SET `spawntimesecs`='43200' WHERE (`id`='2850');
 
 -- 坚固的箱子
-UPDATE `gameobject` SET `spawntimesecs`='7200' WHERE (`id`='2852');
+UPDATE `gameobject` SET `spawntimesecs`='43200' WHERE (`id`='2852');
 
 -- 坚固的箱子
-UPDATE `gameobject` SET `spawntimesecs`='7200' WHERE (`id`='2855');
+UPDATE `gameobject` SET `spawntimesecs`='43200' WHERE (`id`='2855');
 
 -- 坚固的箱子
-UPDATE `gameobject` SET `spawntimesecs`='7200' WHERE (`id`='2857');
+UPDATE `gameobject` SET `spawntimesecs`='43200' WHERE (`id`='2857');
 
 -- 坚固的箱子
-UPDATE `gameobject` SET `spawntimesecs`='7200' WHERE (`id`='4149');
+UPDATE `gameobject` SET `spawntimesecs`='43200' WHERE (`id`='4149');
 	
 -- 坚固的大箱子
 UPDATE `gameobject` SET `spawntimesecs`='43200' WHERE (`id`='74448');
@@ -118,169 +118,169 @@ DELETE FROM `gameobject` WHERE `id`='181598';
 --
 
 -- 黄金参(390)
-UPDATE `gameobject` SET `spawntimesecs`='3600' WHERE (`id`='176583');
-UPDATE `gameobject` SET `spawntimesecs`='3600' WHERE (`id`='176638');
-UPDATE `gameobject` SET `spawntimesecs`='3600' WHERE (`id`='180167');
+UPDATE `gameobject` SET `spawntimesecs`='900' WHERE (`id`='176583');
+UPDATE `gameobject` SET `spawntimesecs`='900' WHERE (`id`='176638');
+UPDATE `gameobject` SET `spawntimesecs`='900' WHERE (`id`='180167');
 
 -- 魔皇草(645)
-UPDATE `gameobject` SET `spawntimesecs`='3600' WHERE (`id`='1620');
-UPDATE `gameobject` SET `spawntimesecs`='3600' WHERE (`id`='3727');
+UPDATE `gameobject` SET `spawntimesecs`='900' WHERE (`id`='1620');
+UPDATE `gameobject` SET `spawntimesecs`='900' WHERE (`id`='3727');
 
 -- 阿尔萨斯之泪(132)
-UPDATE `gameobject` SET `spawntimesecs`='3600' WHERE (`id`='142141');
-UPDATE `gameobject` SET `spawntimesecs`='3600' WHERE (`id`='176642');
+UPDATE `gameobject` SET `spawntimesecs`='900' WHERE (`id`='142141');
+UPDATE `gameobject` SET `spawntimesecs`='900' WHERE (`id`='176642');
 
 -- 银叶草(875)
-UPDATE `gameobject` SET `spawntimesecs`='3600' WHERE (`id`='1617');
-UPDATE `gameobject` SET `spawntimesecs`='3600' WHERE (`id`='3725');
+UPDATE `gameobject` SET `spawntimesecs`='900' WHERE (`id`='1617');
+UPDATE `gameobject` SET `spawntimesecs`='900' WHERE (`id`='3725');
 
 -- 金棘草(690)
-UPDATE `gameobject` SET `spawntimesecs`='3600' WHERE (`id`='2046');
+UPDATE `gameobject` SET `spawntimesecs`='900' WHERE (`id`='2046');
 
 -- 野钢花(527)
-UPDATE `gameobject` SET `spawntimesecs`='3600' WHERE (`id`='1623');
+UPDATE `gameobject` SET `spawntimesecs`='900' WHERE (`id`='1623');
 
 -- 跌打草(1196)
-UPDATE `gameobject` SET `spawntimesecs`='3600' WHERE (`id`='1622');
-UPDATE `gameobject` SET `spawntimesecs`='3600' WHERE (`id`='3730');
+UPDATE `gameobject` SET `spawntimesecs`='900' WHERE (`id`='1622');
+UPDATE `gameobject` SET `spawntimesecs`='900' WHERE (`id`='3730');
 
 -- 荆棘藻(550)
-UPDATE `gameobject` SET `spawntimesecs`='3600' WHERE (`id`='2045');
+UPDATE `gameobject` SET `spawntimesecs`='900' WHERE (`id`='2045');
 
 -- 紫莲花(295)
-UPDATE `gameobject` SET `spawntimesecs`='3600' WHERE (`id`='142140');
-UPDATE `gameobject` SET `spawntimesecs`='3600' WHERE (`id`='180165');
+UPDATE `gameobject` SET `spawntimesecs`='900' WHERE (`id`='142140');
+UPDATE `gameobject` SET `spawntimesecs`='900' WHERE (`id`='180165');
 
 -- 石南草(600)
-UPDATE `gameobject` SET `spawntimesecs`='3600' WHERE (`id`='1621');
-UPDATE `gameobject` SET `spawntimesecs`='3600' WHERE (`id`='3729');
+UPDATE `gameobject` SET `spawntimesecs`='900' WHERE (`id`='1621');
+UPDATE `gameobject` SET `spawntimesecs`='900' WHERE (`id`='3729');
 
 -- 盲目草(183)
-UPDATE `gameobject` SET `spawntimesecs`='3600' WHERE (`id`='142143');
+UPDATE `gameobject` SET `spawntimesecs`='900' WHERE (`id`='142143');
 
 -- 皇血草(389)
-UPDATE `gameobject` SET `spawntimesecs`='3600' WHERE (`id`='1624');
+UPDATE `gameobject` SET `spawntimesecs`='900' WHERE (`id`='1624');
 
 -- 火焰花(198)
-UPDATE `gameobject` SET `spawntimesecs`='3600' WHERE (`id`='2866');
+UPDATE `gameobject` SET `spawntimesecs`='900' WHERE (`id`='2866');
 
 -- 活根草(371)
-UPDATE `gameobject` SET `spawntimesecs`='3600' WHERE (`id`='2041');
+UPDATE `gameobject` SET `spawntimesecs`='900' WHERE (`id`='2041');
 
 -- 枯叶草(267)
-UPDATE `gameobject` SET `spawntimesecs`='3600' WHERE (`id`='2042');
+UPDATE `gameobject` SET `spawntimesecs`='900' WHERE (`id`='2042');
 
 -- 幽灵菇(54)
-UPDATE `gameobject` SET `spawntimesecs`='3600' WHERE (`id`='142144');
+UPDATE `gameobject` SET `spawntimesecs`='900' WHERE (`id`='142144');
 
 -- 宁神花(537)
-UPDATE `gameobject` SET `spawntimesecs`='3600' WHERE (`id`='1618');
-UPDATE `gameobject` SET `spawntimesecs`='3600' WHERE (`id`='3724');
+UPDATE `gameobject` SET `spawntimesecs`='900' WHERE (`id`='1618');
+UPDATE `gameobject` SET `spawntimesecs`='900' WHERE (`id`='3724');
 
 -- 太阳草(412)
-UPDATE `gameobject` SET `spawntimesecs`='3600' WHERE (`id`='142142');
-UPDATE `gameobject` SET `spawntimesecs`='3600' WHERE (`id`='176636');
-UPDATE `gameobject` SET `spawntimesecs`='3600' WHERE (`id`='180164');
+UPDATE `gameobject` SET `spawntimesecs`='900' WHERE (`id`='142142');
+UPDATE `gameobject` SET `spawntimesecs`='900' WHERE (`id`='176636');
+UPDATE `gameobject` SET `spawntimesecs`='900' WHERE (`id`='180164');
 
 -- 墓地苔(110)
-UPDATE `gameobject` SET `spawntimesecs`='3600' WHERE (`id`='1628');
+UPDATE `gameobject` SET `spawntimesecs`='900' WHERE (`id`='1628');
 
 -- 地根草(501)
-UPDATE `gameobject` SET `spawntimesecs`='3600' WHERE (`id`='1619');
-UPDATE `gameobject` SET `spawntimesecs`='3600' WHERE (`id`='3726');
+UPDATE `gameobject` SET `spawntimesecs`='900' WHERE (`id`='1619');
+UPDATE `gameobject` SET `spawntimesecs`='900' WHERE (`id`='3726');
 
 -- 卡德加的胡须(484)
-UPDATE `gameobject` SET `spawntimesecs`='3600' WHERE (`id`='2043');
+UPDATE `gameobject` SET `spawntimesecs`='900' WHERE (`id`='2043');
 
 -- 龙齿草(34)
-UPDATE `gameobject` SET `spawntimesecs`='3600' WHERE (`id`='2044');
+UPDATE `gameobject` SET `spawntimesecs`='900' WHERE (`id`='2044');
 
 -- 瘟疫花
-UPDATE `gameobject` SET `spawntimesecs`='7200' WHERE (`id`='176587');
-UPDATE `gameobject` SET `spawntimesecs`='7200' WHERE (`id`='176641');
+UPDATE `gameobject` SET `spawntimesecs`='1800' WHERE (`id`='176587');
+UPDATE `gameobject` SET `spawntimesecs`='1800' WHERE (`id`='176641');
 
 -- 山鼠草
-UPDATE `gameobject` SET `spawntimesecs`='7200' WHERE (`id`='176586');
-UPDATE `gameobject` SET `spawntimesecs`='7200' WHERE (`id`='176640');
-UPDATE `gameobject` SET `spawntimesecs`='7200' WHERE (`id`='180166');
+UPDATE `gameobject` SET `spawntimesecs`='1800' WHERE (`id`='176586');
+UPDATE `gameobject` SET `spawntimesecs`='1800' WHERE (`id`='176640');
+UPDATE `gameobject` SET `spawntimesecs`='1800' WHERE (`id`='180166');
 
 -- 梦叶草
-UPDATE `gameobject` SET `spawntimesecs`='7200' WHERE (`id`='176584');
-UPDATE `gameobject` SET `spawntimesecs`='7200' WHERE (`id`='176639');
-UPDATE `gameobject` SET `spawntimesecs`='7200' WHERE (`id`='180168');
+UPDATE `gameobject` SET `spawntimesecs`='1800' WHERE (`id`='176584');
+UPDATE `gameobject` SET `spawntimesecs`='1800' WHERE (`id`='176639');
+UPDATE `gameobject` SET `spawntimesecs`='1800' WHERE (`id`='180168');
 
 -- 格罗姆之血
-UPDATE `gameobject` SET `spawntimesecs`='7200' WHERE (`id`='142145');
-UPDATE `gameobject` SET `spawntimesecs`='7200' WHERE (`id`='176637');
+UPDATE `gameobject` SET `spawntimesecs`='1800' WHERE (`id`='142145');
+UPDATE `gameobject` SET `spawntimesecs`='1800' WHERE (`id`='176637');
 
 -- 冰盖草
-UPDATE `gameobject` SET `spawntimesecs`='7200' WHERE (`id`='176588');
+UPDATE `gameobject` SET `spawntimesecs`='1800' WHERE (`id`='176588');
 
 -- 黑铁矿脉(370)
 UPDATE `gameobject` SET `spawntimesecs`='3600' WHERE (`id`='165658');
 
 -- 锡矿(1519)
-UPDATE `gameobject` SET `spawntimesecs`='3600' WHERE (`id`='1732');
-UPDATE `gameobject` SET `spawntimesecs`='3600' WHERE (`id`='2054');
-UPDATE `gameobject` SET `spawntimesecs`='3600' WHERE (`id`='3764');
-UPDATE `gameobject` SET `spawntimesecs`='3600' WHERE (`id`='103711');
+UPDATE `gameobject` SET `spawntimesecs`='900' WHERE (`id`='1732');
+UPDATE `gameobject` SET `spawntimesecs`='900' WHERE (`id`='2054');
+UPDATE `gameobject` SET `spawntimesecs`='900' WHERE (`id`='3764');
+UPDATE `gameobject` SET `spawntimesecs`='900' WHERE (`id`='103711');
 
 -- 银矿(2021)
-UPDATE `gameobject` SET `spawntimesecs`='3600' WHERE (`id`='1733');
-UPDATE `gameobject` SET `spawntimesecs`='3600' WHERE (`id`='105569');
+UPDATE `gameobject` SET `spawntimesecs`='900' WHERE (`id`='1733');
+UPDATE `gameobject` SET `spawntimesecs`='900' WHERE (`id`='105569');
 
 -- 铜矿(1653)
-UPDATE `gameobject` SET `spawntimesecs`='3600' WHERE (`id`='1731');
-UPDATE `gameobject` SET `spawntimesecs`='3600' WHERE (`id`='2055');
-UPDATE `gameobject` SET `spawntimesecs`='3600' WHERE (`id`='3763');
-UPDATE `gameobject` SET `spawntimesecs`='3600' WHERE (`id`='103713');
+UPDATE `gameobject` SET `spawntimesecs`='900' WHERE (`id`='1731');
+UPDATE `gameobject` SET `spawntimesecs`='900' WHERE (`id`='2055');
+UPDATE `gameobject` SET `spawntimesecs`='900' WHERE (`id`='3763');
+UPDATE `gameobject` SET `spawntimesecs`='900' WHERE (`id`='103713');
 
 -- 铁矿石(1719)
-UPDATE `gameobject` SET `spawntimesecs`='3600' WHERE (`id`='1735');
+UPDATE `gameobject` SET `spawntimesecs`='900' WHERE (`id`='1735');
 
 -- 金矿石(2055)
-UPDATE `gameobject` SET `spawntimesecs`='3600' WHERE (`id`='1734');
-UPDATE `gameobject` SET `spawntimesecs`='3600' WHERE (`id`='150080');
+UPDATE `gameobject` SET `spawntimesecs`='900' WHERE (`id`='1734');
+UPDATE `gameobject` SET `spawntimesecs`='900' WHERE (`id`='150080');
 
 -- 软泥覆盖的秘银矿脉(28)
-UPDATE `gameobject` SET `spawntimesecs`='3600' WHERE (`id`='123310');
+UPDATE `gameobject` SET `spawntimesecs`='900' WHERE (`id`='123310');
 
 -- 软泥覆盖的瑟银矿脉(18)
-UPDATE `gameobject` SET `spawntimesecs`='3600' WHERE (`id`='123848');
+UPDATE `gameobject` SET `spawntimesecs`='900' WHERE (`id`='123848');
 
 -- 被软泥覆盖的金矿(1)
-UPDATE `gameobject` SET `spawntimesecs`='3600' WHERE (`id`='73941');
+UPDATE `gameobject` SET `spawntimesecs`='900' WHERE (`id`='73941');
 
 -- 被软泥覆盖的富瑟银矿(30)
-UPDATE `gameobject` SET `spawntimesecs`='3600' WHERE (`id`='177388');
+UPDATE `gameobject` SET `spawntimesecs`='900' WHERE (`id`='177388');
 
 -- 精铁矿脉(3)
-UPDATE `gameobject` SET `spawntimesecs`='3600' WHERE (`id`='19903');
+UPDATE `gameobject` SET `spawntimesecs`='900' WHERE (`id`='19903');
 
 -- 秘银矿脉(1824)
-UPDATE `gameobject` SET `spawntimesecs`='3600' WHERE (`id`='2040');
-UPDATE `gameobject` SET `spawntimesecs`='3600' WHERE (`id`='150079');
-UPDATE `gameobject` SET `spawntimesecs`='3600' WHERE (`id`='176645');
+UPDATE `gameobject` SET `spawntimesecs`='900' WHERE (`id`='2040');
+UPDATE `gameobject` SET `spawntimesecs`='900' WHERE (`id`='150079');
+UPDATE `gameobject` SET `spawntimesecs`='900' WHERE (`id`='176645');
 
 -- 真银矿石(1483)
-UPDATE `gameobject` SET `spawntimesecs`='3600' WHERE (`id`='2047');
-UPDATE `gameobject` SET `spawntimesecs`='3600' WHERE (`id`='150081');
+UPDATE `gameobject` SET `spawntimesecs`='900' WHERE (`id`='2047');
+UPDATE `gameobject` SET `spawntimesecs`='900' WHERE (`id`='150081');
 
 -- 瑟银矿脉(913)
-UPDATE `gameobject` SET `spawntimesecs`='3600' WHERE (`id`='324');
-UPDATE `gameobject` SET `spawntimesecs`='3600' WHERE (`id`='150082');
-UPDATE `gameobject` SET `spawntimesecs`='3600' WHERE (`id`='176643');
+UPDATE `gameobject` SET `spawntimesecs`='900' WHERE (`id`='324');
+UPDATE `gameobject` SET `spawntimesecs`='900' WHERE (`id`='150082');
+UPDATE `gameobject` SET `spawntimesecs`='900' WHERE (`id`='176643');
 
 -- 火岩矿脉(58)
-UPDATE `gameobject` SET `spawntimesecs`='3600' WHERE (`id`='1610');
-UPDATE `gameobject` SET `spawntimesecs`='3600' WHERE (`id`='1667');
+UPDATE `gameobject` SET `spawntimesecs`='900' WHERE (`id`='1610');
+UPDATE `gameobject` SET `spawntimesecs`='900' WHERE (`id`='1667');
 
 -- 次级血石矿脉(31)
 UPDATE `gameobject` SET `spawntimesecs`='120' WHERE (`id`='2653');
 
 -- 富瑟银矿(504)
-UPDATE `gameobject` SET `spawntimesecs`='3600' WHERE (`id`='175404');
+UPDATE `gameobject` SET `spawntimesecs`='1800' WHERE (`id`='175404');
 
 -- 哈卡瑟银矿脉(3)
-UPDATE `gameobject` SET `spawntimesecs`='3600' WHERE (`id`='180215');
+UPDATE `gameobject` SET `spawntimesecs`='900' WHERE (`id`='180215');
 
