@@ -2181,7 +2181,7 @@ UPDATE `locales_creature` SET `name_loc4`='法尔·迷雾行者', `subname_loc4`
 UPDATE `locales_creature` SET `name_loc4`='坦帕', `subname_loc4`='裁缝训练师' WHERE (`entry`='3004');
 UPDATE `locales_creature` SET `name_loc4`='曼胡', `subname_loc4`='裁缝供应商' WHERE (`entry`='3005');
 UPDATE `locales_creature` SET `name_loc4`='犹纳', `subname_loc4`='制皮训练师' WHERE (`entry`='3007');
-UPDATE `locales_creature` SET `name_loc4`='马克', `subname_loc4`='制皮供应商' WHERE (`entry`='3008');
+UPDATE `locales_creature` SET `name_loc4`='马克', `subname_loc4`='见习制皮师' WHERE (`entry`='3008');
 UPDATE `locales_creature` SET `name_loc4`='本娜·冰蹄', `subname_loc4`='炼金术训练师' WHERE (`entry`='3009');
 UPDATE `locales_creature` SET `name_loc4`='曼尼·冰蹄', `subname_loc4`='炼金术供应商' WHERE (`entry`='3010');
 UPDATE `locales_creature` SET `name_loc4`='泰戈·晨行者', `subname_loc4`='附魔训练师' WHERE (`entry`='3011');
