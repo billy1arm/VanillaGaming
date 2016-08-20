@@ -399,6 +399,37 @@ void Object::BuildValuesUpdate(uint8 updatetype, ByteBuffer* data, UpdateMask* u
                 {
                     uint32 dynflagsValue = m_uint32Values[index];
 
+                    /* Initiate pointer to creature so we can check loot */
+                    if (Creature* my_creature = (Creature*)this)
+                    {
+                        /* If the creature is NOT fully looted */
+                        if (!my_creature->loot.isLooted())
+                        {
+                            /* If the lootable flag is NOT set */
+                            if (!(dynflagsValue & UNIT_DYNFLAG_LOOTABLE))
+                            {
+                                /* Update it on the creature */
+                                my_creature->SetFlag(UNIT_DYNAMIC_FLAGS, UNIT_DYNFLAG_LOOTABLE);
+                                /* Update it in the packet */
+                                dynflagsValue = dynflagsValue | UNIT_DYNFLAG_LOOTABLE;
+                            }
+                        }
+                    }
+
+                    /* If we're not allowed to loot the target, destroy the lootable flag */
+                    if (!target->isAllowedToLoot((Creature*)this))
+                    {
+                        if (dynflagsValue & UNIT_DYNFLAG_LOOTABLE)
+                            { dynflagsValue = dynflagsValue & ~UNIT_DYNFLAG_LOOTABLE; }
+                    }
+
+                    /* If we are allowed to loot it and mob is tapped by us, destroy the tapped flag */
+                    bool is_tapped = target->IsTappedByMeOrMyGroup((Creature*)this);
+
+                    /* If the creature has tapped flag but is tapped by us, remove the flag */
+                    if (dynflagsValue & UNIT_DYNFLAG_TAPPED && is_tapped)
+                        { dynflagsValue = dynflagsValue & ~UNIT_DYNFLAG_TAPPED; }
+
                     // Checking SPELL_AURA_EMPATHY and caster
                     if (dynflagsValue & UNIT_DYNFLAG_SPECIALINFO && ((Unit*)this)->isAlive())
                     {
@@ -409,19 +440,10 @@ void Object::BuildValuesUpdate(uint8 updatetype, ByteBuffer* data, UpdateMask* u
                         {
                             bIsEmpathy = true;              // Empathy by aura set
                             if ((*itr)->GetCasterGuid() == target->GetObjectGuid())
-                                bIsCaster = true;           // target is the caster of an empathy aura
+                                { bIsCaster = true; }       // target is the caster of an empathy aura 
                         }
                         if (bIsEmpathy && !bIsCaster)       // Empathy by aura, but target is not the caster
-                            dynflagsValue &= ~UNIT_DYNFLAG_SPECIALINFO;
-                    }
-
-                    // Checking lootable
-                    if (GetTypeId() == TYPEID_UNIT)
-                    {
-                        if (!target->isAllowedToLoot((Creature*)this))
-                            dynflagsValue &= ~UNIT_DYNFLAG_LOOTABLE;
-                        else
-                            dynflagsValue &= ~UNIT_DYNFLAG_TAPPED;
+                            { dynflagsValue &= ~UNIT_DYNFLAG_SPECIALINFO; }
                     }
 
                     *data << dynflagsValue;
