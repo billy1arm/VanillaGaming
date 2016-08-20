@@ -102,8 +102,17 @@ UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-100' WHERE (`entry`=
 -- 暗滩刺客 --- 发光的灵魂宝石
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-100' WHERE (`entry`='3879') AND (`item`='5366');
 
+-- 恐蝎 --- 含盐的蝎毒
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='4139') AND (`item`='5794');
+
+-- 恐蝎劫掠者 --- 含盐的蝎毒
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='4140') AND (`item`='5794');
+
 -- 灌木露水收集者 --- 饱满的露水腺
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-100' WHERE (`entry`='5481') AND (`item`='8428');
+
+-- 邪刺恐蝎 --- 含盐的蝎毒
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='5937') AND (`item`='5794');
 
 -- 堕落的水之魂 --- 剩余的最纯净的水
 DELETE FROM `creature_loot_template` WHERE (`entry`='5894') AND (`item`='7811');
