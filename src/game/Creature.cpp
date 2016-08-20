@@ -1120,6 +1120,19 @@ void Creature::SaveToDB()
     SaveToDB(GetMapId());
 }
 
+// return true if this creature is tapped by the player or by a member of his group.
+bool Creature::IsTappedBy(Player const* player) const
+{
+    if (player == GetOriginalLootRecipient())
+        { return true; }
+
+    Group const* playerGroup = player->GetGroup();
+    if (!playerGroup || playerGroup != GetGroupLootRecipient()) // if we dont have a group we arent the recipient
+        { return false; }                                       // if creature doesnt have group bound it means it was solo killed by someone else
+
+    return true;
+}
+
 void Creature::SaveToDB(uint32 mapid)
 {
     // update in loaded data
