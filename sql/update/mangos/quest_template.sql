@@ -15,6 +15,9 @@ File Encoding         : 65001
 -- 水之召唤
 UPDATE `quest_template` SET `SrcItemId`='6637' WHERE (`entry`='63');
 
+-- 加文的爱好
+UPDATE `quest_template` SET `SpecialFlags`='0' WHERE (`entry`='308');
+
 -- 咕咕嘎！
 UPDATE `quest_template` SET `Method`='0' WHERE (`entry`='3861');
 
