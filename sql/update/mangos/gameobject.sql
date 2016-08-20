@@ -30,6 +30,9 @@ UPDATE `gameobject` SET `spawntimesecs`='43200' WHERE (`id`='2855');
 -- 坚固的箱子
 UPDATE `gameobject` SET `spawntimesecs`='43200' WHERE (`id`='2857');
 
+-- 被偷走的补给袋
+UPDATE `gameobject` SET `spawntimesecs`='300' WHERE (`id`='3290');
+
 -- 坚固的箱子
 UPDATE `gameobject` SET `spawntimesecs`='43200' WHERE (`id`='4149');
 	
