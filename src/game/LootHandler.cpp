@@ -448,10 +448,32 @@ void WorldSession::DoLootRelease(ObjectGuid lguid)
 
             loot = &pCreature->loot;
 
-            // update next looter
-            if (Group* group = pCreature->GetGroupLootRecipient())
-                if (group->GetLooterGuid() == player->GetObjectGuid())
-                    group->UpdateLooterGuid(pCreature);
+            /* Update for other players. */
+            if (!loot->isLooted())
+            {
+                Group const* group = pCreature->GetGroupLootRecipient();
+                if (group && !pCreature->hasBeenLootedOnce)
+                {
+                    // Checking whether it has been looted once by the designed looter (master loot case).
+                    switch (group->GetLootMethod())
+                    {
+                        case FREE_FOR_ALL:
+                        case NEED_BEFORE_GREED:
+                        case ROUND_ROBIN:
+                        case GROUP_LOOT:
+                        {
+                            pCreature->hasBeenLootedOnce = true;
+                            break;
+                        }
+                        case MASTER_LOOT:
+                        {
+                            pCreature->hasBeenLootedOnce = (group->GetLooterGuid() == player->GetObjectGuid());
+                            break;
+                        }
+                    }
+                    pCreature->MarkFlagUpdateForClient(UNIT_DYNAMIC_FLAGS);
+                }
+            }
 
             if (loot->isLooted() && !pCreature->isAlive())
             {

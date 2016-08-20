@@ -665,6 +665,14 @@ void Object::ApplyModPositiveFloatValue(uint16 index, float  val, bool apply)
     SetFloatValue(index, cur);
 }
 
+void Object::MarkFlagUpdateForClient(uint16 index)
+{
+    MANGOS_ASSERT(index < m_valuesCount || PrintIndexError(index, true));
+
+    m_changedValues[index] = true;
+    MarkForClientUpdate();
+}
+
 void Object::SetFlag(uint16 index, uint32 newFlag)
 {
     MANGOS_ASSERT(index < m_valuesCount || PrintIndexError(index, true));

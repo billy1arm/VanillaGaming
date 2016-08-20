@@ -158,6 +158,8 @@ class MANGOS_DLL_SPEC Group
             std::string name;
             uint8       group;
             bool        assistant;
+            /* The time when the player has joined the group. */
+            time_t      joinTime;
         };
         typedef std::list<MemberSlot> MemberSlotList;
         typedef MemberSlotList::const_iterator member_citerator;
@@ -229,6 +231,20 @@ class MANGOS_DLL_SPEC Group
         }
 
         bool SameSubGroup(Player const* member1, Player const* member2) const;
+
+        /**
+        * Returns the joined time of a member if it exist.
+        * \param guid GUID of the player to look for.
+        * \return time_t representing the joined time for that player or NULL if it doesn't exist.
+        */
+        time_t GetMemberSlotJoinedTime(ObjectGuid guid)
+        {
+            member_citerator mslot = _getMemberCSlot(guid);
+            if (mslot == m_memberSlots.end())
+                { return 0; }
+
+            return mslot->joinTime;
+        }
 
         MemberSlotList const& GetMemberSlots() const { return m_memberSlots; }
         GroupReference* GetFirstMember() { return m_memberMgr.getFirst(); }

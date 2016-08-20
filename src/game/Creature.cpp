@@ -143,6 +143,11 @@ Creature::Creature(CreatureSubtype subtype) : Unit(),
     m_meleeDamageSchoolMask(SPELL_SCHOOL_MASK_NORMAL), m_originalEntry(0),
     m_creatureInfo(NULL)
 {
+    /* Loot data */
+    hasBeenLootedOnce = false;
+    assignedLooter = 0;
+
+    m_killedTime = 0;
     m_regenTimer = 200;
     m_valuesCount = UNIT_END;
 
@@ -211,6 +216,14 @@ void Creature::RemoveCorpse(bool inPlace)
     StopGroupLoot();
 
     loot.clear();
+
+    /* Loot data */
+    m_killedTime = 0;
+    hasBeenLootedOnce = false;
+    assignedLooter = 0;
+    m_lootGroupRecipientId = 0;
+    m_lootRecipientGuid.Clear();
+
     uint32 respawnDelay = 0;
 
     if (AI())

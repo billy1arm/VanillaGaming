@@ -682,6 +682,10 @@ void WorldSession::HandlePlayerLogin(LoginQueryHolder* holder)
         pCurrChar->SetStandState(UNIT_STAND_STATE_STAND);
 
     m_playerLoading = false;
+
+    /* Used for looting */
+    pCurrChar->lastTimeLooted = time(NULL);
+
     delete holder;
 }
 

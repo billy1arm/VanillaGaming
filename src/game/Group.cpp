@@ -173,6 +173,7 @@ bool Group::LoadMemberFromDB(uint32 guidLow, uint8 subgroup, bool assistant)
 
     member.group     = subgroup;
     member.assistant = assistant;
+    member.joinTime  = time(NULL);
     m_memberSlots.push_back(member);
 
     SubGroupCounterIncrease(subgroup);
@@ -1046,6 +1047,7 @@ bool Group::_addMember(ObjectGuid guid, const char* name, bool isAssistant, uint
     member.name      = name;
     member.group     = group;
     member.assistant = isAssistant;
+    member.joinTime  = time(NULL);
     m_memberSlots.push_back(member);
 
     SubGroupCounterIncrease(group);
