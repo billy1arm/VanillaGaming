@@ -12,6 +12,10 @@ File Encoding         : 65001
 -- Updates of npc_vendor
 -- ----------------------------
 
+-- 酒吧老板凯利 --- 黑标美味朗姆酒
+DELETE FROM `npc_vendor` WHERE (`entry`='2366') AND (`item`='21151');
+-- INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`, `condition_id`) VALUES ('2366', '21151', '0', '0', '0');
+
 -- 维尔 --- 格罗姆之血
 UPDATE `npc_vendor` SET `maxcount`='3', `incrtime`='43200' WHERE (`entry`='16015') AND (`item`='8846');
 
