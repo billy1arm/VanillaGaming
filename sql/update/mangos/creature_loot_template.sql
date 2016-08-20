@@ -81,6 +81,12 @@ UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='
 -- 杜隆塔尔猛虎 --- 杜隆塔尔虎皮
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='3121') AND (`item`='4892');
 
+-- 风险投资公司执行者 --- 猫眼翡翠
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-100' WHERE (`entry`='3283') AND (`item`='5097');
+
+-- 风险投资公司监督 --- 猫眼翡翠
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-100' WHERE (`entry`='3286') AND (`item`='5097');
+
 -- 暗滩祭司 --- 发光的灵魂宝石
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-100' WHERE (`entry`='3725') AND (`item`='5366');
 
@@ -138,6 +144,9 @@ UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='
 
 -- 狂怒的翼手龙 --- 精细的翼手龙鳞片
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='9167') AND (`item`='11831');
+
+-- 考博普拉格 --- 猫眼翡翠
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-100' WHERE (`entry`='9336') AND (`item`='5097');
 
 -- 维姆萨拉克 --- 达基萨斯将军的命令
 UPDATE `creature_loot_template` SET `item`='95680', `ChanceOrQuestChance`='100', `mincountOrRef`='-95680', `maxcount`='10', `condition_id`='0' WHERE (`entry`='9568') AND (`item`='12780');
