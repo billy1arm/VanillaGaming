@@ -330,6 +330,9 @@ UPDATE `creature_template` SET `UnitFlags`='2' WHERE (`Entry`='13117');
 -- 拉格纳罗斯之焰
 UPDATE `creature_template` SET `MinLevel`='60', `MaxLevel`='60', `FactionAlliance`='91', `FactionHorde`='91', `Scale`='0' WHERE (`Entry`='13148');
 
+-- 腐蚀群居虫
+UPDATE `creature_template` SET `ExtraFlags`='64' WHERE (`Entry`='13160');
+
 -- 诺克赛恩幼体
 UPDATE `creature_template` SET `ExtraFlags`='64' WHERE (`Entry`='13696');
 
