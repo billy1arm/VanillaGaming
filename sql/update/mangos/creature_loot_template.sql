@@ -21,6 +21,9 @@ UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-100' WHERE (`entry`=
 -- 残忍的软泥怪 --- 塞达的背包
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-100' WHERE (`entry`='1033') AND (`item`='3349');
 
+-- 老迈的薄雾谷猩猩 --- 薄雾谷猩猩的内脏
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='1557') AND (`item`='3919');
+
 -- 纳迦探险者 --- 海蛇草
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='1907') AND (`item`='4029');
 
