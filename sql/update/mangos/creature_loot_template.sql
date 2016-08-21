@@ -282,8 +282,17 @@ UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='
 -- 辛迪加巡路者 --- 血石护符
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='2587') AND (`item`='4495');
 
+-- 辛迪加潜伏者 --- 激流堡徽章
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='2588') AND (`item`='4506');
+
 -- 辛迪加雇佣兵 --- 血石护符
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='2589') AND (`item`='4495');
+
+-- 辛迪加咒术师 --- 激流堡徽章
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='2590') AND (`item`='4506');
+
+-- 辛迪加占星师 --- 激流堡徽章
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='2591') AND (`item`='4506');
 
 -- 扎拉斯·枯木 --- 枯木巨魔的獠牙
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-100' WHERE (`entry`='2605') AND (`item`='4503');
