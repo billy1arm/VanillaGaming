@@ -75,20 +75,38 @@ UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='
 -- 破碎岭食人魔 --- 肮脏的指节骨
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='2252') AND (`item`='2843');
 
+-- 破碎岭食人魔 --- 失而复得的书籍
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='2252') AND (`item`='3658');
+
 -- 破碎岭蛮兵 --- 肮脏的指节骨
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='2253') AND (`item`='2843');
+
+-- 破碎岭蛮兵 --- 失而复得的书籍
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='2253') AND (`item`='3658');
 
 -- 破碎岭虐待者 --- 肮脏的指节骨
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='2254') AND (`item`='2843');
 
+-- 破碎岭虐待者 --- 失而复得的书籍
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='2254') AND (`item`='3658');
+
 -- 破碎岭法师 --- 肮脏的指节骨
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='2255') AND (`item`='2843');
+
+-- 破碎岭法师 --- 失而复得的书籍
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='2255') AND (`item`='3658');
 
 -- 破碎岭执行者 --- 肮脏的指节骨
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='2256') AND (`item`='2843');
 
+-- 破碎岭执行者 --- 失而复得的书籍
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='2256') AND (`item`='3658');
+
 -- 破碎岭好战者 --- 肮脏的指节骨
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='2287') AND (`item`='2843');
+
+-- 破碎岭好战者 --- 失而复得的书籍
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='2287') AND (`item`='3658');
 
 -- 饥饿的山地狮 --- 山地狮的血液
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='2384') AND (`item`='3496');
@@ -104,6 +122,9 @@ UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='
 
 -- 碎岭掠夺者 --- 肮脏的指节骨
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='2416') AND (`item`='2843');
+
+-- 碎岭掠夺者 --- 失而复得的书籍
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-100' WHERE (`entry`='2416') AND (`item`='3658');
 
 -- 草原狼前锋 --- 草原狼前锋的牙齿
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='2960') AND (`item`='4803');
