@@ -12,6 +12,9 @@ File Encoding         : 65001
 -- Updates of creature_loot_template
 -- ----------------------------
 
+-- 石元素 --- 石元素的碎片
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='92') AND (`item`='7848');
+
 -- 血顶战士 --- 染血的白骨项链
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='587') AND (`item`='3915');
 
@@ -315,6 +318,33 @@ UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-100' WHERE (`entry`=
 -- 次级石元素 --- 小石头碎块
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='2735') AND (`item`='4626');
 
+-- 次级石元素 --- 石元素的碎片
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='2735') AND (`item`='7848');
+
+-- 巨型石元素 --- 石元素的碎片
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='2736') AND (`item`='7848');
+
+-- 因弗努斯大使 --- 石元素的碎片
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='2745') AND (`item`='7848');
+
+-- 拉姆布勒 --- 石元素的碎片
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='2752') AND (`item`='7848');
+
+-- 被激怒的石元素 --- 石元素的碎片
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='2791') AND (`item`='7848');
+
+-- 饥饿的秃鹫 --- 秃鹫的胃囊
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='2829') AND (`item`='7847');
+
+-- 口渴的兀鹫 --- 秃鹫的胃囊
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='2830') AND (`item`='7847');
+
+-- 巨型秃鹫 --- 秃鹫的胃囊
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='2831') AND (`item`='7847');
+
+-- 法姆雷托守护者 --- 石元素的碎片
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='2919') AND (`item`='7848');
+
 -- 草原狼前锋 --- 草原狼前锋的牙齿
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='2960') AND (`item`='4803');
 
@@ -477,6 +507,9 @@ UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='
 
 -- 克雷格·尼哈鲁 --- 南海海盗帽
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='8203') AND (`item`='20519');
+
+-- 斯莫达尔 --- 石元素的碎片
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-100' WHERE (`entry`='8278') AND (`item`='7848');
 
 -- 幼双帆龙 --- 精细的双帆龙鳞片
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='9162') AND (`item`='11830');
