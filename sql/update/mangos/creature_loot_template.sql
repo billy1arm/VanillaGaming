@@ -505,6 +505,9 @@ UPDATE `creature_loot_template` SET `groupid`='0' WHERE (`entry`='12259') AND (`
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='0.2', `groupid`='0' WHERE (`entry`='12264') AND (`item`='34011');
 UPDATE `creature_loot_template` SET `groupid`='0' WHERE (`entry`='12264') AND (`item`='34026');
 
+-- 诺克赛恩幼体
+DELETE FROM `creature_loot_template` WHERE (`entry`='13696');
+
 -- 夜刃捕食者 --- 夜刃豹的牙齿
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='14430') AND (`item`='3409');
 

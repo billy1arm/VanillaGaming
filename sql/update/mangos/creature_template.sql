@@ -337,7 +337,7 @@ UPDATE `creature_template` SET `MinLevel`='60', `MaxLevel`='60', `FactionAllianc
 UPDATE `creature_template` SET `ExtraFlags`='64' WHERE (`Entry`='13160');
 
 -- 诺克赛恩幼体
-UPDATE `creature_template` SET `ExtraFlags`='64' WHERE (`Entry`='13696');
+UPDATE `creature_template` SET `ExtraFlags`='64', `LootId`='0' WHERE (`Entry`='13696');
 
 -- 暮光之王艾沃兰
 UPDATE `creature_template` SET `AIName`='EventAI' WHERE (`Entry`='14479');
