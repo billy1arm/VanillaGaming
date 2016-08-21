@@ -51,6 +51,9 @@ UPDATE `gameobject` SET `spawntimesecs`='43200' WHERE (`id`='75300');
 -- 大型秘银储物箱
 UPDATE `gameobject` SET `spawntimesecs`='43200' WHERE (`id`='131978');
 
+-- 瑟玛普拉格的保险箱
+UPDATE `gameobject` SET `spawntimesecs`='5' WHERE (`id`='142477');
+
 -- 坚固的大箱子
 UPDATE `gameobject` SET `spawntimesecs`='43200' WHERE (`id`='153464');
 
