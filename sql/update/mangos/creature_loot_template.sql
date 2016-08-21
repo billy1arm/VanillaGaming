@@ -42,6 +42,9 @@ UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='
 -- 劈颅逐灵者 --- 劈颅巨魔的獠牙
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='672') AND (`item`='1524');
 
+-- 丛林捕猎者 --- 丛林捕猎者的羽毛
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='687') AND (`item`='3863');
+
 -- 血顶掷斧者 --- 染血的白骨项链
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='694') AND (`item`='3915');
 
