@@ -363,6 +363,33 @@ UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-100' WHERE (`entry`=
 -- 风险投资公司监督 --- 猫眼翡翠
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-100' WHERE (`entry`='3286') AND (`item`='5097');
 
+-- 巴尔丹士兵 --- 硝化甘油
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='3376') AND (`item`='5017');
+
+-- 巴尔丹士兵 --- 木浆
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='3376') AND (`item`='5018');
+
+-- 巴尔丹士兵 --- 硝酸钠
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='3376') AND (`item`='5019');
+
+-- 巴尔丹火枪手 --- 硝化甘油
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='3377') AND (`item`='5017');
+
+-- 巴尔丹火枪手 --- 木浆
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='3377') AND (`item`='5018');
+
+-- 巴尔丹火枪手 --- 硝酸钠
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='3377') AND (`item`='5019');
+
+-- 巴尔丹军官 --- 硝化甘油
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='3378') AND (`item`='5017');
+
+-- 巴尔丹军官 --- 木浆
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='3378') AND (`item`='5018');
+
+-- 巴尔丹军官 --- 硝酸钠
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='3378') AND (`item`='5019');
+
 -- 塞瑞娜·血羽 --- 巫翼鹰身人的爪子
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='3452') AND (`item`='5064');
 
@@ -395,6 +422,15 @@ UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='
 
 -- 盐壳掘地龟 --- 硬化龟壳
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='4144') AND (`item`='5795');
+
+-- 塞瑞克·黑炉公爵 --- 硝化甘油
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='6668') AND (`item`='5017');
+
+-- 塞瑞克·黑炉公爵 --- 木浆
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='6668') AND (`item`='5018');
+
+-- 塞瑞克·黑炉公爵 --- 硝酸钠
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='6668') AND (`item`='5019');
 
 -- 灌木露水收集者 --- 饱满的露水腺
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-100' WHERE (`entry`='5481') AND (`item`='8428');
