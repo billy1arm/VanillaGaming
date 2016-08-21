@@ -408,6 +408,12 @@ UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-100' WHERE (`entry`=
 -- 暗滩刺客 --- 发光的灵魂宝石
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-100' WHERE (`entry`='3879') AND (`item`='5366');
 
+-- 砂齿掘地工 --- 未精炼的矿石样本
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-100' WHERE (`entry`='4113') AND (`item`='5842');
+
+-- 砂齿勘探员 --- 未精炼的矿石样本
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-100' WHERE (`entry`='4116') AND (`item`='5842');
+
 -- 恐蝎 --- 含盐的蝎毒
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='4139') AND (`item`='5794');
 
@@ -594,6 +600,9 @@ UPDATE `creature_loot_template` SET `groupid`='0' WHERE (`entry`='12264') AND (`
 
 -- 诺克赛恩幼体
 DELETE FROM `creature_loot_template` WHERE (`entry`='13696');
+
+-- 吉比斯尼克 --- 未精炼的矿石样本
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-100' WHERE (`entry`='14427') AND (`item`='5842');
 
 -- 夜刃捕食者 --- 夜刃豹的牙齿
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='14430') AND (`item`='3409');
