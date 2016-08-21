@@ -246,6 +246,15 @@ UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='
 -- 碎岭掠夺者 --- 失而复得的书籍
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-100' WHERE (`entry`='2416') AND (`item`='3658');
 
+-- 辛迪加路霸 --- 血石护符
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='2586') AND (`item`='4495');
+
+-- 辛迪加巡路者 --- 血石护符
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='2587') AND (`item`='4495');
+
+-- 辛迪加雇佣兵 --- 血石护符
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='2589') AND (`item`='4495');
+
 -- 草原狼前锋 --- 草原狼前锋的牙齿
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='2960') AND (`item`='4803');
 
