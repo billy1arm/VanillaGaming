@@ -246,6 +246,30 @@ UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='
 -- 碎岭掠夺者 --- 失而复得的书籍
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-100' WHERE (`entry`='2416') AND (`item`='3658');
 
+-- 枯木巨魔 --- 枯木巨魔的獠牙
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='2552') AND (`item`='4503');
+
+-- 枯木暗影法师 --- 枯木巨魔的獠牙
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='2553') AND (`item`='4503');
+
+-- 枯木掷斧者 --- 枯木巨魔的獠牙
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='2554') AND (`item`='4503');
+
+-- 枯木巫医 --- 枯木巨魔的獠牙
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='2555') AND (`item`='4503');
+
+-- 枯木巫医 --- 枯木巨魔的医药包
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='2555') AND (`item`='4522');
+
+-- 枯木猎头者 --- 枯木巨魔的獠牙
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='2556') AND (`item`='4503');
+
+-- 枯木暗影猎手 --- 枯木巨魔的獠牙
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='2557') AND (`item`='4503');
+
+-- 枯木狂战士 --- 枯木巨魔的獠牙
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='2558') AND (`item`='4503');
+
 -- 辛迪加路霸 --- 血石护符
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='2586') AND (`item`='4495');
 
@@ -254,6 +278,9 @@ UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='
 
 -- 辛迪加雇佣兵 --- 血石护符
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='2589') AND (`item`='4495');
+
+-- 扎拉斯·枯木 --- 枯木巨魔的獠牙
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-100' WHERE (`entry`='2605') AND (`item`='4503');
 
 -- 草原狼前锋 --- 草原狼前锋的牙齿
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='2960') AND (`item`='4803');
