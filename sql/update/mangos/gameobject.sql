@@ -275,8 +275,8 @@ UPDATE `gameobject` SET `spawntimesecs`='900' WHERE (`id`='150082');
 UPDATE `gameobject` SET `spawntimesecs`='900' WHERE (`id`='176643');
 
 -- 火岩矿脉(58)
-UPDATE `gameobject` SET `spawntimesecs`='900' WHERE (`id`='1610');
-UPDATE `gameobject` SET `spawntimesecs`='900' WHERE (`id`='1667');
+UPDATE `gameobject` SET `spawntimesecs`='120' WHERE (`id`='1610');
+UPDATE `gameobject` SET `spawntimesecs`='120' WHERE (`id`='1667');
 
 -- 次级血石矿脉(31)
 UPDATE `gameobject` SET `spawntimesecs`='120' WHERE (`id`='2653');
