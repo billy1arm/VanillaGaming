@@ -342,6 +342,15 @@ UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='
 -- 巨型秃鹫 --- 秃鹫的胃囊
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='2831') AND (`item`='7847');
 
+-- 石窟先知 --- 精铁碎片
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='2892') AND (`item`='5797');
+
+-- 石窟断骨者 --- 精铁碎片
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='2893') AND (`item`='5797');
+
+-- 石窟萨满祭司 --- 精铁碎片
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='2894') AND (`item`='5797');
+
 -- 法姆雷托守护者 --- 石元素的碎片
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='2919') AND (`item`='7848');
 
@@ -465,6 +474,12 @@ UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='
 -- 盐壳掘地龟 --- 硬化龟壳
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='4144') AND (`item`='5795');
 
+-- 石窟嚼石者 --- 精铁碎片
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-100' WHERE (`entry`='4851') AND (`item`='5797');
+
+-- 石窟猎手 --- 精铁碎片
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-100' WHERE (`entry`='4856') AND (`item`='5797');
+
 -- 塞瑞克·黑炉公爵 --- 硝化甘油
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='6668') AND (`item`='5017');
 
@@ -482,6 +497,9 @@ UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='
 
 -- 滑壳龙虾人 --- 龙虾人的眼球
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-40' WHERE (`entry`='6020') AND (`item`='4887');
+
+-- 石窟猛击者 --- 精铁碎片
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='6733') AND (`item`='5797');
 
 -- 残忍的弗拉格莫克 --- 鱼人的鳍
 DELETE FROM `creature_loot_template` WHERE (`entry`='7015') AND (`item`='1468');
