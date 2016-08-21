@@ -309,8 +309,32 @@ UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-100' WHERE (`entry`=
 -- 草原狼前锋 --- 草原狼前锋的牙齿
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='2960') AND (`item`='4803');
 
+-- 巨钳龙虾人 --- 龙虾人的眼球
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='3103') AND (`item`='4887');
+
+-- 厚壳龙虾人 --- 龙虾人的眼球
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='3104') AND (`item`='4887');
+
+-- 硬爪龙虾人 --- 龙虾人的眼球
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='3105') AND (`item`='4887');
+
+-- 海浪蟹 --- 蟹胶
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='3106') AND (`item`='4888');
+
+-- 成熟海浪蟹 --- 蟹胶
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='3107') AND (`item`='4888');
+
+-- 硬壳海浪蟹 --- 蟹胶
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='3108') AND (`item`='4888');
+
 -- 杜隆塔尔猛虎 --- 杜隆塔尔虎皮
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='3121') AND (`item`='4892');
+
+-- 龙虾人长者 --- 龙虾人的眼球
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='3141') AND (`item`='4887');
+
+-- 堕落海浪蟹 --- 蟹胶
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='3228') AND (`item`='4888');
 
 -- 雷鳞蜥蜴 --- 闪电腺
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='3238') AND (`item`='4898');
@@ -374,6 +398,9 @@ UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-100' WHERE (`entry`=
 
 -- 邪刺恐蝎 --- 含盐的蝎毒
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='5937') AND (`item`='5794');
+
+-- 滑壳龙虾人 --- 龙虾人的眼球
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-40' WHERE (`entry`='6020') AND (`item`='4887');
 
 -- 残忍的弗拉格莫克 --- 鱼人的鳍
 DELETE FROM `creature_loot_template` WHERE (`entry`='7015') AND (`item`='1468');
