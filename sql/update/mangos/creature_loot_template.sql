@@ -141,6 +141,9 @@ UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='
 -- 钳嘴鳄鱼 --- 钳嘴鳄鱼的皮
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='1152') AND (`item`='4104');
 
+-- 老迈的薄雾谷猩猩 --- 成年大猩猩的肌腱
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-100' WHERE (`entry`='1557') AND (`item`='3862');
+
 -- 老迈的薄雾谷猩猩 --- 薄雾谷猩猩的内脏
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='1557') AND (`item`='3919');
 
