@@ -527,6 +527,18 @@ void WorldSession::HandleMoverRelocation(MovementInfo& movementInfo)
 
     if (Player* plMover = mover->GetTypeId() == TYPEID_PLAYER ? (Player*)mover : NULL)
     {
+        if (plMover->HasSpellCooldown(100) || plMover->HasSpellCooldown(1953) || plMover->HasSpellCooldown(6178) || plMover->HasSpellCooldown(11578) || plMover->HasSpellCooldown(20252) || plMover->HasSpellCooldown(20616) || plMover->HasSpellCooldown(20617))
+        {
+            if (movementInfo.GetPos()->z - plMover->m_last_z < -50 && !plMover->isGameMaster())
+            {
+                if (plMover->getClass() == CLASS_WARRIOR || plMover->getClass() == CLASS_MAGE)
+                {
+                    plMover->TeleportTo(plMover->m_last_map, plMover->m_last_x, plMover->m_last_y, plMover->m_last_z, 0.0f);
+                    return;
+                }
+            }
+        }
+
         if (movementInfo.HasMovementFlag(MOVEFLAG_ONTRANSPORT))
         {
             if (!plMover->m_transport)

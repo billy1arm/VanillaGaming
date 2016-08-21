@@ -1438,6 +1438,11 @@ class MANGOS_DLL_SPEC Player : public Unit
         void _LoadSpellCooldowns(QueryResult* result);
         void _SaveSpellCooldowns();
 
+        float m_last_x;
+        float m_last_y;
+        float m_last_z;
+        uint32 m_last_map;
+
         void setResurrectRequestData(ObjectGuid guid, uint32 mapId, float X, float Y, float Z, uint32 health, uint32 mana)
         {
             m_resurrectGuid = guid;

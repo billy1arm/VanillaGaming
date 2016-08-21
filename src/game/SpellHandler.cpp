@@ -320,6 +320,17 @@ void WorldSession::HandleCastSpellOpcode(WorldPacket& recvPacket)
         return;
     }
 
+    if (spellId == 100 || spellId == 1953 || spellId == 6178 || spellId == 11578 || spellId == 20252 || spellId == 20616 || spellId == 20617)
+    {
+        if (_player->getClass() == CLASS_WARRIOR || _player->getClass() == CLASS_MAGE)
+        {
+            _player->m_last_x = _player->GetPositionX();
+            _player->m_last_y = _player->GetPositionY();
+            _player->m_last_z = _player->GetPositionZ();
+            _player->m_last_map = _player->GetMapId();
+        }
+    }
+
     DEBUG_LOG("WORLD: got cast spell packet, spellId - %u, data length = " SIZEFMTD,
               spellId, recvPacket.size());
 

@@ -533,6 +533,11 @@ Player::Player(WorldSession* session): Unit(), m_mover(this), m_camera(this), m_
     m_petStay_x = 0.0f;
     m_petStay_y = 0.0f;
     m_petStay_z = 0.0f;
+
+    m_last_x = 0.0f;
+    m_last_y = 0.0f;
+    m_last_z = 0.0f;
+    m_last_map = 0;
 }
 
 Player::~Player()
