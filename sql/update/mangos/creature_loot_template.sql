@@ -57,6 +57,9 @@ UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='
 -- 丛林捕猎者 --- 丛林捕猎者的羽毛
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='687') AND (`item`='3863');
 
+-- 次级水元素 --- 水元素护腕
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='691') AND (`item`='3923');
+
 -- 血顶掷斧者 --- 染血的白骨项链
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='694') AND (`item`='3915');
 
