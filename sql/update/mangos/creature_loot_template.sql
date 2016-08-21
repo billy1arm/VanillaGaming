@@ -156,6 +156,15 @@ UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='
 -- 恐蝎劫掠者 --- 含盐的蝎毒
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='4140') AND (`item`='5794');
 
+-- 盐壳龟 --- 硬化龟壳
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='4142') AND (`item`='5795');
+
+-- 盐壳钳嘴龟 --- 硬化龟壳
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='4143') AND (`item`='5795');
+
+-- 盐壳掘地龟 --- 硬化龟壳
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='4144') AND (`item`='5795');
+
 -- 灌木露水收集者 --- 饱满的露水腺
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-100' WHERE (`entry`='5481') AND (`item`='8428');
 
