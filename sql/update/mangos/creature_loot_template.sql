@@ -63,6 +63,9 @@ UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='
 -- 劈颅黑豹 --- 劈颅巨魔的獠牙
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-100' WHERE (`entry`='756') AND (`item`='1524');
 
+-- 荆棘谷雌虎 --- 雌虎的牙齿
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-100' WHERE (`entry`='772') AND (`item`='3839');
+
 -- 劈颅秘法师 --- 劈颅巨魔的獠牙
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='780') AND (`item`='1524');
 
