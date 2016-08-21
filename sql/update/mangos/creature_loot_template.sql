@@ -44,6 +44,15 @@ UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='
 
 -- 巨型树林蜘蛛 --- 树林蜘蛛丝
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-100' WHERE (`entry`='2001') AND (`item`='3412');
+	
+-- 林精践踏者 --- 青苔之瘤
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='2027') AND (`item`='5170');
+
+-- 林精泥泞兽 --- 青苔之瘤
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='2029') AND (`item`='5170');
+
+-- 林精长老 --- 青苔之瘤
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='2030') AND (`item`='5170');
 
 -- 老夜刃豹 --- 夜刃豹的牙齿
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='2033') AND (`item`='3409');
