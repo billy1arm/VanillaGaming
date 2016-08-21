@@ -284,6 +284,9 @@ UPDATE `gameobject` SET `spawntimesecs`='120' WHERE (`id`='2653');
 -- 富瑟银矿(504)
 UPDATE `gameobject` SET `spawntimesecs`='1800' WHERE (`id`='175404');
 
+-- 火焰龙舌兰(16)
+UPDATE `gameobject` SET `spawntimesecs`='180' WHERE (`id`='175928');
+
 -- 哈卡瑟银矿脉(3)
 UPDATE `gameobject` SET `spawntimesecs`='900' WHERE (`id`='180215');
 
