@@ -279,6 +279,9 @@ UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='
 -- 枯木狂战士 --- 枯木巨魔的獠牙
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='2558') AND (`item`='4503');
 
+-- 高地猎兽龙 --- 迅猛龙的心脏
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='2561') AND (`item`='4513');
+
 -- 枯须狗头人 --- 密斯莱尔之尘
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='2572') AND (`item`='4435');
 
