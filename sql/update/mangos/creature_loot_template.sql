@@ -12,6 +12,39 @@ File Encoding         : 65001
 -- Updates of creature_loot_template
 -- ----------------------------
 
+-- 血顶战士 --- 染血的白骨项链
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='587') AND (`item`='3915');
+
+-- 血顶斥候 --- 染血的白骨项链
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='588') AND (`item`='3915');
+
+-- 血顶猎人 --- 染血的白骨项链
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='595') AND (`item`='3915');
+
+-- 血顶狂战士 --- 染血的白骨项链
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='597') AND (`item`='3915');
+
+-- 血顶巫医 --- 染血的白骨项链
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='660') AND (`item`='3915');
+
+-- 血顶猎头者 --- 染血的白骨项链
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='671') AND (`item`='3915');
+
+-- 血顶掷斧者 --- 染血的白骨项链
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='694') AND (`item`='3915');
+
+-- 血顶萨满祭司 --- 染血的白骨项链
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='697') AND (`item`='3915');
+
+-- 血顶兽王 --- 染血的白骨项链
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='699') AND (`item`='3915');
+
+-- 血顶秘法师 --- 染血的白骨项链
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='701') AND (`item`='3915');
+
+-- 血顶食腐者 --- 染血的白骨项链
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='702') AND (`item`='3915');
+
 -- 红色软泥怪 --- 塞达的背包
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-100' WHERE (`entry`='1031') AND (`item`='3349');
 
