@@ -1,4 +1,4 @@
-/* This file is part of the ScriptDev2 Project. See AUTHORS file for Copyright information
+﻿/* This file is part of the ScriptDev2 Project. See AUTHORS file for Copyright information
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 2 of the License, or
@@ -18,7 +18,7 @@
 SDName: boss_zumrah
 SD%Complete: 100
 SDComment:
-SDCategory: Zul'Farrak
+SDCategory: 祖尔法拉克
 EndScriptData */
 
 #include "precompiled.h"
@@ -31,18 +31,17 @@ enum
     SAY_KILL                    = -1209002,
     SAY_SUMMON                  = -1209003,
 
-    SPELL_SHADOW_BOLT           = 12739,
-    SPELL_SHADOW_BOLT_VOLLEY    = 15245,
-    SPELL_WARD_OF_ZUMRAH        = 11086,
-    SPELL_HEALING_WAVE          = 12491,
-    SPELL_SUMMON_ZOMBIES        = 10247,            // spell should be triggered by missing trap 128972
+    SPELL_SUMMON_ZOMBIES        = 10247,                    // 召唤祖尔法拉克僵尸
+    SPELL_WARD_OF_ZUMRAH        = 11086,                    // 祖穆拉恩结界
+    SPELL_HEALING_WAVE          = 12491,                    // 治疗波
+    SPELL_SHADOW_BOLT           = 12739,                    // 暗影箭
+    SPELL_SHADOW_BOLT_VOLLEY    = 15245,                    // 暗影箭雨
 
-    // NPC_WARD_OF_ZUMRAH       = 7785,
-    // NPC_SKELETON_OF_ZUMRAH   = 7786,
-    NPC_ZULFARRAK_ZOMBIE        = 7286,             // spawned by the graves
-    NPC_ZULFARRAK_DEAD_HERO     = 7276,             // spawned by the graves
+    NPC_ZULFARRAK_DEAD_HERO     = 7276,                     // 祖尔法拉克阵亡英雄
+    NPC_ZULFARRAK_ZOMBIE        = 7286,                     // 祖尔法拉克僵尸
+    NPC_SKELETON_OF_ZUMRAH      = 7786,                     // 祖穆拉恩骷髅
 
-    FACTION_HOSTILE             = 14,
+    FACTION_HOSTILE             = 14
 };
 
 struct boss_zumrahAI : public ScriptedAI
@@ -56,21 +55,21 @@ struct boss_zumrahAI : public ScriptedAI
 
     instance_zulfarrak* m_pInstance;
 
-    uint32 m_uiShadowBoltTimer;
-    uint32 m_uiShadowBoltVolleyTimer;
+    uint32 m_uiSpawnZombieTimer;
     uint32 m_uiWardOfZumrahTimer;
     uint32 m_uHealingWaveTimer;
-    uint32 m_uiSpawnZombieTimer;
+    uint32 m_uiShadowBoltTimer;
+    uint32 m_uiShadowBoltVolleyTimer;
 
     bool m_bHasTurnedHostile;
 
     void Reset() override
     {
-        m_uiShadowBoltTimer         = 1000;
-        m_uiShadowBoltVolleyTimer   = urand(6000, 30000);
+        m_uiSpawnZombieTimer        = 1000;
         m_uiWardOfZumrahTimer       = urand(7000, 20000);
         m_uHealingWaveTimer         = urand(10000, 15000);
-        m_uiSpawnZombieTimer        = 1000;
+        m_uiShadowBoltTimer         = 1000;
+        m_uiShadowBoltVolleyTimer   = urand(6000, 30000);
     }
 
     void Aggro(Unit* /*pWho*/) override
@@ -109,16 +108,19 @@ struct boss_zumrahAI : public ScriptedAI
 
     void JustSummoned(Creature* pSummoned) override
     {
-        if (pSummoned->GetEntry() == NPC_ZULFARRAK_ZOMBIE || pSummoned->GetEntry() == NPC_ZULFARRAK_DEAD_HERO)
-            pSummoned->AI()->AttackStart(m_creature->getVictim());
+        if (pSummoned->GetEntry() == NPC_ZULFARRAK_DEAD_HERO || pSummoned->GetEntry() == NPC_ZULFARRAK_ZOMBIE || pSummoned->GetEntry() == NPC_SKELETON_OF_ZUMRAH)
+        {
+            if (Unit* pTarget = m_creature->getVictim())
+                { pSummoned->AI()->AttackStart(pTarget); }
+        }
     }
 
     GameObject* SelectNearbyShallowGrave()
     {
         if (!m_pInstance)
-            return NULL;
+            { return NULL; }
 
-        // Get the list of usable graves (not used already by players)
+        // 获取可用墓地
         GuidList lTempList;
         std::list<GameObject*> lGravesInRange;
 
@@ -126,15 +128,14 @@ struct boss_zumrahAI : public ScriptedAI
         for (GuidList::const_iterator itr = lTempList.begin(); itr != lTempList.end(); ++itr)
         {
             GameObject* pGo = m_creature->GetMap()->GetGameObject(*itr);
-            // Go spawned and no looting in process
+            // 已刷新且未拾取的
             if (pGo && pGo->isSpawned() && pGo->getLootState() == GO_READY)
-                lGravesInRange.push_back(pGo);
+                { lGravesInRange.push_back(pGo); }
         }
 
         if (lGravesInRange.empty())
-            return NULL;
+            { return NULL; }
 
-        // Sort the graves
         lGravesInRange.sort(ObjectDistanceOrder(m_creature));
 
         return *lGravesInRange.begin();
@@ -143,67 +144,69 @@ struct boss_zumrahAI : public ScriptedAI
     void UpdateAI(const uint32 uiDiff) override
     {
         if (!m_creature->SelectHostileTarget() || !m_creature->getVictim())
-            return;
+            { return; }
 
+        // 召唤祖尔法拉克僵尸
         if (m_uiSpawnZombieTimer)
         {
             if (m_uiSpawnZombieTimer <= uiDiff)
             {
-                // Use a nearby grave to spawn zombies
+                // 使用附近的墓地来召唤祖尔法拉克僵尸
                 if (GameObject* pGrave = SelectNearbyShallowGrave())
                 {
                     m_creature->CastSpell(pGrave->GetPositionX(), pGrave->GetPositionY(), pGrave->GetPositionZ(), SPELL_SUMMON_ZOMBIES, true, NULL, NULL, pGrave->GetObjectGuid());
                     pGrave->SetLootState(GO_JUST_DEACTIVATED);
-
-                    if (roll_chance_i(30))
-                        DoScriptText(SAY_SUMMON, m_creature);
-
+                    DoScriptText(SAY_SUMMON, m_creature);
                     m_uiSpawnZombieTimer = 20000;
                 }
-                else                                        // No Grave usable any more
-                    m_uiSpawnZombieTimer = 0;
+                else
+                    { m_uiSpawnZombieTimer = 0; }
             }
             else
-                m_uiSpawnZombieTimer -= uiDiff;
+                { m_uiSpawnZombieTimer -= uiDiff; }
         }
 
-        if (m_uiShadowBoltTimer < uiDiff)
-        {
-            if (Unit* pTarget = m_creature->SelectAttackingTarget(ATTACKING_TARGET_RANDOM, 0))
-            {
-                if (DoCastSpellIfCan(pTarget, SPELL_SHADOW_BOLT) == CAST_OK)
-                    m_uiShadowBoltTimer = urand(3500, 5000);
-            }
-        }
-        else
-            m_uiShadowBoltTimer -= uiDiff;
-
-        if (m_uiShadowBoltVolleyTimer < uiDiff)
-        {
-            if (DoCastSpellIfCan(m_creature, SPELL_SHADOW_BOLT_VOLLEY) == CAST_OK)
-                m_uiShadowBoltVolleyTimer = urand(10000, 18000);
-        }
-        else
-            m_uiShadowBoltVolleyTimer -= uiDiff;
-
+        // 祖穆拉恩结界
         if (m_uiWardOfZumrahTimer < uiDiff)
         {
             if (DoCastSpellIfCan(m_creature, SPELL_WARD_OF_ZUMRAH) == CAST_OK)
-                m_uiWardOfZumrahTimer = urand(15000, 32000);
+                { m_uiWardOfZumrahTimer = urand(15000, 32000); }
         }
         else
-            m_uiWardOfZumrahTimer -= uiDiff;
+            { m_uiWardOfZumrahTimer -= uiDiff; }
 
+        // 治疗波
         if (m_uHealingWaveTimer < uiDiff)
         {
             if (Unit* pTarget = DoSelectLowestHpFriendly(40.0f))
             {
                 if (DoCastSpellIfCan(pTarget, SPELL_HEALING_WAVE) == CAST_OK)
-                    m_uHealingWaveTimer = urand(15000, 23000);
+                    { m_uHealingWaveTimer = urand(15000, 23000); }
             }
         }
         else
-            m_uHealingWaveTimer -= uiDiff;
+            { m_uHealingWaveTimer -= uiDiff; }
+
+        // 暗影箭
+        if (m_uiShadowBoltTimer < uiDiff)
+        {
+            if (Unit* pTarget = m_creature->SelectAttackingTarget(ATTACKING_TARGET_RANDOM, 0))
+            {
+                if (DoCastSpellIfCan(pTarget, SPELL_SHADOW_BOLT) == CAST_OK)
+                    { m_uiShadowBoltTimer = urand(3500, 5000); }
+            }
+        }
+        else
+            { m_uiShadowBoltTimer -= uiDiff; }
+
+        // 暗影箭雨
+        if (m_uiShadowBoltVolleyTimer < uiDiff)
+        {
+            if (DoCastSpellIfCan(m_creature, SPELL_SHADOW_BOLT_VOLLEY) == CAST_OK)
+                { m_uiShadowBoltVolleyTimer = urand(10000, 18000); }
+        }
+        else
+            { m_uiShadowBoltVolleyTimer -= uiDiff; }
 
         DoMeleeAttackIfReady();
     }
