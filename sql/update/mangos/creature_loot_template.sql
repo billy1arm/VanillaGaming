@@ -209,7 +209,10 @@ UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='
 
 -- 杜隆塔尔猛虎 --- 杜隆塔尔虎皮
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='3121') AND (`item`='4892');
-	
+
+-- 雷鳞蜥蜴 --- 闪电腺
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='3238') AND (`item`='4898');
+
 -- 巫翼鹰身人 --- 巫翼鹰身人的爪子
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='3276') AND (`item`='5064');
 
