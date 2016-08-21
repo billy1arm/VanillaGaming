@@ -72,6 +72,24 @@ UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='
 -- 月夜雄虎 --- 优质月夜猛虎毛皮
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='2237') AND (`item`='5386');
 
+-- 破碎岭食人魔 --- 肮脏的指节骨
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='2252') AND (`item`='2843');
+
+-- 破碎岭蛮兵 --- 肮脏的指节骨
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='2253') AND (`item`='2843');
+
+-- 破碎岭虐待者 --- 肮脏的指节骨
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='2254') AND (`item`='2843');
+
+-- 破碎岭法师 --- 肮脏的指节骨
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='2255') AND (`item`='2843');
+
+-- 破碎岭执行者 --- 肮脏的指节骨
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='2256') AND (`item`='2843');
+
+-- 破碎岭好战者 --- 肮脏的指节骨
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='2287') AND (`item`='2843');
+
 -- 饥饿的山地狮 --- 山地狮的血液
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='2384') AND (`item`='3496');
 
@@ -83,6 +101,9 @@ UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='
 
 -- 巨型山地狮 --- 山地狮的血液
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='2407') AND (`item`='3496');
+
+-- 碎岭掠夺者 --- 肮脏的指节骨
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='2416') AND (`item`='2843');
 
 -- 草原狼前锋 --- 草原狼前锋的牙齿
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='2960') AND (`item`='4803');
