@@ -138,6 +138,9 @@ UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='
 -- 可怕的奈兹里奥克 --- 劈颅巨魔的獠牙
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='1062') AND (`item`='1524');
 
+-- 钳嘴鳄鱼 --- 钳嘴鳄鱼的皮
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='1152') AND (`item`='4104');
+
 -- 老迈的薄雾谷猩猩 --- 薄雾谷猩猩的内脏
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='1557') AND (`item`='3919');
 
