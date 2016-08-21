@@ -27,11 +27,26 @@ UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='
 -- 血顶巫医 --- 染血的白骨项链
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='660') AND (`item`='3915');
 
+-- 劈颅战士 --- 劈颅巨魔的獠牙
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='667') AND (`item`='1524');
+
+-- 劈颅猎人 --- 劈颅巨魔的獠牙
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='669') AND (`item`='1524');
+
+-- 劈颅巫医 --- 劈颅巨魔的獠牙
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='670') AND (`item`='1524');
+
 -- 血顶猎头者 --- 染血的白骨项链
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='671') AND (`item`='3915');
 
+-- 劈颅逐灵者 --- 劈颅巨魔的獠牙
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='672') AND (`item`='1524');
+
 -- 血顶掷斧者 --- 染血的白骨项链
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='694') AND (`item`='3915');
+
+-- 劈颅掷斧者 --- 劈颅巨魔的獠牙
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='696') AND (`item`='1524');
 
 -- 血顶萨满祭司 --- 染血的白骨项链
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='697') AND (`item`='3915');
@@ -45,6 +60,24 @@ UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='
 -- 血顶食腐者 --- 染血的白骨项链
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='702') AND (`item`='3915');
 
+-- 劈颅黑豹 --- 劈颅巨魔的獠牙
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-100' WHERE (`entry`='756') AND (`item`='1524');
+
+-- 劈颅秘法师 --- 劈颅巨魔的獠牙
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='780') AND (`item`='1524');
+
+-- 劈颅猎头者 --- 劈颅巨魔的獠牙
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='781') AND (`item`='1524');
+
+-- 劈颅斥候 --- 劈颅巨魔的獠牙
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='782') AND (`item`='1524');
+
+-- 劈颅狂战士 --- 劈颅巨魔的獠牙
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='783') AND (`item`='1524');
+
+-- 劈颅兽王 --- 劈颅巨魔的獠牙
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='784') AND (`item`='1524');
+
 -- 红色软泥怪 --- 塞达的背包
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-100' WHERE (`entry`='1031') AND (`item`='3349');
 
@@ -53,6 +86,15 @@ UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-100' WHERE (`entry`=
 
 -- 残忍的软泥怪 --- 塞达的背包
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-100' WHERE (`entry`='1033') AND (`item`='3349');
+
+-- 野蛮的安纳希克 --- 劈颅巨魔的獠牙
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='1059') AND (`item`='1524');
+
+-- 甘祖拉恩 --- 劈颅巨魔的獠牙
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='1061') AND (`item`='1524');
+
+-- 可怕的奈兹里奥克 --- 劈颅巨魔的獠牙
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='1062') AND (`item`='1524');
 
 -- 老迈的薄雾谷猩猩 --- 薄雾谷猩猩的内脏
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='1557') AND (`item`='3919');
