@@ -85,7 +85,7 @@ UPDATE `creature_template` SET `SpeedWalk`='1', `SpeedRun`='1.14286' WHERE (`Ent
 UPDATE `creature_template` SET `SpeedWalk`='1', `SpeedRun`='1.14286' WHERE (`Entry`='7275');
 
 -- 祖尔法拉克阵亡英雄
-UPDATE `creature_template` SET `SpeedWalk`='1', `SpeedRun`='1.14286' WHERE (`Entry`='7276');
+UPDATE `creature_template` SET `ExtraFlags`='64', `SpeedWalk`='1', `SpeedRun`='1.14286' WHERE (`Entry`='7276');
 
 -- 祖尔法拉克僵尸
 UPDATE `creature_template` SET `SpeedWalk`='1', `SpeedRun`='1.14286' WHERE (`Entry`='7286');
