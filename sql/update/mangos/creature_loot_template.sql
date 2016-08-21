@@ -89,12 +89,30 @@ UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='
 
 -- 杜隆塔尔猛虎 --- 杜隆塔尔虎皮
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='3121') AND (`item`='4892');
+	
+-- 巫翼鹰身人 --- 巫翼鹰身人的爪子
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='3276') AND (`item`='5064');
+
+-- 巫翼游荡者 --- 巫翼鹰身人的爪子
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='3277') AND (`item`='5064');
+
+-- 巫翼杀戮者 --- 巫翼鹰身人的爪子
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='3278') AND (`item`='5064');
+
+-- 巫翼伏击者 --- 巫翼鹰身人的爪子
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='3279') AND (`item`='5064');
+
+-- 巫翼唤风者 --- 巫翼鹰身人的爪子
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='3280') AND (`item`='5064');
 
 -- 风险投资公司执行者 --- 猫眼翡翠
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-100' WHERE (`entry`='3283') AND (`item`='5097');
 
 -- 风险投资公司监督 --- 猫眼翡翠
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-100' WHERE (`entry`='3286') AND (`item`='5097');
+
+-- 塞瑞娜·血羽 --- 巫翼鹰身人的爪子
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='3452') AND (`item`='5064');
 
 -- 暗滩祭司 --- 发光的灵魂宝石
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-100' WHERE (`entry`='3725') AND (`item`='5366');
