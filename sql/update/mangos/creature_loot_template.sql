@@ -276,6 +276,15 @@ UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='
 -- 枯木狂战士 --- 枯木巨魔的獠牙
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='2558') AND (`item`='4503');
 
+-- 枯须狗头人 --- 密斯莱尔之尘
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='2572') AND (`item`='4435');
+
+-- 枯须勘探员 --- 密斯莱尔之尘
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='2573') AND (`item`='4435');
+
+-- 枯须掘地工 --- 密斯莱尔之尘
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='2574') AND (`item`='4435');
+
 -- 辛迪加路霸 --- 血石护符
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='2586') AND (`item`='4495');
 
