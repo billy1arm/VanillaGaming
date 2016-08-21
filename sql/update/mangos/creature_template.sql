@@ -318,6 +318,9 @@ UPDATE `creature_template` SET `DamageMultiplier`='32', `Armor`='6295', `Resista
 -- 沙斯拉尔
 UPDATE `creature_template` SET `DamageMultiplier`='30', `Armor`='6295', `ResistanceHoly`='121', `ResistanceFire`='121', `ResistanceNature`='121', `ResistanceFrost`='121', `ResistanceShadow`='121', `ResistanceArcane`='121' WHERE (`Entry`='12264');
 
+-- 抽笞者
+UPDATE `creature_template` SET `ExtraFlags`='64' WHERE (`Entry`='13022');
+
 -- 米尔顿·比斯
 UPDATE `creature_template` SET `ExtraFlags`='64' WHERE (`Entry`='13082');
 
