@@ -24,6 +24,10 @@ UPDATE `creature` SET `spawntimesecs`='600' WHERE (`id`='1883');
 -- 断牙
 UPDATE `creature` SET `spawntimesecs`='10200' WHERE (`id`='2850');
 
+-- 艾索雷葛斯
+DELETE FROM `creature` WHERE `id`='6109';
+-- INSERT INTO `creature` (`guid`, `id`, `map`, `modelid`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `spawndist`, `currentwaypoint`, `curhealth`, `curmana`, `DeathState`, `MovementType`) VALUES ('52349', '6109', '1', '11460', '0', '2622.22', '-5977.93', '100.76', '4.21209', '604800', '0', '0', '916025', '75693', '0', '2');
+
 -- 辛斯雷尔
 UPDATE `creature` SET `equipment_id`='0' WHERE (`id`='7017');
 
@@ -38,6 +42,10 @@ UPDATE `creature` SET `spawntimesecs`='600' WHERE (`id`='11881');
 
 -- 暮光唤石者
 UPDATE `creature` SET `spawntimesecs`='600' WHERE (`id`='11882');
+
+-- 卡扎克
+DELETE FROM `creature` WHERE `id`='12397';
+-- INSERT INTO `creature` (`guid`, `id`, `map`, `modelid`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `spawndist`, `currentwaypoint`, `curhealth`, `curmana`, `DeathState`, `MovementType`) VALUES ('2723', '12397', '0', '0', '0', '-12241.3', '-2432.1', '2.93936', '3.26504', '604800', '0', '0', '366410', '0', '0', '2');
 
 -- 哈卡
 UPDATE `creature` SET `curhealth`='745804' WHERE (`id`='14834');
