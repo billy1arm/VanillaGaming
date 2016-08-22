@@ -453,6 +453,9 @@ UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-100' WHERE (`entry`=
 -- 暗滩刺客 --- 发光的灵魂宝石
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-100' WHERE (`entry`='3879') AND (`item`='5366');
 
+-- 风险投资公司操作员 --- 超级收割机6000型的设计图
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-100' WHERE (`entry`='3988') AND (`item`='5734');
+
 -- 砂齿掘地工 --- 未精炼的矿石样本
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-100' WHERE (`entry`='4113') AND (`item`='5842');
 
