@@ -15,6 +15,10 @@ File Encoding         : 65001
 -- 裂隙怒灵
 DELETE FROM `creature_template_addon` WHERE `entry`='6492';
 
+-- 祖穆拉恩结界
+DELETE FROM `creature_template_addon` WHERE `entry`='7785';
+INSERT INTO `creature_template_addon` (`entry`, `mount`, `bytes1`, `b2_0_sheath`, `b2_1_flags`, `emote`, `moveflags`, `auras`) VALUES ('7785', '0', '0', '0', '0', '0', '0', '11087');
+
 -- 拉格纳罗斯
 DELETE FROM `creature_template_addon` WHERE `entry`='11502';
 INSERT INTO `creature_template_addon` (`entry`, `mount`, `bytes1`, `b2_0_sheath`, `b2_1_flags`, `emote`, `moveflags`, `auras`) VALUES ('11502', '0', '0', '1', '16', '0', '0', '7942');
