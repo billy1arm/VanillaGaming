@@ -607,6 +607,18 @@ UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='
 -- 斯莫达尔 --- 石元素的碎片
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-100' WHERE (`entry`='8278') AND (`item`='7848');
 
+-- 控火师罗格雷恩 --- 烈焰行者长袍
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='27' WHERE (`entry`='9024') AND (`item`='11747');
+
+-- 控火师罗格雷恩 --- 燃烧手杖
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='27' WHERE (`entry`='9024') AND (`item`='11748');
+
+-- 控火师罗格雷恩 --- 灼鳞护腿
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='27' WHERE (`entry`='9024') AND (`item`='11749');
+
+-- 控火师罗格雷恩 --- 引火手杖
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='19' WHERE (`entry`='9024') AND (`item`='11750');
+
 -- 裂盾步兵 --- 原始晋升印章
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='100' WHERE (`entry`='9043') AND (`item`='12219');
 
