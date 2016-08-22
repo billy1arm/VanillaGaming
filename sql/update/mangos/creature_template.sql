@@ -156,6 +156,9 @@ UPDATE `creature_template` SET `SpeedWalk`='1', `SpeedRun`='1.14286' WHERE (`Ent
 -- 沙怒狂热者
 UPDATE `creature_template` SET `SpeedWalk`='1', `SpeedRun`='1.14286' WHERE (`Entry`='8877');
 
+-- 审讯官格斯塔恩
+UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='9018');
+
 -- 洛考尔
 UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='9025');
 
