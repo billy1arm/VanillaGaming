@@ -589,6 +589,24 @@ UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='
 -- 斯莫达尔 --- 石元素的碎片
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-100' WHERE (`entry`='8278') AND (`item`='7848');
 
+-- 裂盾步兵 --- 原始晋升印章
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='100' WHERE (`entry`='9043') AND (`item`='12219');
+
+-- 裂盾哨兵 --- 原始晋升印章
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='100' WHERE (`entry`='9044') AND (`item`='12219');
+
+-- 裂盾侍僧 --- 原始晋升印章
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='100' WHERE (`entry`='9045') AND (`item`='12219');
+
+-- 裂盾军需官 --- 原始晋升印章
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='100' WHERE (`entry`='9046') AND (`item`='12219');
+
+-- 裂盾军团战士 --- 原始晋升印章
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='100' WHERE (`entry`='9097') AND (`item`='12219');
+
+-- 裂盾缚法师 --- 原始晋升印章
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='100' WHERE (`entry`='9098') AND (`item`='12219');
+
 -- 幼双帆龙 --- 恐龙骨头
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='9162') AND (`item`='11114');
 
@@ -619,11 +637,101 @@ UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-100' WHERE (`entry`=
 -- 狂怒的翼手龙 --- 精细的翼手龙鳞片
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='9167') AND (`item`='11831');
 
+-- 欧莫克大王 --- 尖石宝钻
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='100' WHERE (`entry`='9196') AND (`item`='12336');
+
+-- 尖石战斗法师 --- 原始晋升印章
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='100' WHERE (`entry`='9197') AND (`item`='12219');
+
+-- 尖石秘法师 --- 原始晋升印章
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='100' WHERE (`entry`='9198') AND (`item`='12219');
+
+-- 尖石执行者 --- 原始晋升印章
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='100' WHERE (`entry`='9199') AND (`item`='12219');
+
+-- 尖石劫掠者 --- 原始晋升印章
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='100' WHERE (`entry`='9200') AND (`item`='12219');
+
+-- 尖石食人魔法师 --- 原始晋升印章
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='100' WHERE (`entry`='9201') AND (`item`='12219');
+
+-- 尖石军阀 --- 原始晋升印章
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='100' WHERE (`entry`='9216') AND (`item`='12219');
+
+-- 指挥官沃恩 --- 燃棘宝钻
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='100' WHERE (`entry`='9237') AND (`item`='12335');
+
+-- 燃棘秘法师 --- 原始晋升印章
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='100' WHERE (`entry`='9239') AND (`item`='12219');
+
+-- 燃棘暗影牧师 --- 原始晋升印章
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='100' WHERE (`entry`='9240') AND (`item`='12219');
+
+-- 燃棘猎头者 --- 原始晋升印章
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='100' WHERE (`entry`='9241') AND (`item`='12219');
+
+-- 裂盾术士 --- 原始晋升印章
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='100' WHERE (`entry`='9257') AND (`item`='12219');
+
+-- 裂盾袭击者 --- 原始晋升印章
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='100' WHERE (`entry`='9258') AND (`item`='12219');
+
+-- 火印步兵 --- 原始晋升印章
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='100' WHERE (`entry`='9259') AND (`item`='12219');
+
+-- 火印军团战士 --- 原始晋升印章
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='100' WHERE (`entry`='9260') AND (`item`='12219');
+
+-- 火印暗法师 --- 原始晋升印章
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='100' WHERE (`entry`='9261') AND (`item`='12219');
+
+-- 火印祈求者 --- 原始晋升印章
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='100' WHERE (`entry`='9262') AND (`item`='12219');
+
+-- 火印恐法师 --- 原始晋升印章
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='100' WHERE (`entry`='9263') AND (`item`='12219');
+
+-- 火印炎术师 --- 原始晋升印章
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='100' WHERE (`entry`='9264') AND (`item`='12219');
+
+-- 燃棘暗影猎手 --- 原始晋升印章
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='100' WHERE (`entry`='9265') AND (`item`='12219');
+
+-- 燃棘巫医 --- 原始晋升印章
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='100' WHERE (`entry`='9266') AND (`item`='12219');
+
+-- 燃棘掷斧者 --- 原始晋升印章
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='100' WHERE (`entry`='9267') AND (`item`='12219');
+
+-- 燃棘狂战士 --- 原始晋升印章
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='100' WHERE (`entry`='9268') AND (`item`='12219');
+
+-- 燃棘先知 --- 原始晋升印章
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='100' WHERE (`entry`='9269') AND (`item`='12219');
+
 -- 考博普拉格 --- 猫眼翡翠
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-100' WHERE (`entry`='9336') AND (`item`='5097');
 
+-- 维姆萨拉克 --- 血斧宝钻
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='100' WHERE (`entry`='9568') AND (`item`='12337');
+
 -- 维姆萨拉克 --- 达基萨斯将军的命令
 UPDATE `creature_loot_template` SET `item`='95680', `ChanceOrQuestChance`='100', `mincountOrRef`='-95680', `maxcount`='10', `condition_id`='0' WHERE (`entry`='9568') AND (`item`='12780');
+
+-- 血斧精兵 --- 原始晋升印章
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='100' WHERE (`entry`='9583') AND (`item`='12219');
+
+-- 血斧袭击者 --- 原始晋升印章
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='100' WHERE (`entry`='9692') AND (`item`='12219');
+
+-- 血斧招魂师 --- 原始晋升印章
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='100' WHERE (`entry`='9693') AND (`item`='12219');
+
+-- 血斧好战者 --- 原始晋升印章
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='100' WHERE (`entry`='9716') AND (`item`='12219');
+
+-- 血斧召唤师 --- 原始晋升印章
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='100' WHERE (`entry`='9717') AND (`item`='12219');
 
 -- 格里什虫巢卫士 --- 格里什信息素
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-100' WHERE (`entry`='10040') AND (`item`='11837');
