@@ -526,6 +526,18 @@ UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='
 -- 雷霆剑龙 --- 恐龙骨头
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='6504') AND (`item`='11114');
 
+-- 暴掠龙 --- 白色暴掠龙爪
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-100' WHERE (`entry`='6505') AND (`item`='11477');
+
+-- 疾奔暴掠龙 --- 白色暴掠龙爪
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-100' WHERE (`entry`='6506') AND (`item`='11477');
+
+-- 狩猎暴掠龙 --- 白色暴掠龙爪
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-100' WHERE (`entry`='6507') AND (`item`='11477');
+
+-- 毒皮暴掠龙 --- 白色暴掠龙爪
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-100' WHERE (`entry`='6508') AND (`item`='11477');
+
 -- 血瓣花捕兽者 --- 恐龙骨头
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-100' WHERE (`entry`='6512') AND (`item`='11114');
 
@@ -543,6 +555,9 @@ UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-100' WHERE (`entry`=
 
 -- 格里什掘洞蝎 --- 格里什信息素
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-100' WHERE (`entry`='6555') AND (`item`='11837');
+
+-- 暴掠龙女王 --- 白色暴掠龙爪
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-100' WHERE (`entry`='6581') AND (`item`='11477');
 
 -- 塞瑞克·黑炉公爵 --- 硝化甘油
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='6668') AND (`item`='5017');
@@ -720,6 +735,12 @@ UPDATE `creature_loot_template` SET `item`='95680', `ChanceOrQuestChance`='100',
 
 -- 血斧精兵 --- 原始晋升印章
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='100' WHERE (`entry`='9583') AND (`item`='12219');
+
+-- 拉克维的配偶 --- 白色暴掠龙爪
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-100' WHERE (`entry`='9683') AND (`item`='11477');
+
+-- 拉克维 --- 白色暴掠龙爪
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-100' WHERE (`entry`='9684') AND (`item`='11477');
 
 -- 血斧袭击者 --- 原始晋升印章
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='100' WHERE (`entry`='9692') AND (`item`='12219');
