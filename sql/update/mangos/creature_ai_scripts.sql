@@ -15,6 +15,9 @@ File Encoding         : 65001
 -- 奈塔拉什
 DELETE FROM `creature_ai_scripts` WHERE `id`='198302';
 
+-- 巫医祖穆拉恩
+DELETE FROM `creature_ai_scripts` WHERE `creature_id`='7271';
+
 -- 狂怒傀儡
 UPDATE `creature_ai_scripts` SET `action1_param2`='0', `comment`='狂怒傀儡 - 施放-乱舞' WHERE (`id`='890602');
 

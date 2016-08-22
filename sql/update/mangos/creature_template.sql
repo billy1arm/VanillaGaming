@@ -73,7 +73,7 @@ UPDATE `creature_template` SET `SpeedWalk`='1', `SpeedRun`='1.14286' WHERE (`Ent
 UPDATE `creature_template` SET `SpeedWalk`='0.8', `SpeedRun`='1' WHERE (`Entry`='7269');
 
 -- 巫医祖穆拉恩
-UPDATE `creature_template` SET `SpeedWalk`='1', `SpeedRun`='1.14286' WHERE (`Entry`='7271');
+UPDATE `creature_template` SET `SpeedWalk`='1', `SpeedRun`='1.14286', `AIName`='' WHERE (`Entry`='7271');
 
 -- 加兹瑞拉
 UPDATE `creature_template` SET `SpeedWalk`='1.6', `SpeedRun`='1.42857' WHERE (`Entry`='7273');
