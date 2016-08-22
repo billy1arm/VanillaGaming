@@ -526,6 +526,21 @@ UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='
 -- 血瓣花捕兽者 --- 恐龙骨头
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-100' WHERE (`entry`='6512') AND (`item`='11114');
 
+-- 格里什异种蝎 --- 格里什信息素
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-100' WHERE (`entry`='6551') AND (`item`='11837');
+
+-- 格里什工蝎 --- 格里什信息素
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-100' WHERE (`entry`='6552') AND (`item`='11837');
+
+-- 格里什劫掠者 --- 格里什信息素
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-100' WHERE (`entry`='6553') AND (`item`='11837');
+
+-- 格里什毒刺蝎 --- 格里什信息素
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-100' WHERE (`entry`='6554') AND (`item`='11837');
+
+-- 格里什掘洞蝎 --- 格里什信息素
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-100' WHERE (`entry`='6555') AND (`item`='11837');
+
 -- 塞瑞克·黑炉公爵 --- 硝化甘油
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='6668') AND (`item`='5017');
 
@@ -603,6 +618,9 @@ UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-100' WHERE (`entry`=
 
 -- 维姆萨拉克 --- 达基萨斯将军的命令
 UPDATE `creature_loot_template` SET `item`='95680', `ChanceOrQuestChance`='100', `mincountOrRef`='-95680', `maxcount`='10', `condition_id`='0' WHERE (`entry`='9568') AND (`item`='12780');
+
+-- 格里什虫巢卫士 --- 格里什信息素
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-100' WHERE (`entry`='10040') AND (`item`='11837');
 
 -- 伊露希亚·巴罗夫
 DELETE FROM `creature_loot_template` WHERE (`entry`='10502');
