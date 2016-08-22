@@ -511,6 +511,21 @@ UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='
 -- 滑壳龙虾人 --- 龙虾人的眼球
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-40' WHERE (`entry`='6020') AND (`item`='4887');
 
+-- 剑龙 --- 恐龙骨头
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='6501') AND (`item`='11114');
+
+-- 厚甲剑龙 --- 恐龙骨头
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='6502') AND (`item`='11114');
+
+-- 刺尾剑龙 --- 恐龙骨头
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='6503') AND (`item`='11114');
+
+-- 雷霆剑龙 --- 恐龙骨头
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='6504') AND (`item`='11114');
+
+-- 血瓣花捕兽者 --- 恐龙骨头
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-100' WHERE (`entry`='6512') AND (`item`='11114');
+
 -- 塞瑞克·黑炉公爵 --- 硝化甘油
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='6668') AND (`item`='5017');
 
@@ -547,11 +562,20 @@ UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='
 -- 斯莫达尔 --- 石元素的碎片
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-100' WHERE (`entry`='8278') AND (`item`='7848');
 
+-- 幼双帆龙 --- 恐龙骨头
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='9162') AND (`item`='11114');
+
 -- 幼双帆龙 --- 精细的双帆龙鳞片
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='9162') AND (`item`='11830');
 
+-- 双帆龙 --- 恐龙骨头
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='9163') AND (`item`='11114');
+
 -- 双帆龙 --- 精细的双帆龙鳞片
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='9163') AND (`item`='11830');
+
+-- 老双帆龙 --- 恐龙骨头
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='9164') AND (`item`='11114');
 
 -- 老双帆龙 --- 精细的双帆龙鳞片
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='9164') AND (`item`='11830');
@@ -561,6 +585,9 @@ UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='
 
 -- 翼手龙 --- 精细的翼手龙鳞片
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='9166') AND (`item`='11831');
+
+-- 狂怒的翼手龙 --- 恐龙骨头
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-100' WHERE (`entry`='9167') AND (`item`='11114');
 
 -- 狂怒的翼手龙 --- 精细的翼手龙鳞片
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='9167') AND (`item`='11831');
