@@ -176,7 +176,7 @@ UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='
 
 -- 巨型树林蜘蛛 --- 树林蜘蛛丝
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-100' WHERE (`entry`='2001') AND (`item`='3412');
-	
+
 -- 林精践踏者 --- 青苔之瘤
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='2027') AND (`item`='5170');
 
@@ -498,6 +498,19 @@ UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='
 -- 森提帕尔沙行者 --- 森提帕尔昆虫肢体
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='5460') AND (`item`='8587');
 
+-- 灌木露水收集者 --- 饱满的露水腺
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-100' WHERE (`entry`='5481') AND (`item`='8428');
+
+-- 堕落的水之魂 --- 剩余的最纯净的水
+DELETE FROM `creature_loot_template` WHERE (`entry`='5894') AND (`item`='7811');
+INSERT INTO `creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`, `groupid`, `mincountOrRef`, `maxcount`, `condition_id`) VALUES ('5894', '7811', '-100', '0', '1', '1', '0');
+
+-- 邪刺恐蝎 --- 含盐的蝎毒
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='5937') AND (`item`='5794');
+
+-- 滑壳龙虾人 --- 龙虾人的眼球
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-40' WHERE (`entry`='6020') AND (`item`='4887');
+
 -- 塞瑞克·黑炉公爵 --- 硝化甘油
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='6668') AND (`item`='5017');
 
@@ -507,24 +520,11 @@ UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='
 -- 塞瑞克·黑炉公爵 --- 硝酸钠
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='6668') AND (`item`='5019');
 
--- 灌木露水收集者 --- 饱满的露水腺
-UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-100' WHERE (`entry`='5481') AND (`item`='8428');
-
--- 邪刺恐蝎 --- 含盐的蝎毒
-UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='5937') AND (`item`='5794');
-
--- 滑壳龙虾人 --- 龙虾人的眼球
-UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-40' WHERE (`entry`='6020') AND (`item`='4887');
-
 -- 石窟猛击者 --- 精铁碎片
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='6733') AND (`item`='5797');
 
 -- 残忍的弗拉格莫克 --- 鱼人的鳍
 DELETE FROM `creature_loot_template` WHERE (`entry`='7015') AND (`item`='1468');
-
--- 堕落的水之魂 --- 剩余的最纯净的水
-DELETE FROM `creature_loot_template` WHERE (`entry`='5894') AND (`item`='7811');
-INSERT INTO `creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`, `groupid`, `mincountOrRef`, `maxcount`, `condition_id`) VALUES ('5894', '7811', '-100', '0', '1', '1', '0');
 
 -- 南海海盗 --- 南海海盗帽
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='7855') AND (`item`='20519');
