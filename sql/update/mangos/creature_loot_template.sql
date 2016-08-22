@@ -727,6 +727,12 @@ UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='100' WHERE (`entry`='
 -- 燃棘先知 --- 原始晋升印章
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='100' WHERE (`entry`='9269') AND (`item`='12219');
 
+-- 驯犬者格雷布玛尔 --- 灵法斗篷
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='35' WHERE (`entry`='9319') AND (`item`='11623');
+
+-- 驯犬者格雷布玛尔 --- 铁索胫甲
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='35' WHERE (`entry`='9319') AND (`item`='11627');
+
 -- 考博普拉格 --- 猫眼翡翠
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-100' WHERE (`entry`='9336') AND (`item`='5097');
 

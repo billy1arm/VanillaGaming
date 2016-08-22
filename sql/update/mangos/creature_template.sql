@@ -162,6 +162,9 @@ UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='
 -- 洛考尔
 UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='9025');
 
+-- 驯犬者格雷布玛尔
+UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='9319');
+
 -- 科卡尔入侵者
 UPDATE `creature_template` SET `ExtraFlags`='64' WHERE (`Entry`='9524');
 
