@@ -541,6 +541,12 @@ UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='
 -- 残忍的弗拉格莫克 --- 鱼人的鳍
 DELETE FROM `creature_loot_template` WHERE (`entry`='7015') AND (`item`='1468');
 
+-- 冰蓟雪人女王 --- 完美的雪人角
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='7459') AND (`item`='12367');
+
+-- 冰蓟雪人王 --- 完美的雪人角
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='7460') AND (`item`='12367');
+
 -- 南海海盗 --- 南海海盗帽
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='7855') AND (`item`='20519');
 
