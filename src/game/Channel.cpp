@@ -536,6 +536,9 @@ void Channel::Say(Player* player, const char* text, uint32 lang)
     if (!text)
         return;
 
+    if (!player || player->getLevel() < 10)
+        { return; }
+
     ObjectGuid guid = player->GetObjectGuid();
 
     if (!IsOn(guid))
