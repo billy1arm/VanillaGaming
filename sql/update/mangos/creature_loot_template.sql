@@ -480,6 +480,9 @@ UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-100' WHERE (`entry`=
 -- 石窟猎手 --- 精铁碎片
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-100' WHERE (`entry`='4856') AND (`item`='5797');
 
+-- 小精龙 --- 闪光的小精灵翅膀
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='5278') AND (`item`='9369');
+
 -- 森提帕尔异种蝎 --- 森提帕尔昆虫肢体
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='5455') AND (`item`='8587');
 
@@ -576,6 +579,9 @@ UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='
 
 -- 安德雷·费尔比德 --- 南海海盗帽
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='7883') AND (`item`='20519');
+
+-- 被俘获的小精龙 --- 闪光的小精灵翅膀
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='7997') AND (`item`='9369');
 
 -- 克雷格·尼哈鲁 --- 南海海盗帽
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='8203') AND (`item`='20519');
