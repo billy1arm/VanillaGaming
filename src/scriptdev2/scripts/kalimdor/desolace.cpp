@@ -164,7 +164,7 @@ bool GossipHello_npc_aged_dying_ancient_kodo(Player* pPlayer, Creature* pCreatur
         pCreature->GetMotionMaster()->MoveIdle();
     }
 
-    pPlayer->SEND_GOSSIP_MENU(pPlayer->GetGossipTextId(pCreature), pCreature->GetObjectGuid());
+    pPlayer->SEND_GOSSIP_MENU(3650, pCreature->GetObjectGuid());
     return true;
 }
 
