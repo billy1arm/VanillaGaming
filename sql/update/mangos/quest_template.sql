@@ -59,6 +59,20 @@ UPDATE `quest_template` SET `RewMoneyMaxLevel`='0' WHERE (`entry`='8441');
 UPDATE `quest_template` SET `RewMoneyMaxLevel`='0' WHERE (`entry`='8442');
 UPDATE `quest_template` SET `RewMoneyMaxLevel`='0' WHERE (`entry`='8443');
 
+-- 自然屏障
+UPDATE `quest_template` SET `RewOrReqMoney`='0', `RewMoneyMaxLevel`='0' WHERE (`entry`='8372');
+UPDATE `quest_template` SET `RewMoneyMaxLevel`='0' WHERE (`entry`='8386');
+UPDATE `quest_template` SET `RewMoneyMaxLevel`='0' WHERE (`entry`='8399');
+UPDATE `quest_template` SET `RewOrReqMoney`='0', `RewMoneyMaxLevel`='0' WHERE (`entry`='8400');
+UPDATE `quest_template` SET `RewOrReqMoney`='0', `RewMoneyMaxLevel`='0' WHERE (`entry`='8401');
+UPDATE `quest_template` SET `RewOrReqMoney`='0', `RewMoneyMaxLevel`='0' WHERE (`entry`='8402');
+UPDATE `quest_template` SET `RewOrReqMoney`='0', `RewMoneyMaxLevel`='0' WHERE (`entry`='8403');
+UPDATE `quest_template` SET `RewMoneyMaxLevel`='0' WHERE (`entry`='8404');
+UPDATE `quest_template` SET `RewMoneyMaxLevel`='0' WHERE (`entry`='8405');
+UPDATE `quest_template` SET `RewMoneyMaxLevel`='0' WHERE (`entry`='8406');
+UPDATE `quest_template` SET `RewMoneyMaxLevel`='0' WHERE (`entry`='8407');
+UPDATE `quest_template` SET `RewMoneyMaxLevel`='0' WHERE (`entry`='8408');
+
 -- 战争的动力
 UPDATE `quest_template` SET `RewOrReqMoney`='0', `RewMoneyMaxLevel`='0' WHERE (`entry`='8374');
 UPDATE `quest_template` SET `RewMoneyMaxLevel`='0' WHERE (`entry`='8384');
