@@ -480,6 +480,24 @@ UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-100' WHERE (`entry`=
 -- 石窟猎手 --- 精铁碎片
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-100' WHERE (`entry`='4856') AND (`item`='5797');
 
+-- 森提帕尔异种蝎 --- 森提帕尔昆虫肢体
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='5455') AND (`item`='8587');
+
+-- 森提帕尔毒刺蝎 --- 森提帕尔昆虫肢体
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='5456') AND (`item`='8587');
+
+-- 森提帕尔群居蝎 --- 森提帕尔昆虫肢体
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='5457') AND (`item`='8587');
+
+-- 森提帕尔工蝎 --- 森提帕尔昆虫肢体
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='5458') AND (`item`='8587');
+
+-- 森提帕尔掘洞蝎 --- 森提帕尔昆虫肢体
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='5459') AND (`item`='8587');
+
+-- 森提帕尔沙行者 --- 森提帕尔昆虫肢体
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='5460') AND (`item`='8587');
+
 -- 塞瑞克·黑炉公爵 --- 硝化甘油
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='6668') AND (`item`='5017');
 
