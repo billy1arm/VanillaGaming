@@ -47,6 +47,18 @@ UPDATE `quest_template` SET `RewMoneyMaxLevel`='0' WHERE (`entry`='8433');
 UPDATE `quest_template` SET `RewMoneyMaxLevel`='0' WHERE (`entry`='8434');
 UPDATE `quest_template` SET `RewMoneyMaxLevel`='0' WHERE (`entry`='8435');
 
+-- 资源竞赛
+UPDATE `quest_template` SET `RewOrReqMoney`='0', `RewMoneyMaxLevel`='0' WHERE (`entry`='8370');
+UPDATE `quest_template` SET `RewMoneyMaxLevel`='0' WHERE (`entry`='8390');
+UPDATE `quest_template` SET `RewOrReqMoney`='0', `RewMoneyMaxLevel`='0' WHERE (`entry`='8436');
+UPDATE `quest_template` SET `RewOrReqMoney`='0', `RewMoneyMaxLevel`='0' WHERE (`entry`='8437');
+UPDATE `quest_template` SET `RewOrReqMoney`='0', `RewMoneyMaxLevel`='0' WHERE (`entry`='8438');
+UPDATE `quest_template` SET `RewOrReqMoney`='0', `RewMoneyMaxLevel`='0' WHERE (`entry`='8439');
+UPDATE `quest_template` SET `RewMoneyMaxLevel`='0' WHERE (`entry`='8440');
+UPDATE `quest_template` SET `RewMoneyMaxLevel`='0' WHERE (`entry`='8441');
+UPDATE `quest_template` SET `RewMoneyMaxLevel`='0' WHERE (`entry`='8442');
+UPDATE `quest_template` SET `RewMoneyMaxLevel`='0' WHERE (`entry`='8443');
+
 -- 战争的动力
 UPDATE `quest_template` SET `RewOrReqMoney`='0', `RewMoneyMaxLevel`='0' WHERE (`entry`='8374');
 UPDATE `quest_template` SET `RewMoneyMaxLevel`='0' WHERE (`entry`='8384');
