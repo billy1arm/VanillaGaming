@@ -33,6 +33,20 @@ UPDATE `quest_template` SET `RewSpellCast`='24425' WHERE (`entry`='8183');
 -- 召唤
 UPDATE `quest_template` SET `Type`='62' WHERE (`entry`='8315');
 
+-- 峡谷之战
+UPDATE `quest_template` SET `RewOrReqMoney`='0', `RewMoneyMaxLevel`='0' WHERE (`entry`='8368');
+UPDATE `quest_template` SET `RewMoneyMaxLevel`='0' WHERE (`entry`='8389');
+UPDATE `quest_template` SET `RewOrReqMoney`='0', `RewMoneyMaxLevel`='0' WHERE (`entry`='8426');
+UPDATE `quest_template` SET `RewOrReqMoney`='0', `RewMoneyMaxLevel`='0' WHERE (`entry`='8427');
+UPDATE `quest_template` SET `RewOrReqMoney`='0', `RewMoneyMaxLevel`='0' WHERE (`entry`='8428');
+UPDATE `quest_template` SET `RewOrReqMoney`='0', `RewMoneyMaxLevel`='0' WHERE (`entry`='8429');
+UPDATE `quest_template` SET `RewOrReqMoney`='0', `RewMoneyMaxLevel`='0' WHERE (`entry`='8430');
+UPDATE `quest_template` SET `RewMoneyMaxLevel`='0' WHERE (`entry`='8431');
+UPDATE `quest_template` SET `RewMoneyMaxLevel`='0' WHERE (`entry`='8432');
+UPDATE `quest_template` SET `RewMoneyMaxLevel`='0' WHERE (`entry`='8433');
+UPDATE `quest_template` SET `RewMoneyMaxLevel`='0' WHERE (`entry`='8434');
+UPDATE `quest_template` SET `RewMoneyMaxLevel`='0' WHERE (`entry`='8435');
+
 -- 死人的请求
 UPDATE `quest_template` SET `RewItemId1`='0', `RewItemCount1`='0', `RewMoneyMaxLevel`='0' WHERE (`entry`='8945');
 
