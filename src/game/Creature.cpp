@@ -604,6 +604,8 @@ void Creature::Update(uint32 update_diff, uint32 diff)
                     else if (pOwner->GetTypeId() == TYPEID_UNIT)
                         { RemoveFromWorld(); }
                 }
+                else
+                    { RemoveFromWorld(); }
             }
 
             Unit::Update(update_diff, diff);
