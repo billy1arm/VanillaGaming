@@ -47,6 +47,18 @@ UPDATE `quest_template` SET `RewMoneyMaxLevel`='0' WHERE (`entry`='8433');
 UPDATE `quest_template` SET `RewMoneyMaxLevel`='0' WHERE (`entry`='8434');
 UPDATE `quest_template` SET `RewMoneyMaxLevel`='0' WHERE (`entry`='8435');
 
+-- 战争的动力
+UPDATE `quest_template` SET `RewOrReqMoney`='0', `RewMoneyMaxLevel`='0' WHERE (`entry`='8374');
+UPDATE `quest_template` SET `RewMoneyMaxLevel`='0' WHERE (`entry`='8384');
+UPDATE `quest_template` SET `RewMoneyMaxLevel`='0' WHERE (`entry`='8391');
+UPDATE `quest_template` SET `RewMoneyMaxLevel`='0' WHERE (`entry`='8392');
+UPDATE `quest_template` SET `RewOrReqMoney`='0', `RewMoneyMaxLevel`='0' WHERE (`entry`='8393');
+UPDATE `quest_template` SET `RewOrReqMoney`='0', `RewMoneyMaxLevel`='0' WHERE (`entry`='8394');
+UPDATE `quest_template` SET `RewOrReqMoney`='0', `RewMoneyMaxLevel`='0' WHERE (`entry`='8395');
+UPDATE `quest_template` SET `RewOrReqMoney`='0', `RewMoneyMaxLevel`='0' WHERE (`entry`='8396');
+UPDATE `quest_template` SET `RewMoneyMaxLevel`='0' WHERE (`entry`='8397');
+UPDATE `quest_template` SET `RewMoneyMaxLevel`='0' WHERE (`entry`='8398');
+
 -- 死人的请求
 UPDATE `quest_template` SET `RewItemId1`='0', `RewItemCount1`='0', `RewMoneyMaxLevel`='0' WHERE (`entry`='8945');
 
