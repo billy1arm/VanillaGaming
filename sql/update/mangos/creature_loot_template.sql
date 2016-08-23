@@ -240,6 +240,15 @@ UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='
 -- 破碎岭好战者 --- 失而复得的书籍
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='2287') AND (`item`='3658');
 
+-- 丹加洛克巡山人 --- 亨伯特的长剑
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-8' WHERE (`entry`='2344') AND (`item`='3693');
+
+-- 丹加洛克火枪手 --- 亨伯特的长剑
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-8' WHERE (`entry`='2345') AND (`item`='3693');
+
+-- 丹加洛克牧师 --- 亨伯特的长剑
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-8' WHERE (`entry`='2346') AND (`item`='3693');
+
 -- 饥饿的山地狮 --- 山地狮的血液
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='2384') AND (`item`='3496');
 
@@ -882,6 +891,9 @@ UPDATE `creature_loot_template` SET `groupid`='0' WHERE (`entry`='12264') AND (`
 
 -- 诺克赛恩幼体
 DELETE FROM `creature_loot_template` WHERE (`entry`='13696');
+
+-- 塔尔玛·雷矛 --- 亨伯特的长剑
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-8' WHERE (`entry`='14275') AND (`item`='3693');
 
 -- 吉比斯尼克 --- 未精炼的矿石样本
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-100' WHERE (`entry`='14427') AND (`item`='5842');
