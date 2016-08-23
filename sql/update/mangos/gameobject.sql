@@ -128,6 +128,11 @@ DELETE FROM `gameobject` WHERE `id`='181597';
 -- 水晶尘喷孔
 DELETE FROM `gameobject` WHERE `id`='181598';
 
+-- 龙语傻瓜教程
+DELETE FROM `gameobject` WHERE `guid`='120618';
+DELETE FROM `gameobject` WHERE `guid`='500001';
+INSERT INTO `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecs`, `animprogress`, `state`) VALUES ('120618', '180665', '0', '-8340.24', '413.397', '124.49', '2.89435', '0', '0', '0.992368', '0.123309', '0', '100', '1');
+
 --
 -- 矿草刷新
 --
