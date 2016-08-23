@@ -21,3 +21,6 @@ UPDATE `gameobject_template` SET `size`='1.5' WHERE (`entry`='179548');
 
 -- 液态火焰
 UPDATE `gameobject_template` SET `faction`='54', `flags`='64', `data2`='2', `data5`='1', `data6`='0' WHERE (`entry`='180125');
+
+-- 詹迪斯·巴罗夫的日记
+UPDATE `gameobject_template` SET `ScriptName`='' WHERE (`entry`='180794');
