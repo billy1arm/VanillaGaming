@@ -12,6 +12,9 @@ File Encoding         : 65001
 -- Updates of creature_template
 -- ----------------------------
 
+-- 暴怒的银背猩猩
+UPDATE `creature_template` SET `ExtraFlags`='64' WHERE (`Entry`='1511');
+
 -- 大领主泰兰·弗丁
 UPDATE `creature_template` SET `PowerMultiplier`='20', `DamageMultiplier`='9.2', `MechanicImmuneMask`='617299803' WHERE (`Entry`='1842');
 
