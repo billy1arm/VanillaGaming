@@ -162,6 +162,12 @@ UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='
 -- 可怕的奈兹里奥克 --- 劈颅巨魔的獠牙
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='1062') AND (`item`='1524');
 
+-- 盐齿鳄鱼 --- 新鲜的盐齿鳄鱼肉
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='1082') AND (`item`='6169');
+
+-- 盐齿钳嘴鳄 --- 新鲜的盐齿鳄鱼肉
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='1087') AND (`item`='6169');
+
 -- 淡水鳄 --- 淡水鳄的皮
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='1150') AND (`item`='4053');
 
