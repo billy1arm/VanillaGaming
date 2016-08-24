@@ -533,7 +533,7 @@ void WorldSession::HandleMoverRelocation(MovementInfo& movementInfo)
             {
                 if (plMover->getClass() == CLASS_WARRIOR || plMover->getClass() == CLASS_MAGE)
                 {
-                    plMover->TeleportTo(plMover->m_last_map, plMover->m_last_x, plMover->m_last_y, plMover->m_last_z, 0.0f);
+                    plMover->TeleportTo(plMover->m_last_map, plMover->m_last_x, plMover->m_last_y, plMover->m_last_z + 2.0f, 0.0f);
                     return;
                 }
             }
