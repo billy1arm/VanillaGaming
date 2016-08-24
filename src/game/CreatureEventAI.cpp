@@ -779,7 +779,8 @@ void CreatureEventAI::ProcessAction(CreatureEventAI_Action const& action, uint32
             EnterEvadeMode();
             break;
         case ACTION_T_FLEE_FOR_ASSIST:
-            m_creature->DoFleeToGetAssistance();
+            if (!(m_creature->HasAura(704) || m_creature->HasAura(7658) || m_creature->HasAura(7659) || m_creature->HasAura(11717) || m_creature->HasAura(20184)))
+                { m_creature->DoFleeToGetAssistance(); }
             break;
         case ACTION_T_QUEST_EVENT_ALL:
             if (pActionInvoker && pActionInvoker->GetTypeId() == TYPEID_PLAYER)
