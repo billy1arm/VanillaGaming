@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the CMaNGOS Project. See AUTHORS file for Copyright information
  *
  * This program is free software; you can redistribute it and/or modify
@@ -625,6 +625,12 @@ void CreatureEventAI::ProcessAction(CreatureEventAI_Action const& action, uint32
                 if (reportTargetError)
                     sLog.outErrorEventAI("NULL target for ACTION_T_CAST creature entry %u casting spell id %u", m_creature->GetEntry(), action.cast.spellId);
                 return;
+            }
+            if (const SpellEntry* pSpell = sSpellStore.LookupEntry(spellId))
+            {
+                // 必须在目标背后发动的技能
+                if (pSpell->SpellIconID == 243 && target->HasInArc(M_PI_F, m_creature))
+                    { return; }
             }
 
             CanCastResult castResult = DoCastSpellIfCan(target, action.cast.spellId, action.cast.castFlags);
