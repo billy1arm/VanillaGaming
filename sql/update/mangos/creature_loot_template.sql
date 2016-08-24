@@ -495,6 +495,87 @@ UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='
 -- 盐壳掘地龟 --- 硬化龟壳
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='4144') AND (`item`='5795');
 
+-- 科卡尔半人马 --- 半人马的耳朵
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='4632') AND (`item`='6067');
+
+-- 科卡尔斥候 --- 半人马的耳朵
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='4633') AND (`item`='6067');
+
+-- 科卡尔虐待者 --- 半人马的耳朵
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='4634') AND (`item`='6067');
+
+-- 科卡尔逐风者 --- 半人马的耳朵
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='4635') AND (`item`='6067');
+
+-- 科卡尔队长 --- 半人马的耳朵
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='4636') AND (`item`='6067');
+
+-- 科卡尔摧毁者 --- 半人马的耳朵
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='4637') AND (`item`='6067');
+
+-- 玛格拉姆斥候 --- 半人马的耳朵
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='4638') AND (`item`='6067');
+
+-- 玛格拉姆前锋 --- 半人马的耳朵
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='4639') AND (`item`='6067');
+
+-- 玛格拉姆争斗者 --- 半人马的耳朵
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='4640') AND (`item`='6067');
+
+-- 玛格拉姆逐风者 --- 半人马的耳朵
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='4641') AND (`item`='6067');
+
+-- 玛格拉姆狂怒者 --- 半人马的耳朵
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='4642') AND (`item`='6067');
+
+-- 玛格拉姆驯犬者 --- 半人马的耳朵
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='4643') AND (`item`='6067');
+
+-- 玛格拉姆掠夺者 --- 半人马的耳朵
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='4644') AND (`item`='6067');
+
+-- 玛格拉姆虐待者 --- 半人马的耳朵
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='4645') AND (`item`='6067');
+
+-- 吉尔吉斯前锋 --- 半人马的耳朵
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='4646') AND (`item`='6067');
+
+-- 吉尔吉斯斥候 --- 半人马的耳朵
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='4647') AND (`item`='6067');
+
+-- 吉尔吉斯践踏者 --- 半人马的耳朵
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='4648') AND (`item`='6067');
+
+-- 吉尔吉斯逐风者 --- 半人马的耳朵
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='4649') AND (`item`='6067');
+
+-- 吉尔吉斯唤地者 --- 半人马的耳朵
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='4651') AND (`item`='6067');
+
+-- 吉尔吉斯虐待者 --- 半人马的耳朵
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='4652') AND (`item`='6067');
+
+-- 吉尔吉斯掠夺者 --- 半人马的耳朵
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='4653') AND (`item`='6067');
+
+-- 玛洛迪斥候 --- 半人马的耳朵
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='4654') AND (`item`='6067');
+
+-- 玛洛迪争斗者 --- 半人马的耳朵
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='4655') AND (`item`='6067');
+
+-- 玛洛迪虐待者 --- 半人马的耳朵
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='4656') AND (`item`='6067');
+
+-- 玛洛迪逐风者 --- 半人马的耳朵
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='4657') AND (`item`='6067');
+
+-- 玛洛迪狂怒者 --- 半人马的耳朵
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='4658') AND (`item`='6067');
+
+-- 玛洛迪掠夺者 --- 半人马的耳朵
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='4659') AND (`item`='6067');
+
 -- 石窟嚼石者 --- 精铁碎片
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-100' WHERE (`entry`='4851') AND (`item`='5797');
 
@@ -503,6 +584,9 @@ UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-100' WHERE (`entry`=
 
 -- 小精龙 --- 闪光的小精灵翅膀
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='5278') AND (`item`='9369');
+
+-- 赫鲁萨可汗 --- 半人马的耳朵
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='5402') AND (`item`='6067');
 
 -- 森提帕尔异种蝎 --- 森提帕尔昆虫肢体
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='5455') AND (`item`='8587');
@@ -525,6 +609,15 @@ UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='
 -- 灌木露水收集者 --- 饱满的露水腺
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-100' WHERE (`entry`='5481') AND (`item`='8428');
 
+-- 戴兹帕可汗 --- 半人马的耳朵
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='5600') AND (`item`='6067');
+
+-- 杰恩可汗 --- 半人马的耳朵
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='5601') AND (`item`='6067');
+
+-- 沙卡可汗 --- 半人马的耳朵
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='5602') AND (`item`='6067');
+
 -- 堕落的水之魂 --- 剩余的最纯净的水
 DELETE FROM `creature_loot_template` WHERE (`entry`='5894') AND (`item`='7811');
 INSERT INTO `creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`, `groupid`, `mincountOrRef`, `maxcount`, `condition_id`) VALUES ('5894', '7811', '-100', '0', '1', '1', '0');
@@ -534,6 +627,15 @@ UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='
 
 -- 滑壳龙虾人 --- 龙虾人的眼球
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-40' WHERE (`entry`='6020') AND (`item`='4887');
+
+-- 瓦鲁格的保镖 --- 半人马的耳朵
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='6068') AND (`item`='6067');
+
+-- 玛洛迪可汗保镖 --- 半人马的耳朵
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='6069') AND (`item`='6067');
+
+-- 玛洛迪可汗顾问 --- 半人马的耳朵
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='6070') AND (`item`='6067');
 
 -- 剑龙 --- 恐龙骨头
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='6501') AND (`item`='11114');
@@ -861,6 +963,9 @@ UPDATE `creature_loot_template` SET `groupid`='0' WHERE (`entry`='11382') AND (`
 DELETE FROM `creature_loot_template` WHERE (`entry`='11502') AND (`item`='17204');
 UPDATE `creature_loot_template` SET `groupid`='0' WHERE (`entry`='11502') AND (`item`='34002');
 
+-- 玛格拉姆通灵师 --- 半人马的耳朵
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='11559') AND (`item`='6067');
+
 -- 玛格曼达
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='0.2', `groupid`='0' WHERE (`entry`='11982') AND (`item`='34011');
 UPDATE `creature_loot_template` SET `groupid`='0' WHERE (`entry`='11982') AND (`item`='34013');
@@ -897,6 +1002,12 @@ UPDATE `creature_loot_template` SET `groupid`='0' WHERE (`entry`='12259') AND (`
 -- 沙斯拉尔
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='0.2', `groupid`='0' WHERE (`entry`='12264') AND (`item`='34011');
 UPDATE `creature_loot_template` SET `groupid`='0' WHERE (`entry`='12264') AND (`item`='34026');
+
+-- 科卡尔抢劫者 --- 半人马的耳朵
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='12976') AND (`item`='6067');
+
+-- 科卡尔伏击者 --- 半人马的耳朵
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='12977') AND (`item`='6067');
 
 -- 诺克赛恩幼体
 DELETE FROM `creature_loot_template` WHERE (`entry`='13696');
