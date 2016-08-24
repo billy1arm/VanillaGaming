@@ -24,6 +24,9 @@ UPDATE `creature_template` SET `ExtraFlags`='64' WHERE (`Entry`='2462');
 -- 自爆绵羊
 UPDATE `creature_template` SET `ScriptName`='npc_explosive_sheep' WHERE (`Entry`='2675');
 
+-- 断牙
+UPDATE `creature_template` SET `SpeedWalk`='1', `SpeedRun`='1.42857' WHERE (`Entry`='2850');
+
 -- 巴尔丹掘地工
 UPDATE `creature_template` SET `FactionAlliance`='47', `FactionHorde`='47' WHERE (`Entry`='2989');
 
