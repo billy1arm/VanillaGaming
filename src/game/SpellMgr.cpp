@@ -1897,6 +1897,10 @@ bool SpellMgr::IsNoStackSpellDueToSpell(uint32 spellId_1, uint32 spellId_2) cons
     if ((spellInfo_1->Id == 22850 && (spellInfo_2->Id == 19891 || spellInfo_2->Id == 19899 || spellInfo_2->Id == 19900)) || (spellInfo_2->Id == 22850 && (spellInfo_1->Id == 19891 || spellInfo_1->Id == 19899 || spellInfo_1->Id == 19900)))
         { return false; }
 
+    // 噬灵瘟疫 | 暗影易伤 --- 可叠加
+    if (((spellInfo_1->SpellVisual == 346 && spellInfo_1->SpellIconID == 9 && spellInfo_1->SpellFamilyName == SPELLFAMILY_PRIEST) && spellInfo_2->SpellVisual == 0 && spellInfo_2->SpellIconID == 9 && spellInfo_2->SpellFamilyName == SPELLFAMILY_PRIEST) || ((spellInfo_2->SpellVisual == 346 && spellInfo_2->SpellIconID == 9 && spellInfo_2->SpellFamilyName == SPELLFAMILY_PRIEST) && spellInfo_1->SpellVisual == 0 && spellInfo_1->SpellIconID == 9 && spellInfo_1->SpellFamilyName == SPELLFAMILY_PRIEST))
+        { return false; }
+
     // 血液虹吸
     if ((spellInfo_1->Id == 24322 || spellInfo_1->Id == 24324) && (spellInfo_2->Id == 24322 || spellInfo_2->Id == 24324))
         { return false; }
