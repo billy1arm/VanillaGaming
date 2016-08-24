@@ -84,6 +84,27 @@ UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='
 -- 血顶食腐者 --- 染血的白骨项链
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='702') AND (`item`='3915');
 
+-- 翠绿幼龙 --- 梦境粉尘
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='740') AND (`item`='5803');
+
+-- 睡梦雏龙 --- 梦境粉尘
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='741') AND (`item`='5803');
+
+-- 绿色龙族 --- 梦境粉尘
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='742') AND (`item`='5803');
+
+-- 龙族巡梦者 --- 梦境粉尘
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-100' WHERE (`entry`='743') AND (`item`='5803');
+
+-- 绿色刃鳞龙人 --- 梦境粉尘
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='744') AND (`item`='5803');
+
+-- 刃鳞龙人队长 --- 梦境粉尘
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='745') AND (`item`='5803');
+
+-- 龙人长者 --- 梦境粉尘
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='746') AND (`item`='5803');
+
 -- 劈颅黑豹 --- 劈颅巨魔的獠牙
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-100' WHERE (`entry`='756') AND (`item`='1524');
 
@@ -1032,6 +1053,9 @@ UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-100' WHERE (`entry`=
 
 -- 夜刃捕食者 --- 夜刃豹的牙齿
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='14430') AND (`item`='3409');
+
+-- 维尔玛克中尉 --- 梦境粉尘
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-15' WHERE (`entry`='14445') AND (`item`='5803');
 
 -- 高阶祭司温诺希斯
 DELETE FROM `creature_loot_template` WHERE (`entry`='14507');
