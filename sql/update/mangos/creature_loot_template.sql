@@ -198,11 +198,23 @@ UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='
 -- 夜刃捕食者 --- 夜刃豹的牙齿
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='2043') AND (`item`='3409');
 
+-- 月夜猛虎 --- 月夜猛虎的牙齿
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='2069') AND (`item`='5413');
+
+-- 月夜猛虎幼崽 --- 月夜猛虎的牙齿
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='2070') AND (`item`='5413');
+
 -- 月夜雌虎 --- 优质月夜猛虎毛皮
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='2071') AND (`item`='5386');
 
+-- 月夜雌虎 --- 月夜猛虎的牙齿
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='2071') AND (`item`='5413');
+
 -- 月夜雄虎 --- 优质月夜猛虎毛皮
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='2237') AND (`item`='5386');
+
+-- 月夜雄虎 --- 月夜猛虎的牙齿
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='2237') AND (`item`='5413');
 
 -- 破碎岭食人魔 --- 肮脏的指节骨
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='2252') AND (`item`='2843');
