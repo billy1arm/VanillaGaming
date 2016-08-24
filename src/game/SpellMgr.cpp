@@ -1893,6 +1893,10 @@ bool SpellMgr::IsNoStackSpellDueToSpell(uint32 spellId_1, uint32 spellId_2) cons
     if (((spellInfo_1->Id == 16327 || spellInfo_1->SpellVisual == 158 && spellInfo_1->SpellIconID == 125 && spellInfo_1->SpellFamilyName == SPELLFAMILY_GENERIC) && spellInfo_2->SpellVisual == 158 && spellInfo_2->SpellIconID == 125 && spellInfo_2->SpellFamilyName == SPELLFAMILY_MAGE) || ((spellInfo_2->Id == 16327 || spellInfo_2->SpellVisual == 158 && spellInfo_2->SpellIconID == 125 && spellInfo_2->SpellFamilyName == SPELLFAMILY_GENERIC) && spellInfo_1->SpellVisual == 158 && spellInfo_1->SpellIconID == 125 && spellInfo_1->SpellFamilyName == SPELLFAMILY_MAGE))
         { return false; }
 
+    // 庇护 | 火焰抗性光环 --- 可叠加
+    if ((spellInfo_1->Id == 22850 && (spellInfo_2->Id == 19891 || spellInfo_2->Id == 19899 || spellInfo_2->Id == 19900)) || (spellInfo_2->Id == 22850 && (spellInfo_1->Id == 19891 || spellInfo_1->Id == 19899 || spellInfo_1->Id == 19900)))
+        { return false; }
+
     // 血液虹吸
     if ((spellInfo_1->Id == 24322 || spellInfo_1->Id == 24324) && (spellInfo_2->Id == 24322 || spellInfo_2->Id == 24324))
         { return false; }
