@@ -1148,6 +1148,9 @@ UPDATE `creature_loot_template` SET `groupid`='0' WHERE (`entry`='14834') AND (`
 -- 南海绑匪 --- 南海海盗帽
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-6' WHERE (`entry`='15685') AND (`item`='20519');
 
+-- 粗制咒符
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE `item`='6079';
+
 -- 秘典：防护冰霜结界 V
 DELETE FROM `creature_loot_template` WHERE (`item`='22890');
 INSERT INTO `creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`, `groupid`, `mincountOrRef`, `maxcount`, `condition_id`) VALUES ('6109', '22890', '5', '0', '1', '1', '0');
