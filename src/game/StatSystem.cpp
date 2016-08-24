@@ -720,12 +720,16 @@ void Pet::UpdateResistances(uint32 school)
 void Pet::UpdateArmor()
 {
     float value = 0.0f;
+    float ownervalue = 0.0f;
+    if (GetOwner() && GetOwner()->GetTypeId() == TYPEID_PLAYER && GetOwner()->getClass() == CLASS_HUNTER)
+        { ownervalue = ownervalue + GetOwner()->GetArmor() * 0.35f; }
+
     UnitMods unitMod = UNIT_MOD_ARMOR;
 
     value  = GetModifierValue(unitMod, BASE_VALUE);
     value *= GetModifierValue(unitMod, BASE_PCT);
     value += GetStat(STAT_AGILITY) * 2.0f;
-    value += GetModifierValue(unitMod, TOTAL_VALUE);
+    value += GetModifierValue(unitMod, TOTAL_VALUE) + ownervalue;
     value *= GetModifierValue(unitMod, TOTAL_PCT);
 
     SetArmor(int32(value));
@@ -735,6 +739,8 @@ void Pet::UpdateMaxHealth()
 {
     UnitMods unitMod = UNIT_MOD_HEALTH;
     float stamina = GetStat(STAT_STAMINA) - GetCreateStat(STAT_STAMINA);
+    if (GetOwner() && GetOwner()->GetTypeId() == TYPEID_PLAYER && GetOwner()->getClass() == CLASS_HUNTER)
+        { stamina = stamina + GetOwner()->GetStat(STAT_STAMINA) * 0.3f; }
 
     float value   = GetModifierValue(unitMod, BASE_VALUE) + GetCreateHealth();
     value  *= GetModifierValue(unitMod, BASE_PCT);
