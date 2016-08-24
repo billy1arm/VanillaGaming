@@ -1212,14 +1212,20 @@ bool Pet::InitStatsForLevel(uint32 petlevel, Unit* owner)
             PetLevelInfo const* pInfo = sObjectMgr.GetPetLevelInfo(creature_ID, petlevel);
             if (pInfo)                                      // exist in DB
             {
-                SetCreateHealth(pInfo->health);
                 SetModifierValue(UNIT_MOD_ARMOR, BASE_VALUE, float(pInfo->armor));
                 // SetModifierValue(UNIT_MOD_ATTACK_POWER, BASE_VALUE, float(cinfo->attackpower));
 
                 for (int i = STAT_STRENGTH; i < MAX_STATS; ++i)
                 {
-                    SetCreateStat(Stats(i),  float(pInfo->stats[i]));
+                    if (i == STAT_STAMINA && GetOwner())
+                        { SetCreateStat(Stats(i), float(pInfo->stats[i] + GetOwner()->GetStat(STAT_STAMINA)*0.3f)); }
+                    else
+                        { SetCreateStat(Stats(i), float(pInfo->stats[i])); }
                 }
+                if (GetOwner())
+                    { SetCreateHealth((pInfo->stats[STAT_STAMINA] + GetOwner()->GetStat(STAT_STAMINA)*0.3f) * 10); }
+                else
+                    { SetCreateHealth(pInfo->stats[STAT_STAMINA] * 10); }
             }
             else                                            // not exist in DB, use some default fake data
             {
