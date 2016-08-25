@@ -2974,7 +2974,7 @@ void Spell::update(uint32 difftime)
     // update pointers based at it's GUIDs
     UpdatePointers();
 
-    if (m_targets.getUnitTargetGuid() && !m_targets.getUnitTarget())
+    if (!m_targets.getUnitTargetGuid().IsEmpty() && !m_targets.getUnitTarget())
     {
         cancel();
         return;
@@ -2984,6 +2984,16 @@ void Spell::update(uint32 difftime)
     {
         cancel();
         return;
+    }
+
+    // 消失
+    if (Unit* target = m_targets.getUnitTarget())
+    {
+        if (!target->isVisibleForOrDetect(m_caster, m_caster, true))
+        {
+            cancel();
+            return;
+        }
     }
 
     // check if the player or unit caster has moved before the spell finished (exclude casting on vehicles)
