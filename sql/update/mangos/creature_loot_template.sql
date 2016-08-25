@@ -372,6 +372,12 @@ UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='
 -- 扎拉斯·枯木 --- 枯木巨魔的獠牙
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-100' WHERE (`entry`='2605') AND (`item`='4503');
 
+-- 滚烫的雏龙 --- 黑色幼龙之心
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-100' WHERE (`entry`='2725') AND (`item`='4612');
+
+-- 烈焰守护者 --- 黑色幼龙之心
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-100' WHERE (`entry`='2726') AND (`item`='4612');
+
 -- 次级石元素 --- 小石头碎块
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='2735') AND (`item`='4626');
 
