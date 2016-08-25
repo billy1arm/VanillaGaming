@@ -21,3 +21,15 @@ INSERT INTO `spell_chain` (`spell_id`, `prev_spell`, `first_spell`, `rank`, `req
 
 -- 强效光明祝福
 UPDATE `spell_chain` SET `prev_spell`='19979', `first_spell`='19977', `rank`='4', `req_spell`='0' WHERE (`spell_id`='25890');
+
+-- 正义圣印
+DELETE FROM `spell_chain` WHERE `first_spell`='20154';
+DELETE FROM `spell_chain` WHERE `first_spell`='21084';
+INSERT INTO `spell_chain` (`spell_id`, `prev_spell`, `first_spell`, `rank`, `req_spell`) VALUES ('21084', '0', '21084', '1', '0');
+INSERT INTO `spell_chain` (`spell_id`, `prev_spell`, `first_spell`, `rank`, `req_spell`) VALUES ('20287', '21084', '21084', '2', '0');
+INSERT INTO `spell_chain` (`spell_id`, `prev_spell`, `first_spell`, `rank`, `req_spell`) VALUES ('20288', '20287', '21084', '3', '0');
+INSERT INTO `spell_chain` (`spell_id`, `prev_spell`, `first_spell`, `rank`, `req_spell`) VALUES ('20289', '20288', '21084', '4', '0');
+INSERT INTO `spell_chain` (`spell_id`, `prev_spell`, `first_spell`, `rank`, `req_spell`) VALUES ('20290', '20289', '21084', '5', '0');
+INSERT INTO `spell_chain` (`spell_id`, `prev_spell`, `first_spell`, `rank`, `req_spell`) VALUES ('20291', '20290', '21084', '6', '0');
+INSERT INTO `spell_chain` (`spell_id`, `prev_spell`, `first_spell`, `rank`, `req_spell`) VALUES ('20292', '20291', '21084', '7', '0');
+INSERT INTO `spell_chain` (`spell_id`, `prev_spell`, `first_spell`, `rank`, `req_spell`) VALUES ('20293', '20292', '21084', '8', '0');

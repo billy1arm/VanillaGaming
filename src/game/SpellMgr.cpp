@@ -2502,6 +2502,9 @@ void SpellMgr::LoadSpellChains()
             if (!spell_entry)                               // no cases
                 continue;
 
+            if (spell_id == 20154)
+                { continue; }
+
             // ignore spell without forwards (non ranked or missing info in skill abilities)
             uint32 forward_id = ab_itr->second->forward_spellid;
 
