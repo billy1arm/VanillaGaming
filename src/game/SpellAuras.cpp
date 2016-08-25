@@ -2357,6 +2357,29 @@ void Aura::HandleFeignDeath(bool apply, bool Real)
     if (!Real)
         return;
 
+    if (apply)
+    {
+        Unit *unitTarget = GetTarget();
+        Unit *m_caster = GetCaster();
+        std::list<Unit*> targets;
+        MaNGOS::AnyUnfriendlyUnitInObjectRangeCheck u_check(unitTarget, m_caster->GetMap()->GetVisibilityDistance());
+        MaNGOS::UnitListSearcher<MaNGOS::AnyUnfriendlyUnitInObjectRangeCheck> searcher(targets, u_check);
+        Cell::VisitAllObjects(unitTarget, searcher, m_caster->GetMap()->GetVisibilityDistance());
+        for (std::list<Unit*>::iterator iter = targets.begin(); iter != targets.end(); ++iter)
+        {
+            if ((*iter)->GetTypeId() == TYPEID_PLAYER)
+            {
+                for (uint32 i = CURRENT_FIRST_NON_MELEE_SPELL; i < CURRENT_MAX_SPELL; ++i)
+                {
+                    if (Spell* spell = (*iter)->GetCurrentSpell(CurrentSpellTypes(i)))
+                    {
+                        if (spell && spell->m_targets.getUnitTargetGuid() == (unsigned long)unitTarget->GetGUIDLow())
+                            { (*iter)->InterruptSpell(CurrentSpellTypes(i), false); }
+                    }
+                }
+            }
+        }
+    }
     GetTarget()->SetFeignDeath(apply, GetCasterGuid());
 }
 
