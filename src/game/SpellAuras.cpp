@@ -1168,6 +1168,10 @@ void Aura::HandleAuraDummy(bool apply, bool Real)
                         if (Unit* caster = GetCaster())
                             caster->CastSpell(caster, 13138, true, NULL, this);
                         return;
+                    case 11826:                             // 电磁熔合激活器
+                        if (Unit* caster = GetCaster())
+                            { caster->CastSpell(caster, 11828, true, NULL, this); }
+                        return;
                     case 23183:                             // Mark of Frost
                     {
                         if (Unit* target = GetTarget())
