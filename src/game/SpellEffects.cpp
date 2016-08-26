@@ -2343,6 +2343,8 @@ void Spell::EffectDispel(SpellEffectIndex eff_idx)
                 if (Player* modOwner = caster->GetSpellModOwner())
                     modOwner->ApplySpellMod(spellInfo->Id, SPELLMOD_RESIST_DISPEL_CHANCE, miss_chance, this);
             }
+            if (m_spellInfo->Id == 526)
+                { miss_chance = 0; }
             // Try dispel
             if (roll_chance_i(miss_chance))
                 fail_list.push_back(spellInfo->Id);
