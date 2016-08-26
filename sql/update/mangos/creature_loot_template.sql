@@ -243,6 +243,18 @@ UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='
 -- 月夜雄虎 --- 月夜猛虎的牙齿
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='2237') AND (`item`='5413');
 
+-- 洞穴雪人 --- 雪人的毛皮
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='2248') AND (`item`='3720');
+
+-- 凶恶的雪人 --- 雪人的毛皮
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='2249') AND (`item`='3720');
+
+-- 山岭雪人 --- 雪人的毛皮
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='2250') AND (`item`='3720');
+
+-- 巨型雪人 --- 雪人的毛皮
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='2251') AND (`item`='3720');
+
 -- 破碎岭食人魔 --- 肮脏的指节骨
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='2252') AND (`item`='2843');
 
