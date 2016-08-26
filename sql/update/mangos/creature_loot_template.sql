@@ -552,6 +552,9 @@ UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='
 -- 盐壳掘地龟 --- 硬化龟壳
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='4144') AND (`item`='5795');
 
+-- 黑鳍智者 --- 魔力海藻
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='4363') AND (`item`='4639');
+
 -- 科卡尔半人马 --- 半人马的耳朵
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='4632') AND (`item`='6067');
 
