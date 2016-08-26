@@ -106,6 +106,9 @@ UPDATE `gameobject` SET `spawntimesecs`='43200' WHERE (`id`='176309');
 -- 黑莲花
 UPDATE `gameobject` SET `spawntimesecs`='7200' WHERE (`id`='176589');
 
+-- 毒蛇雕像
+UPDATE `gameobject` SET `spawntimesecs`='10' WHERE (`guid`='177673');
+
 -- 布满灰尘的书籍
 DELETE FROM `gameobject` WHERE `id`='179547';
 DELETE FROM `gameobject` WHERE `id`='179548';

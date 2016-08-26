@@ -15,6 +15,9 @@ File Encoding         : 65001
 -- 奥妮克希亚的蛋
 UPDATE `gameobject_template` SET `data3`='17646' WHERE (`entry`='176511');
 
+-- 毒蛇雕像
+UPDATE `gameobject_template` SET `data2`='655360' WHERE (`entry`='177673');
+
 -- 布满灰尘的书籍
 UPDATE `gameobject_template` SET `size`='1.5' WHERE (`entry`='179547');
 UPDATE `gameobject_template` SET `size`='1.5' WHERE (`entry`='179548');
