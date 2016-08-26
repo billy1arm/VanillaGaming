@@ -1867,7 +1867,7 @@ void Player::RewardRage(uint32 damage, bool attacker)
 
         // Berserker Rage effect
         if (HasAura(18499, EFFECT_INDEX_0))
-            addRage *= 1.3f;
+            addRage *= 2.0f;
     }
 
     addRage *= sWorld.getConfig(CONFIG_FLOAT_RATE_POWER_RAGE_INCOME);
