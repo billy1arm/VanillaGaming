@@ -113,7 +113,7 @@ struct npc_belnistraszAI : public npc_escortAI
 
     void SpawnerSummon(Creature* pSummoner)
     {
-        if (m_uiRitualPhase > 7)
+        if (m_uiRitualPhase == 8)
         {
             pSummoner->SummonCreature(NPC_PLAGUEMAW_THE_ROTTING, pSummoner->GetPositionX(), pSummoner->GetPositionY(), pSummoner->GetPositionZ(), pSummoner->GetOrientation(), TEMPSUMMON_TIMED_OOC_DESPAWN, 60000);
             return;
