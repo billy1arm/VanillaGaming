@@ -45,6 +45,9 @@ UPDATE `creature_template` SET `SpeedWalk`='1', `SpeedRun`='1.14286' WHERE (`Ent
 -- 伊兰尼库斯的阴影
 UPDATE `creature_template` SET `UnitFlags`='0' WHERE (`Entry`='5709');
 
+-- “跳跃者”塔克
+UPDATE `creature_template` SET `SpeedWalk`='1.75', `SpeedRun`='2.5' WHERE (`Entry`='5842');
+
 -- 熔岩喷射图腾
 UPDATE `creature_template` SET `SpeedWalk`='1', `SpeedRun`='1' WHERE (`Entry`='6017');
 
