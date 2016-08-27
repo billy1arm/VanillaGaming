@@ -2034,14 +2034,7 @@ void Unit::AttackerStateUpdate(Unit* pVictim, WeaponAttackType attType, bool ext
 
         // not recent extra attack only at any non extra attack (melee spell case)
         if (!extra && extraAttacks)
-        {
-            while (m_extraAttacks)
-            {
-                AttackerStateUpdate(pVictim, BASE_ATTACK, true);
-                if (m_extraAttacks > 0)
-                    --m_extraAttacks;
-            }
-        }
+            { HandleProcExtraAttackFor(pVictim); }
         return;
     }
 
@@ -2065,13 +2058,15 @@ void Unit::AttackerStateUpdate(Unit* pVictim, WeaponAttackType attType, bool ext
 
     // extra attack only at any non extra attack (normal case)
     if (!extra && extraAttacks)
+        { HandleProcExtraAttackFor(pVictim); }
+}
+
+void Unit::HandleProcExtraAttackFor(Unit* victim)
+{
+    while (m_extraAttacks)
     {
-        while (m_extraAttacks)
-        {
-            AttackerStateUpdate(pVictim, BASE_ATTACK, true);
-            if (m_extraAttacks > 0)
-                --m_extraAttacks;
-        }
+        --m_extraAttacks;
+        AttackerStateUpdate(victim, BASE_ATTACK, true);
     }
 }
 
