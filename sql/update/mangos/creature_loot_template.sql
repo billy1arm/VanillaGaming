@@ -639,6 +639,12 @@ UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='
 -- 玛洛迪掠夺者 --- 半人马的耳朵
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='4659') AND (`item`='6067');
 
+-- 滑刃潮行者 --- 卡尼托的背包
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-100' WHERE (`entry`='4716') AND (`item`='6245');
+
+-- 滑刃海巫 --- 卡尼托的背包
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-100' WHERE (`entry`='4719') AND (`item`='6245');
+
 -- 石窟嚼石者 --- 精铁碎片
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-100' WHERE (`entry`='4851') AND (`item`='5797');
 
