@@ -12,6 +12,9 @@ File Encoding         : 65001
 -- Updates of creature_addon
 -- ----------------------------
 
+-- 瑟莱德丝公主
+DELETE FROM `creature_addon` WHERE `guid`='55342';
+
 -- 烈焰小鬼
 DELETE FROM `creature_addon` WHERE `guid`='56549';
 DELETE FROM `creature_addon` WHERE `guid`='56555';

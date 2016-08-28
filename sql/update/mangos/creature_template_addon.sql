@@ -93,6 +93,9 @@ UPDATE `creature_template_addon` SET `auras`='7941' WHERE (`entry`='12101');
 DELETE FROM `creature_template_addon` WHERE `entry`='12143';
 INSERT INTO `creature_template_addon` (`entry`, `mount`, `bytes1`, `b2_0_sheath`, `b2_1_flags`, `emote`, `moveflags`, `auras`) VALUES ('12143', '0', '0', '1', '16', '0', '0', '7942');
 
+-- 瑟莱德丝公主
+UPDATE `creature_template_addon` SET `auras`='7941' WHERE (`entry`='12201');
+
 -- 熔岩爪牙
 DELETE FROM `creature_template_addon` WHERE `entry`='12265';
 INSERT INTO `creature_template_addon` (`entry`, `mount`, `bytes1`, `b2_0_sheath`, `b2_1_flags`, `emote`, `moveflags`, `auras`) VALUES ('12265', '0', '0', '1', '16', '0', '0', '7942');

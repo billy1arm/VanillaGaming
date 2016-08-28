@@ -336,6 +336,9 @@ UPDATE `creature_template` SET `DamageMultiplier`='5' WHERE (`Entry`='12126');
 -- 奥妮克希亚守卫
 UPDATE `creature_template` SET `Armor`='6800', `ResistanceHoly`='121', `ResistanceFire`='363', `ResistanceNature`='121', `ResistanceFrost`='121', `ResistanceShadow`='121', `ResistanceArcane`='121' WHERE (`Entry`='12129');
 
+-- 瑟莱德丝公主
+UPDATE `creature_template` SET `MechanicImmuneMask`='116080631' WHERE (`Entry`='12201');
+
 -- 基赫纳斯
 UPDATE `creature_template` SET `DamageMultiplier`='32', `Armor`='6295', `ResistanceHoly`='121', `ResistanceFire`='121', `ResistanceNature`='121', `ResistanceFrost`='121', `ResistanceShadow`='121', `ResistanceArcane`='121' WHERE (`Entry`='12259');
 
