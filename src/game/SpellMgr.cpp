@@ -731,6 +731,8 @@ bool IsPositiveEffect(SpellEntry const* spellproto, SpellEffectIndex effIndex)
             {
                 case 17246:                                 // 被占据
                     return false;
+                case 21909:                                 // 灰尘力场
+                    return true;
                 default:
                     break;
             }
