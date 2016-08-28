@@ -1227,6 +1227,9 @@ UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE `item`='60
 DELETE FROM `creature_loot_template` WHERE (`item`='6082');
 INSERT INTO `creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`, `groupid`, `mincountOrRef`, `maxcount`, `condition_id`) VALUES ('741', '6082', '-100', '0', '1', '1', '0');
 
+-- 破碎的项链
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='100' WHERE `item`='7666';
+
 -- 秘典：防护冰霜结界 V
 DELETE FROM `creature_loot_template` WHERE (`item`='22890');
 INSERT INTO `creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`, `groupid`, `mincountOrRef`, `maxcount`, `condition_id`) VALUES ('6109', '22890', '5', '0', '1', '1', '0');
