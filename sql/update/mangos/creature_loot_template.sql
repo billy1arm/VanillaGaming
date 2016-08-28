@@ -1220,6 +1220,9 @@ UPDATE `creature_loot_template` SET `groupid`='0' WHERE (`entry`='14834') AND (`
 -- 南海绑匪 --- 南海海盗帽
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-6' WHERE (`entry`='15685') AND (`item`='20519');
 
+-- 金属碎块
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE `item`='4630';
+
 -- 粗制咒符
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE `item`='6079';
 
