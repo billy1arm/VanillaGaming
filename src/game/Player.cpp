@@ -1142,7 +1142,7 @@ void Player::Update(uint32 update_diff, uint32 p_time)
     {
         if (Unit *charmer = GetCharmer())
         {
-            if (charmer->GetTypeId() == TYPEID_UNIT && charmer->isAlive())
+            if (charmer->GetTypeId() == TYPEID_UNIT && charmer->isAlive() || HasAura(13181))
                 { UpdateCharmedAI(); }
         }
     }
@@ -19298,7 +19298,7 @@ void Player::UpdateCharmedAI()
     Creature *charmer = (Creature*)GetCharmer();
 
     // 主人不在战斗时跟随主人
-    if (!charmer->isInCombat())
+    if (charmer && !charmer->isInCombat())
         GetMotionMaster()->MoveFollow(charmer, PET_FOLLOW_DIST, PET_FOLLOW_ANGLE);
 
     // AI

@@ -1173,6 +1173,7 @@ void Spell::DoSpellHitOnUnit(Unit* unit, uint32 effectMask, bool isReflected)
                     case 2908:  // 安抚动物(等级1)
                     case 8955:  // 安抚动物(等级2)
                     case 9901:  // 安抚动物(等级3)
+                    case 13180: // 侏儒洗脑帽
                         break;
                     default:
                         if (!unit->isInCombat() && unit->GetTypeId() != TYPEID_PLAYER && ((Creature*)unit)->AI())
@@ -3995,8 +3996,17 @@ void Spell::CastTriggerSpells()
     for (SpellInfoList::const_iterator si = m_TriggerSpells.begin(); si != m_TriggerSpells.end(); ++si)
     {
         bool _triggered = true;
-        if ((*si)->Id == 20578)                             // 食尸
-            { _triggered = false; }
+
+        // ignore triggered status for certain spells
+        switch ((*si)->Id)
+        {
+            case 13181:                                      // Gnomish MC cap
+            case 20578:                                      // Cannibalize healing effect
+                _triggered = false;
+                break;
+            default:
+                break;
+        }
 
         Spell* spell = new Spell(m_caster, (*si), _triggered, m_originalCasterGUID);
         spell->prepare(&m_targets);                         // use original spell original targets

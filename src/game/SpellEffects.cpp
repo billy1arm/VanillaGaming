@@ -525,6 +525,22 @@ void Spell::EffectDummy(SpellEffectIndex eff_idx)
                         { m_caster->CastSpell(unitTarget, 13003, true, m_CastItem); }
                     return;
                 }
+                case 13180:                                 // 侏儒洗脑帽
+                {
+                    if (!unitTarget)
+                        { return; }
+
+                    uint32 roll = urand(0, 99);
+
+                    if (roll < 5)                           // 5% 被目标控制
+                        { unitTarget->CastSpell(m_caster, 13181, true, NULL); }
+                    else if (roll < 35)                     // 30% 失败
+                        { return; }
+                    else                                    // 65% 控制目标
+                        { AddTriggeredSpell(13181); }
+
+                    return;
+                }
                 case 13535:                                 // Tame Beast
                 {
                     if (!m_originalCaster || m_originalCaster->GetTypeId() != TYPEID_PLAYER)

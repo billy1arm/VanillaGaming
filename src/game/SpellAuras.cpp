@@ -2290,6 +2290,7 @@ void Aura::HandleModCharm(bool apply, bool Real)
         {
             ((Player*)target)->setFactionForRace(target->getRace());
             ((Player*)target)->SetClientControl(target, true);
+            ((Player*)target)->GetMotionMaster()->Clear(false);
         }
         else
         {
