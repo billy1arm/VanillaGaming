@@ -327,13 +327,13 @@ UPDATE `gameobject` SET `spawntimesecs`='900' WHERE (`id`='150080');
 UPDATE `gameobject` SET `spawntimesecs`='1800' WHERE (`id`='123310');
 
 -- 软泥覆盖的瑟银矿脉(18)
-UPDATE `gameobject` SET `spawntimesecs`='3600' WHERE (`id`='123848');
+UPDATE `gameobject` SET `spawntimesecs`='10800' WHERE (`id`='123848');
 
 -- 被软泥覆盖的金矿(1)
 UPDATE `gameobject` SET `spawntimesecs`='900' WHERE (`id`='73941');
 
 -- 被软泥覆盖的富瑟银矿(30)
-UPDATE `gameobject` SET `spawntimesecs`='3600' WHERE (`id`='177388');
+UPDATE `gameobject` SET `spawntimesecs`='10800' WHERE (`id`='177388');
 
 -- 精铁矿脉(3)
 UPDATE `gameobject` SET `spawntimesecs`='900' WHERE (`id`='19903');
@@ -348,9 +348,9 @@ UPDATE `gameobject` SET `spawntimesecs`='900' WHERE (`id`='2047');
 UPDATE `gameobject` SET `spawntimesecs`='900' WHERE (`id`='150081');
 
 -- 瑟银矿脉(913)
-UPDATE `gameobject` SET `spawntimesecs`='3600' WHERE (`id`='324');
-UPDATE `gameobject` SET `spawntimesecs`='3600' WHERE (`id`='150082');
-UPDATE `gameobject` SET `spawntimesecs`='3600' WHERE (`id`='176643');
+UPDATE `gameobject` SET `spawntimesecs`='10800' WHERE (`id`='324');
+UPDATE `gameobject` SET `spawntimesecs`='10800' WHERE (`id`='150082');
+UPDATE `gameobject` SET `spawntimesecs`='10800' WHERE (`id`='176643');
 
 -- 火岩矿脉(58)
 UPDATE `gameobject` SET `spawntimesecs`='120' WHERE (`id`='1610');
@@ -360,11 +360,11 @@ UPDATE `gameobject` SET `spawntimesecs`='120' WHERE (`id`='1667');
 UPDATE `gameobject` SET `spawntimesecs`='120' WHERE (`id`='2653');
 
 -- 富瑟银矿(504)
-UPDATE `gameobject` SET `spawntimesecs`='3600' WHERE (`id`='175404');
+UPDATE `gameobject` SET `spawntimesecs`='10800' WHERE (`id`='175404');
 
 -- 火焰龙舌兰(16)
 UPDATE `gameobject` SET `spawntimesecs`='180' WHERE (`id`='175928');
 
 -- 哈卡瑟银矿脉(3)
-UPDATE `gameobject` SET `spawntimesecs`='3600' WHERE (`id`='180215');
+UPDATE `gameobject` SET `spawntimesecs`='10800' WHERE (`id`='180215');
 
