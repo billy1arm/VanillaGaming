@@ -5143,10 +5143,7 @@ void Player::ModifySkillBonus(uint32 skillid, int32 val, bool talent)
     int16 temp_bonus = SKILL_TEMP_BONUS(bonus_val);
     int16 perm_bonus = SKILL_PERM_BONUS(bonus_val);
 
-    if (talent)                                         // permanent bonus stored in high part
-        SetUInt32Value(bonusIndex, MAKE_SKILL_BONUS(temp_bonus, perm_bonus + val));
-    else                                                // temporary/item bonus stored in low part
-        SetUInt32Value(bonusIndex, MAKE_SKILL_BONUS(temp_bonus + val, perm_bonus));
+    SetUInt32Value(bonusIndex, MAKE_SKILL_BONUS(temp_bonus + val, perm_bonus));
 }
 
 void Player::UpdateSkillsForLevel()
