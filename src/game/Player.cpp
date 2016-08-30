@@ -5107,7 +5107,7 @@ void Player::UpdateCombatSkills(Unit* pVictim, WeaponAttackType attType, bool de
     if (lvldif < 3)
         lvldif = 3;
 
-    int32 skilldif = 5 * plevel - (defence ? GetBaseDefenseSkillValue() : GetBaseWeaponSkillValue(attType));
+    int32 skilldif = 5 + 5 * plevel - (defence ? GetBaseDefenseSkillValue() : GetBaseWeaponSkillValue(attType));
 
     // Max skill reached for level.
     // Can in some cases be less than 0: having max skill and then .level -1 as example.
@@ -5143,7 +5143,10 @@ void Player::ModifySkillBonus(uint32 skillid, int32 val, bool talent)
     int16 temp_bonus = SKILL_TEMP_BONUS(bonus_val);
     int16 perm_bonus = SKILL_PERM_BONUS(bonus_val);
 
-    SetUInt32Value(bonusIndex, MAKE_SKILL_BONUS(temp_bonus + val, perm_bonus));
+    if (talent)                                         // permanent bonus stored in high part
+        SetUInt32Value(bonusIndex, MAKE_SKILL_BONUS(temp_bonus, perm_bonus + val));
+    else                                                // temporary/item bonus stored in low part
+        SetUInt32Value(bonusIndex, MAKE_SKILL_BONUS(temp_bonus + val, perm_bonus));
 }
 
 void Player::UpdateSkillsForLevel()
