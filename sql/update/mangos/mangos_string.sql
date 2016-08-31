@@ -43,3 +43,19 @@ DELETE FROM `mangos_string` WHERE `entry`='11203';
 INSERT INTO `mangos_string` (`entry`, `content_default`, `content_loc1`, `content_loc2`, `content_loc3`, `content_loc4`, `content_loc5`, `content_loc6`, `content_loc7`, `content_loc8`) VALUES ('11203', '[|cffff0000战友招募|r]:GM的脑子还没有秀逗,显然您不能自己招募自己.', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 DELETE FROM `mangos_string` WHERE `entry`='11204';
 INSERT INTO `mangos_string` (`entry`, `content_default`, `content_loc1`, `content_loc2`, `content_loc3`, `content_loc4`, `content_loc5`, `content_loc6`, `content_loc7`, `content_loc8`) VALUES ('11204', '[|cffff0000战友招募|r]:您已成功与目标玩家绑定招募关系,永久3倍经验,系统赠送1个月瞬飞.等级达到20.30.40.50还会获得旅行者背包(请确保有足够的空间),等级达到60会获得100G和30积分.', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+
+-- 小塔克
+DELETE FROM `mangos_string` WHERE `entry`='11300';
+INSERT INTO `mangos_string` (`entry`, `content_default`, `content_loc1`, `content_loc2`, `content_loc3`, `content_loc4`, `content_loc5`, `content_loc6`, `content_loc7`, `content_loc8`) VALUES ('11300', '小塔克对你翻了个白眼', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+DELETE FROM `mangos_string` WHERE `entry`='11301';
+INSERT INTO `mangos_string` (`entry`, `content_default`, `content_loc1`, `content_loc2`, `content_loc3`, `content_loc4`, `content_loc5`, `content_loc6`, `content_loc7`, `content_loc8`) VALUES ('11301', '小塔克开心的哼起了迅猛龙之歌..~斯 斯斯 斯~', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+DELETE FROM `mangos_string` WHERE `entry`='11302';
+INSERT INTO `mangos_string` (`entry`, `content_default`, `content_loc1`, `content_loc2`, `content_loc3`, `content_loc4`, `content_loc5`, `content_loc6`, `content_loc7`, `content_loc8`) VALUES ('11302', '小塔克斗志满满!想去狩猎!', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+DELETE FROM `mangos_string` WHERE `entry`='11303';
+INSERT INTO `mangos_string` (`entry`, `content_default`, `content_loc1`, `content_loc2`, `content_loc3`, `content_loc4`, `content_loc5`, `content_loc6`, `content_loc7`, `content_loc8`) VALUES ('11303', '小塔克在您的细心呵护下,成长了一点点.', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+DELETE FROM `mangos_string` WHERE `entry`='11304';
+INSERT INTO `mangos_string` (`entry`, `content_default`, `content_loc1`, `content_loc2`, `content_loc3`, `content_loc4`, `content_loc5`, `content_loc6`, `content_loc7`, `content_loc8`) VALUES ('11304', '小塔克已经成长为一只具有王霸之气的迅猛龙之王!不需要再喂养啦!', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+DELETE FROM `mangos_string` WHERE `entry`='11305';
+INSERT INTO `mangos_string` (`entry`, `content_default`, `content_loc1`, `content_loc2`, `content_loc3`, `content_loc4`, `content_loc5`, `content_loc6`, `content_loc7`, `content_loc8`) VALUES ('11305', '小塔克愤怒的咬了你一口!', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+DELETE FROM `mangos_string` WHERE `entry`='11306';
+INSERT INTO `mangos_string` (`entry`, `content_default`, `content_loc1`, `content_loc2`, `content_loc3`, `content_loc4`, `content_loc5`, `content_loc6`, `content_loc7`, `content_loc8`) VALUES ('11306', '小塔克进入了暴怒状态!暂时不要招惹它为妙.', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);

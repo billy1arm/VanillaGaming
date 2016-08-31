@@ -1052,6 +1052,15 @@ enum MangosStrings
     LANG_RAF_LEVEL                      = 11202, // 您已经超过20级,可以独立闯荡艾泽拉斯大陆.试着去招募其他玩家吧!
     LANG_RAF_WRONG_TARGET               = 11203, // GM的脑子还没有秀逗,显然您不能自己招募自己.
     LANG_RAF_GIFTS                      = 11204, // 您已成功与目标玩家绑定招募关系,永久3倍经验,系统赠送1个月瞬飞.等级达到20.30.40.50还会获得旅行者背包(请确保有足够的空间),等级达到60会获得100G和30积分.
+    
+    // 小塔克
+    LANG_PLAY_1                         = 11300, // 小塔克对你翻了个白眼
+    LANG_PLAY_2                         = 11301, // 小塔克开心的哼起了迅猛龙之歌..~斯 斯斯 斯~
+    LANG_PLAY_3                         = 11302, // 小塔克斗志满满!想去狩猎!
+    LANG_LEVEL_1                        = 11303, // 小塔克在您的细心呵护下,成长了一点点.
+    LANG_LEVEL_2                        = 11304, // 小塔克已经成长为一只具有王霸之气的迅猛龙之王!不需要再喂养啦!
+    LANG_BEAT_1                         = 11305, // 小塔克愤怒的咬了你一口!
+    LANG_BEAT_2                         = 11306, // 小塔克进入了暴怒状态!暂时不要招惹它为妙.
     // NOT RESERVED IDS                   12000-1999999999
     // `db_script_string` table index     2000000000-2000999999 (MIN_DB_SCRIPT_STRING_ID-MAX_DB_SCRIPT_STRING_ID)
     // For other tables maybe             2001000000-2147483647 (max index)

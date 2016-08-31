@@ -26,6 +26,25 @@ EndScriptData
 #include "escort_ai.h"
 #include "ObjectMgr.h"
 #include "GameEventMgr.h"
+#include "Language.h"
+
+std::string npcs_special_To_UTF8(const std::string & str)
+{
+    int nwLen = ::MultiByteToWideChar(CP_ACP, 0, str.c_str(), -1, NULL, 0);
+    wchar_t * pwBuf = new wchar_t[nwLen + 1];
+    ZeroMemory(pwBuf, nwLen * 2 + 2);
+    ::MultiByteToWideChar(CP_ACP, 0, str.c_str(), str.length(), pwBuf, nwLen);
+    int nLen = ::WideCharToMultiByte(CP_UTF8, 0, pwBuf, -1, NULL, NULL, NULL, NULL);
+    char * pBuf = new char[nLen + 1];
+    ZeroMemory(pBuf, nLen + 1);
+    ::WideCharToMultiByte(CP_UTF8, 0, pwBuf, nwLen, pBuf, nLen, NULL, NULL);
+    std::string retStr(pBuf);
+    delete[]pwBuf;
+    delete[]pBuf;
+    pwBuf = NULL;
+    pBuf = NULL;
+    return retStr;
+}
 
 /* ContentData
 npc_chicken_cluck       100%    support for quest 3861 (Cluck!)
@@ -1012,6 +1031,94 @@ CreatureAI* GetAI_npc_training_dummy(Creature* pCreature)
     return new npc_training_dummyAI(pCreature);
 }
 
+/*########
+# npc_small_takk
+#########*/
+
+enum
+{
+    SPELL_ENRAGE                = 8269,                     // 狂怒
+    SPELL_FRENZY                = 23128,                    // 疯狂
+    SPELL_LEVEL_UP              = 24312,                    // 升级
+};
+
+bool GossipHello_npc_small_takk(Player* pPlayer, Creature* pCreature)
+{
+    pPlayer->PrepareGossipMenu(pCreature, pPlayer->GetDefaultGossipMenuForSource(pCreature));
+    pPlayer->ADD_GOSSIP_ITEM(GOSSIP_ICON_TALK, npcs_special_To_UTF8("玩耍"), GOSSIP_SENDER_MAIN, GOSSIP_ACTION_INFO_DEF + 2); // 玩耍
+    pPlayer->ADD_GOSSIP_ITEM(GOSSIP_ICON_TALK, npcs_special_To_UTF8("喂养"), GOSSIP_SENDER_MAIN, GOSSIP_ACTION_INFO_DEF + 3); // 喂养
+    pPlayer->ADD_GOSSIP_ITEM(GOSSIP_ICON_TALK, npcs_special_To_UTF8("责罚"), GOSSIP_SENDER_MAIN, GOSSIP_ACTION_INFO_DEF + 4); // 责罚
+    pPlayer->TalkedToCreature(pCreature->GetEntry(), pCreature->GetObjectGuid());
+    pPlayer->SendPreparedGossip(pCreature);
+    return true;
+}
+
+bool GossipSelect_npc_small_takk(Player* pPlayer, Creature* pCreature, uint32 /*uiSender*/, uint32 uiAction)
+{
+    switch (uiAction)
+    {
+        case GOSSIP_ACTION_INFO_DEF + 2:
+            switch (urand(0, 2))
+            {
+                case 0:
+                    ChatHandler(pPlayer).SendSysMessage(LANG_PLAY_1);
+                    break;
+                case 1:
+                    ChatHandler(pPlayer).SendSysMessage(LANG_PLAY_2);
+                    break;
+                case 2:
+                    ChatHandler(pPlayer).SendSysMessage(LANG_PLAY_3);
+                    pCreature->CastSpell(pCreature, SPELL_FRENZY, true);
+                    break;
+                default:
+                    break;
+            }
+            pPlayer->PlayerTalkClass->CloseGossip();
+            break;
+        case GOSSIP_ACTION_INFO_DEF + 3:
+            switch (pCreature->getLevel())
+            {
+                case 1:
+                    pCreature->SetLevel(20);
+                    pCreature->CastSpell(pCreature, SPELL_LEVEL_UP, true);
+                    ChatHandler(pPlayer).SendSysMessage(LANG_LEVEL_1);
+                    break;
+                case 20:
+                    pCreature->SetLevel(40);
+                    pCreature->CastSpell(pCreature, SPELL_LEVEL_UP, true);
+                    ChatHandler(pPlayer).SendSysMessage(LANG_LEVEL_1);
+                    break;
+                case 40:
+                    pCreature->SetLevel(60);
+                    pCreature->CastSpell(pCreature, SPELL_LEVEL_UP, true);
+                    ChatHandler(pPlayer).SendSysMessage(LANG_LEVEL_1);
+                    break;
+                case 60:
+                    ChatHandler(pPlayer).SendSysMessage(LANG_LEVEL_2);
+                    break;
+                default:
+                    break;
+            }
+            pPlayer->PlayerTalkClass->CloseGossip();
+            break;
+        case GOSSIP_ACTION_INFO_DEF + 4:
+            if (pCreature->HasAura(SPELL_ENRAGE))
+            {
+                pCreature->DealDamage(pPlayer, pPlayer->GetHealth() / 10, NULL, DIRECT_DAMAGE, SPELL_SCHOOL_MASK_NORMAL, NULL, false);
+                ChatHandler(pPlayer).SendSysMessage(LANG_BEAT_1);
+            }
+            else
+            {
+                pCreature->CastSpell(pCreature, SPELL_ENRAGE, true);
+                ChatHandler(pPlayer).SendSysMessage(LANG_BEAT_2);
+            }
+            pPlayer->PlayerTalkClass->CloseGossip();
+            break;
+    }
+
+    return true;
+}
+
 void AddSC_npcs_special()
 {
     Script* pNewScript;
@@ -1064,5 +1171,11 @@ void AddSC_npcs_special()
     pNewScript = new Script;
     pNewScript->Name = "npc_training_dummy";
     pNewScript->GetAI = &GetAI_npc_training_dummy;
+    pNewScript->RegisterSelf();
+
+    pNewScript = new Script;
+    pNewScript->Name = "npc_small_takk";
+    pNewScript->pGossipHello = &GossipHello_npc_small_takk;
+    pNewScript->pGossipSelect = &GossipSelect_npc_small_takk;
     pNewScript->RegisterSelf();
 }
