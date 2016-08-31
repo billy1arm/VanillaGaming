@@ -1290,7 +1290,7 @@ void Unit::CalculateSpellDamage(SpellNonMeleeDamage* damageInfo, int32 damage, S
     {
         // physical damage => armor
         if (damageSchoolMask & SPELL_SCHOOL_MASK_NORMAL)
-            damage = CalcArmorReducedDamage(pVictim, damage);
+            damage = CalcArmorReducedDamage(pVictim, damage, SPELL_SCHOOL_MASK_NORMAL);
     }
     else
         damage = 0;
@@ -1398,7 +1398,7 @@ void Unit::CalculateMeleeDamage(Unit* pVictim, CalcDamageInfo* damageInfo, Weapo
     damage = damageInfo->target->MeleeDamageBonusTaken(this, damage, damageInfo->attackType);
 
     // Calculate armor reduction
-    damageInfo->damage = CalcArmorReducedDamage(damageInfo->target, damage);
+    damageInfo->damage = CalcArmorReducedDamage(damageInfo->target, damage, damageInfo->damageSchoolMask);
     damageInfo->cleanDamage += damage - damageInfo->damage;
 
     damageInfo->hitOutCome = RollMeleeOutcomeAgainst(damageInfo->target, damageInfo->attackType);
@@ -1737,17 +1737,20 @@ void Unit::HandleEmote(uint32 emote_id)
     }
 }
 
-uint32 Unit::CalcArmorReducedDamage(Unit* pVictim, const uint32 damage)
+uint32 Unit::CalcArmorReducedDamage(Unit* pVictim, const uint32 damage, SpellSchoolMask schoolMask)
 {
     uint32 newdamage = 0;
-    float armor = (float)pVictim->GetArmor();
+    float armor = 0.0f;
+    if (schoolMask & SPELL_SCHOOL_MASK_NORMAL)
+    {
+        armor = (float)pVictim->GetArmor();
 
-    // Ignore enemy armor by SPELL_AURA_MOD_TARGET_RESISTANCE aura
-    armor += GetTotalAuraModifierByMiscMask(SPELL_AURA_MOD_TARGET_RESISTANCE, SPELL_SCHOOL_MASK_NORMAL);
+        // Ignore enemy armor by SPELL_AURA_MOD_TARGET_RESISTANCE aura
+        armor += GetTotalAuraModifierByMiscMask(SPELL_AURA_MOD_TARGET_RESISTANCE, SPELL_SCHOOL_MASK_NORMAL);
 
-    if (armor < 0.0f)
-        armor = 0.0f;
-
+        if (armor < 0.0f)
+            { armor = 0.0f; }
+    }
     float levelModifier = (float)getLevel();
 
     float tmpvalue = 0.1f * armor / (8.5f * levelModifier + 40);

@@ -3428,7 +3428,7 @@ bool ChatHandler::HandleDamageCommand(char* args)
     SpellSchoolMask schoolmask = GetSchoolMask(school);
 
     if (schoolmask & SPELL_SCHOOL_MASK_NORMAL)
-        damage = player->CalcArmorReducedDamage(target, damage);
+        damage = player->CalcArmorReducedDamage(target, damage, SPELL_SCHOOL_MASK_NORMAL);
 
     // melee damage by specific school
     if (!*args)
