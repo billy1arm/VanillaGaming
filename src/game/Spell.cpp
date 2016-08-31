@@ -4000,6 +4000,7 @@ void Spell::CastTriggerSpells()
         // ignore triggered status for certain spells
         switch ((*si)->Id)
         {
+            case 8897:                                       // 摧毁火箭靴
             case 13181:                                      // Gnomish MC cap
             case 20578:                                      // Cannibalize healing effect
                 _triggered = false;

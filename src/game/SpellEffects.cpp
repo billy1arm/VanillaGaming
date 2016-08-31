@@ -450,6 +450,11 @@ void Spell::EffectDummy(SpellEffectIndex eff_idx)
                     m_caster->CastSpell(m_caster, spell_id, true, NULL);
                     return;
                 }
+                case 8897:                                  // 摧毁火箭靴
+                {
+                    m_caster->CastSpell(m_caster, 8893, true);
+                    return;
+                }
                 case 9976:                                  // Polly Eats the E.C.A.C.
                 {
                     if (!unitTarget || unitTarget->GetTypeId() != TYPEID_UNIT)
@@ -1574,10 +1579,10 @@ void Spell::EffectApplyAura(SpellEffectIndex eff_idx)
     // 地精火箭靴
     if (m_spellInfo->Id == 8892)
     {
-        if (roll_chance_f(10.0f))
+        if (roll_chance_f(33.0f))
         {
-            // 火箭靴故障
-            m_caster->CastSpell(m_caster, 8893, true);
+            // 摧毁火箭靴
+            AddTriggeredSpell(8897);
             return;
         }
     }
