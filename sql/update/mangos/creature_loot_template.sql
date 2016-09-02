@@ -558,6 +558,18 @@ UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='
 -- 黑鳍智者 --- 魔力海藻
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='80' WHERE (`entry`='4363') AND (`item`='4639');
 
+-- 黑雾蜘蛛 --- 黑雾蜘蛛的眼球
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='4376') AND (`item`='5884');
+
+-- 暗雾独行蛛 --- 黑雾蜘蛛的眼球
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-78' WHERE (`entry`='4378') AND (`item`='5884');
+
+-- 暗雾纺丝者 --- 黑雾蜘蛛的眼球
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-50' WHERE (`entry`='4379') AND (`item`='5884');
+
+-- 暗雾寡妇蛛 --- 黑雾蜘蛛的眼球
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-25' WHERE (`entry`='4380') AND (`item`='5884');
+
 -- 科卡尔半人马 --- 半人马的耳朵
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='4632') AND (`item`='6067');
 
