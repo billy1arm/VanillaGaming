@@ -124,13 +124,13 @@ UPDATE `creature_template` SET `SpeedWalk`='1', `SpeedRun`='1' WHERE (`Entry`='7
 UPDATE `creature_template` SET `SpeedWalk`='0.888888', `SpeedRun`='1.14286' WHERE (`Entry`='7786');
 
 -- 沙怒奴隶
-UPDATE `creature_template` SET `SpeedWalk`='1', `SpeedRun`='1.14286' WHERE (`Entry`='7787');
+UPDATE `creature_template` SET `ExtraFlags`='64', `SpeedWalk`='1', `SpeedRun`='1.14286' WHERE (`Entry`='7787');
 
 -- 沙怒苦工
-UPDATE `creature_template` SET `SpeedWalk`='1', `SpeedRun`='1.14286' WHERE (`Entry`='7788');
+UPDATE `creature_template` SET `ExtraFlags`='64', `SpeedWalk`='1', `SpeedRun`='1.14286' WHERE (`Entry`='7788');
 
 -- 沙怒智障者
-UPDATE `creature_template` SET `SpeedWalk`='1.6', `SpeedRun`='0.714286' WHERE (`Entry`='7789');
+UPDATE `creature_template` SET `ExtraFlags`='64', `SpeedWalk`='1.6', `SpeedRun`='0.714286' WHERE (`Entry`='7789');
 
 -- 水占师维蕾萨
 UPDATE `creature_template` SET `SpeedWalk`='1', `SpeedRun`='1.14286' WHERE (`Entry`='7795');
