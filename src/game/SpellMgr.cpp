@@ -2097,6 +2097,10 @@ bool SpellMgr::IsNoStackSpellDueToSpell(uint32 spellId_1, uint32 spellId_2) cons
                 if ((spellInfo_1->SpellIconID == 456 && spellInfo_2->SpellIconID == 2006) ||
                         (spellInfo_2->SpellIconID == 456 && spellInfo_1->SpellIconID == 2006))
                     return false;
+
+                // 战斗怒吼 | 挫志怒吼
+                if ((spellInfo_1->SpellVisual == 246 && spellInfo_1->SpellIconID == 456 && spellInfo_2->SpellVisual == 210 && spellInfo_2->SpellIconID == 282) || (spellInfo_2->SpellVisual == 246 && spellInfo_2->SpellIconID == 456 && spellInfo_1->SpellVisual == 210 && spellInfo_1->SpellIconID == 282))
+                    { return false; }
             }
 
             // Defensive State Dummy and Shield Block
