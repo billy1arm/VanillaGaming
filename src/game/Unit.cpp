@@ -6787,8 +6787,6 @@ bool Unit::canDetectInvisibilityOf(Unit const* u) const
 
 void Unit::UpdateSpeed(UnitMoveType mtype, bool forced, float ratio)
 {
-    Unit* unitOwner = GetOwner();
-    Player *owner = unitOwner ? unitOwner->ToPlayer() : NULL;
     // not in combat pet have same speed as owner
     switch (mtype)
     {
@@ -6826,8 +6824,10 @@ void Unit::UpdateSpeed(UnitMoveType mtype, bool forced, float ratio)
             }
             else
             {
+                Unit* unitOwner = GetOwner();
+                Player *owner = unitOwner ? unitOwner->ToPlayer() : NULL;
                 // 野兽迅捷
-                if (!m_attacking && owner->HasAura(19596))
+                if (owner && !m_attacking && owner->HasAura(19596))
                 {
                     AuraList const& auras = GetAurasByType(SPELL_AURA_MOD_INCREASE_SPEED);
                     for (AuraList::const_iterator it = auras.begin(); it != auras.end(); ++it)
