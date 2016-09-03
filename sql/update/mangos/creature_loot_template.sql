@@ -663,11 +663,35 @@ UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-100' WHERE (`entry`=
 -- 石窟猎手 --- 精铁碎片
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-100' WHERE (`entry`='4856') AND (`item`='5797');
 
+-- 格罗多克猿人 --- 格罗多克猩猩的肝脏
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='5260') AND (`item`='6259');
+
+-- 格罗多克大猩猩 --- 格罗多克猩猩的肝脏
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='5262') AND (`item`='6259');
+
+-- 铁鬃熊 --- 铁鬃熊的肝脏
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='5268') AND (`item`='6258');
+
+-- 铁鬃灰熊 --- 铁鬃熊的肝脏
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='5272') AND (`item`='6258');
+
+-- 铁鬃熊王 --- 铁鬃熊的肝脏
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='5274') AND (`item`='6258');
+
 -- 小精龙 --- 闪光的小精灵翅膀
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='5278') AND (`item`='9369');
 
 -- 赫鲁萨可汗 --- 半人马的耳朵
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='5402') AND (`item`='6067');
+
+-- 大鹏 --- 大鹏的砂囊
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='5428') AND (`item`='6257');
+
+-- 火鹏 --- 大鹏的砂囊
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='5429') AND (`item`='6257');
+
+-- 炎鹏 --- 大鹏的砂囊
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='5430') AND (`item`='6257');
 
 -- 森提帕尔异种蝎 --- 森提帕尔昆虫肢体
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='5455') AND (`item`='8587');
