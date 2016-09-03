@@ -42,6 +42,9 @@ UPDATE `item_template` SET `spellcharges_1`='1' WHERE (`entry`='17204');
 -- 绿色守护者之弓
 UPDATE `item_template` SET `dmg_min2`='0', `dmg_max2`='0', `dmg_type2`='0', `spellid_1`='29637', `spelltrigger_1`='1' WHERE (`entry`='17753');
 
+-- 石拳
+UPDATE `item_template` SET `spellppmRate_1`='3' WHERE (`entry`='17943');
+
 -- 修理机器人74A型
 UPDATE `item_template` SET `spellcooldown_1`='3600000' WHERE (`entry`='18232');
 
