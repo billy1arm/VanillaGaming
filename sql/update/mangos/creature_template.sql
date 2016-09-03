@@ -216,6 +216,9 @@ UPDATE `creature_template` SET `ExtraFlags`='64' WHERE (`Entry`='10717');
 -- 碎矛巨魔
 UPDATE `creature_template` SET `ExtraFlags`='64' WHERE (`Entry`='10919');
 
+-- 腐烂虫
+UPDATE `creature_template` SET `ExtraFlags`='64' WHERE (`Entry`='10925');
+
 -- 奥妮克希亚雏龙
 UPDATE `creature_template` SET `Armor`='6800', `ResistanceHoly`='121', `ResistanceFire`='363', `ResistanceNature`='121', `ResistanceFrost`='121', `ResistanceShadow`='121', `ResistanceArcane`='121' WHERE (`Entry`='11262');
 
