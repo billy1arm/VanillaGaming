@@ -159,6 +159,9 @@ UPDATE `creature_template` SET `SpeedWalk`='1.11111', `SpeedRun`='1.14286' WHERE
 -- 强效治疗结界
 UPDATE `creature_template` SET `SpeedWalk`='1', `SpeedRun`='1' WHERE (`Entry`='8179');
 
+-- 格朗特
+UPDATE `creature_template` SET `SpeedWalk`='1', `SpeedRun`='1.42857' WHERE (`Entry`='8303');
+
 -- 沙怒侍僧
 UPDATE `creature_template` SET `SpeedWalk`='1', `SpeedRun`='1.14286' WHERE (`Entry`='8876');
 
