@@ -1269,6 +1269,9 @@ INSERT INTO `creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`, `g
 -- 破碎的项链
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='100' WHERE `item`='7666';
 
+-- 原始雪人毛皮
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='25' WHERE `item`='18969';
+
 -- 秘典：防护冰霜结界 V
 DELETE FROM `creature_loot_template` WHERE (`item`='22890');
 INSERT INTO `creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`, `groupid`, `mincountOrRef`, `maxcount`, `condition_id`) VALUES ('6109', '22890', '5', '0', '1', '1', '0');
