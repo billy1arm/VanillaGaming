@@ -69,6 +69,18 @@ DELETE FROM `creature` WHERE `id`='14889';
 DELETE FROM `creature` WHERE `id`='14890';
 -- INSERT INTO `creature` (`guid`, `id`, `map`, `modelid`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `spawndist`, `currentwaypoint`, `curhealth`, `curmana`, `DeathState`, `MovementType`) VALUES ('4256', '14890', '0', '15363', '0', '-10428.8', '-392.176', '43.7411', '0.932375', '604800', '5', '0', '832750', '8640', '0', '2');
 
+-- 指挥官玛尔利斯
+DELETE FROM `creature` WHERE `id`='15181';
+-- INSERT INTO `creature` (`guid`, `id`, `map`, `modelid`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `spawndist`, `currentwaypoint`, `curhealth`, `curmana`, `DeathState`, `MovementType`) VALUES ('42762', '15181', '1', '15315', '0', '-6752.38', '823.836', '57.3633', '0.344505', '600', '0', '0', '10327', '0', '0', '0');
+
+-- 唤风者卡尔东
+DELETE FROM `creature` WHERE `id`='15540';
+-- INSERT INTO `creature` (`guid`, `id`, `map`, `modelid`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `spawndist`, `currentwaypoint`, `curhealth`, `curmana`, `DeathState`, `MovementType`) VALUES ('43200', '15540', '1', '15550', '0', '-6802.81', '796.45', '51.3594', '3.01942', '600', '0', '0', '3700', '0', '0', '0');
+
+-- 克鲁格·碎颅
+DELETE FROM `creature` WHERE `id`='15612';
+-- INSERT INTO `creature` (`guid`, `id`, `map`, `modelid`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `spawndist`, `currentwaypoint`, `curhealth`, `curmana`, `DeathState`, `MovementType`) VALUES ('46167', '15612', '1', '15567', '0', '-7547.94', '718.819', '-16.2931', '4.66003', '600', '0', '0', '23123', '0', '0', '0');
+
 -- 莫克瓦尔
 DELETE FROM `creature` WHERE `id`='16012';
 -- INSERT INTO `creature` (`guid`, `id`, `map`, `modelid`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `spawndist`, `currentwaypoint`, `curhealth`, `curmana`, `DeathState`, `MovementType`) VALUES ('6491', '16012', '1', '15966', '0', '1915.67', '-4170.77', '41.0061', '0.750492', '300', '0', '0', '4000', '0', '0', '0');
