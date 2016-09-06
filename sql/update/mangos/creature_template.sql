@@ -177,8 +177,14 @@ UPDATE `creature_template` SET `SpeedWalk`='1', `SpeedRun`='1.14286' WHERE (`Ent
 -- 铁怒预备兵
 UPDATE `creature_template` SET `ExtraFlags`='64' WHERE (`Entry`='8901');
 
+-- 铁炉堡公主茉艾拉·铜须
+UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='8929');
+
 -- 审讯官格斯塔恩
 UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='9018');
+
+-- 达格兰·索瑞森大帝
+UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='9019');
 
 -- 控火师罗格雷恩
 UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='9024');
