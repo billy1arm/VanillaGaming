@@ -100,7 +100,7 @@ UPDATE `creature_template` SET `ExtraFlags`='64', `SpeedWalk`='1', `SpeedRun`='1
 UPDATE `creature_template` SET `SpeedWalk`='1', `SpeedRun`='1.14286' WHERE (`Entry`='7286');
 
 -- 布莱中士
-UPDATE `creature_template` SET `SpeedWalk`='1', `SpeedRun`='1.14286' WHERE (`Entry`='7604');
+UPDATE `creature_template` SET `NpcFlags`='0', `SpeedWalk`='1', `SpeedRun`='1.14286' WHERE (`Entry`='7604');
 
 -- 拉文
 UPDATE `creature_template` SET `SpeedWalk`='1', `SpeedRun`='1.14286' WHERE (`Entry`='7605');
@@ -109,7 +109,7 @@ UPDATE `creature_template` SET `SpeedWalk`='1', `SpeedRun`='1.14286' WHERE (`Ent
 UPDATE `creature_template` SET `SpeedWalk`='1', `SpeedRun`='1.14286' WHERE (`Entry`='7606');
 
 -- 维格利
-UPDATE `creature_template` SET `SpeedWalk`='1', `SpeedRun`='1.14286' WHERE (`Entry`='7607');
+UPDATE `creature_template` SET `NpcFlags`='0', `SpeedWalk`='1', `SpeedRun`='1.14286' WHERE (`Entry`='7607');
 
 -- 穆尔塔
 UPDATE `creature_template` SET `SpeedWalk`='1', `SpeedRun`='1.14286' WHERE (`Entry`='7608');
