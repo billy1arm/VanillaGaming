@@ -270,7 +270,7 @@ UPDATE `locales_creature` SET `name_loc4`='夜行织影狼人', `subname_loc4`='
 UPDATE `locales_creature` SET `name_loc4`='奈法鲁', `subname_loc4`='兽穴之母' WHERE (`entry`='534');
 UPDATE `locales_creature` SET `name_loc4`='小型结网毒蜘蛛', `subname_loc4`='' WHERE (`entry`='539');
 UPDATE `locales_creature` SET `name_loc4`='狮鹫', `subname_loc4`='' WHERE (`entry`='541');
-UPDATE `locales_creature` SET `name_loc4`='纳雷塞特', `subname_loc4`='兽栏管理员' WHERE (`entry`='543');
+UPDATE `locales_creature` SET `name_loc4`='纳雷塞特', `subname_loc4`='宠物训练师' WHERE (`entry`='543');
 UPDATE `locales_creature` SET `name_loc4`='鱼人夜行者', `subname_loc4`='' WHERE (`entry`='544');
 UPDATE `locales_creature` SET `name_loc4`='鱼人招潮者', `subname_loc4`='' WHERE (`entry`='545');
 UPDATE `locales_creature` SET `name_loc4`='巨型血牙野猪', `subname_loc4`='' WHERE (`entry`='547');
