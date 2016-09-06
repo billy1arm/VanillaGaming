@@ -387,6 +387,9 @@ UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='
 -- 扎拉斯·枯木 --- 枯木巨魔的獠牙
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-100' WHERE (`entry`='2605') AND (`item`='4503');
 
+-- 枯木巢穴守卫 --- 完好无损的毒囊
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE (`entry`='2686') AND (`item`='9322');
+
 -- 滚烫的雏龙 --- 黑色幼龙之心
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-100' WHERE (`entry`='2725') AND (`item`='4612');
 
