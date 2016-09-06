@@ -48,6 +48,9 @@ UPDATE `creature_template` SET `UnitFlags`='0' WHERE (`Entry`='5709');
 -- “跳跃者”塔克
 UPDATE `creature_template` SET `SpeedWalk`='1.75', `SpeedRun`='2.5' WHERE (`Entry`='5842');
 
+-- 守望堡士兵
+UPDATE `creature_template` SET `ExtraFlags`='64' WHERE (`Entry`='5999');
+
 -- 熔岩喷射图腾
 UPDATE `creature_template` SET `SpeedWalk`='1', `SpeedRun`='1' WHERE (`Entry`='6017');
 
