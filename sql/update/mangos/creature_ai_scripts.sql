@@ -15,6 +15,9 @@ File Encoding         : 65001
 -- 奈塔拉什
 DELETE FROM `creature_ai_scripts` WHERE `id`='198302';
 
+-- 碧火欺诈者
+UPDATE `creature_ai_scripts` SET `action1_param2`='5' WHERE (`id`='710703');
+
 -- 巫医祖穆拉恩
 DELETE FROM `creature_ai_scripts` WHERE `creature_id`='7271';
 
