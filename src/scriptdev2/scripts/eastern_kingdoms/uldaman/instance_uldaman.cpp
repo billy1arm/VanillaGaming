@@ -268,7 +268,7 @@ void instance_uldaman::Update(uint32 uiDiff)
         {
             // Get Keeper which is alive and out of combat
             Creature* pKeeper = instance->GetCreature(*itr);
-            if (!pKeeper || !pKeeper->isAlive() || pKeeper->getVictim())
+            if (!pKeeper || !pKeeper->isAlive())
                 continue;
 
             // Get starter player for attack
@@ -285,6 +285,7 @@ void instance_uldaman::Update(uint32 uiDiff)
             }
 
             // Attack the player
+            pKeeper->RemoveFlag(UNIT_FIELD_FLAGS, UNIT_FLAG_NON_ATTACKABLE);
             pKeeper->RemoveAurasDueToSpell(SPELL_STONED);
             pKeeper->AI()->AttackStart(pPlayer);
             break;

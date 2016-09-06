@@ -33,6 +33,9 @@ UPDATE `creature_template` SET `FactionAlliance`='47', `FactionHorde`='47' WHERE
 -- 巴尔丹鉴定官
 UPDATE `creature_template` SET `FactionAlliance`='47', `FactionHorde`='47' WHERE (`Entry`='2990');
 
+-- 石头看守者
+UPDATE `creature_template` SET `UnitFlags`='2' WHERE (`Entry`='4857');
+
 -- 沙怒暗影法师
 UPDATE `creature_template` SET `SpeedWalk`='1', `SpeedRun`='1.14286' WHERE (`Entry`='5648');
 
