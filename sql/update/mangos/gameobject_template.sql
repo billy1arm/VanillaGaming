@@ -12,6 +12,24 @@ File Encoding         : 65001
 -- Updates of gameobject_template
 -- ----------------------------
 
+-- 酒吧的门
+UPDATE `gameobject_template` SET `data2`='235929600' WHERE (`entry`='170571');
+
+-- 北部傀儡间
+UPDATE `gameobject_template` SET `data2`='235929600' WHERE (`entry`='170573');
+
+-- 南部傀儡间
+UPDATE `gameobject_template` SET `data2`='235929600' WHERE (`entry`='170574');
+
+-- 王座厅大门
+UPDATE `gameobject_template` SET `data2`='235929600' WHERE (`entry`='170575');
+
+-- 黑铁门02
+UPDATE `gameobject_template` SET `data2`='235929600' WHERE (`entry`='170576');
+
+-- 黑铁门03
+UPDATE `gameobject_template` SET `data2`='235929600' WHERE (`entry`='170577');
+
 -- 奥妮克希亚的蛋
 UPDATE `gameobject_template` SET `data3`='17646' WHERE (`entry`='176511');
 
