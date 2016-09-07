@@ -12,6 +12,9 @@ File Encoding         : 65001
 -- Updates of gameobject_template
 -- ----------------------------
 
+-- 雷霆啤酒
+UPDATE `gameobject_template` SET `ScriptName`='go_thunderbrew_lager_keg' WHERE (`entry`='164911');
+
 -- 酒吧的门
 UPDATE `gameobject_template` SET `data2`='235929600' WHERE (`entry`='170571');
 

@@ -53,6 +53,8 @@ enum
     NPC_ANVILRAGE_MEDIC     = 8894,
     NPC_ANVILRAGE_OFFICER   = 8895,
 
+    NPC_HURLEY_BLACKBREATH  = 9537,
+
     GO_ARENA_1              = 161525,
     GO_ARENA_2              = 161522,
     GO_ARENA_3              = 161524,

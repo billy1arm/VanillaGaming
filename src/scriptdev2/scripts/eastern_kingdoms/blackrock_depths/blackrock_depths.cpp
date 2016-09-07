@@ -38,6 +38,31 @@ EndContentData */
 #include "escort_ai.h"
 
 /*######
+## go_thunderbrew_lager_keg
+######*/
+
+bool GOUse_go_thunderbrew_lager_keg(Player* pPlayer, GameObject* pGo)
+{
+    if (ScriptedInstance* pInstance = (ScriptedInstance*)pGo->GetInstanceData())
+    {
+        uint32 keg_number = 0;
+        std::list<GameObject*> m_lEluneLights;
+        GetGameObjectListWithEntryInGrid(m_lEluneLights, pPlayer, 164911, 20.0f);
+        for (std::list<GameObject*>::const_iterator itr = m_lEluneLights.begin(); itr != m_lEluneLights.end(); ++itr)
+        {
+            if ((*itr)->isSpawned())
+                { continue; }
+
+            keg_number += 1;
+        }
+        if (keg_number > 1)
+            { pPlayer->SummonCreature(NPC_HURLEY_BLACKBREATH, pPlayer->GetPositionX(), pPlayer->GetPositionY(), pPlayer->GetPositionZ(), 0, TEMPSUMMON_TIMED_OOC_DESPAWN, 15000); }
+    }
+
+    return false;
+}
+
+/*######
 ## go_shadowforge_brazier
 ######*/
 
@@ -1080,6 +1105,11 @@ bool GossipSelect_boss_doomrel(Player* pPlayer, Creature* pCreature, uint32 /*ui
 void AddSC_blackrock_depths()
 {
     Script* pNewScript;
+
+    pNewScript = new Script;
+    pNewScript->Name = "go_thunderbrew_lager_keg";
+    pNewScript->pGOUse = &GOUse_go_thunderbrew_lager_keg;
+    pNewScript->RegisterSelf();
 
     pNewScript = new Script;
     pNewScript->Name = "go_shadowforge_brazier";
