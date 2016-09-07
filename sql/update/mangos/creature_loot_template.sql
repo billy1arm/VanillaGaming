@@ -1278,6 +1278,13 @@ UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='0.6111' WHERE `item`=
 -- 原始雪人毛皮
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='25' WHERE `item`='18969';
 
+-- 完美的雪人毛皮
+DELETE FROM `creature_loot_template` WHERE (`item`='18972');
+INSERT INTO `creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`, `groupid`, `mincountOrRef`, `maxcount`, `condition_id`) VALUES ('5296', '18972', '25', '0', '1', '1', '102');
+INSERT INTO `creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`, `groupid`, `mincountOrRef`, `maxcount`, `condition_id`) VALUES ('5297', '18972', '25', '0', '1', '1', '102');
+INSERT INTO `creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`, `groupid`, `mincountOrRef`, `maxcount`, `condition_id`) VALUES ('5299', '18972', '25', '0', '1', '1', '102');
+INSERT INTO `creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`, `groupid`, `mincountOrRef`, `maxcount`, `condition_id`) VALUES ('7848', '18972', '25', '0', '1', '1', '102');
+
 -- 秘典：防护冰霜结界 V
 DELETE FROM `creature_loot_template` WHERE (`item`='22890');
 INSERT INTO `creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`, `groupid`, `mincountOrRef`, `maxcount`, `condition_id`) VALUES ('6109', '22890', '5', '0', '1', '1', '0');
