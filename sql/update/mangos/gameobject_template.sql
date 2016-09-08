@@ -15,23 +15,26 @@ File Encoding         : 65001
 -- 雷霆啤酒
 UPDATE `gameobject_template` SET `ScriptName`='go_thunderbrew_lager_keg' WHERE (`entry`='164911');
 
+-- 东部兵营大门
+UPDATE `gameobject_template` SET `data2`='707788800' WHERE (`entry`='170570');
+
 -- 酒吧的门
-UPDATE `gameobject_template` SET `data2`='235929600' WHERE (`entry`='170571');
+UPDATE `gameobject_template` SET `data2`='707788800' WHERE (`entry`='170571');
 
 -- 北部傀儡间
-UPDATE `gameobject_template` SET `data2`='235929600' WHERE (`entry`='170573');
+UPDATE `gameobject_template` SET `data2`='707788800' WHERE (`entry`='170573');
 
 -- 南部傀儡间
-UPDATE `gameobject_template` SET `data2`='235929600' WHERE (`entry`='170574');
+UPDATE `gameobject_template` SET `data2`='707788800' WHERE (`entry`='170574');
 
 -- 王座厅大门
-UPDATE `gameobject_template` SET `data2`='235929600' WHERE (`entry`='170575');
+UPDATE `gameobject_template` SET `data2`='707788800' WHERE (`entry`='170575');
 
 -- 黑铁门02
-UPDATE `gameobject_template` SET `data2`='235929600' WHERE (`entry`='170576');
+UPDATE `gameobject_template` SET `data2`='707788800' WHERE (`entry`='170576');
 
 -- 黑铁门03
-UPDATE `gameobject_template` SET `data2`='235929600' WHERE (`entry`='170577');
+UPDATE `gameobject_template` SET `data2`='707788800' WHERE (`entry`='170577');
 
 -- 奥妮克希亚的蛋
 UPDATE `gameobject_template` SET `data3`='17646' WHERE (`entry`='176511');
