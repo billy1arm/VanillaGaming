@@ -4834,8 +4834,11 @@ SpellCastResult Spell::CheckCast(bool strict)
                 if (GameObject* go = m_targets.getGOTarget())
                 {
                     // Prevent opening two times a chest in same time.
-                    if (go->GetGoType() == GAMEOBJECT_TYPE_CHEST && go->getLootState() == GO_ACTIVATED)
-                        { return SPELL_FAILED_CHEST_IN_USE; }
+                    if (go->GetGoType() == GAMEOBJECT_TYPE_CHEST && go->getLootState() == GO_ACTIVATED && go->GetMapId() && go->GetMapId() < 2)
+                    {
+                        if (go->GetMapId() == 0 || go->GetMapId() == 1)
+                            { return SPELL_FAILED_CHEST_IN_USE; }
+                    }
 
                     // In BattleGround players can use only flags and banners
                     if (((Player*)m_caster)->InBattleGround() &&

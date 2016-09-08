@@ -387,9 +387,14 @@ void WorldSession::DoLootRelease(ObjectGuid lguid)
                 loot->clear();
             }
             else
+            {
                 // not fully looted object
-                go->SetLootState(GO_JUST_DEACTIVATED);
-            break;
+                if (go->GetMapId() == 0 || go->GetMapId() == 1)
+                    { go->SetLootState(GO_JUST_DEACTIVATED); }
+                else
+                    { go->SetLootState(GO_ACTIVATED); }
+                break;
+            }
         }
         case HIGHGUID_CORPSE:                               // ONLY remove insignia at BG
         {
