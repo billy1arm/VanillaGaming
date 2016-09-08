@@ -1272,6 +1272,9 @@ INSERT INTO `creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`, `g
 -- 破碎的项链
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='100' WHERE `item`='7666';
 
+-- 费伍德软泥怪样本
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-50' WHERE `item`='12230';
+
 -- 图样：冬夜法袍
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='0.6111' WHERE `item`='14493';
 
