@@ -56,7 +56,7 @@ bool GOUse_go_thunderbrew_lager_keg(Player* pPlayer, GameObject* pGo)
             keg_number += 1;
         }
         if (keg_number > 1)
-            { pPlayer->SummonCreature(NPC_HURLEY_BLACKBREATH, pPlayer->GetPositionX(), pPlayer->GetPositionY(), pPlayer->GetPositionZ(), 0, TEMPSUMMON_TIMED_OOC_DESPAWN, 1200000); }
+            { pPlayer->SummonCreature(NPC_HURLEY_BLACKBREATH, pPlayer->GetPositionX(), pPlayer->GetPositionY(), pPlayer->GetPositionZ(), 0, TEMPSUMMON_TIMED_OOC_OR_DEAD_DESPAWN, 1200000); }
     }
 
     return false;
