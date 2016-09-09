@@ -2955,7 +2955,7 @@ void Spell::_handle_finish_phase()
     if (m_needSpellLog)
         SendLogExecute();
 
-    if (m_caster->m_extraAttacks && m_spellInfo->HasSpellEffect(SPELL_EFFECT_ADD_EXTRA_ATTACKS))
+    if (m_caster->m_extraAttacks && m_spellInfo->HasSpellEffect(SPELL_EFFECT_ADD_EXTRA_ATTACKS) && m_caster->GetTypeId() == TYPEID_PLAYER)
     {
         switch (m_spellInfo->Id)
         {
