@@ -1275,6 +1275,9 @@ UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='100' WHERE `item`='76
 -- 费伍德软泥怪样本
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-50' WHERE `item`='12230';
 
+-- 完整的冰风奇美拉角
+UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-80' WHERE `item`='12444';
+
 -- 图样：冬夜法袍
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='0.6111' WHERE `item`='14493';
 
