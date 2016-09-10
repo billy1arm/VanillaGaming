@@ -665,7 +665,7 @@ UPDATE `locales_item` SET `name_loc4`='硬皮护腕', `description_loc4`='' WHER
 UPDATE `locales_item` SET `name_loc4`='鳞甲护腕', `description_loc4`='' WHERE (`entry`='1852');
 UPDATE `locales_item` SET `name_loc4`='鳞甲腰带', `description_loc4`='' WHERE (`entry`='1853');
 UPDATE `locales_item` SET `name_loc4`='希斯耐特的徽章', `description_loc4`='工头希斯耐特 - 探险者协会成员' WHERE (`entry`='1875');
-UPDATE `locales_item` SET `name_loc4`='矿工的报复', `description_loc4`='可作为矿工锄使用。' WHERE (`entry`='1893');
+UPDATE `locales_item` SET `name_loc4`='矿工的报复', `description_loc4`='' WHERE (`entry`='1893');
 UPDATE `locales_item` SET `name_loc4`='矿业工会会员卡', `description_loc4`='' WHERE (`entry`='1894');
 UPDATE `locales_item` SET `name_loc4`='钉皮棍', `description_loc4`='' WHERE (`entry`='1913');
 UPDATE `locales_item` SET `name_loc4`='宝石匕首', `description_loc4`='' WHERE (`entry`='1917');
