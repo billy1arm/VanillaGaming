@@ -75,6 +75,9 @@ UPDATE `gameobject` SET `spawntimesecs`='43200' WHERE (`id`='153469');
 -- 黑暗宝箱
 UPDATE `gameobject` SET `spawntimesecs`='86400' WHERE (`id`='160845');
 
+-- 秘密保险箱
+UPDATE `gameobject` SET `spawntimesecs`='86400' WHERE (`id`='161495');
+
 -- 补给箱
 UPDATE `gameobject` SET `spawntimesecs`='43200' WHERE (`id`='166872');
 
