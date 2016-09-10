@@ -14,3 +14,6 @@ File Encoding         : 65001
 
 -- 管理者埃克索图斯
 UPDATE `gameobject_loot_template` SET `groupid`='0' WHERE (`entry`='16719') AND (`item`='12000');
+
+-- 奥术水晶
+UPDATE `gameobject_loot_template` SET `ChanceOrQuestChance`='0.1' WHERE `item`='12363';
