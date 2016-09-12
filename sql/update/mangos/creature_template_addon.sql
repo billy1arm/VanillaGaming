@@ -100,6 +100,10 @@ UPDATE `creature_template_addon` SET `auras`='7941' WHERE (`entry`='12201');
 DELETE FROM `creature_template_addon` WHERE `entry`='12265';
 INSERT INTO `creature_template_addon` (`entry`, `mount`, `bytes1`, `b2_0_sheath`, `b2_1_flags`, `emote`, `moveflags`, `auras`) VALUES ('12265', '0', '0', '1', '16', '0', '0', '7942');
 
+-- 强力治疗结界
+DELETE FROM `creature_template_addon` WHERE `entry`='14987';
+INSERT INTO `creature_template_addon` (`entry`, `mount`, `bytes1`, `b2_0_sheath`, `b2_1_flags`, `emote`, `moveflags`, `auras`) VALUES ('14987', '0', '0', '1', '16', '0', '0', '24310');
+
 -- 加兹兰卡
 DELETE FROM `creature_template_addon` WHERE `entry`='15114';
 INSERT INTO `creature_template_addon` (`entry`, `mount`, `bytes1`, `b2_0_sheath`, `b2_1_flags`, `emote`, `moveflags`, `auras`) VALUES ('15114', '0', '0', '1', '16', '0', '0', '8876');

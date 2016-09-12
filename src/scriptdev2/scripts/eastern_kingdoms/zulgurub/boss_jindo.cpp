@@ -179,41 +179,9 @@ struct boss_jindoAI : public ScriptedAI
     }
 };
 
-struct mob_healing_wardAI : public ScriptedAI
-{
-    mob_healing_wardAI(Creature* pCreature) : ScriptedAI(pCreature) { Reset(); }
-
-    uint32 m_uiHealTimer;
-
-    void Reset() override
-    {
-        m_uiHealTimer = 3000;
-    }
-
-    void AttackStart(Unit* /*pWho*/) override {}
-    void MoveInLineOfSight(Unit* /*pWho*/) override {}
-
-    void UpdateAI(const uint32 uiDiff) override
-    {
-        // 强力治疗结界
-        if (m_uiHealTimer < uiDiff)
-        {
-            DoCastSpellIfCan(m_creature, SPELL_HEALING_WARD_HEAL);
-            m_uiHealTimer = 3000;
-        }
-        else
-            { m_uiHealTimer -= uiDiff; }
-    }
-};
-
 CreatureAI* GetAI_boss_jindo(Creature* pCreature)
 {
     return new boss_jindoAI(pCreature);
-}
-
-CreatureAI* GetAI_mob_healing_ward(Creature* pCreature)
-{
-    return new mob_healing_wardAI(pCreature);
 }
 
 void AddSC_boss_jindo()
@@ -223,10 +191,5 @@ void AddSC_boss_jindo()
     pNewScript = new Script;
     pNewScript->Name = "boss_jindo";
     pNewScript->GetAI = &GetAI_boss_jindo;
-    pNewScript->RegisterSelf();
-
-    pNewScript = new Script;
-    pNewScript->Name = "mob_healing_ward";
-    pNewScript->GetAI = &GetAI_mob_healing_ward;
     pNewScript->RegisterSelf();
 }
