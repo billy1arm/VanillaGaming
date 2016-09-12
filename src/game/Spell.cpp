@@ -703,6 +703,15 @@ void Spell::prepareDataForTriggerSystem()
                 m_procAttacker = PROC_FLAG_SUCCESSFUL_NEGATIVE_SPELL_HIT;
                 m_procVictim   = PROC_FLAG_TAKEN_NEGATIVE_SPELL_HIT;
             }
+            switch (m_spellInfo->Id)
+            {
+                case 25902: // 神圣震击(等级1)
+                case 25911: // 神圣震击(等级2)
+                case 25912: // 神圣震击(等级3)
+                    m_procAttacker |= PROC_FLAG_SUCCESSFUL_POSITIVE_SPELL;
+                default:
+                    break;
+            }
             break;
     }
 
