@@ -124,7 +124,7 @@ struct boss_scarlet_commander_mograineAI : public ScriptedAI
             m_creature->GetMotionMaster()->MovementExpired();
             m_creature->GetMotionMaster()->MoveIdle();
 
-            m_creature->SetHealth(0);
+            m_creature->SetHealth(1);
 
             if (m_creature->IsNonMeleeSpellCasted(false))
                 m_creature->InterruptNonMeleeSpells(false);
