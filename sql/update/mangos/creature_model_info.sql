@@ -37,7 +37,7 @@ UPDATE `creature_model_info` SET `bounding_radius`='1', `combat_reach`='1' WHERE
 UPDATE `creature_model_info` SET `bounding_radius`='1', `combat_reach`='1' WHERE (`modelid`='8269');
 
 -- 奥妮克希亚
-UPDATE `creature_model_info` SET `bounding_radius`='5.5', `combat_reach`='5.5' WHERE (`modelid`='8570');
+UPDATE `creature_model_info` SET `bounding_radius`='6', `combat_reach`='6' WHERE (`modelid`='8570');
 
 -- 奥妮克希亚守卫
 UPDATE `creature_model_info` SET `bounding_radius`='2', `combat_reach`='2' WHERE (`modelid`='8711');
