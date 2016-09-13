@@ -3879,7 +3879,7 @@ UPDATE `locales_item` SET `name_loc4`='灰色长靴', `description_loc4`='' WHER
 UPDATE `locales_item` SET `name_loc4`='步兵外套', `description_loc4`='' WHERE (`entry`='6336');
 UPDATE `locales_item` SET `name_loc4`='步兵护腿', `description_loc4`='' WHERE (`entry`='6337');
 UPDATE `locales_item` SET `name_loc4`='银棒', `description_loc4`='附魔师必备的工具。' WHERE (`entry`='6338');
-UPDATE `locales_item` SET `name_loc4`='符文银棒', `description_loc4`='可代替任何较低等级的附魔棒。' WHERE (`entry`='6339');
+UPDATE `locales_item` SET `name_loc4`='符文银棒', `description_loc4`='' WHERE (`entry`='6339');
 UPDATE `locales_item` SET `name_loc4`='芬鲁斯的外皮', `description_loc4`='' WHERE (`entry`='6340');
 UPDATE `locales_item` SET `name_loc4`='怪异的马厩灯笼', `description_loc4`='' WHERE (`entry`='6341');
 UPDATE `locales_item` SET `name_loc4`='公式：附魔胸甲 - 初级法力', `description_loc4`='教你学会永久性地为一件胸甲附魔，使其获得法力值+5的效果。' WHERE (`entry`='6342');
@@ -6664,7 +6664,7 @@ UPDATE `locales_item` SET `name_loc4`='库尔尼亚石板', `description_loc4`='
 UPDATE `locales_item` SET `name_loc4`='破烂装备', `description_loc4`='' WHERE (`entry`='11127');
 UPDATE `locales_item` SET `name_loc4`='金棒', `description_loc4`='附魔师必备的工具。' WHERE (`entry`='11128');
 UPDATE `locales_item` SET `name_loc4`='元素精华', `description_loc4`='' WHERE (`entry`='11129');
-UPDATE `locales_item` SET `name_loc4`='符文金棒', `description_loc4`='可代替任何较低等级的附魔棒。' WHERE (`entry`='11130');
+UPDATE `locales_item` SET `name_loc4`='符文金棒', `description_loc4`='' WHERE (`entry`='11130');
 UPDATE `locales_item` SET `name_loc4`='虫穴内壁样本', `description_loc4`='' WHERE (`entry`='11131');
 UPDATE `locales_item` SET `name_loc4`='未使用的采集瓶', `description_loc4`='' WHERE (`entry`='11132');
 UPDATE `locales_item` SET `name_loc4`='林克的训练之剑', `description_loc4`='' WHERE (`entry`='11133');
@@ -6679,7 +6679,7 @@ UPDATE `locales_item` SET `name_loc4`='诱饵', `description_loc4`='' WHERE (`en
 UPDATE `locales_item` SET `name_loc4`='损坏的主动式负载平衡器', `description_loc4`='' WHERE (`entry`='11142');
 UPDATE `locales_item` SET `name_loc4`='高强度齿轮', `description_loc4`='' WHERE (`entry`='11143');
 UPDATE `locales_item` SET `name_loc4`='真银棒', `description_loc4`='附魔师必备的工具。' WHERE (`entry`='11144');
-UPDATE `locales_item` SET `name_loc4`='符文真银棒', `description_loc4`='可代替任何较低等级的附魔棒。' WHERE (`entry`='11145');
+UPDATE `locales_item` SET `name_loc4`='符文真银棒', `description_loc4`='' WHERE (`entry`='11145');
 UPDATE `locales_item` SET `name_loc4`='破碎的主动式负载平衡器', `description_loc4`='' WHERE (`entry`='11146');
 UPDATE `locales_item` SET `name_loc4`='主动式负载平衡器说明书封面', `description_loc4`='' WHERE (`entry`='11147');
 UPDATE `locales_item` SET `name_loc4`='主动式负载平衡器说明书正文', `description_loc4`='' WHERE (`entry`='11148');
@@ -9969,7 +9969,7 @@ UPDATE `locales_item` SET `name_loc4`='强效不灭精华', `description_loc4`='
 UPDATE `locales_item` SET `name_loc4`='幻影之尘', `description_loc4`='' WHERE (`entry`='16204');
 UPDATE `locales_item` SET `name_loc4`='盖亚之种', `description_loc4`='' WHERE (`entry`='16205');
 UPDATE `locales_item` SET `name_loc4`='奥金棒', `description_loc4`='附魔师必备的工具。' WHERE (`entry`='16206');
-UPDATE `locales_item` SET `name_loc4`='符文奥金棒', `description_loc4`='可代替任何较低等级的附魔棒。' WHERE (`entry`='16207');
+UPDATE `locales_item` SET `name_loc4`='符文奥金棒', `description_loc4`='' WHERE (`entry`='16207');
 UPDATE `locales_item` SET `name_loc4`='附有魔法的盖亚之种', `description_loc4`='' WHERE (`entry`='16208');
 UPDATE `locales_item` SET `name_loc4`='莫里斯的订单', `description_loc4`='' WHERE (`entry`='16209');
 UPDATE `locales_item` SET `name_loc4`='高顿的箱子', `description_loc4`='' WHERE (`entry`='16210');
