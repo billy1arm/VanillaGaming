@@ -5501,15 +5501,10 @@ void SpellAuraHolder::Update(uint32 diff)
                         // 仅对会递减的CC技能有效
                         if (GetSpellProto() && GetDiminishingReturnsGroupForSpell(GetSpellProto(), true))
                         {
-                            // 仅对持续时间超过10S的技能有效
-                            if (GetSpellMaxDuration(GetSpellProto()) > 10000)
+                            // 仅对持续时间超过15S的技能有效
+                            if (GetSpellMaxDuration(GetSpellProto()) > 15000)
                             {
-                                float pvpspellbreakchance = 0.0f;
-                                // 破控几率不得小于5%
-                                if (100000.0f / GetSpellMaxDuration(GetSpellProto()) < 5.0f)
-                                    { pvpspellbreakchance = 5.0f; }
-                                else
-                                    { pvpspellbreakchance = 100000.0f / GetSpellMaxDuration(GetSpellProto()); }
+                                float pvpspellbreakchance = 6.6f;
                                 // 移除控制
                                 if (roll_chance_f(pvpspellbreakchance))
                                     { m_duration = 0; }
