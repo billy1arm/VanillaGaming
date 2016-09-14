@@ -953,6 +953,10 @@ void Pet::GivePetXP(uint32 xp)
     if (level >= maxlevel)
         return;
 
+    // 特效经验合剂
+    if (GetOwner()->HasAura(40002))
+        { xp *= 2; }
+
     if (sWorld.getConfig(CONFIG_FLOAT_RATE_XP_PET_KILL))
         { xp = xp * sWorld.getConfig(CONFIG_FLOAT_RATE_XP_PET_KILL); }
 
