@@ -386,6 +386,10 @@ bool IsNoStackAuraDueToAura(uint32 spellId_1, uint32 spellId_2)
     if (!spellInfo_1 || !spellInfo_2) return false;
     if (spellInfo_1->Id == spellId_2) return false;
 
+    // 巨化术 | 冬泉火酒 --- 可叠加
+    if ((spellInfo_1->Id == 8212 && spellInfo_2->Id == 17038) || (spellInfo_2->Id == 8212 && spellInfo_1->Id == 17038))
+        { return false; }
+
     for (int32 i = 0; i < MAX_EFFECT_INDEX; ++i)
     {
         for (int32 j = 0; j < MAX_EFFECT_INDEX; ++j)
