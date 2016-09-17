@@ -315,6 +315,12 @@ UPDATE `creature_template` SET `AIName`='EventAI' WHERE (`Entry`='11882');
 -- 暮光主宰
 UPDATE `creature_template` SET `AIName`='EventAI' WHERE (`Entry`='11883');
 
+-- 米库提奥·污血
+UPDATE `creature_template` SET `ExtraFlags`='64' WHERE (`Entry`='11886');
+
+-- 地穴抢劫者
+UPDATE `creature_template` SET `ExtraFlags`='64' WHERE (`Entry`='11887');
+
 -- 玛格曼达
 UPDATE `creature_template` SET `DamageMultiplier`='35', `Armor`='6800', `ResistanceHoly`='121', `ResistanceFire`='121', `ResistanceNature`='121', `ResistanceFrost`='121', `ResistanceShadow`='121', `ResistanceArcane`='121' WHERE (`Entry`='11982');
 
