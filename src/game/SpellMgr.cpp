@@ -733,6 +733,8 @@ bool IsPositiveEffect(SpellEntry const* spellproto, SpellEffectIndex effIndex)
             // 特殊技能
             switch (spellproto->Id)
             {
+                case 7103:                                  // 腐化传染
+                    return false;
                 case 17246:                                 // 被占据
                     return false;
                 case 21909:                                 // 灰尘力场
