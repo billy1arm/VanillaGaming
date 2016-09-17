@@ -170,7 +170,10 @@ INSERT INTO `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `posi
 INSERT INTO `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecs`, `animprogress`, `state`) VALUES ('87316', '176589', '0', '2495.06', '-3827.97', '179.112', '3.07177', '0', '0', '0.999391', '0.0349043', '7200', '255', '1');
 
 -- 毒蛇雕像
-UPDATE `gameobject` SET `spawntimesecs`='10' WHERE (`guid`='177673');
+UPDATE `gameobject` SET `spawntimesecs`='10' WHERE (`id`='177673');
+
+-- 一堆泥土
+UPDATE `gameobject` SET `spawntimesecs`='300' WHERE (`id`='177675');
 
 -- 布满灰尘的书籍
 DELETE FROM `gameobject` WHERE `id`='179547';
