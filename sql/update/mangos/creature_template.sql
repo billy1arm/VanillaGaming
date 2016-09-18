@@ -195,11 +195,35 @@ UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='
 -- 典狱官斯迪尔基斯
 UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='9041');
 
+-- 欧莫克大王
+UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='9196');
+
+-- 尖石统帅
+UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='9218');
+
+-- 尖石屠夫
+UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='9219');
+
+-- 暗影猎手沃什加斯
+UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='9236');
+
+-- 指挥官沃恩
+UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='9237');
+
 -- 驯犬者格雷布玛尔
 UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='9319');
 
 -- 科卡尔入侵者
 UPDATE `creature_template` SET `ExtraFlags`='64' WHERE (`Entry`='9524');
+
+-- 维姆萨拉克
+UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='9568');
+
+-- 班诺克·巨斧
+UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='9596');
+
+-- 军需官兹格雷斯
+UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='9736');
 
 -- 喷焰小鬼
 UPDATE `creature_template` SET `ExtraFlags`='64' WHERE (`Entry`='9776');
@@ -222,14 +246,41 @@ UPDATE `creature_template` SET `SpeedWalk`='1', `SpeedRun`='1.14286' WHERE (`Ent
 -- 奥妮克希亚
 UPDATE `creature_template` SET `DamageMultiplier`='30', `Armor`='7800', `ResistanceHoly`='121', `ResistanceFire`='121', `ResistanceNature`='121', `ResistanceFrost`='121', `ResistanceShadow`='121', `ResistanceArcane`='121' WHERE (`Entry`='10184');
 
+-- 哈雷肯
+UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='10220');
+
+-- 索拉卡·火冠
+UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='10264');
+
+-- 奴役者基兹鲁尔
+UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='10268');
+
+-- 盖斯
+UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='10339');
+
+-- 水晶之牙
+UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='10376');
+
 -- 骷髅守护者
 UPDATE `creature_template` SET `ExtraFlags`='64' WHERE (`Entry`='10390');
 
 -- 骷髅狂战士
 UPDATE `creature_template` SET `ExtraFlags`='64' WHERE (`Entry`='10391');
 
+-- 杰德
+UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='10509');
+
+-- 乌洛克
+UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='10584');
+
+-- 烟网蛛后
+UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='10596');
+
 -- 时光寄生虫
 UPDATE `creature_template` SET `ExtraFlags`='64' WHERE (`Entry`='10717');
+
+-- 古拉鲁克
+UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='10899');
 
 -- 碎矛巨魔
 UPDATE `creature_template` SET `ExtraFlags`='64' WHERE (`Entry`='10919');
@@ -465,6 +516,9 @@ UPDATE `creature_template` SET `AIName`='EventAI' WHERE (`Entry`='15212');
 -- 布莱卡维尔上尉
 DELETE FROM `creature_template` WHERE `Entry`='15440';
 -- INSERT INTO `creature_template` (`Entry`, `Name`, `SubName`, `MinLevel`, `MaxLevel`, `ModelId1`, `ModelId2`, `ModelId3`, `ModelId4`, `FactionAlliance`, `FactionHorde`, `Scale`, `Family`, `CreatureType`, `InhabitType`, `RegenerateStats`, `RacialLeader`, `NpcFlags`, `UnitFlags`, `DynamicFlags`, `ExtraFlags`, `CreatureTypeFlags`, `SpeedWalk`, `SpeedRun`, `UnitClass`, `Rank`, `HealthMultiplier`, `PowerMultiplier`, `DamageMultiplier`, `DamageVariance`, `ArmorMultiplier`, `ExperienceMultiplier`, `MinLevelHealth`, `MaxLevelHealth`, `MinLevelMana`, `MaxLevelMana`, `MinMeleeDmg`, `MaxMeleeDmg`, `MinRangedDmg`, `MaxRangedDmg`, `Armor`, `MeleeAttackPower`, `RangedAttackPower`, `MeleeBaseAttackTime`, `RangedBaseAttackTime`, `DamageSchool`, `MinLootGold`, `MaxLootGold`, `LootId`, `PickpocketLootId`, `SkinningLootId`, `KillCredit1`, `KillCredit2`, `MechanicImmuneMask`, `ResistanceHoly`, `ResistanceFire`, `ResistanceNature`, `ResistanceFrost`, `ResistanceShadow`, `ResistanceArcane`, `PetSpellDataId`, `MovementType`, `TrainerType`, `TrainerSpell`, `TrainerClass`, `TrainerRace`, `TrainerTemplateId`, `VendorTemplateId`, `GossipMenuId`, `EquipmentTemplateId`, `Civilian`, `AIName`, `ScriptName`) VALUES ('15440', 'Captain Blackanvil', 'Ironforge Brigade Captain', '60', '60', '15448', '0', '0', '0', '55', '55', '0', '0', '7', '3', '3', '0', '2', '0', '0', '0', '0', '1.3', '1.14286', '1', '1', '1', '1', '1', '1', '-1', '1', '24000', '24000', '0', '0', '351', '400', '92.3', '120.6', '0', '173', '100', '1250', '1400', '0', '1', '756', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '', '');
+
+-- 莫尔·灰蹄
+UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='16080');
 
 -- 赞助商人
 DELETE FROM `creature_template` WHERE `Entry`='30000';
