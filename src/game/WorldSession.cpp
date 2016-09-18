@@ -310,11 +310,18 @@ bool WorldSession::Update(PacketFilter& updater)
     {
         ///- If necessary, log the player out
         time_t currTime = time(NULL);
-        if (!m_Socket || (ShouldLogOut(currTime) && !m_playerLoading))
-            LogoutPlayer(true);
-
         if (!m_Socket)
-            return false;                                   // Will remove this session from the world session map
+        {
+            if (!_logoutTime)
+                { _logoutTime = currTime; }
+            m_playerLoading = true;
+            if (ShouldLogOut(currTime))
+            {
+                m_playerLoading = false;
+                LogoutPlayer(true);
+                return false;
+            }
+        }
     }
 
     return true;
