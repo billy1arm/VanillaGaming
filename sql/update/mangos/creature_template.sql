@@ -177,8 +177,20 @@ UPDATE `creature_template` SET `SpeedWalk`='1', `SpeedRun`='1.14286' WHERE (`Ent
 -- 铁怒预备兵
 UPDATE `creature_template` SET `ExtraFlags`='64' WHERE (`Entry`='8901');
 
+-- 无敌的潘佐尔
+UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='8923');
+
 -- 铁炉堡公主茉艾拉·铜须
 UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='8929');
+
+-- 傀儡统帅阿格曼奇
+UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='8983');
+
+-- 贝尔加
+UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='9016');
+
+-- 伊森迪奥斯
+UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='9017');
 
 -- 审讯官格斯塔恩
 UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='9018');
@@ -192,8 +204,35 @@ UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='
 -- 洛考尔
 UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='9025');
 
+-- 修行者高罗什
+UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='9027');
+
+-- 格里兹尔
+UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='9028');
+
+-- 剜眼者
+UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='9029');
+
+-- 破坏者奥科索尔
+UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='9030');
+
+-- 阿努希尔
+UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='9031');
+
+-- 爬行者赫杜姆
+UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='9032');
+
+-- 怒炉将军
+UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='9033');
+
 -- 典狱官斯迪尔基斯
 UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='9041');
+
+-- 弗诺斯·达克维尔
+UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='9056');
+
+-- 弗莱拉斯大使
+UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='9156');
 
 -- 欧莫克大王
 UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='9196');
@@ -213,8 +252,20 @@ UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='
 -- 驯犬者格雷布玛尔
 UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='9319');
 
+-- 普拉格
+UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='9499');
+
+-- 法拉克斯
+UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='9502');
+
 -- 科卡尔入侵者
 UPDATE `creature_template` SET `ExtraFlags`='64' WHERE (`Entry`='9524');
+
+-- 霍尔雷·黑须
+UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='9537');
+
+-- 雷布里·斯库比格特
+UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='9543');
 
 -- 维姆萨拉克
 UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='9568');
@@ -233,6 +284,9 @@ UPDATE `creature_template` SET `ExtraFlags`='64' WHERE (`Entry`='9777');
 
 -- 怒焰小鬼
 UPDATE `creature_template` SET `ExtraFlags`='64' WHERE (`Entry`='9779');
+
+-- 玛格姆斯
+UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='9938');
 
 -- 杉达尔·沙掠者
 UPDATE `creature_template` SET `SpeedWalk`='1', `SpeedRun`='1.14286' WHERE (`Entry`='10080');
