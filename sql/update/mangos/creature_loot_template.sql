@@ -1301,3 +1301,15 @@ INSERT INTO `creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`, `g
 INSERT INTO `creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`, `groupid`, `mincountOrRef`, `maxcount`, `condition_id`) VALUES ('14888', '22890', '5', '0', '1', '1', '0');
 INSERT INTO `creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`, `groupid`, `mincountOrRef`, `maxcount`, `condition_id`) VALUES ('14889', '22890', '5', '0', '1', '1', '0');
 INSERT INTO `creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`, `groupid`, `mincountOrRef`, `maxcount`, `condition_id`) VALUES ('14890', '22890', '5', '0', '1', '1', '0');
+
+-- 石板：烈焰震击 VI
+DELETE FROM `creature_loot_template` WHERE (`item`='23320');
+-- INSERT INTO `creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`, `groupid`, `mincountOrRef`, `maxcount`, `condition_id`) VALUES ('9816', '23320', '8', '0', '1', '1', '0');
+
+-- 书卷：凶猛撕咬 V
+DELETE FROM `creature_loot_template` WHERE (`item`='24101');
+-- INSERT INTO `creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`, `groupid`, `mincountOrRef`, `maxcount`, `condition_id`) VALUES ('10430', '24101', '13', '0', '1', '1', '0');
+
+-- 手册：刺骨 IX
+DELETE FROM `creature_loot_template` WHERE (`item`='24102');
+-- INSERT INTO `creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`, `groupid`, `mincountOrRef`, `maxcount`, `condition_id`) VALUES ('10318', '24102', '10', '0', '1', '1', '0');
