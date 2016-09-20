@@ -8974,6 +8974,11 @@ void Unit::SetContestedPvP(Player* attackedPlayer)
         if (Creature* guard = player->SummonCreature(9460, player->GetPositionX(), player->GetPositionY(), player->GetPositionZ(), player->GetOrientation(), TEMPSUMMON_TIMED_OOC_DESPAWN, 10000))
             { guard->AI()->AttackStart(player); }
     }
+    if (player->GetAreaId() && player->GetAreaId() == 2255)
+    {
+        if (Creature* guard = player->SummonCreature(11190, player->GetPositionX(), player->GetPositionY(), player->GetPositionZ(), player->GetOrientation(), TEMPSUMMON_TIMED_OOC_DESPAWN, 10000))
+            { guard->AI()->AttackStart(player); }
+    }
 }
 
 void Unit::AddPetAura(PetAura const* petSpell)
