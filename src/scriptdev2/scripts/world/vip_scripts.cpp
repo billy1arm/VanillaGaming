@@ -212,9 +212,10 @@ bool GossipSelect_vip_scripts(Player* pPlayer, Creature* pCreature, uint32 /*sen
                 else
                 {
                     pPlayer->PrepareGossipMenu(pCreature, pPlayer->GetDefaultGossipMenuForSource(pCreature));
-                    pPlayer->ADD_GOSSIP_ITEM(GOSSIP_ICON_TALK, vip_scripts_To_UTF8("宠物笼(小塔克)-消耗450积分"), GOSSIP_SENDER_MAIN, GOSSIP_ACTION_INFO_DEF + 70); // 宠物笼(小塔克)
-                    pPlayer->ADD_GOSSIP_ITEM(GOSSIP_ICON_TALK, vip_scripts_To_UTF8("卷轴:鱼人强盗-消耗450积分"), GOSSIP_SENDER_MAIN, GOSSIP_ACTION_INFO_DEF + 71);  // 卷轴:鱼人强盗
-                    pPlayer->ADD_GOSSIP_ITEM(GOSSIP_ICON_TALK, vip_scripts_To_UTF8("返回主菜单"), GOSSIP_SENDER_MAIN, GOSSIP_ACTION_INFO_DEF + 1);                  // 返回主菜单
+                    pPlayer->ADD_GOSSIP_ITEM(GOSSIP_ICON_TALK, vip_scripts_To_UTF8("宠物笼(小塔克)-消耗450积分"), GOSSIP_SENDER_MAIN, GOSSIP_ACTION_INFO_DEF + 70);        // 宠物笼(小塔克)
+                    pPlayer->ADD_GOSSIP_ITEM(GOSSIP_ICON_TALK, vip_scripts_To_UTF8("卷轴:鱼人强盗-消耗450积分"), GOSSIP_SENDER_MAIN, GOSSIP_ACTION_INFO_DEF + 71);         // 卷轴:鱼人强盗
+                    pPlayer->ADD_GOSSIP_ITEM(GOSSIP_ICON_TALK, vip_scripts_To_UTF8("卷轴:艾德温·范克里夫-消耗450积分"), GOSSIP_SENDER_MAIN, GOSSIP_ACTION_INFO_DEF + 72); // 卷轴:艾德温·范克里夫
+                    pPlayer->ADD_GOSSIP_ITEM(GOSSIP_ICON_TALK, vip_scripts_To_UTF8("返回主菜单"), GOSSIP_SENDER_MAIN, GOSSIP_ACTION_INFO_DEF + 1);                         // 返回主菜单
                     pPlayer->TalkedToCreature(pCreature->GetEntry(), pCreature->GetObjectGuid());
                     pPlayer->SendPreparedGossip(pCreature);
                 }
@@ -899,15 +900,13 @@ bool GossipSelect_vip_scripts(Player* pPlayer, Creature* pCreature, uint32 /*sen
             }
             break;
 
-        // 宠物笼(小塔克)
+        // 卷轴:鱼人强盗
         case GOSSIP_ACTION_INFO_DEF + 71:
             if (pPlayer->isAlive())
             {
                 pPlayer->PlayerTalkClass->CloseGossip();
                 if (pPlayer->isInCombat())
-                {
-                    ChatHandler(pPlayer).SendSysMessage(LANG_YOU_IN_COMBAT);
-                }
+                    { ChatHandler(pPlayer).SendSysMessage(LANG_YOU_IN_COMBAT); }
                 else
                 {
                     if (pPlayer->GetIntegral() >= 450)
@@ -926,14 +925,49 @@ bool GossipSelect_vip_scripts(Player* pPlayer, Creature* pCreature, uint32 /*sen
                                 ChatHandler(pPlayer).PSendSysMessage(LANG_USE_INTEGRAL, 450);
                             }
                             else
-                            {
-                                ChatHandler(pPlayer).PSendSysMessage(LANG_FULL_BAG);
-                            }
+                                { ChatHandler(pPlayer).PSendSysMessage(LANG_FULL_BAG); }
                         }
                         else
+                            { ChatHandler(pPlayer).PSendSysMessage(LANG_ALREADY_HAVE); }
+                    }
+                    else
+                    {
+                        ChatHandler(pPlayer).PSendSysMessage(LANG_LACK_INTEGRAL, 450);
+                        ChatHandler(pPlayer).PSendSysMessage(LANG_QUERY_INTEGRAL, pPlayer->GetIntegral(), pPlayer->GetTotalIntegral());
+                    }
+                }
+            }
+            break;
+
+        // 卷轴:艾德温·范克里夫
+        case GOSSIP_ACTION_INFO_DEF + 72:
+            if (pPlayer->isAlive())
+            {
+                pPlayer->PlayerTalkClass->CloseGossip();
+                if (pPlayer->isInCombat())
+                    { ChatHandler(pPlayer).SendSysMessage(LANG_YOU_IN_COMBAT); }
+                else
+                {
+                    if (pPlayer->GetIntegral() >= 450)
+                    {
+                        if (pPlayer->GetItemCount(30018, true) < 1)
                         {
-                            ChatHandler(pPlayer).PSendSysMessage(LANG_ALREADY_HAVE);
+                            ItemPosCountVec dest;
+                            InventoryResult msg = pPlayer->CanStoreNewItem(NULL_BAG, NULL_SLOT, dest, 30018, 1, (uint32)0);
+                            if (msg == EQUIP_ERR_OK)
+                            {
+                                pPlayer->SaveToDB();
+                                pPlayer->ModifyIntegral(-450);
+                                Item* item = pPlayer->StoreNewItem(dest, 30018, true, Item::GenerateItemRandomPropertyId(30018));
+                                pPlayer->SendNewItem(item, 1, false, true);
+                                pPlayer->SaveToDB();
+                                ChatHandler(pPlayer).PSendSysMessage(LANG_USE_INTEGRAL, 450);
+                            }
+                            else
+                                { ChatHandler(pPlayer).PSendSysMessage(LANG_FULL_BAG); }
                         }
+                        else
+                            { ChatHandler(pPlayer).PSendSysMessage(LANG_ALREADY_HAVE); }
                     }
                     else
                     {
