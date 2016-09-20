@@ -322,6 +322,8 @@ bool WorldSession::Update(PacketFilter& updater)
                 return false;
             }
         }
+        else if (ShouldLogOut(currTime) && !m_playerLoading)
+            { LogoutPlayer(true); }
     }
 
     return true;
