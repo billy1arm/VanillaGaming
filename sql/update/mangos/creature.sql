@@ -35,7 +35,10 @@ DELETE FROM `creature` WHERE `id`='6109';
 UPDATE `creature` SET `equipment_id`='0' WHERE (`id`='7017');
 
 -- 碎矛巨魔
-UPDATE `creature` SET `spawntimesecs`='300' WHERE (`id`='10919');
+UPDATE `creature` SET `spawntimesecs`='1800' WHERE (`id`='10919');
+
+-- 碎矛鼓手
+UPDATE `creature` SET `spawntimesecs`='1800' WHERE (`id`='11196');
 
 -- 暮光复仇者
 UPDATE `creature` SET `spawntimesecs`='600' WHERE (`id`='11880');
