@@ -196,6 +196,9 @@ DELETE FROM `gameobject` WHERE `id`='181597';
 -- 水晶尘喷孔
 DELETE FROM `gameobject` WHERE `id`='181598';
 
+-- 黑铁矿脉
+DELETE FROM `gameobject` WHERE `guid`='43108';
+
 -- 龙语傻瓜教程
 DELETE FROM `gameobject` WHERE `guid`='120618';
 DELETE FROM `gameobject` WHERE `guid`='500001';
