@@ -5505,9 +5505,18 @@ void SpellAuraHolder::Update(uint32 diff)
                             if (GetSpellMaxDuration(GetSpellProto()) > 15000)
                             {
                                 float pvpspellbreakchance = 6.6f;
-                                // 移除控制
-                                if (roll_chance_f(pvpspellbreakchance))
-                                    { m_duration = 0; }
+                                switch (GetSpellProto()->Id)
+                                {
+                                    case 2070:  // 闷棍(等级1)
+                                    case 6770:  // 闷棍(等级2)
+                                    case 11297: // 闷棍(等级3)
+                                        break;
+                                    default:
+                                        // 移除控制
+                                        if (roll_chance_f(pvpspellbreakchance))
+                                            { m_duration = 0; }
+                                        break;
+                                }
                             }
                         }
                     }
