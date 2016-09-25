@@ -1006,6 +1006,10 @@ UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='100' WHERE (`entry`='
 -- 格里什虫巢卫士 --- 格里什信息素
 UPDATE `creature_loot_template` SET `ChanceOrQuestChance`='-100' WHERE (`entry`='10040') AND (`item`='11837');
 
+-- 劈颅黑豹
+DELETE FROM `creature_loot_template` WHERE (`entry`='756');
+INSERT INTO `creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`, `groupid`, `mincountOrRef`, `maxcount`, `condition_id`) VALUES ('756', '1524', '-100', '0', '1', '1', '0');
+
 -- 伊露希亚·巴罗夫
 DELETE FROM `creature_loot_template` WHERE (`entry`='10502');
 INSERT INTO `creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`, `groupid`, `mincountOrRef`, `maxcount`, `condition_id`) VALUES ('10502', '12753', '19', '0', '1', '1', '0');
