@@ -321,8 +321,35 @@ UPDATE `creature_template` SET `ExtraFlags`='64' WHERE (`Entry`='10390');
 -- 骷髅狂战士
 UPDATE `creature_template` SET `ExtraFlags`='64' WHERE (`Entry`='10391');
 
+-- 斯库尔
+UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='10393');
+
+-- 巴瑟拉斯镇长
+UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='10435');
+
+-- 安娜丝塔丽男爵夫人
+UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='10436');
+
+-- 奈鲁布恩坎
+UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='10437');
+
+-- 苍白的玛勒基
+UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='10438');
+
+-- 吞咽者拉姆斯登
+UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='10439');
+
+-- 瑞文戴尔男爵
+UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='10440');
+
 -- 杰德
 UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='10509');
+
+-- 不可宽恕者
+UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='10516');
+
+-- 弗雷斯特恩
+UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='10558');
 
 -- 乌洛克
 UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='10584');
@@ -333,6 +360,18 @@ UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='
 -- 时光寄生虫
 UPDATE `creature_template` SET `ExtraFlags`='64' WHERE (`Entry`='10717');
 
+-- 悲惨的提米
+UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='10808');
+
+-- 石脊
+UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='10809');
+
+-- 档案管理员加尔福特
+UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='10811');
+
+-- 巴纳扎尔
+UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='10813');
+
 -- 古拉鲁克
 UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='10899');
 
@@ -341,6 +380,9 @@ UPDATE `creature_template` SET `ExtraFlags`='64' WHERE (`Entry`='10919');
 
 -- 腐烂虫
 UPDATE `creature_template` SET `ExtraFlags`='64' WHERE (`Entry`='10925');
+
+-- 炮手威利
+UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='10997');
 
 -- 奥妮克希亚雏龙
 UPDATE `creature_template` SET `Armor`='6800', `ResistanceHoly`='121', `ResistanceFire`='363', `ResistanceNature`='121', `ResistanceFrost`='121', `ResistanceShadow`='121', `ResistanceArcane`='121' WHERE (`Entry`='11262');
@@ -573,6 +615,12 @@ DELETE FROM `creature_template` WHERE `Entry`='15440';
 
 -- 莫尔·灰蹄
 UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='16080');
+
+-- 亚雷恩
+UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='16101');
+
+-- 索托斯
+UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='16102');
 
 -- 赞助商人
 DELETE FROM `creature_template` WHERE `Entry`='30000';
