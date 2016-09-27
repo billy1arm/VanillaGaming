@@ -36,6 +36,12 @@ UPDATE `gameobject_template` SET `data2`='707788800' WHERE (`entry`='170576');
 -- 黑铁门03
 UPDATE `gameobject_template` SET `data2`='707788800' WHERE (`entry`='170577');
 
+-- 血色火炮
+UPDATE `gameobject_template` SET `data12`='176211' WHERE (`entry`='176216');
+
+-- 血色火炮
+UPDATE `gameobject_template` SET `data12`='176211' WHERE (`entry`='176217');
+
 -- 奥妮克希亚的蛋
 UPDATE `gameobject_template` SET `data3`='17646' WHERE (`entry`='176511');
 
