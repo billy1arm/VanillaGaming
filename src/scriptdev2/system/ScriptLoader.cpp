@@ -100,6 +100,7 @@ extern void AddSC_boss_cannon_master_willey();
 extern void AddSC_boss_baroness_anastari();
 extern void AddSC_boss_dathrohan_balnazzar();
 extern void AddSC_instance_stratholme();
+extern void AddSC_npc_crimson_rifleman();
 extern void AddSC_stratholme();
 extern void AddSC_instance_sunken_temple();                 // sunken_temple
 extern void AddSC_sunken_temple();
@@ -303,6 +304,7 @@ void AddScripts()
     AddSC_boss_baroness_anastari();
     AddSC_boss_dathrohan_balnazzar();
     AddSC_instance_stratholme();
+    AddSC_npc_crimson_rifleman();
     AddSC_stratholme();
     AddSC_instance_sunken_temple();                         // sunken_temple
     AddSC_sunken_temple();

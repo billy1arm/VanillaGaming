@@ -384,6 +384,9 @@ UPDATE `creature_template` SET `ExtraFlags`='64' WHERE (`Entry`='10925');
 -- 炮手威利
 UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='10997');
 
+-- 红衣火枪手
+UPDATE `creature_template` SET `ExtraFlags`='64', `MinLootGold`='0', `MaxLootGold`='0', `EquipmentTemplateId`='2407', `AIName`='', `ScriptName`='npc_crimson_rifleman' WHERE (`Entry`='11054');
+
 -- 奥妮克希亚雏龙
 UPDATE `creature_template` SET `Armor`='6800', `ResistanceHoly`='121', `ResistanceFire`='363', `ResistanceNature`='121', `ResistanceFrost`='121', `ResistanceShadow`='121', `ResistanceArcane`='121' WHERE (`Entry`='11262');
 
