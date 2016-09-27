@@ -193,6 +193,7 @@ bool GossipSelect_vip_scripts(Player* pPlayer, Creature* pCreature, uint32 /*sen
                     pPlayer->ADD_GOSSIP_ITEM(GOSSIP_ICON_TALK, vip_scripts_To_UTF8("拉扎什迅猛龙-消耗2000积分"), GOSSIP_SENDER_MAIN, GOSSIP_ACTION_INFO_DEF + 60);   // 拉扎什迅猛龙
                     pPlayer->ADD_GOSSIP_ITEM(GOSSIP_ICON_TALK, vip_scripts_To_UTF8("迅捷祖利安猛虎-消耗2500积分"), GOSSIP_SENDER_MAIN, GOSSIP_ACTION_INFO_DEF + 61); // 迅捷祖利安猛虎
                     pPlayer->ADD_GOSSIP_ITEM(GOSSIP_ICON_TALK, vip_scripts_To_UTF8("死亡军马的缰绳-消耗2000积分"), GOSSIP_SENDER_MAIN, GOSSIP_ACTION_INFO_DEF + 62); // 死亡军马的缰绳
+                    pPlayer->ADD_GOSSIP_ITEM(GOSSIP_ICON_TALK, vip_scripts_To_UTF8("电刑器6000型-消耗2000积分"), GOSSIP_SENDER_MAIN, GOSSIP_ACTION_INFO_DEF + 63);   // 电刑器6000型
                     pPlayer->ADD_GOSSIP_ITEM(GOSSIP_ICON_TALK, vip_scripts_To_UTF8("返回主菜单"), GOSSIP_SENDER_MAIN, GOSSIP_ACTION_INFO_DEF + 1);                   // 返回主菜单
                     pPlayer->TalkedToCreature(pCreature->GetEntry(), pCreature->GetObjectGuid());
                     pPlayer->SendPreparedGossip(pCreature);
@@ -842,6 +843,45 @@ bool GossipSelect_vip_scripts(Player* pPlayer, Creature* pCreature, uint32 /*sen
                                 pPlayer->SaveToDB();
                                 pPlayer->ModifyIntegral(-2000);
                                 Item* item = pPlayer->StoreNewItem(dest, 13335, true, Item::GenerateItemRandomPropertyId(13335));
+                                pPlayer->SendNewItem(item, 1, false, true);
+                                pPlayer->SaveToDB();
+                                ChatHandler(pPlayer).PSendSysMessage(LANG_USE_INTEGRAL, 2000);
+                            }
+                            else
+                                { ChatHandler(pPlayer).PSendSysMessage(LANG_FULL_BAG); }
+                        }
+                        else
+                            { ChatHandler(pPlayer).PSendSysMessage(LANG_ALREADY_HAVE); }
+                    }
+                    else
+                    {
+                        ChatHandler(pPlayer).PSendSysMessage(LANG_LACK_INTEGRAL, 2000);
+                        ChatHandler(pPlayer).PSendSysMessage(LANG_QUERY_INTEGRAL, pPlayer->GetIntegral(), pPlayer->GetTotalIntegral());
+                    }
+                }
+            }
+            break;
+
+        // 电刑器6000型
+        case GOSSIP_ACTION_INFO_DEF + 63:
+            if (pPlayer->isAlive())
+            {
+                pPlayer->PlayerTalkClass->CloseGossip();
+                if (pPlayer->isInCombat())
+                    { ChatHandler(pPlayer).SendSysMessage(LANG_YOU_IN_COMBAT); }
+                else
+                {
+                    if (pPlayer->GetIntegral() >= 2000)
+                    {
+                        if (pPlayer->GetItemCount(30019, true) < 1)
+                        {
+                            ItemPosCountVec dest;
+                            InventoryResult msg = pPlayer->CanStoreNewItem(NULL_BAG, NULL_SLOT, dest, 30019, 1, (uint32)0);
+                            if (msg == EQUIP_ERR_OK)
+                            {
+                                pPlayer->SaveToDB();
+                                pPlayer->ModifyIntegral(-2000);
+                                Item* item = pPlayer->StoreNewItem(dest, 30019, true, Item::GenerateItemRandomPropertyId(30019));
                                 pPlayer->SendNewItem(item, 1, false, true);
                                 pPlayer->SaveToDB();
                                 ChatHandler(pPlayer).PSendSysMessage(LANG_USE_INTEGRAL, 2000);
