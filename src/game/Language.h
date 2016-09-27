@@ -1046,6 +1046,7 @@ enum MangosStrings
     LANG_LACK_INTEGRAL                  = 11005, // 积分不足
 
     LANG_AUTO_BROADCAST                 = 11100, // 自动公告
+    LANG_WRONG_INSTANCE                 = 11101, // 无限副本
 
     LANG_RAF_INFO                       = 11200, // 您已经被其他帐号招募,目前您已经招募了%u个帐号,成功到达60的小伙伴有%u个.
     LANG_RAF_INFO_NONE                  = 11201, // 您还未被其他帐号招募,对其他玩家使用.raf link命令即可绑定招募关系.目前您已经招募了%u个帐号,成功到达60的小伙伴有%u个.

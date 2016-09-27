@@ -1,4 +1,4 @@
-/*
+﻿/*
  * This file is part of the CMaNGOS Project. See AUTHORS file for Copyright information
  *
  * This program is free software; you can redistribute it and/or modify
@@ -663,6 +663,53 @@ void WorldSession::HandleResurrectResponseOpcode(WorldPacket& recv_data)
 
     if (!GetPlayer()->isRessurectRequestedBy(guid))
         return;
+
+    // 防无限刷BOSS
+    if (Player* pPlayer = sObjectMgr.GetPlayer(guid))
+    {
+        if (pPlayer->GetMapId() > 1 && pPlayer->GetMapId() != 489)
+        {
+            uint32 id1 = 0;
+            uint32 id2 = 0;
+            if (DungeonPersistentState* state1 = pPlayer->GetBoundInstanceSaveForSelfOrGroup(pPlayer->GetMapId()))
+            {
+                if (!state1->GetInstanceId())
+                {
+                    ChatHandler(this).PSendSysMessage(LANG_WRONG_INSTANCE);
+                    return;
+                }
+                id1 = state1->GetInstanceId();
+
+                if (id1)
+                {
+                    if (DungeonPersistentState* state2 = GetPlayer()->GetBoundInstanceSaveForSelfOrGroup(pPlayer->GetMapId()))
+                    {
+                        if (!state2->GetInstanceId())
+                        {
+                            ChatHandler(this).PSendSysMessage(LANG_WRONG_INSTANCE);
+                            return;
+                        }
+                        id2 = state2->GetInstanceId();
+                        if (id1 != id2)
+                        {
+                            ChatHandler(this).PSendSysMessage(LANG_WRONG_INSTANCE);
+                            return;
+                        }
+                    }
+                    else
+                    {
+                        ChatHandler(this).PSendSysMessage(LANG_WRONG_INSTANCE);
+                        return;
+                    }
+                }
+            }
+            else
+            {
+                ChatHandler(this).PSendSysMessage(LANG_WRONG_INSTANCE);
+                return;
+            }
+        }
+    }
 
     GetPlayer()->ResurectUsingRequestData();                // will call spawncorpsebones
 }

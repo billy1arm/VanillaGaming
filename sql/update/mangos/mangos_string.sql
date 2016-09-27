@@ -32,6 +32,10 @@ INSERT INTO `mangos_string` (`entry`, `content_default`, `content_loc1`, `conten
 DELETE FROM `mangos_string` WHERE `entry`='11100';
 INSERT INTO `mangos_string` (`entry`, `content_default`, `content_loc1`, `content_loc2`, `content_loc3`, `content_loc4`, `content_loc5`, `content_loc6`, `content_loc7`, `content_loc8`) VALUES ('11100', '[|cffff0000系统公告|r]:%s', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
+-- 无限副本
+DELETE FROM `mangos_string` WHERE `entry`='11101';
+INSERT INTO `mangos_string` (`entry`, `content_default`, `content_loc1`, `content_loc2`, `content_loc3`, `content_loc4`, `content_loc5`, `content_loc6`, `content_loc7`, `content_loc8`) VALUES ('11101', '[|cffff0000系统公告|r]:您的副本CD与复活者或者召唤者的副本CD不同.故系统驳回请求,请小退后再上游戏', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+
 -- 战友招募
 DELETE FROM `mangos_string` WHERE `entry`='11200';
 INSERT INTO `mangos_string` (`entry`, `content_default`, `content_loc1`, `content_loc2`, `content_loc3`, `content_loc4`, `content_loc5`, `content_loc6`, `content_loc7`, `content_loc8`) VALUES ('11200', '[|cffff0000战友招募|r]:您已经被其他帐号招募,目前您已经招募了%u个帐号,成功到达60的小伙伴有%u个.', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
