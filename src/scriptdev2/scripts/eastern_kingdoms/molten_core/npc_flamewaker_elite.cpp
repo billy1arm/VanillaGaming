@@ -101,7 +101,7 @@ struct npc_flamewaker_eliteAI : public ScriptedAI
             }
         }
         else
-            { m_uiFireBallTimer -= uiDiff; }\
+            { m_uiFireBallTimer -= uiDiff; }
 
         // 移动检测
         if (m_uiMoveCheckTimer < uiDiff)
