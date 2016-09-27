@@ -51,7 +51,7 @@ struct boss_cannon_master_willeyAI : public ScriptedAI
     void JustSummoned(Creature* pSummoned) override
     {
         if (m_creature->getVictim())
-            pSummoned->AI()->AttackStart(m_creature->getVictim());
+            { pSummoned->AI()->AttackStart(m_creature->getVictim()); }
     }
 
     void UpdateAI(const uint32 uiDiff) override
@@ -83,7 +83,7 @@ struct boss_cannon_master_willeyAI : public ScriptedAI
         {
             if (Unit* pTarget = m_creature->SelectAttackingTarget(ATTACKING_TARGET_RANDOM, 0, SPELL_SHOOT, SELECT_FLAG_NOT_IN_MELEE_RANGE))
             {
-                if (DoCastSpellIfCan(pTarget, SPELL_SHOOT) == CAST_OK)
+                if (DoCastSpellIfCan(pTarget, SPELL_SHOOT, CAST_TRIGGERED) == CAST_OK)
                     m_uiShootTimer = urand(3000, 4000);
             }
         }
@@ -94,7 +94,7 @@ struct boss_cannon_master_willeyAI : public ScriptedAI
         if (m_uiSummonRiflemanTimer < uiDiff)
         {
             if (DoCastSpellIfCan(m_creature, SPELL_SUMMON_RIFLEMAN) == CAST_OK)
-                m_uiSummonRiflemanTimer = 30000;
+                m_uiSummonRiflemanTimer = 15000;
         }
         else
             m_uiSummonRiflemanTimer -= uiDiff;
