@@ -34,6 +34,10 @@ DELETE FROM `creature` WHERE `id`='6109';
 -- 辛斯雷尔
 UPDATE `creature` SET `equipment_id`='0' WHERE (`id`='7017');
 
+-- 不可宽恕者
+DELETE FROM `creature` WHERE `id`='10516';
+INSERT INTO `creature` (`guid`, `id`, `map`, `modelid`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `spawndist`, `currentwaypoint`, `curhealth`, `curmana`, `DeathState`, `MovementType`) VALUES ('170000', '10516', '329', '10771', '0', '3932.41', '-3664.4', '140.102', '2.16806', '604800', '0', '0', '11136', '0', '0', '0');
+
 -- 碎矛巨魔
 UPDATE `creature` SET `spawntimesecs`='1800' WHERE (`id`='10919');
 
