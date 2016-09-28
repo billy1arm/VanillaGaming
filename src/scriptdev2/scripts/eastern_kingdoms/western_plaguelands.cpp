@@ -284,7 +284,7 @@ struct npc_taelan_fordringAI: public npc_escortAI, private DialogueHelper
             m_creature->SetLootRecipient(NULL);
 
             m_creature->InterruptNonMeleeSpells(true);
-            m_creature->SetHealth(0);
+            m_creature->SetHealth(1);
             m_creature->StopMoving();
             m_creature->ClearComboPointHolders();
             m_creature->RemoveAllAurasOnDeath();
@@ -397,6 +397,7 @@ struct npc_taelan_fordringAI: public npc_escortAI, private DialogueHelper
         {
             case NPC_SCARLET_CAVALIER:
             {
+                m_creature->SetFactionTemporary(FACTION_ESCORT_N_FRIEND_PASSIVE, TEMPFACTION_RESTORE_RESPAWN);
                 // kneel and make everyone worried
                 m_creature->SetStandState(UNIT_STAND_STATE_KNEEL);
                 m_creature->RemoveFlag(UNIT_NPC_FLAGS, UNIT_NPC_FLAG_QUESTGIVER);
