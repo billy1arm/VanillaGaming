@@ -81,6 +81,12 @@ UPDATE `gameobject` SET `spawntimesecs`='86400' WHERE (`id`='161495');
 -- 补给箱
 UPDATE `gameobject` SET `spawntimesecs`='43200' WHERE (`id`='166872');
 
+-- 大型闸门05
+UPDATE `gameobject_template` SET `data2`='707788800' WHERE (`entry`='175373');
+
+-- 大型闸门06
+UPDATE `gameobject_template` SET `data2`='707788800' WHERE (`entry`='175374');
+
 -- 补给箱
 UPDATE `gameobject` SET `spawntimesecs`='43200' WHERE (`id`='176224');
 
