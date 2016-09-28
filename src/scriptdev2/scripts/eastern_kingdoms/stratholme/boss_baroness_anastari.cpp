@@ -84,7 +84,7 @@ struct boss_baroness_anastariAI : public ScriptedAI
                 }
 
                 // 被占据玩家血量小于50% | 无控制BUFF 返回正常战斗
-                if (pPlayer->GetHealth() <= pPlayer->GetMaxHealth() * .5f || !pPlayer->HasAura(SPELL_POSSESS) || !pPlayer->HasAura(SPELL_POSSESSED))
+                if (pPlayer->GetHealth() <= pPlayer->GetMaxHealth() * .5f || !pPlayer->HasAura(SPELL_POSSESSED))
                 {
                     m_creature->SetVisibility(VISIBILITY_ON);
                     pPlayer->RemoveAurasDueToSpell(SPELL_POSSESSED);
@@ -147,7 +147,7 @@ struct boss_baroness_anastariAI : public ScriptedAI
                 m_creature->CastSpell(pTarget, SPELL_POSSESS, true);
                 m_creature->CastSpell(pTarget, SPELL_POSSESSED, true);
 
-                if (pTarget->HasAura(SPELL_POSSESS) && pTarget->HasAura(SPELL_POSSESSED))
+                if (pTarget->HasAura(SPELL_POSSESSED))
                 {
                     m_creature->SetVisibility(VISIBILITY_OFF);
 
@@ -155,6 +155,8 @@ struct boss_baroness_anastariAI : public ScriptedAI
                     m_uiPossessEndTimer = 5000;
                     m_uiPossessTimer = 30000;
                 }
+                else
+                    { m_uiPossessTimer = 5000; }
             }
         }
         else
