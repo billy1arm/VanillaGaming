@@ -18,6 +18,9 @@ UPDATE `creature_template` SET `ExtraFlags`='64' WHERE (`Entry`='1511');
 -- 大领主泰兰·弗丁
 UPDATE `creature_template` SET `PowerMultiplier`='20', `DamageMultiplier`='9.2', `MechanicImmuneMask`='617299803' WHERE (`Entry`='1842');
 
+-- 黑暗院长加丁
+UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='1853');
+
 -- 食腐虫
 UPDATE `creature_template` SET `ExtraFlags`='64' WHERE (`Entry`='2462');
 
@@ -324,6 +327,12 @@ UPDATE `creature_template` SET `ExtraFlags`='64' WHERE (`Entry`='10391');
 -- 斯库尔
 UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='10393');
 
+-- 维克图斯
+UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='10432');
+
+-- 马杜克·布莱克波尔
+UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='10433');
+
 -- 巴瑟拉斯镇长
 UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='10435');
 
@@ -341,6 +350,27 @@ UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='
 
 -- 瑞文戴尔男爵
 UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='10440');
+
+-- 伊露希亚·巴罗夫
+UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='10502');
+
+-- 詹迪斯·巴罗夫
+UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='10503');
+
+-- 阿雷克斯·巴罗夫领主
+UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='10504');
+
+-- 讲师玛丽希亚
+UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='10505');
+
+-- 传令官基尔图诺斯
+UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='10506');
+
+-- 拉文尼亚
+UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='10507');
+
+-- 莱斯·霜语
+UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='10508');
 
 -- 杰德
 UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='10509');
@@ -375,6 +405,9 @@ UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='
 -- 古拉鲁克
 UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='10899');
 
+-- 博学者普克尔特
+UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='10901');
+
 -- 碎矛巨魔
 UPDATE `creature_template` SET `ExtraFlags`='64' WHERE (`Entry`='10919');
 
@@ -386,6 +419,9 @@ UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='
 
 -- 红衣火枪手
 UPDATE `creature_template` SET `ExtraFlags`='64', `MinLootGold`='0', `MaxLootGold`='0', `EquipmentTemplateId`='2407', `AIName`='', `ScriptName`='npc_crimson_rifleman' WHERE (`Entry`='11054');
+
+-- 瑟尔林·卡斯迪诺夫教授
+UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='11261');
 
 -- 奥妮克希亚雏龙
 UPDATE `creature_template` SET `Armor`='6800', `ResistanceHoly`='121', `ResistanceFire`='363', `ResistanceNature`='121', `ResistanceFrost`='121', `ResistanceShadow`='121', `ResistanceArcane`='121' WHERE (`Entry`='11262');
@@ -413,6 +449,9 @@ UPDATE `creature_template` SET `ExtraFlags`='64' WHERE (`Entry`='11466');
 
 -- 拉格纳罗斯
 UPDATE `creature_template` SET `DamageMultiplier`='18', `Armor`='7291', `ResistanceHoly`='121', `ResistanceFire`='121', `ResistanceNature`='121', `ResistanceFrost`='121', `ResistanceShadow`='121', `ResistanceArcane`='121' WHERE (`Entry`='11502');
+
+-- 血骨傀儡
+UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='11622');
 
 -- 熔核巨人
 UPDATE `creature_template` SET `DamageMultiplier`='30', `Armor`='6800', `ResistanceHoly`='121', `ResistanceFire`='121', `ResistanceNature`='121', `ResistanceFrost`='121', `ResistanceShadow`='121', `ResistanceArcane`='121' WHERE (`Entry`='11658');
@@ -564,6 +603,9 @@ UPDATE `creature_template` SET `DamageMultiplier`='1.7', `Armor`='6800', `Resist
 -- 高阶祭司娅尔罗
 UPDATE `creature_template` SET `DamageMultiplier`='1.7', `Armor`='6800', `ResistanceHoly`='121', `ResistanceFire`='121', `ResistanceNature`='121', `ResistanceFrost`='121', `ResistanceShadow`='121', `ResistanceArcane`='121' WHERE (`Entry`='14515');
 
+-- 死亡骑士达克雷尔
+UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='14516');
+
 -- 高阶祭司耶克里克
 UPDATE `creature_template` SET `DamageMultiplier`='1.7', `Armor`='6800', `ResistanceHoly`='121', `ResistanceFire`='121', `ResistanceNature`='121', `ResistanceFrost`='121', `ResistanceShadow`='121', `ResistanceArcane`='121' WHERE (`Entry`='14517');
 
@@ -624,6 +666,9 @@ UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='
 
 -- 索托斯
 UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='16102');
+
+-- 库尔莫克
+UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='16118');
 
 -- 赞助商人
 DELETE FROM `creature_template` WHERE `Entry`='30000';
