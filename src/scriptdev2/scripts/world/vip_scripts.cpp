@@ -52,7 +52,7 @@ void SendDefaultMenu(Player* pPlayer, Creature* pCreature)
     pPlayer->ADD_GOSSIP_ITEM(GOSSIP_ICON_TALK, vip_scripts_To_UTF8("领取积分"), GOSSIP_SENDER_MAIN, GOSSIP_ACTION_INFO_DEF + 2); // 领取积分
     // pPlayer->ADD_GOSSIP_ITEM(GOSSIP_ICON_TALK, vip_scripts_To_UTF8("开通瞬飞"), GOSSIP_SENDER_MAIN, GOSSIP_ACTION_INFO_DEF + 3); // 开通瞬飞
     // pPlayer->ADD_GOSSIP_ITEM(GOSSIP_ICON_TALK, vip_scripts_To_UTF8("重置天赋"), GOSSIP_SENDER_MAIN, GOSSIP_ACTION_INFO_DEF + 4); // 重置天赋
-    // pPlayer->ADD_GOSSIP_ITEM(GOSSIP_ICON_TALK, vip_scripts_To_UTF8("购买背包"), GOSSIP_SENDER_MAIN, GOSSIP_ACTION_INFO_DEF + 5); // 购买背包
+    pPlayer->ADD_GOSSIP_ITEM(GOSSIP_ICON_TALK, vip_scripts_To_UTF8("购买背包"), GOSSIP_SENDER_MAIN, GOSSIP_ACTION_INFO_DEF + 5); // 购买背包
     pPlayer->ADD_GOSSIP_ITEM(GOSSIP_ICON_TALK, vip_scripts_To_UTF8("购买坐骑"), GOSSIP_SENDER_MAIN, GOSSIP_ACTION_INFO_DEF + 6); // 购买坐骑
     pPlayer->ADD_GOSSIP_ITEM(GOSSIP_ICON_TALK, vip_scripts_To_UTF8("奇奇怪怪"), GOSSIP_SENDER_MAIN, GOSSIP_ACTION_INFO_DEF + 7); // 奇奇怪怪
     pPlayer->ADD_GOSSIP_ITEM(GOSSIP_ICON_TALK, vip_scripts_To_UTF8("角色改名"), GOSSIP_SENDER_MAIN, GOSSIP_ACTION_INFO_DEF + 8); // 角色改名
@@ -159,24 +159,24 @@ bool GossipSelect_vip_scripts(Player* pPlayer, Creature* pCreature, uint32 /*sen
         //    break;
 
         // 购买背包
-        //case GOSSIP_ACTION_INFO_DEF + 5:
-        //    if (pPlayer->isAlive())
-        //    {
-        //        if (pPlayer->isInCombat())
-        //        {
-        //            pPlayer->PlayerTalkClass->CloseGossip();
-        //            ChatHandler(pPlayer).SendSysMessage(LANG_YOU_IN_COMBAT);
-        //        }
-        //        else
-        //        {
-        //            pPlayer->PrepareGossipMenu(pCreature, pPlayer->GetDefaultGossipMenuForSource(pCreature));
-        //            pPlayer->ADD_GOSSIP_ITEM(GOSSIP_ICON_TALK, vip_scripts_To_UTF8("24格背包-消耗250积分"), GOSSIP_SENDER_MAIN, GOSSIP_ACTION_INFO_DEF + 50); // 24格背包
-        //            pPlayer->ADD_GOSSIP_ITEM(GOSSIP_ICON_TALK, vip_scripts_To_UTF8("返回主菜单"), GOSSIP_SENDER_MAIN, GOSSIP_ACTION_INFO_DEF + 1);            // 返回主菜单
-        //            pPlayer->TalkedToCreature(pCreature->GetEntry(), pCreature->GetObjectGuid());
-        //            pPlayer->SendPreparedGossip(pCreature);
-        //        }
-        //    }
-        //    break;
+        case GOSSIP_ACTION_INFO_DEF + 5:
+            if (pPlayer->isAlive())
+            {
+                if (pPlayer->isInCombat())
+                {
+                    pPlayer->PlayerTalkClass->CloseGossip();
+                    ChatHandler(pPlayer).SendSysMessage(LANG_YOU_IN_COMBAT);
+                }
+                else
+                {
+                    pPlayer->PrepareGossipMenu(pCreature, pPlayer->GetDefaultGossipMenuForSource(pCreature));
+                    pPlayer->ADD_GOSSIP_ITEM(GOSSIP_ICON_TALK, vip_scripts_To_UTF8("24格背包-消耗250积分"), GOSSIP_SENDER_MAIN, GOSSIP_ACTION_INFO_DEF + 50); // 24格背包
+                    pPlayer->ADD_GOSSIP_ITEM(GOSSIP_ICON_TALK, vip_scripts_To_UTF8("返回主菜单"), GOSSIP_SENDER_MAIN, GOSSIP_ACTION_INFO_DEF + 1);            // 返回主菜单
+                    pPlayer->TalkedToCreature(pCreature->GetEntry(), pCreature->GetObjectGuid());
+                    pPlayer->SendPreparedGossip(pCreature);
+                }
+            }
+            break;
 
         // 购买坐骑
         case GOSSIP_ACTION_INFO_DEF + 6:
@@ -713,38 +713,38 @@ bool GossipSelect_vip_scripts(Player* pPlayer, Creature* pCreature, uint32 /*sen
         //    break;
 
         // 24格背包
-        //case GOSSIP_ACTION_INFO_DEF + 50:
-        //    if (pPlayer->isAlive())
-        //    {
-        //        pPlayer->PlayerTalkClass->CloseGossip();
-        //        if (pPlayer->isInCombat())
-        //            { ChatHandler(pPlayer).SendSysMessage(LANG_YOU_IN_COMBAT); }
-        //        else
-        //        {
-        //            if (pPlayer->GetIntegral() >= 250)
-        //            {
-        //                ItemPosCountVec dest;
-        //                InventoryResult msg = pPlayer->CanStoreNewItem(NULL_BAG, NULL_SLOT, dest, 30012, 1, (uint32)0);
-        //                if (msg == EQUIP_ERR_OK)
-        //                {
-        //                    pPlayer->SaveToDB();
-        //                    pPlayer->ModifyIntegral(-250);
-        //                    Item* item = pPlayer->StoreNewItem(dest, 30012, true, Item::GenerateItemRandomPropertyId(30012));
-        //                    pPlayer->SendNewItem(item, 1, false, true);
-        //                    pPlayer->SaveToDB();
-        //                    ChatHandler(pPlayer).PSendSysMessage(LANG_USE_INTEGRAL, 250);
-        //                }
-        //                else
-        //                    { ChatHandler(pPlayer).PSendSysMessage(LANG_FULL_BAG); }
-        //            }
-        //            else
-        //            {
-        //                ChatHandler(pPlayer).PSendSysMessage(LANG_LACK_INTEGRAL, 250);
-        //                ChatHandler(pPlayer).PSendSysMessage(LANG_QUERY_INTEGRAL, pPlayer->GetIntegral(), pPlayer->GetTotalIntegral());
-        //            }
-        //        }
-        //    }
-        //    break;
+        case GOSSIP_ACTION_INFO_DEF + 50:
+            if (pPlayer->isAlive())
+            {
+                pPlayer->PlayerTalkClass->CloseGossip();
+                if (pPlayer->isInCombat())
+                    { ChatHandler(pPlayer).SendSysMessage(LANG_YOU_IN_COMBAT); }
+                else
+                {
+                    if (pPlayer->GetIntegral() >= 250)
+                    {
+                        ItemPosCountVec dest;
+                        InventoryResult msg = pPlayer->CanStoreNewItem(NULL_BAG, NULL_SLOT, dest, 30012, 1, (uint32)0);
+                        if (msg == EQUIP_ERR_OK)
+                        {
+                            pPlayer->SaveToDB();
+                            pPlayer->ModifyIntegral(-250);
+                            Item* item = pPlayer->StoreNewItem(dest, 30012, true, Item::GenerateItemRandomPropertyId(30012));
+                            pPlayer->SendNewItem(item, 1, false, true);
+                            pPlayer->SaveToDB();
+                            ChatHandler(pPlayer).PSendSysMessage(LANG_USE_INTEGRAL, 250);
+                        }
+                        else
+                            { ChatHandler(pPlayer).PSendSysMessage(LANG_FULL_BAG); }
+                    }
+                    else
+                    {
+                        ChatHandler(pPlayer).PSendSysMessage(LANG_LACK_INTEGRAL, 250);
+                        ChatHandler(pPlayer).PSendSysMessage(LANG_QUERY_INTEGRAL, pPlayer->GetIntegral(), pPlayer->GetTotalIntegral());
+                    }
+                }
+            }
+            break;
 
         // 拉扎什迅猛龙
         case GOSSIP_ACTION_INFO_DEF + 60:
