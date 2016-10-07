@@ -996,6 +996,15 @@ void Spell::DoAllEffectOnTarget(TargetInfo* target)
     {
         bool crit = real_caster && real_caster->IsSpellCrit(unitTarget, m_spellInfo, m_spellSchoolMask);
         uint32 addhealth = m_healing;
+
+        if (m_spellInfo->SpellIconID == 242 && caster->getClass() == CLASS_PALADIN)
+        {
+            if (m_caster->HasAura(28851))
+                { addhealth += urand(1, 83); }
+            if (m_caster->HasAura(28853))
+                { addhealth += urand(1, 53); }
+        }
+
         if (crit)
         {
             procEx |= PROC_EX_CRITICAL_HIT;
