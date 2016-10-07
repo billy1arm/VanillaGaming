@@ -351,6 +351,15 @@ UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='
 -- 瑞文戴尔男爵
 UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='10440');
 
+-- 复生的尸体
+UPDATE `creature_template` SET `ExtraFlags`='64', `LootId`='0' WHERE (`Entry`='10481');
+
+-- 复活的畸形骷髅
+UPDATE `creature_template` SET `ExtraFlags`='64', `LootId`='0' WHERE (`Entry`='10485');
+
+-- 生病的食尸鬼
+UPDATE `creature_template` SET `ExtraFlags`='64', `LootId`='0' WHERE (`Entry`='10495');
+
 -- 伊露希亚·巴罗夫
 UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='10502');
 
