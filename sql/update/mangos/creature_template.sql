@@ -456,6 +456,33 @@ UPDATE `creature_template` SET `DamageMultiplier`='1.7', `Armor`='6800', `Resist
 -- 上层精灵召唤者
 UPDATE `creature_template` SET `ExtraFlags`='64' WHERE (`Entry`='11466');
 
+-- 苏斯
+UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='11467');
+
+-- 托塞德林王子
+UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='11486');
+
+-- 卡雷迪斯镇长
+UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='11487');
+
+-- 伊琳娜·暗木
+UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='11488');
+
+-- 特迪斯·扭木
+UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='11489');
+
+-- 瑟雷姆·刺蹄
+UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='11490');
+
+-- 荒野变形者奥兹恩
+UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='11492');
+
+-- 伊莫塔尔
+UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='11496');
+
+-- 戈多克大王
+UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='11501');
+
 -- 拉格纳罗斯
 UPDATE `creature_template` SET `DamageMultiplier`='18', `Armor`='7291', `ResistanceHoly`='121', `ResistanceFire`='121', `ResistanceNature`='121', `ResistanceFrost`='121', `ResistanceShadow`='121', `ResistanceArcane`='121' WHERE (`Entry`='11502');
 
@@ -594,11 +621,41 @@ UPDATE `creature_template` SET `MinLevel`='60', `MaxLevel`='60', `FactionAllianc
 -- 腐蚀群居虫
 UPDATE `creature_template` SET `ExtraFlags`='64' WHERE (`Entry`='13160');
 
+-- 海多斯博恩
+UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='13280');
+
 -- 诺克赛恩幼体
 UPDATE `creature_template` SET `ExtraFlags`='64', `LootId`='0' WHERE (`Entry`='13696');
 
+-- 卫兵芬古斯
+UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='14321');
+
+-- 践踏者克雷格
+UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='14322');
+
+-- 卫兵斯里基克
+UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='14323');
+
+-- 观察者克鲁什
+UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='14324');
+
+-- 克罗卡斯
+UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='14325');
+
+-- 卫兵摩尔达
+UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='14326');
+
+-- 蕾瑟塔蒂丝
+UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='14327');
+
+-- 普希林
+UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='14354');
+
 -- 暮光之王艾沃兰
 UPDATE `creature_template` SET `AIName`='EventAI' WHERE (`Entry`='14479');
+
+-- 赫尔努拉斯
+UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='14506');
 
 -- 高阶祭司温诺希斯
 UPDATE `creature_template` SET `DamageMultiplier`='1.7', `Armor`='6800', `ResistanceHoly`='121', `ResistanceFire`='121', `ResistanceNature`='121', `ResistanceFrost`='121', `ResistanceShadow`='121', `ResistanceArcane`='121' WHERE (`Entry`='14507');
@@ -669,6 +726,9 @@ DELETE FROM `creature_template` WHERE `Entry`='15440';
 
 -- 莫尔·灰蹄
 UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='16080');
+
+-- 伊萨利恩
+UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='16097');
 
 -- 亚雷恩
 UPDATE `creature_template` SET `MechanicImmuneMask`='617299803' WHERE (`Entry`='16101');
