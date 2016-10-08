@@ -311,6 +311,7 @@ bool ChatHandler::HandleRAFLinkCommand(char* /*args*/)
     Player* player = m_session->GetPlayer();
     if (!player)
         { return false; }
+
     Player* playerTarget = getSelectedPlayer();
     if (!playerTarget)
     {
@@ -324,7 +325,7 @@ bool ChatHandler::HandleRAFLinkCommand(char* /*args*/)
     accId1 = playerTarget->GetSession()->GetAccountId();
     accId2 = GetAccountId();
 
-    if (player->getLevel() > 20)
+    if (player->getLevel() > 10)
     {
         PSendSysMessage(LANG_RAF_LEVEL);
         return false;
@@ -343,22 +344,6 @@ bool ChatHandler::HandleRAFLinkCommand(char* /*args*/)
     {
         LoginDatabase.PExecute("INSERT INTO account_referred (accId1, accId2, finish) VALUES ('%u', '%u', '%u')", accId1, accId2, finish);
         PSendSysMessage(LANG_RAF_GIFTS);
-        if (player->GetItemCount(30000, true) < 1)
-        {
-            ItemPosCountVec dest;
-            InventoryResult msg = player->CanStoreNewItem(NULL_BAG, NULL_SLOT, dest, 30000, 1, (uint32)0);
-            if (msg == EQUIP_ERR_OK)
-            {
-                player->SaveToDB();
-                Item* item = player->StoreNewItem(dest, 30000, true, Item::GenerateItemRandomPropertyId(30000));
-                player->SendNewItem(item, 1, false, true);
-                player->SaveToDB();
-            }
-            else
-                { PSendSysMessage(LANG_FULL_BAG); }
-        }
-        else
-            { PSendSysMessage(LANG_ALREADY_HAVE); }
     }
 
     return true;

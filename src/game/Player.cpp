@@ -2362,31 +2362,29 @@ void Player::GiveLevel(uint32 level)
         uint32 accId2 = 0;
         switch (level)
         {
-            // 送旅行者背包
-            case 20:
-            case 30:
-            case 40:
-            case 50:
-                if (GetItemCount(4500, true) < 50)
+            // 特效经验合剂
+            case 15:
+            case 25:
+            case 35:
+            case 45:
+            case 55:
+                if (GetItemCount(30017, true) < 20)
                 {
                     ItemPosCountVec dest;
-                    InventoryResult msg = CanStoreNewItem(NULL_BAG, NULL_SLOT, dest, 4500, 1, (uint32)0);
+                    InventoryResult msg = CanStoreNewItem(NULL_BAG, NULL_SLOT, dest, 30017, 3, (uint32)0);
                     if (msg == EQUIP_ERR_OK)
                     {
                         SaveToDB();
-                        Item* item = StoreNewItem(dest, 4500, true, Item::GenerateItemRandomPropertyId(4500));
-                        SendNewItem(item, 1, false, true);
+                        Item* item = StoreNewItem(dest, 30017, true, Item::GenerateItemRandomPropertyId(30017));
+                        SendNewItem(item, 3, false, true);
                         SaveToDB();
                     }
                 }
                 break;
-            // 送100G和30积分
+            // 送250积分
             case 60:
                 SaveToDB();
-                ModifyMoney(1000000);
-                ModifyIntegral(30);
-                accId2 = GetSession()->GetAccountId();
-                ModifyRefererIntegral(50, accId2);
+                ModifyIntegral(250);
                 LoginDatabase.PExecute("UPDATE account_referred SET finish = '%u' WHERE accId2 = '%u'", finish, accId2);
                 SaveToDB();
                 break;

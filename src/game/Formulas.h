@@ -315,10 +315,6 @@ namespace MaNGOS
             if (u->GetTypeId() == TYPEID_UNIT && ((Creature*)u)->IsElite())
                 xp_gain *= 2;
 
-            // 战友招募3倍经验
-            if (pl->HasReferrer())
-                { xp_gain *= 3; }
-
             return (uint32)(xp_gain * sWorld.getConfig(CONFIG_FLOAT_RATE_XP_KILL));
         }
 
