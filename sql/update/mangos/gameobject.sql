@@ -65,12 +65,14 @@ UPDATE `gameobject` SET `spawntimesecs`='43200' WHERE (`id`='153454');
 
 -- 坚固的大箱子
 UPDATE `gameobject` SET `spawntimesecs`='43200' WHERE (`id`='153464');
+DELETE FROM `gameobject` WHERE (`id`='153464') AND (`map`='429');
 
 -- 大型秘银储物箱
 UPDATE `gameobject` SET `spawntimesecs`='43200' WHERE (`id`='153468');
 
 -- 大型秘银储物箱
 UPDATE `gameobject` SET `spawntimesecs`='43200' WHERE (`id`='153469');
+DELETE FROM `gameobject` WHERE (`id`='153469') AND (`map`='429');
 
 -- 黑暗宝箱
 UPDATE `gameobject` SET `spawntimesecs`='86400' WHERE (`id`='160845');
@@ -269,6 +271,7 @@ UPDATE `gameobject` SET `spawntimesecs`='900' WHERE (`id`='2042');
 
 -- 幽灵菇(54)
 UPDATE `gameobject` SET `spawntimesecs`='900' WHERE (`id`='142144');
+DELETE FROM `gameobject` WHERE (`id`='142144') AND (`map`='429');
 
 -- 宁神花(537)
 UPDATE `gameobject` SET `spawntimesecs`='900' WHERE (`id`='1618');
@@ -303,11 +306,13 @@ UPDATE `gameobject` SET `spawntimesecs`='3600' WHERE (`id`='180166');
 
 -- 梦叶草
 UPDATE `gameobject` SET `spawntimesecs`='3600' WHERE (`id`='176584');
+DELETE FROM `gameobject` WHERE (`id`='176584') AND (`map`='429');
 UPDATE `gameobject` SET `spawntimesecs`='3600' WHERE (`id`='176639');
 UPDATE `gameobject` SET `spawntimesecs`='3600' WHERE (`id`='180168');
 
 -- 格罗姆之血
 UPDATE `gameobject` SET `spawntimesecs`='3600' WHERE (`id`='142145');
+DELETE FROM `gameobject` WHERE (`id`='142145') AND (`map`='429');
 UPDATE `gameobject` SET `spawntimesecs`='3600' WHERE (`id`='176637');
 
 -- 冰盖草
@@ -377,6 +382,7 @@ UPDATE `gameobject` SET `spawntimesecs`='120' WHERE (`id`='2653');
 
 -- 富瑟银矿(504)
 UPDATE `gameobject` SET `spawntimesecs`='10800' WHERE (`id`='175404');
+DELETE FROM `gameobject` WHERE (`id`='175404') AND (`map`='429');
 
 -- 火焰龙舌兰(16)
 UPDATE `gameobject` SET `spawntimesecs`='180' WHERE (`id`='175928');
