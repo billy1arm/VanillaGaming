@@ -120,7 +120,7 @@ UPDATE `locales_item` SET `name_loc4`='金砂', `description_loc4`='' WHERE (`en
 UPDATE `locales_item` SET `name_loc4`='孔雀石', `description_loc4`='' WHERE (`entry`='774');
 UPDATE `locales_item` SET `name_loc4`='仇杀', `description_loc4`='' WHERE (`entry`='776');
 UPDATE `locales_item` SET `name_loc4`='灰狼的牙齿', `description_loc4`='' WHERE (`entry`='777');
-UPDATE `locales_item` SET `name_loc4`='狗头人的锄头', `description_loc4`='可作为矿工锄使用。' WHERE (`entry`='778');
+UPDATE `locales_item` SET `name_loc4`='狗头人的锄头', `description_loc4`='' WHERE (`entry`='778');
 UPDATE `locales_item` SET `name_loc4`='闪亮的贝壳', `description_loc4`='' WHERE (`entry`='779');
 UPDATE `locales_item` SET `name_loc4`='破损的鱼人鳞片', `description_loc4`='' WHERE (`entry`='780');
 UPDATE `locales_item` SET `name_loc4`='豺狼人石锤', `description_loc4`='' WHERE (`entry`='781');
