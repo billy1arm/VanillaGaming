@@ -1570,6 +1570,9 @@ bool Player::TeleportTo(uint32 mapid, float x, float y, float z, float orientati
         if (GetMap()->GetGameObject(GetGuidValue(PLAYER_DUEL_ARBITER)))
             DuelComplete(DUEL_FLED);
 
+    if (HasAura(22799))
+        { RemoveAurasDueToSpell(22799); }
+
     // reset movement flags at teleport, because player will continue move with these flags after teleport
     m_movementInfo.SetMovementFlags(MOVEFLAG_NONE);
     DisableSpline();
