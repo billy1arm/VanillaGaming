@@ -580,7 +580,7 @@ UPDATE `creature_template` SET `DamageMultiplier`='20', `Armor`='6800', `Resista
 UPDATE `creature_template` SET `DamageMultiplier`='33', `Armor`='6295', `ResistanceHoly`='121', `ResistanceFire`='121', `ResistanceNature`='121', `ResistanceFrost`='121', `ResistanceShadow`='121', `ResistanceArcane`='121' WHERE (`Entry`='12118');
 
 -- 火妖护卫
-UPDATE `creature_template` SET `DamageMultiplier`='30', `Armor`='6100', `ResistanceHoly`='121', `ResistanceFire`='121', `ResistanceNature`='121', `ResistanceFrost`='121', `ResistanceShadow`='121', `ResistanceArcane`='121' WHERE (`Entry`='12119');
+UPDATE `creature_template` SET `DamageMultiplier`='30', `Armor`='6100', `ResistanceHoly`='121', `ResistanceFire`='121', `ResistanceNature`='121', `ResistanceFrost`='121', `ResistanceShadow`='121', `ResistanceArcane`='121', `AIName`='', `ScriptName`='npc_flamewaker_protector' WHERE (`Entry`='12119');
 
 -- 提里奥·弗丁
 UPDATE `creature_template` SET `DamageMultiplier`='5' WHERE (`Entry`='12126');

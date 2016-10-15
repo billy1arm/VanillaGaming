@@ -89,6 +89,9 @@ INSERT INTO `creature_ai_scripts` (`id`, `creature_id`, `event_type`, `event_inv
 -- 熔岩奔腾者
 UPDATE `creature_ai_scripts` SET `action1_param1`='25787', `comment`='熔岩奔腾者 - 施放 澎湃' WHERE (`id`='1210101');
 
+-- 火妖护卫
+DELETE FROM `creature_ai_scripts` WHERE `creature_id`='12119';
+
 -- 熔岩爪牙
 UPDATE `creature_ai_scripts` SET `event_param1`='20000', `event_param2`='20000' WHERE (`id`='1226502');
 

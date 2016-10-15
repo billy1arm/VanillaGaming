@@ -69,6 +69,7 @@ extern void AddSC_npc_core_hound();
 extern void AddSC_npc_flamewaker();
 extern void AddSC_npc_flamewaker_elite();
 extern void AddSC_npc_flamewaker_healer();
+extern void AddSC_npc_flamewaker_protector();
 extern void AddSC_instance_molten_core();
 extern void AddSC_molten_core();
 extern void AddSC_boss_anubrekhan();                        // naxxramas
@@ -274,6 +275,7 @@ void AddScripts()
     AddSC_npc_flamewaker();
     AddSC_npc_flamewaker_elite();
     AddSC_npc_flamewaker_healer();
+    AddSC_npc_flamewaker_protector();
     AddSC_instance_molten_core();
     AddSC_molten_core();
     AddSC_boss_anubrekhan();                                // naxxramas
