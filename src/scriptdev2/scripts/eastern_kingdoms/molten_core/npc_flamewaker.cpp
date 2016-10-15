@@ -61,10 +61,10 @@ struct npc_flamewakerAI : public ScriptedAI
             {
                 if (pGehennas->isInCombat())
                 {
-                    if (Unit* pTarget = m_creature->SelectAttackingTarget(ATTACKING_TARGET_RANDOM, 0))
+                    if (Unit* pTarget = pGehennas->SelectAttackingTarget(ATTACKING_TARGET_RANDOM, 0))
                     {
                         if (pTarget->GetTypeId() == TYPEID_PLAYER)
-                            { pGehennas->AttackedBy(pTarget); }
+                            { m_creature->AttackedBy(pTarget); }
                     }
                 }
             }
@@ -101,7 +101,7 @@ struct npc_flamewakerAI : public ScriptedAI
         // 自己进入战斗主人也进入战斗
         if (Creature* pGehennas = m_pInstance->GetSingleCreatureFromStorage(NPC_GEHENNAS))
         {
-            if (!pGehennas->isInCombat())
+            if (pGehennas->isAlive() && !pGehennas->isInCombat())
             {
                 if (Unit* pTarget = m_creature->SelectAttackingTarget(ATTACKING_TARGET_RANDOM, 0))
                 {
