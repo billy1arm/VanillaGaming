@@ -496,7 +496,7 @@ UPDATE `creature_template` SET `DamageMultiplier`='30', `Armor`='6800', `Resista
 UPDATE `creature_template` SET `DamageMultiplier`='30', `Armor`='7491', `ResistanceHoly`='121', `ResistanceFire`='121', `ResistanceNature`='121', `ResistanceFrost`='121', `ResistanceShadow`='121', `ResistanceArcane`='121' WHERE (`Entry`='11659');
 
 -- 火妖
-UPDATE `creature_template` SET `DamageMultiplier`='32', `Armor`='6000', `ResistanceHoly`='121', `ResistanceFire`='121', `ResistanceNature`='121', `ResistanceFrost`='121', `ResistanceShadow`='121', `ResistanceArcane`='121' WHERE (`Entry`='11661');
+UPDATE `creature_template` SET `DamageMultiplier`='32', `Armor`='6000', `ResistanceHoly`='121', `ResistanceFire`='121', `ResistanceNature`='121', `ResistanceFrost`='121', `ResistanceShadow`='121', `ResistanceArcane`='121', `AIName`='', `ScriptName`='npc_flamewaker' WHERE (`Entry`='11661');
 
 -- 火妖祭祀
 UPDATE `creature_template` SET `DamageMultiplier`='2', `Armor`='7123', `ResistanceHoly`='121', `ResistanceFire`='121', `ResistanceNature`='121', `ResistanceFrost`='121', `ResistanceShadow`='121', `ResistanceArcane`='121' WHERE (`Entry`='11662');

@@ -688,6 +688,9 @@
     <ClCompile Include="..\..\src\scriptdev2\scripts\eastern_kingdoms\stratholme\npc_crimson_rifleman.cpp">
       <Filter>scripts\eastern_kingdoms\stratholme</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\src\scriptdev2\scripts\eastern_kingdoms\molten_core\npc_flamewaker.cpp">
+      <Filter>scripts\eastern_kingdoms\molten_core</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\scriptdev2\base\escort_ai.h">

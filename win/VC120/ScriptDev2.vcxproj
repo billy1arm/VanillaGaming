@@ -233,6 +233,7 @@
     <ClCompile Include="..\..\src\scriptdev2\scripts\eastern_kingdoms\ironforge.cpp" />
     <ClCompile Include="..\..\src\scriptdev2\scripts\eastern_kingdoms\loch_modan.cpp" />
     <ClCompile Include="..\..\src\scriptdev2\scripts\eastern_kingdoms\molten_core\npc_core_hound.cpp" />
+    <ClCompile Include="..\..\src\scriptdev2\scripts\eastern_kingdoms\molten_core\npc_flamewaker.cpp" />
     <ClCompile Include="..\..\src\scriptdev2\scripts\eastern_kingdoms\molten_core\npc_flamewaker_elite.cpp" />
     <ClCompile Include="..\..\src\scriptdev2\scripts\eastern_kingdoms\molten_core\npc_flamewaker_healer.cpp" />
     <ClCompile Include="..\..\src\scriptdev2\scripts\eastern_kingdoms\redridge_mountains.cpp" />
