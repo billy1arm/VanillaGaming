@@ -165,7 +165,21 @@ struct mob_flamewaker_priestAI : public ScriptedAI
     void UpdateAI(const uint32 uiDiff) override
     {
         if (!m_creature->SelectHostileTarget() || !m_creature->getVictim())
+        {
+            // 主人进入战斗自己也进入战斗
+            if (Creature* pSulfuron = m_pInstance->GetSingleCreatureFromStorage(NPC_SULFURON))
+            {
+                if (pSulfuron->isInCombat())
+                {
+                    if (Unit* pTarget = pSulfuron->SelectAttackingTarget(ATTACKING_TARGET_RANDOM, 0))
+                    {
+                        if (pTarget->GetTypeId() == TYPEID_PLAYER)
+                            { m_creature->AttackedBy(pTarget); }
+                    }
+                }
+            }
             return;
+        }
 
         // 黑暗治疗
         if (m_uiHealTimer < uiDiff)
@@ -211,6 +225,19 @@ struct mob_flamewaker_priestAI : public ScriptedAI
         }
         else
             m_uiImmolateTimer -= uiDiff;
+
+        // 自己进入战斗主人也进入战斗
+        if (Creature* pSulfuron = m_pInstance->GetSingleCreatureFromStorage(NPC_SULFURON))
+        {
+            if (pSulfuron->isAlive() && !pSulfuron->isInCombat())
+            {
+                if (Unit* pTarget = m_creature->SelectAttackingTarget(ATTACKING_TARGET_RANDOM, 0))
+                {
+                    if (pTarget->GetTypeId() == TYPEID_PLAYER)
+                        { pSulfuron->AttackedBy(pTarget); }
+                }
+            }
+        }
 
         DoMeleeAttackIfReady();
     }
