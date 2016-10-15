@@ -189,7 +189,21 @@ struct mob_fireswornAI : public ScriptedAI
     void UpdateAI(const uint32 uiDiff) override
     {
         if (!m_creature->SelectHostileTarget() || !m_creature->getVictim())
+        {
+            // 主人进入战斗自己也进入战斗
+            if (Creature* pGarr = m_pInstance->GetSingleCreatureFromStorage(NPC_GARR))
+            {
+                if (pGarr->isInCombat())
+                {
+                    if (Unit* pTarget = pGarr->SelectAttackingTarget(ATTACKING_TARGET_RANDOM, 0))
+                    {
+                        if (pTarget->GetTypeId() == TYPEID_PLAYER)
+                            { m_creature->AttackedBy(pTarget); }
+                    }
+                }
+            }
             return;
+        }
 
         // 献祭
         if (m_uiImmolateTimer < uiDiff)
@@ -221,6 +235,19 @@ struct mob_fireswornAI : public ScriptedAI
         // 剧烈爆发
         if (m_creature->GetHealthPercent() <= 10.0f)
             { DoCastSpellIfCan(m_creature->getVictim(), SPELL_MASSIVE_ERUPTION); }
+
+        // 自己进入战斗主人也进入战斗
+        if (Creature* pGarr = m_pInstance->GetSingleCreatureFromStorage(NPC_GARR))
+        {
+            if (pGarr->isAlive() && !pGarr->isInCombat())
+            {
+                if (Unit* pTarget = m_creature->SelectAttackingTarget(ATTACKING_TARGET_RANDOM, 0))
+                {
+                    if (pTarget->GetTypeId() == TYPEID_PLAYER)
+                        { pGarr->AttackedBy(pTarget); }
+                }
+            }
+        }
 
         DoMeleeAttackIfReady();
     }
