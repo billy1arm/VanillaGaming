@@ -33,3 +33,7 @@ INSERT INTO `spell_chain` (`spell_id`, `prev_spell`, `first_spell`, `rank`, `req
 INSERT INTO `spell_chain` (`spell_id`, `prev_spell`, `first_spell`, `rank`, `req_spell`) VALUES ('20291', '20290', '21084', '6', '0');
 INSERT INTO `spell_chain` (`spell_id`, `prev_spell`, `first_spell`, `rank`, `req_spell`) VALUES ('20292', '20291', '21084', '7', '0');
 INSERT INTO `spell_chain` (`spell_id`, `prev_spell`, `first_spell`, `rank`, `req_spell`) VALUES ('20293', '20292', '21084', '8', '0');
+
+-- 强效智慧祝福
+UPDATE `spell_chain` SET `spell_id`='25894', `prev_spell`='25290', `first_spell`='19742', `rank`='7', `req_spell`='0' WHERE (`spell_id`='25894');
+UPDATE `spell_chain` SET `spell_id`='25918', `first_spell`='19742', `rank`='8', `req_spell`='0' WHERE (`spell_id`='25918');
