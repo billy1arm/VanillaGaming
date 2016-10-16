@@ -235,7 +235,7 @@ struct npc_eris_havenfireAI : public ScriptedAI
         EnterEvadeMode();
     }
 
-    void DoDespawnSummons(bool bIsEventEnd = false)
+    void DoDespawnSummons(bool bIsEventEnd)
     {
         for (GuidList::const_iterator itr = m_lSummonedGuidList.begin(); itr != m_lSummonedGuidList.end(); ++itr)
         {
@@ -284,7 +284,7 @@ struct npc_eris_havenfireAI : public ScriptedAI
             {
                 DoScriptText(SAY_EVENT_FAIL_2, m_creature);
                 m_creature->ForcedDespawn(5000);
-                DoDespawnSummons();
+                DoDespawnSummons(false);
                 m_uiSadEndTimer = 0;
             }
             else
