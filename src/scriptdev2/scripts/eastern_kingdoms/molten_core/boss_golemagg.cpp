@@ -176,7 +176,21 @@ struct mob_core_ragerAI : public ScriptedAI
     void UpdateAI(const uint32 uiDiff) override
     {
         if (!m_creature->SelectHostileTarget() || !m_creature->getVictim())
+        {
+            // 主人进入战斗自己也进入战斗
+            if (Creature* pGolemagg = m_pInstance->GetSingleCreatureFromStorage(NPC_GOLEMAGG))
+            {
+                if (pGolemagg->isInCombat())
+                {
+                    if (Unit* pTarget = pGolemagg->SelectAttackingTarget(ATTACKING_TARGET_RANDOM, 0))
+                    {
+                        if (pTarget->GetTypeId() == TYPEID_PLAYER)
+                            { m_creature->AttackedBy(pTarget); }
+                    }
+                }
+            }
             return;
+        }
 
         // 割碎
         if (m_uiMangleTimer < uiDiff)
@@ -186,6 +200,19 @@ struct mob_core_ragerAI : public ScriptedAI
         }
         else
             m_uiMangleTimer -= uiDiff;
+
+        // 自己进入战斗主人也进入战斗
+        if (Creature* pGolemagg = m_pInstance->GetSingleCreatureFromStorage(NPC_GOLEMAGG))
+        {
+            if (pGolemagg->isAlive() && !pGolemagg->isInCombat())
+            {
+                if (Unit* pTarget = m_creature->SelectAttackingTarget(ATTACKING_TARGET_RANDOM, 0))
+                {
+                    if (pTarget->GetTypeId() == TYPEID_PLAYER)
+                        { pGolemagg->AttackedBy(pTarget); }
+                }
+            }
+        }
 
         DoMeleeAttackIfReady();
     }
